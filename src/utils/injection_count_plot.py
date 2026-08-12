@@ -7,6 +7,7 @@ from pathlib import Path
 from typing import Any, Mapping, Sequence
 
 import matplotlib.pyplot as plt
+from matplotlib import ticker as mticker
 import numpy as np
 import pandas as pd
 from matplotlib.lines import Line2D
@@ -20,15 +21,24 @@ from src.utils.tpp_experiments import load_tpp_catalog
 @dataclass(frozen=True)
 class InjectionCountPlotConfig:
     start_mode: str = "val"
-    injection_color: str = "tab:blue"
-    count_color: str = "tab:orange"
-    count_alpha: float = 0.34
-    injection_linewidth: float = 1.15
-    injection_label: str = r"Injection rate (m$^3$/min)"
+    # Okabe-Ito blue/orange provide robust contrast in print and for common
+    # forms of colour-vision deficiency.
+    injection_color: str = "#0072B2"
+    count_color: str = "#D55E00"
+    count_alpha: float = 0.25
+    injection_linewidth: float = 1.35
+    injection_label: str = r"Injection rate (m$^3$ min$^{-1}$)"
     daily_counts: bool = True
-    count_bar_width_days: float = 0.85
+    count_bar_width_days: float = 0.90
+    # Retain the original wide 2 x 2 layout used by this notebook.
     figsize: tuple[float, float] = (13.8, 5.6)
     ncols: int = 2
+    title_fontsize: float = 10.5
+    axis_label_fontsize: float = 9.5
+    tick_labelsize: float = 8.5
+    panel_label_fontsize: float = 10.0
+    grid_alpha: float = 0.22
+    split_label_y: float = 0.88
 
 
 def load_injection_count_series(
@@ -103,14 +113,15 @@ def plot_injection_count_panel(
 
     if config.daily_counts:
         count_x, count_y = daily_count_bars(x, counts)
+        # ``daily_count_bars`` returns the start of each day.  Centering the
+        # rectangle on the day makes the temporal support unambiguous.
         count_axis.bar(
-            count_x,
+            count_x + 0.5,
             count_y,
             width=config.count_bar_width_days,
-            align="edge",
+            align="center",
             color=config.count_color,
-            edgecolor=config.count_color,
-            linewidth=0.2,
+            edgecolor="none",
             alpha=config.count_alpha,
             label="Daily event count",
             zorder=1,
@@ -134,26 +145,35 @@ def plot_injection_count_panel(
     )
     ax.set_xlim(0, cropped["xmax"])
     _set_data_ylim(ax, injection)
-    _set_data_ylim(count_axis, count_values)
-    ax.set_title(item["title"], fontsize=11, pad=7)
+    if count_values.size:
+        _set_data_ylim(count_axis, count_values)
+        count_axis.yaxis.set_major_locator(mticker.MaxNLocator(integer=True, nbins=5))
+    ax.set_title(item["title"], fontsize=config.title_fontsize, pad=5)
     ax.text(
         0.01, 0.99, panel_label(panel_index), transform=ax.transAxes,
-        va="top", ha="left", fontsize=11,
+        va="top", ha="left", fontsize=config.panel_label_fontsize,
+        fontweight="bold",
     )
-    ax.set_xlabel(f"Days since {format_start_label(config.start_mode)}", fontsize=10)
-    ax.set_ylabel(config.injection_label, color=config.injection_color, fontsize=10)
+    ax.set_xlabel(
+        f"Days since {format_start_label(config.start_mode)}",
+        fontsize=config.axis_label_fontsize,
+        labelpad=3,
+    )
+    ax.set_ylabel(config.injection_label, color=config.injection_color, fontsize=config.axis_label_fontsize)
     count_axis.set_ylabel(
         "Event count / day" if config.daily_counts else "Event count",
-        color=config.count_color,
-        fontsize=10,
+        color=config.count_color, fontsize=config.axis_label_fontsize,
+        labelpad=5,
     )
-    ax.tick_params(axis="y", labelcolor=config.injection_color, labelsize=9)
-    count_axis.tick_params(axis="y", labelcolor=config.count_color, labelsize=9)
-    ax.tick_params(axis="x", labelsize=9)
-    ax.grid(True, linestyle="--", linewidth=0.55, alpha=0.35)
+    ax.tick_params(axis="y", labelcolor=config.injection_color, labelsize=config.tick_labelsize, length=3)
+    count_axis.tick_params(axis="y", labelcolor=config.count_color, labelsize=config.tick_labelsize, length=3)
+    ax.tick_params(axis="x", labelsize=config.tick_labelsize, length=3)
+    ax.xaxis.set_major_locator(mticker.MaxNLocator(nbins=6, integer=True, min_n_ticks=3))
+    ax.grid(True, axis="both", linestyle="--", linewidth=0.5, alpha=config.grid_alpha, zorder=0)
     ax.spines["top"].set_visible(False)
     count_axis.spines["top"].set_visible(False)
-    draw_split_markers(ax, item)
+    count_axis.spines["right"].set_linewidth(0.8)
+    draw_split_markers(ax, item, label_y=config.split_label_y)
     return count_axis
 
 
@@ -199,12 +219,13 @@ def plot_injection_count_grid(
             ),
         ],
         loc="lower center",
-        bbox_to_anchor=(0.5, 0.005),
+        bbox_to_anchor=(0.5, 0.008),
         ncol=2,
-        fontsize=9,
+        fontsize=8.5,
         frameon=False,
-        columnspacing=1.6,
-        handlelength=2.4,
+        columnspacing=1.3,
+        handlelength=2.2,
+        handletextpad=0.55,
     )
-    fig.tight_layout(rect=(0.02, 0.09, 0.98, 0.99))
+    fig.tight_layout(rect=(0.03, 0.10, 0.97, 0.98), w_pad=1.0, h_pad=1.1)
     return fig, axes, overlays
