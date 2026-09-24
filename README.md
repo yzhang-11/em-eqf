@@ -1,233 +1,232 @@
 # em_eqf
 
-A unified deep-learning framework for earthquake-catalog forecasting, covering:
-- Classification and regression tasks (window-based samples)
-- Temporal point process (TPP) tasks (event-sequence based)
-- Training, testing, Optuna search, visualization, and evaluation workflows
+PyTorch framework for earthquake-catalog forecasting. It supports window-based
+classification/regression, event-sequence temporal point processes (TPPs),
+checkpoint workflows, Optuna search, sampling, and forecast evaluation.
 
-## 1. Installation
+## Installation
 
-### 1.1 Core dependencies
-```bash
-pip install -r requirements.txt
-pip install -e .
-```
+Python 3.10+ is required. CUDA is recommended for training.
 
-### 1.2 Optional acceleration dependencies
-Install these only if your selected model/config requires them:
-- `flash_attn`
-- `mamba_ssm`
-- `causal_conv1d`
+~~~bash
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+python -m pip install -e .
+~~~
 
-Use the official installation guides and make sure versions match your CUDA/PyTorch environment.
+Install causal_conv1d, mamba_ssm, and/or flash_attn only when the selected
+configuration uses them, with versions compatible with PyTorch and CUDA.
 
-## 2. Repository layout
+## Quick start
 
-```text
-.
-├── main.py                 # Main entry point (train/test/optuna)
-├── forecasting.py          # Sampling and forecast visualization script
-├── config/                 # YAML configurations
-├── data/                   # Data directory (raw/processed)
-├── notebooks/              # Jupyter notebooks for preprocessing, analysis, and plotting
-├── checkpoints/            # Training artifacts
-├── src/
-│   ├── catalogs/           # Multi-catalog builders and registration
-│   ├── data/               # Data loading, splitting, batching
-│   ├── distributions/      # Distributions and mixture distributions
-│   ├── features/           # Seismic feature engineering
-│   ├── models/             # Model definitions and components
-│   │   ├── core/           # BaseModel / TaskModel / TaskHead composition primitives
-│   │   ├── adapters/       # Input adapters grouped by task/domain
-│   │   ├── builders/       # ModelBuilder registry and model factory entries
-│   │   ├── bg/             # Background models
-│   │   ├── tpp/            # Temporal point process models
-│   │   └── transformer/    # Transformer family implementations
-│   ├── train/              # Training pipeline and train steps
-│   └── utils/              # Utilities (logging, metrics, visualization, etc.)
-└── tests/                  # Tests
-```
+main.py is the common entry point. The CLI model name must match the model key
+in YAML. Without --config, config/<model>.yaml is used.
 
-## 3. Quick start
+~~~bash
+python main.py --model mixer_tpp --mode train --config config/mixer_tpp.yaml \
+  --checkpoint_dir checkpoints/mixer_tpp_demo
+python main.py --model mixer_tpp --mode test \
+  --checkpoint_dir checkpoints/mixer_tpp_demo --ckpt_select best
+python main.py --model mixer_tpp --mode optuna \
+  --config config/mixer_tpp.yaml --optuna_trials 20
+~~~
 
-### 3.1 Train
-```bash
-python main.py --model mixer_tpp --mode train --config config/mixer_tpp.yaml
-```
+Training creates a timestamped directory under checkpoints when no output
+directory is supplied. Test accepts best, last, or epoch checkpoints; epoch also
+requires --ckpt_epoch. Omitting --checkpoint_dir in test mode selects the latest
+matching directory.
 
-Set a custom output directory:
-```bash
-python main.py --model mixer_tpp --mode train --checkpoint_dir checkpoints/my_exp
-```
+## Induced-seismicity TPP forecasting
 
-### 3.2 Test
-By default, test uses `best_model_{trial_index}.pth`:
-```bash
-python main.py \
-  --model mixer_tpp \
-  --mode test \
-  --checkpoint_dir checkpoints/my_exp \
-  --ckpt_select best \
-  --trial_index 1
-```
+See [the induced-seismicity guide](docs/guides/induced_seismicity_forecasting_guide.md)
+and [the catalog guide](docs/guides/add_induced_triplet_catalog_guide.md) for
+the long-form workflow.
 
-Test with an epoch checkpoint:
-```bash
-python main.py \
-  --model mixer_tpp \
-  --mode test \
-  --checkpoint_dir checkpoints/my_exp \
-  --ckpt_select epoch \
-  --ckpt_epoch 10 \
-  --trial_index 1
-```
+### Processed triplet
 
-For classification, you can manually set a threshold:
-```bash
-python main.py --model clf_mixer_attnpl_t --mode test --threshold 0.5
-```
+For dataset MyField, prepare:
 
-### 3.3 Optuna search
-```bash
-python main.py --model mixer_tpp --mode optuna --config config/mixer_tpp.yaml
-```
+~~~text
+data/MyField/processed/
+├── MyField_eq_processed.csv
+├── MyField_inj_60min_processed.csv
+└── MyField_summary.json
+~~~
 
-Profile-batch Optuna runners (run configured profiles one by one and aggregate summaries):
-```bash
-python scripts/run/run_lstm_optuna_profiles.py --profiles auto
-python scripts/run/run_reg_mixer_attnpl_t_optuna_profiles.py --profiles auto
-```
+The earthquake CSV needs time and magnitude columns. Common aliases are
+time_iso/ts/timestamp and magnitude/Magnitude/Mw; latitude, longitude, and
+depth are optional. The injection CSV needs time and inj_rate_m3_min or
+inj_rate. Times can be absolute or relative; summary.time_column_units can
+declare units.
 
-## 4. CLI arguments (main.py)
+Required summary keys:
 
-- `--mode`: `train` / `test` / `optuna`
-- `--model`: Model name (must match `model` in config)
-- `--config`: Config file path, default `config/<model>.yaml`
-- `--checkpoint_dir`: Training output directory or test input directory
-- `--trial_index`: Checkpoint index suffix (default `1`)
-- `--ckpt_select`: `best` / `last` / `epoch`
-- `--ckpt_epoch`: Required when `--ckpt_select epoch`
-- `--threshold`: Classification test threshold (overrides checkpoint threshold)
-- `--no_val_threshold`: Do not use threshold stored in checkpoint `val_metrics`
+~~~json
+{
+  "resample_freq_min": 60,
+  "mc": -0.5,
+  "inj_fill_policy": "interpolate",
+  "is_upsample": false,
+  "start_time_iso": "2018-06-04T05:27:26.351",
+  "end_time_iso": "2018-08-21T23:59:59"
+}
+~~~
 
-Notes:
-- In `train`/`optuna`, if `--checkpoint_dir` is omitted, a new directory is created as `checkpoints/<model>_<timestamp>`
-- In `test`, if `--checkpoint_dir` is omitted, the latest checkpoint directory for the model is selected automatically
+The loader uses these fields for the time range, magnitude completeness (Mc),
+and injection resampling. It filters/sorts events, removes events below Mc, and
+jitters exact duplicate times so inter-event times remain positive.
 
-## 5. Configuration system
+### Register and validate a catalog
 
-- Config files are under `config/`
-- YAML is loaded through `OmegaConf`
-- Typical fields: `model`, `dataset`, `task_type`, optimizer/scheduler params, model architecture params
-- Checkpoint-related fields:
-  - `resume_path`: checkpoint to restore from
-  - `load_specific_parts`: only load matching parameter names from the checkpoint
-  - `freeze_parts`: freeze parameters whose names match these keywords
-  - `freeze_loaded_only`: when `true`, only freeze parameters actually loaded from checkpoint; when `false`, freeze all matching parameters, including randomly initialized ones
-  - `exclude_freeze_parts`: keywords excluded from freezing
-- `freeze_parts` also works without `resume_path`: the matched randomly initialized parameters will be frozen directly
+Subclass InducedTripletBase in src/catalogs/, register <Dataset>-Standard, and
+import the module from src/catalogs/__init__.py. See src/catalogs/st1.py and
+src/catalogs/pnr.py.
 
-Recommended starter configs:
-- `config/mixer_tpp.yaml`
-- `config/clf_mixer_attnpl_t.yaml`
-- `config/clf_rnn.yaml`
-- `config/reg_mixer_attnpl_t.yaml`
-- `config/reg_rnn.yaml`
-- `config/etas.yaml`
-- `config/etas_zhuang.yaml`
-
-## 6. Data
-
-### 6.1 Classification/Regression data
-Common path: `data/<dataset>/raw/*.csv`
-
-Main columns used by preprocessing:
-- `t`
-- `Magnitude`
-- `Latitude`
-- `Longitude`
-- `Depth`
-- `dt` (recomputed from `t` during preprocessing)
-
-### 6.2 TPP data
-TPP pipeline resolves catalogs through the registration system using `<dataset>-Standard`:
-- Example: `dataset: ChuanDian` -> `ChuanDian-Standard`
-
-List registered catalogs:
-```bash
+~~~bash
 python - <<'PY'
 import src.catalogs
 from src.data.catalog import Catalog
 print(sorted(Catalog.list_available()))
 PY
-```
+~~~
 
-## 7. Available models
+dataset: MyField resolves to MyField-Standard. Generated Sequences are cached
+under data/MyField/catalogs/<hash>/. The hash includes frequency, Mc,
+normalization, and split boundaries.
 
-Current registered models (from `ModelBuilder.list_available()`):
+### Models and time units
 
-`btpp`, `classifier`, `classifier_se`, `classifier_stm`, `classifier_stm_s`, `classifier_tm_s`, `clf_attnpl`, `clf_attnpl_t`, `clf_mixer_attnpl_t`, `clf_rnn`, `clf_tm_attnpl`, `clf_tm_attnpl_t`, `clf_tm_cv_attnpl_t`, `etas`, `etas_zhuang`, `lstm`, `mhp`, `mixer_tpp`, `mtpp`, `nhpp`, `reg_attnpl`, `reg_mixer_attnpl_t`, `reg_rnn`, `rtpp`, `thp`, `thp_deltat`
+| Model | Typical use |
+| --- | --- |
+| oracle | Injection-aware Oracle marks and autoregressive sampling |
+| rtpp_v2 | Recurrent TPP with configurable background |
+| rtpp | Recurrent TPP compatible with RECAST |
+| etas, etas_zhuang | ETAS triggering plus background rate |
+| mixer_tpp | TPP-Mixer event-sequence modeling |
 
-## 8. Artifacts and logging
+catalog_cfg.freq defines one model time unit. With freq "1D", duration 7.0
+means seven days; with "1h", it means seven hours.
 
-Typical files under `checkpoints/<exp>/`:
-- `config.yaml` (runtime config snapshot)
-- `run.log` (unified logger output)
-- `best_model_<idx>.pth`
-- `last_model_<idx>.pth`
-- `epoch_<k>_model_<idx>.pth` (if periodic checkpoint saving is enabled)
-- `tensorboard/`
+Models with a background component accept `bg_model` and `bg_model_cfg`. Common
+choices are `kernel`, `mamba`, `rnn`, `conv_mlp`, and `proportional`. For
+example:
 
-Testing writes:
-- `metrics_test_<...>.json`
+~~~yaml
+bg_model: mamba
+bg_model_cfg:
+  d_feature: 1
+  d_state: 64
+  d_model: 16
+  model_type: mamba
+  scale_init: 1000.0
+  smooth_kernel_size: 3
+~~~
 
-TensorBoard:
-```bash
-tensorboard --logdir checkpoints/<exp>/tensorboard --port 6006
-```
+When comparing background models, keep the dataset, split boundaries, model
+seed, and forecast evaluation settings fixed. `scale_init` controls the initial
+background-rate scale; values around 300--1000 are common starting points, not
+universal defaults.
 
-## 9. Forecast script
+Example Oracle configuration:
 
-`forecasting.py` generates samples from a trained checkpoint and saves forecast visualizations.
+~~~yaml
+model: oracle
+task_type: tpp
+dataset: St1-2018
+catalog_cfg:
+  freq: "1D"
+  mag_completeness: -0.5
+  event_feature_builder: oracle
+  event_feature_cfg:
+    smoothing_window: 10
+    activity_epsilon: 0.0
+    log_floor: -10.0
+~~~
 
-Example:
-```bash
-python forecasting.py --checkpoint_dir checkpoints/mixer_tpp_YYYYMMDD-HHMMSS --ckpt_select best
-```
+The Oracle builder creates event-aligned marks: vm (log10 absolute interpolated
+injection rate), dVc (log10 absolute cumulative-volume change), sv (its sign),
+dTS (log10 time since the last non-zero injection sample), and aRs (smoothed
+seismicity rate in log10(1/min)). These are stored in the cached Sequence and
+consumed using oracle_base_mark_order and
+oracle_future_feature_names.
 
-## 10. Notebooks
+Because the implementation aligns values by interpolation, inspect the sampling
+boundary and any missing-value policy when making strict no-future-information
+claims for a particular experiment.
 
-Notebook resources are under `notebooks/` (project-relative path: `./notebooks`):
+### Train, test, and sample
 
-- `preprocessing*.ipynb`: preprocessing pipelines for different catalogs/datasets
-- `classifier_baseline.ipynb`, `classifier_analysis.ipynb`: classification baseline and result analysis
-- `regressor_analysis.ipynb`, `regression_plot.ipynb`: regression result analysis and plotting
-- `tpp_analysis.ipynb`, `tpp_evaluating.ipynb`: TPP behavior analysis and evaluation
-- `forecasting*.ipynb`: interactive forecasting workflows
-- `b_t_estimation.ipynb`: time-varying b-value estimation
-- Output figures and cached plotting data are organized in `notebooks/figs/` and `notebooks/figs_data/`
+~~~bash
+python main.py --model oracle --mode train --config config/oracle.yaml \
+  --checkpoint_dir checkpoints/oracle_st1
+python main.py --model oracle --mode test \
+  --checkpoint_dir checkpoints/oracle_st1 --ckpt_select best
+~~~
 
-## 11. Testing
+Test writes metrics_test_<selector>_<trial>.json and reports held-out TPP NLL.
+Sampling and calibration are separate; use the forecasting_induced_eq notebooks.
 
-Run all tests:
-```bash
+~~~python
+from pathlib import Path
+from src.utils.tpp_experiments import load_tpp_catalog, sample_tpp_forecasts
+catalog, name, kwargs = load_tpp_catalog(
+    "St1-2018", base_dir=Path("data/St1-2018"),
+    catalog_cfg={"freq": "1D", "mag_completeness": -0.5},
+)
+past = catalog.test[0]
+forecasts = sample_tpp_forecasts(
+    model, past, duration=7.0, num_samples=1000,
+    samples_per_batch=32, bg_cache_seq=past, seed=0,
+)
+~~~
+
+Report held-out NLL, Number Test/event counts, magnitude checks, sampled count
+distributions, sliding-window error, interval coverage, CRPS, and results by
+split start time and physical dataset. Relevant code is in
+src/utils/catalog_tests.py, src/utils/forecast_eval.py, and
+scripts/run_sliding_window_forecast.py.
+
+### Add a dataset
+
+1. Produce and validate the three processed files.
+2. Add/register an InducedTripletBase subclass.
+3. Import it from src/catalogs/__init__.py.
+4. Set dataset and catalog_cfg in a model YAML.
+5. Instantiate the catalog before a long run.
+
+For multiple physical catalogs, use InducedTripletGroupedCatalog with non-empty,
+mutually exclusive train, val, and test split_groups.
+
+## Data and splitting
+
+TPP preparation resolves the catalog registry, creates or loads a cached
+Sequence, and creates chronological train/validation/test subsequences.
+Induced-triplet catalogs default to 70%/15%/15% calendar-time boundaries unless
+train_start_ts, val_start_ts, and test_start_ts are set. Validation and test
+retain preceding history but start NLL at their split boundary, giving causal
+warm-up without scoring that history.
+
+## Configuration, outputs, and development
+
+YAML files are under config/ and loaded with OmegaConf. Common keys are model,
+dataset, task_type, optimizer/scheduler settings, architecture parameters, and
+catalog_cfg. Transfer supports resume_path, load_specific_parts, freeze_parts,
+freeze_loaded_only, and exclude_freeze_parts.
+
+Typical checkpoint files are config.yaml, run.log, best_model_1.pth,
+last_model_1.pth, epoch_<N>_model_1.pth, tensorboard/, and
+metrics_test_<selector>_1.json.
+
+~~~bash
+tensorboard --logdir checkpoints/<experiment>/tensorboard --port 6006
 pytest -q
-```
-
-Run selected groups:
-```bash
-pytest -q tests/features
-pytest -q tests/data
-pytest -q tests/model
-```
-
-## 12. Reproducibility hint
-
-To improve CUDA reproducibility:
-```bash
 export CUBLAS_WORKSPACE_CONFIG=:4096:8
-```
+~~~
 
-## 13. License
+Repository guides: [data layout](docs/guides/data_layout.md), [induced
+forecasting](docs/guides/induced_seismicity_forecasting_guide.md), and
+[catalog integration](docs/guides/add_induced_triplet_catalog_guide.md).
 
-This project is licensed under the MIT License. See `LICENSE`.
+The project is released under the MIT License; see LICENSE.

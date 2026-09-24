@@ -1,246 +1,118 @@
 # em_eqf（中文说明）
 
-地震目录深度学习预测框架，覆盖：
-- 分类/回归任务（基于滑动窗口样本）
-- 时间点过程（TPP）任务（事件序列建模）
-- 训练、测试、Optuna 搜索、可视化与评估
+em_eqf 是一个基于 PyTorch 的地震目录预测框架，统一支持滑动窗口分类/回归、事件序列时间点过程（TPP）、checkpoint 训练与测试、Optuna 搜索、预测采样和评估。仓库同时提供基于“地震目录 + 注水时间序列”triplet 数据的诱发地震预测流程。
 
-## 1. 安装
+## 安装
 
-### 1.1 基础依赖
-```bash
-pip install -r requirements.txt
-pip install -e .
-```
+要求 Python 3.10 或更高版本。训练建议使用 CUDA，也支持 CPU。
 
-### 1.2 可选加速依赖
-仅当你的模型/配置需要时再安装：
-- 建议优先使用各项目官方预编译轮子（wheels）。
-- 推荐顺序：先装 `causal_conv1d`，再装 `mamba_ssm` 和/或 `flash_attn`
-- `causal_conv1d`（wheels）：https://github.com/Dao-AILab/causal-conv1d/releases
-- `mamba_ssm`（wheels）：https://github.com/state-spaces/mamba/releases
-- `flash_attn`（wheels）：https://github.com/Dao-AILab/flash-attention/releases
+~~~bash
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+python -m pip install -e .
+~~~
 
-请按各项目官方安装指引，确保 CUDA / PyTorch 版本匹配。
+只有所选配置实际使用时才安装 causal_conv1d、mamba_ssm、flash_attn，并确保它们与 PyTorch/CUDA 版本匹配。
 
-## 2. 仓库结构
+## 快速开始
 
-```text
-.
-├── main.py                 # 主入口（train/test/optuna）
-├── forecasting.py          # 采样与预测可视化
-├── config/                 # YAML 配置
-├── data/                   # 数据目录（raw/processed）
-├── notebooks/              # 预处理/分析/绘图
-├── checkpoints/            # 训练产物
-├── src/
-│   ├── catalogs/           # 目录加载器 + 数据集注册
-│   │   ├── event_features/ # 事件特征构造（oracle 特征）
-│   │   ├── induced_triplet_base.py     # 单个目录的 triplet 加载
-│   │   ├── induced_triplet_grouped.py  # 多目录聚合的 triplet 加载
-│   │   ├── pathing.py      # 目录路径工具
-│   │   └── <dataset>.py    # 各数据集的加载与注册
-│   ├── data/               # 数据集对象、预处理、批处理
-│   │   ├── preparation.py  # 主要数据准备入口
-│   │   ├── preprocessing.py
-│   │   ├── tpp_dataset.py  # TPP 数据集
-│   │   ├── lstm_loader.py  # LSTM 特定数据加载
-│   │   └── batch.py / sequence.py / event_loader.py
-│   ├── distributions/      # 统计分布与混合分布
-│   │   ├── mixture.py
-│   │   └── gamma.py / weibull.py / lomax.py / gutenberg_richter.py
-│   ├── features/           # 地震特征工程
-│   │   └── seismic_features.py
-│   ├── models/             # 模型定义与组件
-│   │   ├── builders/       # 模型注册与构建（ModelBuilder）
-│   │   ├── core/           # BaseModel / TaskModel / TaskHead 组合基元
-│   │   ├── adapters/       # 按任务/领域组织的输入适配器
-│   │   ├── base_model.py / task_model.py / heads.py / input_adapters.py
-│   │   ├── bg/             # 背景率模型（kernel/mamba/rnn 等）
-│   │   ├── tpp/            # TPP 模型（etas/rtpp/mixer_tpp/nhpp 等）
-│   │   ├── transformer/    # Transformer 编码器（已弃用）
-│   │   ├── mamba/          # Mamba 相关模块
-│   │   ├── mha/            # 多头注意力 + 时间旋转嵌入
-│   │   ├── ncde/           # Neural CDE（已弃用）
-│   │   ├── extractors/     # 表征抽取器（注意力池化、last-step 等）
-│   │   └── layers/         # 通用层（MLP、Conv、ReVIN 等）
-│   ├── train/              # 训练流程与步骤
-│   │   ├── trainer.py      # 训练/验证 + 保存
-│   │   ├── config_setup.py # 优化器/调度器/模型配置
-│   │   ├── model_routing.py
-│   │   ├── scheduler.py
-│   │   └── *_train_step.py # 任务专用 train/validate/test
-│   └── utils/              # 工具（日志、指标、可视化等）
-│       ├── logging_utils.py / metrics.py / viz_sequences.py
-│       ├── file_utils.py / registrable.py
-│       └── forecast_eval.py / interpretability.py / mask_utils.py / runtime_utils.py
-└── tests/                  # 测试
-```
+main.py 是统一入口；命令行中的 model 必须与 YAML 中的 model 一致。未指定
+--config 时默认读取 config/<model>.yaml。
 
-## 3. 快速开始
+~~~bash
+python main.py --model mixer_tpp --mode train --config config/mixer_tpp.yaml \
+  --checkpoint_dir checkpoints/mixer_tpp_demo
 
-### 3.1 训练
-```bash
-python main.py --model mixer_tpp --mode train --config config/mixer_tpp.yaml
-```
+python main.py --model mixer_tpp --mode test \
+  --checkpoint_dir checkpoints/mixer_tpp_demo --ckpt_select best
 
-若未指定 `--config`，默认使用 `config/<model>.yaml`。
+python main.py --model mixer_tpp --mode optuna \
+  --config config/mixer_tpp.yaml --optuna_trials 20
+~~~
 
-指定输出目录：
-```bash
-python main.py --model mixer_tpp --mode train --checkpoint_dir checkpoints/my_exp
-```
+训练未指定输出目录时会在 checkpoints 下创建时间戳目录。测试支持 best、
+last、epoch；选择 epoch 时还要提供 --ckpt_epoch。测试未指定
+--checkpoint_dir 时会自动选择最新匹配目录。
 
-若 `train`/`optuna` 未指定 `--checkpoint_dir`，会自动创建：
-`checkpoints/<model>_YYYYMMDD-HHMMSS`（例如 `checkpoints/mixer_tpp_20260413-153045`）。
+## 诱发地震点过程预测
 
-### 3.2 测试
-默认使用 `best_model_{trial_index}.pth`：
-```bash
-python main.py \
-  --model mixer_tpp \
-  --mode test \
-  --checkpoint_dir checkpoints/my_exp \
-  --ckpt_select best
-```
+完整说明见[诱发地震预测指南](docs/guides/induced_seismicity_forecasting_guide.md)
+和 [catalog 接入指南](docs/guides/add_induced_triplet_catalog_guide.md)。
 
-若 `test` 未指定 `--checkpoint_dir`，会自动选择包含 `last_model_1.pth` 的最新 `checkpoints/<model>_YYYYMMDD-HHMMSS` 目录。
+### 1. 准备 triplet 处理文件
 
-若未指定 `--ckpt_select`，默认使用 `best`。
+以 MyField 为例：
 
-使用指定 epoch 的 checkpoint：
-```bash
-python main.py \
-  --model mixer_tpp \
-  --mode test \
-  --checkpoint_dir checkpoints/my_exp \
-  --ckpt_select epoch \
-  --ckpt_epoch 10
-```
+~~~text
+data/MyField/processed/
+├── MyField_eq_processed.csv
+├── MyField_inj_60min_processed.csv
+└── MyField_summary.json
+~~~
 
-注意：epoch 测试需要对应的 epoch checkpoint（如 `epoch_10_model_1.pth`）已存在，请先配置并启用周期保存。
+地震 CSV 必须包含时间列和震级列。常用别名包括
+time_iso/ts/timestamp，以及 magnitude/Magnitude/Mw；纬度、经度、深度是可选列。
+注水 CSV 必须包含时间列和 inj_rate_m3_min 或 inj_rate。时间可以是绝对时间戳，
+也可以是相对数值；需要时在 summary.time_column_units 中声明单位。
 
-分类任务可手动阈值：
-```bash
-python main.py --model clf_mixer_attnpl_t --mode test --threshold 0.5
-```
+summary.json 至少包含：
 
-### 3.3 Optuna 搜索
-```bash
-python main.py --model mixer_tpp --mode optuna --config config/mixer_tpp.yaml
-```
+~~~json
+{
+  "resample_freq_min": 60,
+  "mc": -0.5,
+  "inj_fill_policy": "interpolate",
+  "is_upsample": false,
+  "start_time_iso": "2018-06-04T05:27:26.351",
+  "end_time_iso": "2018-08-21T23:59:59"
+}
+~~~
 
-## 4. CLI 参数（main.py）
+这些字段分别用于注水源频率、震级完备阈值 Mc、缺失值填充/插值策略、
+是否上采样以及数据起止时间。加载器会过滤和排序地震事件，删除低于 Mc
+的事件，并对完全相同的事件时间加入极小扰动，使 inter-event time 保持正值。
+当 catalog_cfg.freq 与源注水频率不一致时，会在加载阶段重采样注水序列。
 
-- `--mode`: `train` / `test` / `optuna`
-- `--model`: 模型名（需与配置中的 `model` 一致）
-- `--config`: 配置路径，默认 `config/<model>.yaml`
-- `--checkpoint_dir`: 训练输出或测试输入目录
-- `--trial_index`: checkpoint 序号（默认 `1`）
-- `--ckpt_select`: `best` / `last` / `epoch`
-- `--ckpt_epoch`: 当 `--ckpt_select epoch` 时必须提供
-- `--threshold`: 分类测试阈值（覆盖 checkpoint 中的阈值）
-- `--no_val_threshold`: 不使用 checkpoint 中的验证阈值
+### 2. 注册 catalog 并验证
 
-说明：
-- `train`/`optuna` 模式若未指定 `--checkpoint_dir`，会自动创建 `checkpoints/<model>_YYYYMMDD-HHMMSS`
-- `test` 模式若未指定 `--checkpoint_dir`，会自动选取最近的对应模型目录
+在 src/catalogs/ 中继承 InducedTripletBase，实现并注册
+<Dataset>-Standard，然后在 src/catalogs/__init__.py 导入该模块。可参考
+src/catalogs/st1.py、src/catalogs/pnr.py 和
+src/catalogs/induced_triplet_base.py。
 
-## 5. 配置系统
-
-- 配置文件位于 `config/`
-- 使用 `OmegaConf` 读取
-- 常见字段：`model`, `dataset`, `task_type`, 优化器/调度器参数、模型结构参数等
-
-推荐起步配置：
-- `config/mixer_tpp.yaml`
-- `config/clf_mixer_attnpl_t.yaml`
-- `config/clf_rnn.yaml`
-- `config/reg_mixer_attnpl_t.yaml`
-- `config/reg_rnn.yaml`
-- `config/etas.yaml`
-- `config/etas_zhuang.yaml`
-
-## 6. 数据
-
-### 6.1 分类/回归数据
-常见路径：`data/<dataset>/raw/*.csv`
-
-主要字段：
-- `t`
-- `Magnitude`
-- `Latitude`
-- `Longitude`
-- `Depth`
-- `dt`（预处理中由 `t` 计算）
-
-### 6.2 TPP 数据
-TPP 管线通过注册系统解析 `<dataset>-Standard`：
-- 例：`dataset: ChuanDian` -> `ChuanDian-Standard`
-
-列出已注册目录：
-```bash
+~~~bash
 python - <<'PY'
 import src.catalogs
 from src.data.catalog import Catalog
 print(sorted(Catalog.list_available()))
 PY
-```
+~~~
 
-当前可用数据集：
-`AZDX`, `Basel`, `CB_HAB1a`, `CB_HAB1b`, `CB_HAB4`, `ChinaArray`, `ChuanDian`, `CooperBasin`, `FORGE2022`,
-`PNR`, `PNR_1z`, `PNR_2`, `QTMSaltonSea`, `QTMSanJacinto`, `SCEDC`, `SSFS`, `SSFS1993`, `SSFS2000`,
-`SSFS2003`, `SSFS2004`, `SSFS2005`, `St1-2018`, `St1-2020`, `White`。
+配置中的 dataset: MyField 会解析为 MyField-Standard。生成的 Sequence 缓存位于
+data/MyField/catalogs/<hash>/；hash 包含 freq、Mc、归一化和切分边界等参数。
+如果缓存元信息与当前配置冲突，应删除旧缓存或修改配置生成新缓存。
 
-### 6.3 添加新的 TPP 数据集
-1. 在 `data/<YourDataset>/processed/` 下准备处理后的文件：
-   - `<YourDataset>_eq_processed.csv`
-   - `<YourDataset>_inj_<resample_freq_min>min_processed.csv`（诱发地震 triplet 数据）
-   - `<YourDataset>_summary.json`（需包含 `resample_freq_min`, `mc`, `inj_fill_policy`, `is_upsample`, `start_time_iso`, `end_time_iso`）
-   - 注意：诱发地震 triplet 的预处理遵循 Oracle 数据格式（EQ/Inj/Head）及 Oracle 风格事件特征构建。
-2. 在 `src/catalogs/` 实现并注册一个 catalog 类：
-   - 使用 `@Catalog.register(name="<YourDataset>-Standard")`
-   - 诱发地震 triplet 数据请继承 `InducedTripletBase`（示例：`src/catalogs/st1.py`）
-3. 在 `src/catalogs/__init__.py` 中导入新的 catalog 模块以触发注册。
-4. 在配置文件中设置 `dataset: <YourDataset>`，管线会自动解析为 `<YourDataset>-Standard`。
-5. 验证是否可被识别：
-   ```bash
-   python - <<'PY'
-   import src.catalogs
-   from src.data.catalog import Catalog
-   print(sorted(Catalog.list_available()))
-   PY
-   ```
+### 3. 模型、时间单位与背景率
 
-## 7. 可用模型
+常用诱发地震 TPP 模型：
 
-当前已注册模型（可通过 `ModelBuilder.list_available()` 获取）：
+| 模型 | 典型用途 |
+| --- | --- |
+| oracle | 注水感知的 Oracle 事件特征与自回归采样 |
+| rtpp_v2 | 带可配置背景模型的循环 TPP |
+| rtpp | 兼容 RECAST 形式的循环 TPP |
+| etas、etas_zhuang | ETAS 触发项与背景率 |
+| mixer_tpp | TPP-Mixer 事件序列建模 |
 
-`btpp`, `classifier`, `classifier_se`, `classifier_stm`, `classifier_stm_s`, `classifier_tm_s`, `clf_attnpl`, `clf_attnpl_t`, `clf_mixer_attnpl_t`, `clf_rnn`, `clf_tm_attnpl`, `clf_tm_attnpl_t`, `clf_tm_cv_attnpl_t`, `etas`, `etas_zhuang`, `lstm`, `mhp`, `mixer_tpp`, `mtpp`, `nhpp`, `njdtpp`, `oracle`, `reg_attnpl`, `reg_mixer_attnpl_t`, `reg_rnn`, `rtpp`, `rtpp_v2`, `thp`, `thp_deltat`
+catalog_cfg.freq 定义模型时间单位。freq: "1D" 时 duration: 7.0 表示 7 天；
+freq: "1h" 时表示 7 小时。它必须和注水重采样频率、预测时长保持一致。
 
-适用的诱发地震点过程模型（常用）：`etas`, `etas_zhuang`, `rtpp`, `rtpp_v2`, `oracle`。
-- `etas` / `etas_zhuang` / `rtpp` / `rtpp_v2`：基于背景率建模。
-- `oracle`：基于特征工程（注水相关事件特征通过 `catalog_cfg.event_feature_builder`）。
+带背景率的模型可通过 bg_model 和 bg_model_cfg 切换背景模块。常见选项包括
+kernel、mamba、rnn、conv_mlp 和 proportional。例如：
 
-`rtpp`（无背景项，RECAST）参考：
-Dascher-Cousineau, K., Shchur, O., Brodsky, E. E., & Günnemann, S. (2023).
-*Using Deep Learning for Flexible and Scalable Earthquake Forecasting*.
-*Geophysical Research Letters, 50*(17), e2023GL103909. https://doi.org/10.1029/2023GL103909
-
-`oracle` 参考：
-Schultz, R., & Wiemer, S. (2026).
-*Forecasting the Rate of Induced Seismicity as a Neural Temporal Point Process*.
-*Journal of Geophysical Research: Machine Learning and Computation, 3*(1), e2025JH001052.
-https://doi.org/10.1029/2025JH001052
-
-在 `config/*.yaml` 中添加背景模型：
-1. 在模型配置中设置 `bg_model` 与 `bg_model_cfg`（如 `config/rtpp.yaml` 或 `config/etas.yaml`）。
-2. 模型主体参数保持不变，仅替换背景模块以便对比。
-3. 可选项参考 `config/bg.yaml`（`mamba`, `kernel`, `gp_latent_bg`, `gp_latent_bg_svgp`, `conv_mlp`, `proportional`）。
-4. `scale_init` 用于加速收敛，通常建议 `300–1000`。
-
-示例（Mamba 背景）：
-```yaml
+~~~yaml
 bg_model: mamba
 bg_model_cfg:
   d_feature: 1
@@ -249,117 +121,154 @@ bg_model_cfg:
   model_type: mamba
   scale_init: 1000.0
   smooth_kernel_size: 3
-```
+~~~
 
-示例（Kernel 背景）：
-```yaml
-bg_model: kernel
-bg_model_cfg:
-  d_feature: 1
-  scale_init: 300.0
-  kernel_type: gamma
-  kernel_size: 256
-  normalize_kernel: true
-  use_mlp: true
-  hidden: 32
-  gamma_init_k: 4.0
-  gamma_init_beta: 0.08
-```
+比较不同背景模型时，应固定数据集、时间切分、随机种子和预测评估参数。
+scale_init 控制背景率初始尺度，300--1000 可作为起始范围，实际仍需按数据集检查。
 
-随机森林（`rf`）基线请参考 `notebooks/classifier_baseline.ipynb`。
+Oracle 配置示例：
 
-### 7.1 新增模型流程
-1. 在 `src/models/builders/` 中添加 builder：
-   - 继承 `ModelBuilder`
-   - 使用 `@ModelBuilder.register("<new_model_name>")` 注册
-   - 实现 `__call__(self, args, device)` 并返回模型
-2. 在 `src/train/model_routing.py` 中添加路由：
-   - 将 `<new_model_name>` 放入对应集合（`CLASSIFIER_MODELS`, `REGRESSOR_MODELS`, `TPP_MODELS`, 或 `TPP_M_MODELS`）
-3. 新增 `config/<new_model_name>.yaml`：
-   - 确保 `model: <new_model_name>`
-   - 配置 `task_type` 与必要超参
-4. 训练：
-   ```bash
-   python main.py --model <new_model_name> --mode train --config config/<new_model_name>.yaml
-   ```
+~~~yaml
+model: oracle
+task_type: tpp
+dataset: St1-2018
+catalog_cfg:
+  freq: "1D"
+  mag_completeness: -0.5
+  event_feature_builder: oracle
+  event_feature_cfg:
+    smoothing_window: 10
+    activity_epsilon: 0.0
+    log_floor: -10.0
+~~~
 
-## 8. 产物与日志
+设置 event_feature_builder: oracle 后，系统会在每个地震事件时刻构造事件级对齐特征：
 
-`checkpoints/<exp>/` 常见文件：
-- `config.yaml`（运行时配置快照）
-- `run.log`（统一日志）
-- `best_model_<idx>.pth`
-- `last_model_<idx>.pth`
-- `epoch_<k>_model_<idx>.pth`（若开启周期保存）
-- `tensorboard/`
+- vm：插值注水速率绝对值的 log10；
+- dVc：累计注水体积变化绝对值的 log10；
+- sv：累计体积变化的符号；
+- dTS：距最近一次非零注水采样的时间的 log10；
+- aRs：平滑地震率，单位为 log10(1/min)。
 
-测试输出：
-- `metrics_test_<...>.json`
+这些字段会写入缓存的 Sequence，并依据 oracle_base_mark_order 和
+oracle_future_feature_names 供 Oracle 模型使用。当前实现对注水序列进行插值对齐，
+因此如果实验要求严格的无未来信息设定，应额外检查采样边界、插值方向和缺失值填充策略，
+避免把未来注水或未来地震信息泄漏到输入中。
 
-TensorBoard：
-```bash
-tensorboard --logdir checkpoints/<exp>/tensorboard --port 6006
-```
+### 4. 训练、测试和预测采样
 
+~~~bash
+python main.py --model oracle --mode train --config config/oracle.yaml \
+  --checkpoint_dir checkpoints/oracle_st1
 
+python main.py --model oracle --mode test \
+  --checkpoint_dir checkpoints/oracle_st1 --ckpt_select best
+~~~
 
-## 10. Notebook
+测试会计算留出集 TPP 负对数似然，并写入
+metrics_test_<selector>_<trial>.json。训练/测试 NLL 不等于完整的预测能力评估；
+采样、校准和可视化应单独执行。推荐使用：
 
-Notebook 位于 `notebooks/`（项目相对路径：`./notebooks`）：
-- `b_t_estimation.ipynb`：时变 b 值估计（主要用于 mixer_tpp）。
-- `classifier_analysis.ipynb`：clf_mixer_attnpl_t 分类结果分析与事件重要性。
-- `classifier_baseline.ipynb`：特征工程分类器基线（RF）。
-- `cumulative_likelihood_over_time.ipynb`：点过程模型的时间累积似然可视化。
-- `forecasting.ipynb`：点过程模型生成预测目录。
-- `forecasting_induced_eq.ipynb`：诱发地震点过程模型生成预测目录（单个目录）。
-- `forecasting_induced_eq_triplet.ipynb`：诱发地震点过程模型生成预测目录（可使用多目录）
-- `forecasting_induced_eq_triplet_multi_bg_compare.ipynb`：比较多种诱发地震点过程模型的背景模型。
-- `induced_seismicity_analysis.ipynb`：诱发地震探索性分析（直观分析比较注水与地震率关系）。
-- `induced_seismicity_analysis_pnr.ipynb`：PNR 数据集专题分析。
-- `preprocessing.ipynb`：地震目录数据预处理（不是诱发地震）。
-- `preprocessing_geysers.ipynb`：Geysers 数据预处理。（已弃用）
-- `preprocessing_hengill.ipynb`：Hengill 数据预处理。（已弃用）
-- `preprocessing_induced_eq_data.ipynb`：诱发地震数据预处理（主要是 Oracle 的数据）。
-- `preprocessing_pnr.ipynb`：PNR 数据预处理。
-- `preprocessing_pnr_nsta.ipynb`：PNR 来源于NSTA的数据预处理。(已弃用)
-- `regression_comparison.ipynb`：回归任务对比可视化。
-- `regressor_analysis.ipynb`：reg_mixer_attnpl_t 回归结果分析与事件重要性。
-- `lstm_regression_permutation_importance.ipynb`：LSTM 回归特征置换重要性分析。
-- `tpp_analysis.ipynb`：TPP 模型内部与行为分析。
-- `tpp_comparison.ipynb`：多种 TPP 模型对比分析。
-- `eval_new_datasets_forecasting.ipynb`：新数据集预测评估流程。
-- `tpp_evaluating.ipynb`：基于时间变换定理的时间点过程模型分析。
-- 输出图与缓存数据位于 `notebooks/figs/` 与 `notebooks/figs_data/`。
+- notebooks/forecasting_induced_eq.ipynb：单目录预测；
+- notebooks/forecasting_induced_eq_triplet.ipynb：triplet 目录预测；
+- notebooks/forecasting_induced_eq_diagnostics.ipynb：诊断；
+- notebooks/induced_eq_bg_comparison.ipynb：背景模型对比。
 
-项目根目录额外 notebook：
-- `ckpt_utils.ipynb`：按配置条件筛选/搜索 checkpoint 目录。
+代码方式可使用 src/utils/tpp_experiments.py：
 
-## 11. 测试
+~~~python
+from pathlib import Path
+from src.utils.tpp_experiments import load_tpp_catalog, sample_tpp_forecasts
 
-运行所有测试：
-```bash
+catalog, name, kwargs = load_tpp_catalog(
+    "St1-2018",
+    base_dir=Path("data/St1-2018"),
+    catalog_cfg={"freq": "1D", "mag_completeness": -0.5},
+)
+past = catalog.test[0]
+forecasts = sample_tpp_forecasts(
+    model,
+    past,
+    duration=7.0,
+    num_samples=1000,
+    samples_per_batch=32,
+    bg_cache_seq=past,
+    seed=0,
+)
+~~~
+
+建议至少报告以下结果：
+
+1. 留出集 NLL；
+2. Number Test/事件数分布检验；
+3. Magnitude Test/震级分布检验；
+4. 预测轨迹、事件数直方图与分位数区间；
+5. 滑动窗口的误差、区间覆盖率和 CRPS；
+6. 按 train/validation/test 起始时间和物理目录分别汇总，避免不同时间段或不同场地相互掩盖问题。
+
+相关实现位于 src/utils/catalog_tests.py、src/utils/forecast_eval.py、
+src/utils/forecast_sliding.py 和 scripts/run_sliding_window_forecast.py。
+
+### 5. 新增诱发地震目录
+
+1. 生成并检查 eq、inj、summary 三个处理文件；
+2. 新建 InducedTripletBase 子类并注册；
+3. 在 src/catalogs/__init__.py 导入新模块；
+4. 在模型 YAML 设置 dataset 和 catalog_cfg；
+5. 长时间训练前先实例化 catalog：
+
+~~~bash
+python - <<'PY'
+import src.catalogs
+from src.utils.tpp_experiments import load_tpp_catalog
+catalog, name, init_kwargs = load_tpp_catalog(
+    "MyField", base_dir="data/MyField", catalog_cfg={"freq": "1h"}
+)
+print(name, init_kwargs)
+print(len(catalog.train[0]), len(catalog.val[0]), len(catalog.test[0]))
+PY
+~~~
+
+如果要把多个物理目录组合为一个 family，使用 InducedTripletGroupedCatalog。
+split_groups 必须包含非空且互斥的 train、val、test 分组。字段约束和报错排查
+见新增 catalog 指南。
+
+## 数据切分与防泄漏
+
+TPP 管线先通过 registry 找到 catalog，生成或读取缓存 Sequence，再创建按时间排序的
+train/validation/test 子序列。诱发 triplet 默认按日历时间 70%/15%/15% 切分；也可在
+catalog_cfg 中显式设置 train_start_ts、val_start_ts、test_start_ts。
+
+验证集和测试集会保留边界之前的历史作为因果 warm-up，但 NLL 从各自边界开始计算。
+因此不能把整个序列随机打乱后再切分，也不要用测试区间的注水数据构造训练阶段可见的
+统计量。需要改变时间单位、Mc、归一化或切分边界时，应让缓存 hash 发生变化并重新检查
+元数据。
+
+## 配置、产物与开发
+
+YAML 位于 config/，由 OmegaConf 读取。常见字段包括 model、dataset、task_type、
+优化器/调度器、网络结构参数和 catalog_cfg。迁移学习相关字段包括 resume_path、
+load_specific_parts、freeze_parts、freeze_loaded_only 和 exclude_freeze_parts。
+
+checkpoint 目录通常包含：
+
+~~~text
+config.yaml
+run.log
+best_model_1.pth
+last_model_1.pth
+epoch_<N>_model_1.pth
+tensorboard/
+metrics_test_<selector>_1.json
+~~~
+
+~~~bash
+tensorboard --logdir checkpoints/<experiment>/tensorboard --port 6006
 pytest -q
-```
-
-运行指定分组：
-```bash
-pytest -q tests/features
-pytest -q tests/data
-pytest -q tests/model
-```
-
-## 12. 复现实验提示
-
-提高 CUDA 可复现性：
-```bash
 export CUBLAS_WORKSPACE_CONFIG=:4096:8
-```
+~~~
 
-## 13. 相关文档
+推荐阅读：[数据布局指南](docs/guides/data_layout.md)、[诱发地震预测指南](docs/guides/induced_seismicity_forecasting_guide.md)、
+[catalog 接入指南](docs/guides/add_induced_triplet_catalog_guide.md)。
 
-- `docs/guides/add_induced_triplet_catalog_guide.md`
-- `docs/guides/induced_seismicity_forecasting_guide.md`
-
-## 14. 许可证
-
-本项目采用 MIT License，详见 `LICENSE`。
+项目采用 MIT License，详见 LICENSE。
