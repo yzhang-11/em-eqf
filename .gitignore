@@ -1,20 +1,33 @@
-# Checkpoints and training artifacts
-# checkpoints/
-# *.pth
-# *.pt
-# *.ckpt
-# *.onnx
-# runs/
-# logs/
-# wandb/
-checkpoints/clf*/
-checkpoints/reg*/
+# Training checkpoints and generated run artifacts
+checkpoints/
+docs/
+*.pth
+*.pt
+*.ckpt
+*.onnx
+runs/
+logs/
+wandb/
+tensorboard/
+tmp/
 
-# Data and outputs
+# Rebuildable dataset catalog caches; keep raw/ and processed/ inputs.
+data/*/catalogs/
+data/*/catalogs/**
 
+# Local/private CCL dataset; keep files outside the public release.
+data/CCL/
+data/CCL/**
 
-# Notebooks
+# Notebook outputs and test fixtures
 .ipynb_checkpoints/
+notebooks/cache/
+notebooks/figs/
+notebooks/metrics/
+check_version.ipynb
+ckpt_utils.ipynb
+tests/mnt/
+tests/attnpl_pl_weights.ipynb
 
 # History and cache files
 .history/
@@ -23,8 +36,9 @@ checkpoints/reg*/
 .ruff_cache/
 .cache/
 
-# VSCode configuration files
+# Local editor and agent configuration
 .vscode/
+.claude/
 
 # Python cache and build artifacts
 __pycache__/
@@ -35,7 +49,7 @@ build/
 dist/
 *.egg-info/
 
-# Virtual environments
+# Virtual environments and local credentials
 .env
 .venv/
 venv/
@@ -48,53 +62,20 @@ htmlcov/
 # OS files
 .DS_Store
 
-# Ignore all experiment subdirectories by default
+# Ignore all experiment subdirectories by default. Only the four published
+# ETAS/RTPP multi-dataset result sets below are included in this branch.
 experiments/*
-
-# Keep only these experiment directories
-!experiments/clf_pre_v1/
-!experiments/clf_pre_v1/**
-
-!experiments/lstm_5_seeds_v6/
-!experiments/lstm_5_seeds_v6/**
-
-!experiments/reg_mixer_ablation_5_seeds/
-!experiments/reg_mixer_ablation_5_seeds/**
-
-!experiments/mixer_tpp_ablation_chuandian/
-!experiments/mixer_tpp_ablation_chuandian/**
-
-!experiments/mixer_tpp_ablation_v1/
-!experiments/mixer_tpp_ablation_v1/**
 !experiments/etas_multi_ds_bg_norm_0.2/
 !experiments/etas_multi_ds_bg_norm_0.2/**
+!experiments/etas_multi_ds_bg_split_0.7/
+!experiments/etas_multi_ds_bg_split_0.7/**
 !experiments/rtpp_v2_multi_bg_norm_0.2/
 !experiments/rtpp_v2_multi_bg_norm_0.2/**
-!experiments/oracle_multi_dataset
-!experiments/oracle_multi_dataset/**
-!experiments/etas_multi_ds_bg_split_0.7/
-!experiments/etas_multi_ds_bg_split_0.7/configs/
-!experiments/etas_multi_ds_bg_split_0.7/configs/**
-!experiments/etas_multi_ds_bg_split_0.7/reports/
-!experiments/etas_multi_ds_bg_split_0.7/reports/**
-!experiments/etas_multi_ds_bg_split_0.7/plan.json
-!experiments/etas_multi_ds_bg_split_0.7/summary.json
-experiments/etas_multi_ds_bg_split_0.7/runs/
-experiments/etas_multi_ds_bg_split_0.7/runs/**
-
 !experiments/rtpp_v2_multi_bg_split_0.7/
-!experiments/rtpp_v2_multi_bg_split_0.7/configs/
-!experiments/rtpp_v2_multi_bg_split_0.7/configs/**
-!experiments/rtpp_v2_multi_bg_split_0.7/reports/
-!experiments/rtpp_v2_multi_bg_split_0.7/reports/**
-!experiments/rtpp_v2_multi_bg_split_0.7/plan.json
-!experiments/rtpp_v2_multi_bg_split_0.7/summary.json
-experiments/rtpp_v2_multi_bg_split_0.7/runs/
-experiments/rtpp_v2_multi_bg_split_0.7/runs/**
+!experiments/rtpp_v2_multi_bg_split_0.7/**
 
-# Local/generated outputs. Existing tracked files remain tracked.
-# checkpoints/
-# experiments/**/runs/
-# experiments/**/runs/**
-# notebooks/cache/
-# tmp/
+# Training runs are local/generated artifacts; publish reports and summaries only.
+experiments/etas_multi_ds_bg_norm_0.2/runs/
+experiments/etas_multi_ds_bg_split_0.7/runs/
+experiments/rtpp_v2_multi_bg_norm_0.2/runs/
+experiments/rtpp_v2_multi_bg_split_0.7/runs/

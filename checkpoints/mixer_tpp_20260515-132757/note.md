@@ -1,1 +1,0 @@
-对齐checkpoints/mixer_tpp_20260204-225304，注意力改到第2层
