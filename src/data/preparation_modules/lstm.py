@@ -19,16 +19,22 @@ from .common import (
     _ensure_args_defaults,
     _maybe_apply_train_subset,
     _resolve_t_elaps_mode,
+    _window_options,
+    _target_period_indices,
     _split_lstm_indices_aligned_to_outer_windows,
 )
 
 logger = logging.getLogger(__name__)
 
 
-def _normalize_lstm_inputs(features_3d, feature_cols, lstm_loader_module):
+def _normalize_lstm_inputs(features_3d, feature_cols, lstm_loader_module, fit_indices=None):
     X_flat = features_3d.reshape(-1, features_3d.shape[-1])
     X_flat_df = pd.DataFrame(X_flat, columns=list(feature_cols))
-    X_flat_nl, feature_scalars = lstm_loader_module.normalize_df(X_flat_df)
+    if fit_indices is None:
+        X_flat_nl, feature_scalars = lstm_loader_module.normalize_df(X_flat_df)
+    else:
+        fit_df = pd.DataFrame(features_3d[fit_indices].reshape(-1, features_3d.shape[-1]), columns=list(feature_cols))
+        X_flat_nl, feature_scalars = lstm_loader_module.normalize_df(X_flat_df, fit_df=fit_df)
     X_nl = X_flat_nl.to_numpy().reshape(features_3d.shape)
 
     return X_nl, feature_scalars
@@ -42,6 +48,11 @@ def _load_lstm_event_windows_with_cache(args, base_dir) -> EventWindowBundle:
     import src.data.event_loader as event_loader
 
     _ensure_args_defaults(args, {"Mag_elaps": []})
+    if getattr(args, "split_dates", None):
+        return event_pipeline.load_event_windows_with_cache(
+            base_dir=base_dir, Mc=args.Mc, Mf=args.Mf, Twindow=args.Twindow,
+            Tfore=args.Tfore, dt=args.dt, context_len=getattr(args, "context_len", 0),
+            task_prefix="lstm_regressor", **_window_options(args))
     base_dir = str(base_dir)
     df = event_pipeline.load_and_filter_catalog(base_dir, Mc=args.Mc)
     df_nl, _ = event_loader.normalize_df(df)
@@ -283,6 +294,13 @@ def _build_optional_feature_frame(
 
 
 def _apply_telaps_nan_policy(*, args, X, feature_frame, return_feature_frame):
+    if getattr(args, "split_dates", None):
+        X = np.asarray(X, dtype=float).copy()
+        fallback = float(getattr(args, "feature_window", None) or args.Twindow)
+        for i, col in enumerate(args.feature_cols):
+            if str(col).startswith("T_elaps"):
+                X[:, :, i] = np.where(np.isfinite(X[:, :, i]), X[:, :, i], fallback)
+        return X, feature_frame
     telaps_nan_strategy = str(getattr(args, "telaps_nan_strategy", "high_sentinel")).strip().lower()
     if telaps_nan_strategy not in {"high_sentinel", "zero"}:
         raise ValueError(
@@ -319,7 +337,9 @@ def _make_lstm_loaders(*, args, dataset, endpoint_outer_indices, total_outer_win
     from src.data.utils import get_split_indices
 
     split_mode = _resolve_lstm_split_mode(args)
-    if split_mode == "sequence":
+    if getattr(args, "split_dates", None):
+        train_idx, val_idx, test_idx = _target_period_indices(dataset.forecast_origins, args)
+    elif split_mode == "sequence":
         train_idx, val_idx, test_idx = get_split_indices(
             total_length=len(dataset),
             train_ratio=0.8,
@@ -425,8 +445,13 @@ def prepare_data_lstm(args, base_dir, return_feature_frame=False):
         return_feature_frame=return_feature_frame,
     )
 
+    if getattr(args, "split_dates", None):
+        X = np.where(np.isfinite(X), X, 0.0)
     X, y = loader.clean_data(X, y)
-    X_nl, feature_scalars = _normalize_lstm_inputs(X, args.feature_cols, loader)
+    forecast_origins = np.asarray([sample["t"] for sample in samples_list], dtype=float)[endpoint_outer_indices]
+    fit_indices = (_target_period_indices(forecast_origins, args)[0]
+                   if getattr(args, "split_dates", None) else None)
+    X_nl, feature_scalars = _normalize_lstm_inputs(X, args.feature_cols, loader, fit_indices=fit_indices)
     y_norm_mode = str(getattr(args, "label_norm_mode", "fixed_range")).strip().lower()
     if y_norm_mode == "fixed_range":
         y_nl = _normalize_lstm_labels_to_fixed_range(y, mag_min=mag_min, mag_max=mag_max)
@@ -436,6 +461,8 @@ def prepare_data_lstm(args, base_dir, return_feature_frame=False):
             "mag_max": mag_max,
         }
     elif y_norm_mode == "legacy_minmax":
+        if getattr(args, "split_dates", None):
+            raise ValueError("Use the existing fixed_range label normalization with split_dates")
         targets_full = event_pipeline._compute_mag_max_obs_targets(array_dict)
         scaler = MinMaxScaler()
         scaler.fit(np.asarray(targets_full, dtype=float).reshape(-1, 1))
@@ -458,6 +485,7 @@ def prepare_data_lstm(args, base_dir, return_feature_frame=False):
         label_norm_cfg=label_norm_cfg,
     )
 
+    dataset.forecast_origins = forecast_origins
     data_loaders = _make_lstm_loaders(
         args=args,
         dataset=dataset,

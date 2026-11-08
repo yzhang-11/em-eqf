@@ -1,5 +1,6 @@
 # Reference: https://zenodo.org/records/8161777 - Using Deep Learning for Flexible and Scalable Earthquake Forecasting.
 import io
+import hashlib
 import logging
 from pathlib import Path
 from typing import Union
@@ -9,6 +10,7 @@ import pandas as pd
 import requests
 import torch
 from src.data import Catalog, TppDataset, Sequence, default_catalogs_dir
+from src.data.preprocessing import resolve_tied_times
 from ..utils.catalog_utils import train_val_test_split_sequence
 from src.utils.catalog_pathing import (
     build_hashed_catalog_root,
@@ -47,7 +49,7 @@ class SCEDC(Catalog):
         val_start_ts: pd.Timestamp = pd.Timestamp("2005-01-01"),
         test_start_ts: pd.Timestamp = pd.Timestamp("2014-01-01"),
     ):
-        _ = catalog_file  # retained for backward-compatible API
+        self.catalog_file = None if catalog_file is None else Path(catalog_file).resolve()
         start_ts = pd.Timestamp("1981-01-01")
         end_ts = pd.Timestamp("2020-01-01")
         if train_start_ts is None:
@@ -58,11 +60,15 @@ class SCEDC(Catalog):
 
         catalog_cfg = {
             "mag_completeness": float(mag_completeness),
+            "time_processing": "stable-half-resolution-f64-v1",
             "train_start_ts": to_serializable_ts(train_start_ts),
             "val_start_ts": to_serializable_ts(val_start_ts),
             "test_start_ts": to_serializable_ts(test_start_ts),
         }
-        self.root_dir = build_hashed_catalog_root(root_dir, catalog_cfg, migrate_legacy=True)
+        if self.catalog_file is not None:
+            catalog_cfg["source_sha256"] = hashlib.sha256(self.catalog_file.read_bytes()).hexdigest()
+            catalog_cfg["threshold_operator"] = ">="
+        self.root_dir = build_hashed_catalog_root(root_dir, catalog_cfg, migrate_legacy=False)
         metadata = {
             "name": f"SCEDC",
             "freq": "1D",
@@ -96,6 +102,7 @@ class SCEDC(Catalog):
             train_start_ts=self.metadata["train_start_ts"],
             val_start_ts=self.metadata["val_start_ts"],
             test_start_ts=self.metadata["test_start_ts"],
+            half_open=True,
         )
         self.train = TppDataset([seq_train])
         self.val = TppDataset([seq_val])
@@ -108,36 +115,42 @@ class SCEDC(Catalog):
     def generate_catalog(self):
         logger.info("Downloading...")
 
-        raw_df = []
+        if self.catalog_file is not None:
+            raw_df = pd.read_csv(self.catalog_file)
+            raw_df["date_time"] = pd.to_datetime(raw_df["ts"], format="mixed")
+        else:
+            raw_df = []
 
-        year_range = range(
-            self.metadata["start_ts"].year,
-            self.metadata["end_ts"].year,
-        )
-
-        for iyear in year_range:
-            stream = requests.get(url="{}{}.catalog".format(self.url, iyear)).content
-
-            raw_df.append(
-                pd.read_csv(
-                    io.StringIO(stream.decode("utf-8")),
-                    sep=r"\s+",
-                    header=0,
-                    names=COL_NAMES,
-                    comment="#",
-                    index_col=False,
-                )
+            year_range = range(
+                self.metadata["start_ts"].year,
+                self.metadata["end_ts"].year,
             )
 
-        raw_df = pd.concat(raw_df, ignore_index=True)
+            for iyear in year_range:
+                stream = requests.get(url="{}{}.catalog".format(self.url, iyear)).content
 
-        # workaround to deal with seconds going up to 60.0
-        raw_df["date_time"] = pd.to_datetime(raw_df["date"]) + pd.to_timedelta(
-            raw_df["time"]
-        )
+                raw_df.append(
+                    pd.read_csv(
+                        io.StringIO(stream.decode("utf-8")),
+                        sep=r"\s+",
+                        header=None,  # The column header is already excluded by comment="#".
+                        names=COL_NAMES,
+                        comment="#",
+                        index_col=False,
+                    )
+                )
 
-        raw_df.sort_values(by=["date_time"], inplace=True)
-        subset_df = raw_df.loc[raw_df["magnitude"] > self.metadata["mag_completeness"]]
+            raw_df = pd.concat(raw_df, ignore_index=True)
+
+            # workaround to deal with seconds going up to 60.0
+            raw_df["date_time"] = pd.to_datetime(raw_df["date"]) + pd.to_timedelta(
+                raw_df["time"]
+            )
+
+        raw_df.sort_values(by=["date_time"], kind="stable", inplace=True)
+        keep = (raw_df["magnitude"] >= self.metadata["mag_completeness"] if self.catalog_file is not None
+                else raw_df["magnitude"] > self.metadata["mag_completeness"])
+        subset_df = raw_df.loc[keep]
 
         start_ts = self.metadata["start_ts"]
         end_ts = self.metadata["end_ts"]
@@ -151,10 +164,11 @@ class SCEDC(Catalog):
         arrival_times = (
             (subset_df.date_time - start_ts) / pd.Timedelta("1 day")
         ).values
+        arrival_times = resolve_tied_times(arrival_times, 0.01 / 86400, t_end)
         inter_times = np.diff(arrival_times, prepend=[t_start], append=[t_end])
         mag = subset_df["magnitude"].values
         seq = Sequence(
-            inter_times=torch.as_tensor(inter_times, dtype=torch.float32),
+            inter_times=torch.as_tensor(inter_times, dtype=torch.float64),
             mag=torch.as_tensor(mag, dtype=torch.float32),
         )
         subset_df.to_csv(self.root_dir / "catalog.csv")

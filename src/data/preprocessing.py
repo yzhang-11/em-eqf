@@ -8,6 +8,29 @@ import matplotlib.pyplot as plt
 
 logger = logging.getLogger(__name__)
 
+def resolve_tied_times(times, resolution, end_time):
+    """Preserve stable input order and spread ties within half a reported time bin.
+
+    The next distinct timestamp and catalog end bound the displacement. This is
+    deterministic numerical dequantization, not inferred physical event order.
+    """
+    result = np.asarray(times, dtype=np.float64).copy()
+    if (not len(result) or not np.isfinite(result).all() or resolution <= 0
+            or result[0] <= 0 or result[-1] >= end_time or np.any(np.diff(result) < 0)):
+        raise ValueError("Expected finite sorted event times strictly inside the catalog interval")
+    starts = np.r_[0, np.flatnonzero(np.diff(result) != 0) + 1]
+    stops = np.r_[starts[1:], len(result)]
+    for start, stop in zip(starts, stops):
+        count = stop - start
+        if count > 1:
+            next_time = result[stop] if stop < len(result) else end_time
+            width = min(resolution, next_time - result[start]) / 2
+            result[start:stop] += np.arange(count) * (width / count)
+    if np.any(np.diff(result) <= 0):
+        raise ValueError("Declared timestamp resolution is below float64 precision")
+    return result
+
+
 def process_cn_catalog(dat_file):
     column_names = ['Year', 'Month', 'Day', 'Hour', 'Minute', 'Second', 'Latitude', 'Longitude', 'Depth', 'Magnitude']
     df = pd.read_csv(dat_file, header=None, names=column_names, sep=r"\s+")

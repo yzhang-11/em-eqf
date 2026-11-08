@@ -12,6 +12,7 @@ from .common import (
     _resolve_subset_base_indices,
     _resolve_t_elaps_mode,
     _split_with_event_loader,
+    _window_options,
 )
 
 
@@ -51,6 +52,7 @@ def prepare_data_rf(args, base_dir):
         dt=args.dt,
         context_len=context_len,
         task_prefix='classifier',
+        **_window_options(args),
     )
     df = event_bundle.df
     samples_list = event_bundle.samples_list
@@ -76,6 +78,10 @@ def prepare_data_rf(args, base_dir):
     if missing_cols:
         raise KeyError(f'Missing feature columns: {missing_cols}')
 
+    if getattr(args, "split_dates", None) and t_elaps_mode == "window":
+        for col in args.feature_cols:
+            if str(col).startswith("T_elaps"):
+                features_df[col] = features_df[col].fillna(float(args.Twindow)).clip(0, float(args.Twindow))
     X = features_df[args.feature_cols].to_numpy()
     X = X[valid_mask]
     y = labels_full[valid_mask].astype(int)
@@ -100,6 +106,7 @@ def prepare_data_rf(args, base_dir):
             return int(np.sum(self.labels == 0))
 
     rf_split_dataset = _RFIndexDataset(y)
+    rf_split_dataset.forecast_origins = features_df["t"].to_numpy(dtype=float)
     train_set, val_set, test_set = _split_with_event_loader(
         rf_split_dataset,
         task_type='classification',
@@ -123,6 +130,12 @@ def prepare_data_rf(args, base_dir):
     y_val = y[val_idx]
     y_test = y[test_idx]
 
+    if getattr(args, "split_dates", None):
+        from sklearn.impute import SimpleImputer
+        imputer = SimpleImputer(strategy="median", keep_empty_features=True)
+        x_train_raw = imputer.fit_transform(np.where(np.isfinite(x_train_raw), x_train_raw, np.nan))
+        x_val_raw = imputer.transform(np.where(np.isfinite(x_val_raw), x_val_raw, np.nan))
+        x_test_raw = imputer.transform(np.where(np.isfinite(x_test_raw), x_test_raw, np.nan))
     scaler = MinMaxScaler()
     x_train = scaler.fit_transform(x_train_raw)
     x_val = scaler.transform(x_val_raw)

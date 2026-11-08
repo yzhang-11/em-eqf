@@ -61,6 +61,7 @@ def train_val_test_split_sequence(
     val_start_ts: pd.Timestamp,
     test_start_ts: pd.Timestamp,
     freq: pd.Timedelta = pd.Timedelta("1 day"),
+    half_open: bool = False,
 ):
     """Generate train, validation and test subsequences.
     Original sequence with events in [start_ts, end_ts] is split into 3 parts:
@@ -84,10 +85,12 @@ def train_val_test_split_sequence(
     freq = pd.Timedelta(freq)
 
     # Start of the train / val / test intervals as floats
-    seq_train = seq.get_subsequence(seq.t_start, t_val_start)
+    train_end = np.nextafter(t_val_start, -np.inf) if half_open else t_val_start
+    val_end = np.nextafter(t_test_start, -np.inf) if half_open else t_test_start
+    seq_train = seq.get_subsequence(seq.t_start, train_end)
     seq_train.t_nll_start = t_train_start
   
-    seq_val = seq.get_subsequence(seq.t_start, t_test_start)
+    seq_val = seq.get_subsequence(seq.t_start, val_end)
     seq_val.t_nll_start = t_val_start
     seq_test = seq.get_subsequence(seq.t_start, seq.t_end)
     seq_test.t_nll_start = t_test_start
@@ -100,6 +103,7 @@ def train_val_test_split_sequence_float(
     train_start_ts: float,
     val_start_ts: float,
     test_start_ts: float,
+    half_open: bool = False,
 ):
     """
     Split the sequence into training, validation, and testing sets using float timestamps.
@@ -121,10 +125,12 @@ def train_val_test_split_sequence_float(
     t_val_start = val_start_ts
     t_test_start = test_start_ts
 
-    seq_train = seq.get_subsequence(seq.t_start, val_start_ts)
+    train_end = np.nextafter(val_start_ts, -np.inf) if half_open else val_start_ts
+    val_end = np.nextafter(test_start_ts, -np.inf) if half_open else test_start_ts
+    seq_train = seq.get_subsequence(seq.t_start, train_end)
     seq_train.t_nll_start = t_train_start
 
-    seq_val = seq.get_subsequence(seq.t_start, test_start_ts)
+    seq_val = seq.get_subsequence(seq.t_start, val_end)
     seq_val.t_nll_start = t_val_start
 
     seq_test = seq.get_subsequence(seq.t_start, seq.t_end)

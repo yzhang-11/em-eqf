@@ -238,6 +238,7 @@ class Batch(DotDict):
         if (write_idx >= self.seq_len).any():
             raise RuntimeError("Exceeded max_sample_len; please re-init with larger buffer.")
 
+        next_inter_times = next_inter_times.to(self.inter_times)
         self.inter_times[batch_idx, write_idx] = next_inter_times.squeeze(-1)  
         if torch.all(write_idx == 0):   
             last_times= self.t_start
@@ -250,7 +251,7 @@ class Batch(DotDict):
         )
 
         if next_mag is not None and "mag" in self:
-            self["mag"][batch_idx, write_idx] = next_mag.squeeze(-1)  
+            self["mag"][batch_idx, write_idx] = next_mag.squeeze(-1).to(self["mag"])
 
         self.input_mask[batch_idx, write_idx] = 1.0
         self.end_idx += 1

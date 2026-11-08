@@ -1,3 +1,6 @@
+import hashlib
+import json
+
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
@@ -47,10 +50,16 @@ def load_event_windows_with_cache(
     dt: float,
     context_len: int,
     task_prefix: str,
+    fit_end: float | None = None,
+    cache_namespace: str | None = None,
 ) -> EventWindowBundle:
     base_dir = str(base_dir)
     df = load_and_filter_catalog(base_dir, Mc=Mc)
-    df_nl, _ = event_loader.normalize_df(df)
+    fit_df = df.loc[df["t"] < fit_end] if fit_end is not None else None
+    if fit_df is not None and len(fit_df) < 2:
+        raise ValueError("Training period has too few events for normalization")
+    df_nl, _ = (event_loader.normalize_df(df) if fit_df is None else
+                event_loader.normalize_df(df, fit_df=fit_df))
 
     def generate_data():
         samples_list, array_dict = event_loader.construct_samples_list(
@@ -77,11 +86,29 @@ def load_event_windows_with_cache(
         "context_len": context_len,
     }
 
+    cache_options = {}
+    cache_dir = task_prefix
+    if cache_namespace is not None:
+        candidates = list((Path(base_dir) / "raw").glob("*.csv"))
+        if len(candidates) > 1:
+            candidates = [p for p in candidates if p.name.startswith("processed_")]
+        if len(candidates) != 1:
+            raise ValueError("Cannot identify source CSV for cache provenance")
+        digest = hashlib.sha256()
+        with candidates[0].open("rb") as source:
+            for chunk in iter(lambda: source.read(1048576), b""):
+                digest.update(chunk)
+        df.attrs["source_sha256"] = digest.hexdigest()
+        spec = {**cache_key_kwargs, "fit_end": fit_end,
+                "source_sha256": digest.hexdigest(), "schema": cache_namespace}
+        key = hashlib.sha256(json.dumps(spec, sort_keys=True).encode()).hexdigest()[:20]
+        cache_options["filename"] = f"{key}.pkl"
     cached = save_or_load_data(
         base_path=base_dir,
         generate_fn=generate_data,
-        sub_dir=task_prefix,
+        sub_dir=cache_dir,
         prefix=task_prefix,
+        **cache_options,
         **cache_key_kwargs,
     )
     return EventWindowBundle(df=df, samples_list=cached["samples_list"], array_dict=cached["array_dict"])
@@ -97,6 +124,8 @@ def load_event_windows_for_task(
     Tfore: float,
     dt: float,
     context_len: int,
+    fit_end: float | None = None,
+    cache_namespace: str | None = None,
 ) -> EventWindowBundle:
     task_prefix = resolve_task_prefix(task_type)
     return load_event_windows_with_cache(
@@ -108,6 +137,8 @@ def load_event_windows_for_task(
         dt=dt,
         context_len=context_len,
         task_prefix=task_prefix,
+        fit_end=fit_end,
+        cache_namespace=cache_namespace,
     )
 
 

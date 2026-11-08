@@ -114,6 +114,62 @@ def _maybe_apply_train_subset(train_set, args, task_type: str, loader_module=Non
     return subset
 
 
+
+def _split_boundaries(args):
+    import pandas as pd
+
+    dates = getattr(args, "split_dates", None)
+    if not dates:
+        return None
+    epoch = pd.Timestamp(dates.get("epoch", "1970-01-01"))
+    values = [(pd.Timestamp(dates[key]) - epoch).total_seconds() / 86400
+              for key in ("train_end", "validation_end", "test_end")]
+    if not values[0] < values[1] < values[2]:
+        raise ValueError("split_dates must be strictly increasing")
+    return values
+
+
+def _window_options(args):
+    boundaries = _split_boundaries(args)
+    return {} if boundaries is None else {
+        "fit_end": boundaries[0], "cache_namespace": "review_v2"}
+
+
+def _target_period_indices(origins, args):
+    import json
+    from pathlib import Path
+
+    first, second, end = _split_boundaries(args)
+    t = np.asarray(origins, dtype=float).reshape(-1)
+    if not len(t) or not np.all(np.isfinite(t)) or np.any(np.diff(t) <= 0):
+        raise ValueError("Forecast origins must be finite and strictly increasing")
+    if not getattr(args, "split_by_time", True) or float(args.Tfore) <= 0:
+        raise ValueError("Date splits require positive horizon and chronological data")
+    stop = t + float(args.Tfore)
+    groups = (np.flatnonzero(stop <= first),
+              np.flatnonzero((t >= first) & (stop <= second)),
+              np.flatnonzero((t >= second) & (stop <= end)))
+    if any(len(i) == 0 for i in groups):
+        raise ValueError("A target period is empty; inspect split_dates and horizon")
+    report = {"interval": "[origin,origin+Tfore)", "split_dates": dict(args.split_dates),
+              "candidate_windows": len(t), "purged_windows": len(t) - sum(map(len, groups)),
+              "splits": {name: {"n": len(idx), "first_origin": float(t[idx[0]]),
+                                 "last_target_end": float(stop[idx[-1]])}
+                         for name, idx in zip(("train", "validation", "test"), groups)}}
+    logger.info("Target-period split: %s", report)
+    if getattr(args, "save_dir", None):
+        import pandas as pd
+        folder = Path(args.save_dir)
+        folder.mkdir(parents=True, exist_ok=True)
+        (folder / "data_protocol.json").write_text(json.dumps(report, indent=2), encoding="utf-8")
+        labels = np.full(len(t), "purged", dtype=object)
+        for name, idx in zip(("train", "validation", "test"), groups):
+            labels[idx] = name
+        pd.DataFrame({"origin_day": t, "target_end_day": stop, "split": labels}).to_csv(
+            folder / "forecast_origins.csv", index=False)
+    return groups
+
+
 def _split_config(args):
     return {
         "by_time": getattr(args, "split_by_time", True),
@@ -124,6 +180,12 @@ def _split_config(args):
 
 
 def _split_with_event_loader(dataset, *, task_type: str, loader_module, args):
+    if _split_boundaries(args) is not None:
+        from torch.utils.data import Subset
+        origins = getattr(dataset, "forecast_origins", None)
+        if origins is None:
+            raise ValueError("Date splitting requires actual forecast origins")
+        return tuple(Subset(dataset, idx) for idx in _target_period_indices(origins, args))
     split_cfg = _split_config(args)
     return loader_module.split_dataset(
         dataset,

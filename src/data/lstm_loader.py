@@ -57,13 +57,14 @@ class LSTMDataset(Dataset):
             raise ValueError("Scaler for the label column not found.")
 
 
-def normalize_df(df):
+def normalize_df(df, fit_df=None):
     scalars = {}
     df_nl = df.copy()
     for col in df_nl.columns:
         if col not in ['time']:
             scalar = MinMaxScaler()
-            df_nl[col] = scalar.fit_transform(df_nl[col].values.reshape(-1, 1))
+            scalar.fit((df if fit_df is None else fit_df)[[col]].to_numpy())
+            df_nl[col] = scalar.transform(df_nl[[col]].to_numpy())
             scalars[col] = scalar
     return df_nl, scalars
 

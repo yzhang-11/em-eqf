@@ -47,7 +47,7 @@ def build_classification_labels(array_dict, Mf):
 
 
 
-def normalize_df(df):
+def normalize_df(df, fit_df=None):
     # magnitude_cols = [col for col in df.columns if 'Mag' in col]
     lat_cols = [col for col in df.columns if 'Lat' in col]
     lon_cols = [col for col in df.columns if 'Lon' in col]
@@ -60,7 +60,8 @@ def normalize_df(df):
     for col_list in [lat_cols, lon_cols, dep_cols]:
         for col in col_list:
             scaler = MinMaxScaler()
-            df_nl[col] = scaler.fit_transform(df[[col]])
+            scaler.fit((df if fit_df is None else fit_df)[[col]])
+            df_nl[col] = scaler.transform(df[[col]])
             scalers[col] = scaler
     return df_nl, scalers
 
@@ -72,8 +73,7 @@ def extract_field_array(dict_list, field):
 
 
 def generate_time_array(df, Twindow, Tfore, dt, t_array=None):
-    t = df["t"].values
-    t.sort()
+    t = np.sort(df["t"].to_numpy())
     logger.info("Number of earthquake events (greater than Mc): %s", len(t))
 
     if t_array is not None:
@@ -146,6 +146,7 @@ class EventDataset(torch.utils.data.Dataset):
         task_type='classification',
         mag_min=DEFAULT_MAG_MIN,
         mag_max=DEFAULT_MAG_MAX,
+        forecast_origins=None,
     ):
         assert task_type in ["classification", "regression", "count"], "Unsupported task type"
         self.task_type = task_type
@@ -161,6 +162,9 @@ class EventDataset(torch.utils.data.Dataset):
         future = array_dict["future"]
         context = array_dict["context"]
         num_samples = len(future["t"])
+        kept_indices = []
+        if forecast_origins is not None and len(forecast_origins) != num_samples:
+            raise ValueError("Forecast origins and targets have different lengths")
 
         for idx in range(num_samples):
             if self.task_type == "classification":
@@ -172,11 +176,14 @@ class EventDataset(torch.utils.data.Dataset):
             else:
                 raise ValueError("unsupported task type. Supported types are: 'classification', 'regression', 'count'.")
             if not np.isnan(label):
+                kept_indices.append(idx)
                 history_data = [np.array(array_dict["history"][field][idx]) for field in self.data_fields]
                 self.samples.append(history_data)
                 self.labels.append(label)
                 self.lengths.append(len(history_data[0]))
 
+        self.forecast_origins = (None if forecast_origins is None else
+                                 np.asarray(forecast_origins, dtype=float)[kept_indices])
         if self.lengths:
             logger.info(
                 "lengths of samples: min=%s, max=%s, avg=%.2f",

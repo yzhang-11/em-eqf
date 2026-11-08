@@ -1,10 +1,12 @@
 from pathlib import Path
+import hashlib
 from typing import Union
 import numpy as np
 import pandas as pd
 import torch
 
 from src.data import Catalog, TppDataset, Sequence
+from src.data.preprocessing import resolve_tied_times
 from src.utils.catalog_utils import train_val_test_split_sequence
 from src.utils.catalog_pathing import (
     build_hashed_catalog_root,
@@ -18,16 +20,18 @@ from src.utils.catalog_pathing import (
 class ChuanDianBase(Catalog):
     def __init__(self, root_dir: Union[str, Path], data_dir: Union[str, Path] = None, catalog_file: Union[str, Path] = None, mag_completeness: float = 3.0, normalize: bool = True):
         dataset_dir = resolve_dataset_data_dir(root_dir=root_dir, data_dir=data_dir)
-        catalog_cfg = {
-            "normalize": normalize,
-            "mag_completeness": mag_completeness,
-        }
-        self.root_dir = build_hashed_catalog_root(root_dir, catalog_cfg, migrate_legacy=True)
         self.catalog_file = resolve_source_file(
             dataset_dir=dataset_dir,
             default_filename="chuandian_2021.dat",
             explicit_path=catalog_file,
         )
+        catalog_cfg = {
+            "normalize": normalize,
+            "time_processing": "stable-half-resolution-f64-v1",
+            "source_sha256": hashlib.sha256(self.catalog_file.read_bytes()).hexdigest(),
+            "mag_completeness": mag_completeness,
+        }
+        self.root_dir = build_hashed_catalog_root(root_dir, catalog_cfg, migrate_legacy=False)
         self.normalize = normalize
         self.metadata = {
             "name": "ChuanDian",
@@ -55,25 +59,16 @@ class ChuanDianBase(Catalog):
         df = pd.read_csv(self.catalog_file, header=None, names=column_names, sep=r"\s+")
         df['time'] = pd.to_datetime(df[['Year', 'Month', 'Day', 'Hour', 'Minute']], errors='coerce') + pd.to_timedelta(df['Second'], unit='s')
         df = df[['time', 'Magnitude', 'Latitude', 'Longitude', 'Depth']]
-        df = df[df["Magnitude"] > self.metadata["mag_completeness"]].copy()
-        df.sort_values("time", inplace=True)
+        df = df[df["Magnitude"] >= self.metadata["mag_completeness"]].copy()
+        df.sort_values("time", kind="stable", inplace=True)
  
-        duplicated_mask = df["time"].duplicated(keep=False)
-        if duplicated_mask.any():
-            df.loc[duplicated_mask, "time"] += pd.to_timedelta(
-                np.random.uniform(1e-30, 1e-27, duplicated_mask.sum()), unit="D"  # 1e-6D = 86.4ms 
-            )
-            df.sort_values("time", inplace=True)
-        #
-        df["time_diff"] = df["time"].diff().dt.total_seconds()
-        df = df[df["time_diff"] > 0].copy()
-
         start_ts = self.metadata["start_ts"]
         end_ts = self.metadata["end_ts"]
         t_start = 0.0
         t_end = (end_ts - start_ts) / pd.Timedelta("1D")
 
         arrival_times = ((df["time"] - start_ts) / pd.Timedelta("1D")).values
+        arrival_times = resolve_tied_times(arrival_times, 0.01 / 86400, t_end)
         inter_times = np.diff(arrival_times, prepend=[t_start], append=[t_end])
         
 
@@ -94,7 +89,7 @@ class ChuanDianBase(Catalog):
 
         
         seq = Sequence(
-            inter_times=torch.tensor(inter_times, dtype=torch.float32),
+            inter_times=torch.tensor(inter_times, dtype=torch.float64),
             t_start=t_start,
             mag=torch.tensor(df["Magnitude"].values, dtype=torch.float32),
             loc = torch.tensor(fields["loc"], dtype=torch.float32),
@@ -138,6 +133,7 @@ class ChuanDianStandard(ChuanDianBase):
             train_start_ts=self.metadata["train_start_ts"],
             val_start_ts=self.metadata["val_start_ts"],
             test_start_ts=self.metadata["test_start_ts"],
+            half_open=True,
         )
         self.train = TppDataset([seq_train])
         self.val = TppDataset([seq_val])

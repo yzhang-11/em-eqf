@@ -46,8 +46,10 @@ def test_batch_from_list_with_time_series_all_present():
     # values preserved in prefix
     assert torch.allclose(ts[0, :5], torch.as_tensor(s1_vals, dtype=ts.dtype))
     assert torch.allclose(ts[1, :7], torch.as_tensor(s2_vals, dtype=ts.dtype))
-    # padded positions equal PAD
-    assert torch.all(ts[0, 5:] == PAD)
+    # Continuous interpolation extends the last valid sample; the mask excludes padding.
+    assert torch.all(ts[0, 5:] == ts[0, 4])
+    assert torch.all(ts_times[0, 5:] == ts_times[0, 4])
+    assert torch.equal(batch.time_series_mask[0], torch.tensor([1., 1., 1., 1., 1., 0., 0.]))
 
 
 def test_batch_multivariate_time_series_all_present():

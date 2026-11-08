@@ -4,7 +4,7 @@ from src.data.event_pipeline import load_event_windows_for_task
 from src.data.normalization import resolve_magnitude_bounds
 from src.data.preprocessing import calculate_catalog_statistics
 
-from .common import _loader_runtime_kwargs, _maybe_apply_train_subset, _split_with_event_loader
+from .common import _loader_runtime_kwargs, _maybe_apply_train_subset, _split_with_event_loader, _window_options
 
 
 def prepare_data(args, base_dir):
@@ -21,9 +21,14 @@ def prepare_data(args, base_dir):
         Tfore=args.Tfore,
         dt=args.dt,
         context_len=getattr(args, 'context_len', 0),
+        **_window_options(args),
     )
     df = event_bundle.df
-    statistics = calculate_catalog_statistics(df)
+    fit_end = _window_options(args).get("fit_end")
+    statistics = calculate_catalog_statistics(df if fit_end is None else df.loc[df.t < fit_end])
+    if fit_end is not None:
+        args.normalization_fit_end = fit_end
+        args.input_source_sha256 = df.attrs["source_sha256"]
     args.stats = OmegaConf.create(statistics)
 
     dataset = loader.EventDataset(
@@ -32,6 +37,7 @@ def prepare_data(args, base_dir):
         task_type=args.task_type,
         mag_min=mag_min,
         mag_max=mag_max,
+        forecast_origins=[sample["t"] for sample in event_bundle.samples_list],
     )
     train_set, val_set, test_set = _split_with_event_loader(
         dataset,

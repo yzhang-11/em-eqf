@@ -1,0 +1,65 @@
+dataset_catalog_cfg:
+  JMA_Kyushu:
+    root_dir: /root/autodl-tmp/em_eqf/data/JMA_Kyushu/catalogs/standard_20261105
+    catalog_file: /root/autodl-tmp/em_eqf/data/JMA_Kyushu/processed/standard_source_20261105.parquet
+    mag_completeness: 3.0
+    normalize: true
+    start_ts: '1997-12-31T15:00:00'
+    end_ts: '2024-12-31T15:00:00'
+    val_start_ts: '2014-01-01'
+    test_start_ts: '2016-01-01'
+  JMA_WestHonshu:
+    root_dir: /root/autodl-tmp/em_eqf/data/JMA_WestHonshu/catalogs/standard_20261105
+    catalog_file: /root/autodl-tmp/em_eqf/data/JMA_WestHonshu/processed/standard_source_20261105.parquet
+    mag_completeness: 3.0
+    normalize: true
+    start_ts: '1997-12-31T15:00:00'
+    end_ts: '2024-12-31T15:00:00'
+    val_start_ts: '2014-01-01'
+    test_start_ts: '2016-01-01'
+  JMA_EastHonshu:
+    root_dir: /root/autodl-tmp/em_eqf/data/JMA_EastHonshu/catalogs/standard_20261105
+    catalog_file: /root/autodl-tmp/em_eqf/data/JMA_EastHonshu/processed/standard_source_20261105.parquet
+    mag_completeness: 3.0
+    normalize: true
+    start_ts: '1997-12-31T15:00:00'
+    end_ts: '2024-12-31T15:00:00'
+    val_start_ts: '2014-01-01'
+    test_start_ts: '2016-01-01'
+  JMA_Hokkaido:
+    root_dir: /root/autodl-tmp/em_eqf/data/JMA_Hokkaido/catalogs/standard_20261105
+    catalog_file: /root/autodl-tmp/em_eqf/data/JMA_Hokkaido/processed/standard_source_20261105.parquet
+    mag_completeness: 3.0
+    normalize: true
+    start_ts: '1997-12-31T15:00:00'
+    end_ts: '2024-12-31T15:00:00'
+    val_start_ts: '2014-01-01'
+    test_start_ts: '2016-01-01'
+  GeoNet:
+    root_dir: /root/autodl-tmp/em_eqf/data/GeoNet/catalogs/standard_20261105
+    catalog_file: /root/autodl-tmp/em_eqf/data/GeoNet/processed/standard_source_20261105.parquet
+    mag_completeness: 3.0
+    normalize: true
+    start_ts: '1985-01-01'
+    end_ts: '2026-01-01'
+    val_start_ts: '2014-01-01'
+    test_start_ts: '2016-01-01'
+  INGV:
+    root_dir: /root/autodl-tmp/em_eqf/data/INGV/catalogs/standard_20261105
+    catalog_file: /root/autodl-tmp/em_eqf/data/INGV/processed/standard_source_20261105.parquet
+    mag_completeness: 2.5
+    normalize: true
+    start_ts: '1985-01-01'
+    end_ts: '2026-01-01'
+    val_start_ts: '2014-01-01'
+    test_start_ts: '2016-01-01'
+  NCEDC:
+    root_dir: /root/autodl-tmp/em_eqf/data/NCEDC/catalogs/standard_20261105
+    catalog_file: /root/autodl-tmp/em_eqf/data/NCEDC/processed/standard_source_20261105.parquet
+    mag_completeness: 2.5
+    normalize: true
+    start_ts: '1985-01-01'
+    end_ts: '2026-01-01'
+    val_start_ts: '2014-01-01'
+    test_start_ts: '2016-01-01'
+catalog_cfg: ${dataset_catalog_cfg.${dataset}}
