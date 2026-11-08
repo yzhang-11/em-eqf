@@ -7,7 +7,7 @@ import tarfile
 
 ROOT=Path('/root/autodl-tmp/em_eqf');TAG='mamba3_decay_transfer_20261105'
 BASE=ROOT/'experiments/revision/multiregion_pretraining';STORE=Path('/root/autodl-fs/em_eqf_training')/TAG
-OLD=STORE.parent/'chuandian_scedc_tpp_20261105';REPORTS=BASE/'reports'/TAG
+OLD=STORE.parent/'chuandian_scedc_tpp_20261105';REPORTS=BASE/'shared/reports'/TAG
 def read(p):return json.loads(Path(p).read_text())
 def sha(p):
     h=hashlib.sha256()
@@ -40,7 +40,7 @@ for name in ['targets.pt','sources_before_chuandian_training_end.pt','sources_be
     items.append((OLD/name,Path('references')/OLD.name/name))
 items.append((BASE/'configs'/OLD.name,Path('references')/OLD.name/'configs'))
 for tag in [OLD.name,'original_etas_tpp_20261105','recast_single_region_tpp_20261105']:
-    items.append((BASE/'reports'/tag,Path('references')/tag/'reports'))
+    items.append((BASE/'shared/reports'/tag,Path('references')/tag/'shared/reports'))
 for p in (OLD/'runs').glob('*/training_complete.json'):
     items.append((p,Path('references')/OLD.name/'training_metadata'/p.parent.name/p.name))
 # The imported previous control module imports this helper; bootstrap is

@@ -17,7 +17,7 @@ import torch
 ROOT=Path('/root/autodl-tmp/em_eqf');TAG='mamba3_decay_transfer_20261105'
 BASE=ROOT/'experiments/revision/multiregion_pretraining';STORE=Path('/root/autodl-fs/em_eqf_training')/TAG
 FROZEN=STORE/'frozen_project';OLD=STORE.parent/'chuandian_scedc_tpp_20261105'
-REPORTS,CONFIGS,RUNS=[BASE/x/TAG for x in ['reports','configs','runs']]
+REPORTS,CONFIGS,RUNS=[BASE/x/TAG for x in ['shared/reports','configs','runs']]
 DATA=OLD/'targets.pt';FAMILY='mamba3_decay_native';TARGETS=['chuandian','scedc'];SEEDS=[0,1,2];LRS=[3e-5,1e-4,3e-4]
 spec=importlib.util.spec_from_file_location('previous_control',OLD/'frozen_runner.py')
 control=importlib.util.module_from_spec(spec);spec.loader.exec_module(control);c=control.c

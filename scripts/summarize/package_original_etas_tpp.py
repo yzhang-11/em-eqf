@@ -7,7 +7,7 @@ import tarfile
 
 ROOT=Path('/root/autodl-tmp/em_eqf');TAG='original_etas_tpp_20261105'
 BASE=ROOT/'experiments/revision/multiregion_pretraining';STORE=Path('/root/autodl-fs/em_eqf_training')/TAG
-OLD=STORE.parent/'chuandian_scedc_tpp_20261105';REPORTS=BASE/'reports'/TAG
+OLD=STORE.parent/'chuandian_scedc_tpp_20261105';REPORTS=BASE/'shared/reports'/TAG
 REFERENCE=STORE.parent/'mamba3_chuandian_transfer_20261105/frozen_project'
 def read(p):return json.loads(Path(p).read_text())
 def sha(p):
@@ -36,7 +36,7 @@ for name in ['tuning/run_original_etas_tpp.py','summarize/package_original_etas_
     items.append((ROOT/'scripts'/name,Path('scripts')/name))
 for name in ['targets.pt','frozen_runner.py']:items.append((OLD/name,Path('references')/OLD.name/name))
 for name in ['summary.json','data.json','etas/test_results.json']:
-    items.append((BASE/'reports'/OLD.name/name,Path('references')/OLD.name/'reports'/name))
+    items.append((BASE/'shared/reports'/OLD.name/name,Path('references')/OLD.name/'shared/reports'/name))
 for source,name in [(BASE/'reports/mamba3_oracle_residual_20261105/frozen_source.json','frozen_model_manifest.json'),
                     (BASE/'configs/mamba3_oracle_residual_20261105/study_plan.json','original_backbone_plan.json')]:
     items.append((source,Path('dependencies')/name))

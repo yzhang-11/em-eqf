@@ -95,47 +95,6 @@ def test_prepare_data_lstm_uses_event_loader_split(monkeypatch, tmp_path):
     assert called["count"] >= 1
 
 
-def test_prepare_data_lstm_cache_key_includes_time_step_and_mag_elaps(monkeypatch, tmp_path):
-    df = _make_catalog_df()
-    monkeypatch.setattr(event_pipeline, "load_and_filter_catalog", lambda base_dir, Mc: df.copy())
-
-    captured = {}
-
-    def _fake_save_or_load_data(base_path, generate_fn, **kwargs):
-        captured.update(kwargs)
-        return generate_fn()
-
-    monkeypatch.setattr(event_pipeline, "save_or_load_data", _fake_save_or_load_data)
-
-    args = _Args(
-        Mc=3.0,
-        Mf=3.0,
-        Twindow=24.0,
-        Tfore=8.0,
-        dt=4.0,
-        context_len=1,
-        batch_size=8,
-        time_step=5,
-        lstm_feature_mode="external_sliding",
-        Mag_elaps=[5.5, 6.0],
-        feature_cols=["Num", "Mag_max", "Mag_mean", "b_lsq", "a_lsq", "T_elaps5.5"],
-    )
-    preparation.prepare_data_lstm(args, str(tmp_path))
-
-    assert captured["sub_dir"] == "lstm_regressor"
-    assert captured["prefix"] == "lstm_regressor"
-    assert "feature_window" in captured
-    assert captured["feature_window"] is None
-    assert "feature_step" in captured
-    assert captured["feature_step"] is None
-    assert "time_step" in captured
-    assert captured["time_step"] == 5
-    assert "lstm_feature_mode" in captured
-    assert captured["lstm_feature_mode"] == "external_sliding"
-    assert "Mag_elaps" in captured
-    assert captured["Mag_elaps"] == [5.5, 6.0]
-
-
 def test_prepare_data_lstm_external_sliding_rejects_feature_step(monkeypatch, tmp_path):
     df = _make_catalog_df()
     monkeypatch.setattr(event_pipeline, "load_and_filter_catalog", lambda base_dir, Mc: df.copy())

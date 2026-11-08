@@ -18,7 +18,7 @@ jobs_per_gpu: 6
 stop_on_error: false
 
 exp_root: experiments
-exp_name: clf_single_window_pretrain_b64_lr3e3
+exp_name: mtpp/classification/single_window_pretrain_b64_lr3e3
 
 run_test: true
 ckpt_select: best
@@ -31,7 +31,7 @@ grid:
     Tfore: 90
     Mf: 5.5
   points:
-    # 0) 不迁移（对应 experiments/clf_scratch）
+    # 0) 不迁移（对应 experiments/mtpp/classification/scratch）
     - name: scratch
       overrides:
         resume_path: null
@@ -41,7 +41,7 @@ grid:
         criterion_cfg.gamma: 2.0
         use_sampler: true
 
-    # 1) 迁移自 AZDX（对应 experiments/clf_AZDX）
+    # 1) 迁移自 AZDX（对应 experiments/mtpp/classification/azdx）
     - name: pre_azdx
       overrides:
         resume_path: ./checkpoints/mixer_tpp_20260508-182744/last_model_1.pth
@@ -51,7 +51,7 @@ grid:
         criterion_cfg.gamma: 2.0
         use_sampler: true
 
-    # 2) 迁移自 AZDX_minus_b（对应 experiments/clf_AZDX_minus_b）
+    # 2) 迁移自 AZDX_minus_b（对应 experiments/mtpp/classification/azdx_minus_b）
     - name: pre_azdx_minus_b
       overrides:
         resume_path: ./checkpoints/mixer_tpp_20260510-211348/last_model_1.pth
@@ -61,7 +61,7 @@ grid:
         criterion_cfg.gamma: 2.0
         use_sampler: true
 
-    # 3) 迁移自 SCEDC（对应 experiments/clf_SCEDC）
+    # 3) 迁移自 SCEDC（对应 experiments/mtpp/classification/scedc）
     - name: pre_scedc
       overrides:
         resume_path: ./checkpoints/mixer_tpp_20260514-211059/last_model_1.pth
@@ -71,7 +71,7 @@ grid:
         criterion_cfg.gamma: 2.0
         use_sampler: true
 
-    # 4) 迁移自 SCEDC_minus_b（对应 experiments/clf_SCEDC_minus_b）
+    # 4) 迁移自 SCEDC_minus_b（对应 experiments/mtpp/classification/scedc_minus_b）
     - name: pre_scedc_minus_b
       overrides:
         resume_path: ./checkpoints/mixer_tpp_20260514-211318/last_model_1.pth

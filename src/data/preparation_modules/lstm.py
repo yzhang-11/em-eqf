@@ -45,59 +45,11 @@ def _normalize_lstm_labels_to_fixed_range(targets_1d, *, mag_min: float, mag_max
 
 
 def _load_lstm_event_windows_with_cache(args, base_dir) -> EventWindowBundle:
-    import src.data.event_loader as event_loader
-
-    _ensure_args_defaults(args, {"Mag_elaps": []})
-    if getattr(args, "split_dates", None):
-        return event_pipeline.load_event_windows_with_cache(
-            base_dir=base_dir, Mc=args.Mc, Mf=args.Mf, Twindow=args.Twindow,
-            Tfore=args.Tfore, dt=args.dt, context_len=getattr(args, "context_len", 0),
-            task_prefix="lstm_regressor", **_window_options(args))
-    base_dir = str(base_dir)
-    df = event_pipeline.load_and_filter_catalog(base_dir, Mc=args.Mc)
-    df_nl, _ = event_loader.normalize_df(df)
-
-    context_len = getattr(args, "context_len", 0)
-    feature_mode = str(getattr(args, "lstm_feature_mode", FEATURE_CONSTRUCTION_INNER_SLIDING)).strip().lower()
-    time_step = getattr(args, "time_step", None)
-    feature_window = getattr(args, "feature_window", None)
-    feature_step = getattr(args, "feature_step", None)
-    mag_elaps = list(getattr(args, "Mag_elaps", []))
-
-    def generate_data():
-        samples_list, array_dict = event_loader.construct_samples_list(
-            df,
-            df_nl,
-            Mc=args.Mc,
-            Mf=args.Mf,
-            Twindow=args.Twindow,
-            Tfore=args.Tfore,
-            dt=args.dt,
-            context_len=context_len,
-        )
-        return {
-            "samples_list": samples_list,
-            "array_dict": array_dict,
-        }
-
-    cached = event_pipeline.save_or_load_data(
-        base_path=base_dir,
-        generate_fn=generate_data,
-        sub_dir="lstm_regressor",
-        prefix="lstm_regressor",
-        Mc=args.Mc,
-        Mf=args.Mf,
-        Twindow=args.Twindow,
-        Tfore=args.Tfore,
-        dt=args.dt,
-        context_len=context_len,
-        time_step=time_step,
-        feature_window=feature_window,
-        feature_step=feature_step,
-        lstm_feature_mode=feature_mode,
-        Mag_elaps=mag_elaps,
+    return event_pipeline.load_event_windows_with_cache(
+        base_dir=base_dir, Mc=args.Mc, Mf=args.Mf, Twindow=args.Twindow,
+        Tfore=args.Tfore, dt=args.dt, context_len=getattr(args, "context_len", 0),
+        **_window_options(args),
     )
-    return EventWindowBundle(df=df, samples_list=cached["samples_list"], array_dict=cached["array_dict"])
 
 
 def _impute_telaps_nan_in_tensor(features_3d, feature_cols, *, fallback_value: float, epsilon: float = 1e-6):

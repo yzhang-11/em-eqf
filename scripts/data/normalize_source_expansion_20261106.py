@@ -179,7 +179,7 @@ def eafz(path):
 
 
 def main():
-    reports = OUT / "reports"
+    reports = OUT / "shared/reports"
     reports.mkdir(parents=True, exist_ok=True)
     sources = [
         ("Taiwan_CWA", "cwa_historical.zip", cwa,

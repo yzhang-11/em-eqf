@@ -24,7 +24,7 @@ def main():
         if source.is_file():files[str(relative)]=source.resolve()
     for study,tag in [(REG,'mamba3_oracle_residual_20261105'),(CONTROL,'chuandian_multiregion_transfer_20261105'),
                       (CONTROL,'chuandian_warmup_guard_20261105')]:
-        for branch in ['configs','reports']:
+        for branch in ['configs','shared/reports']:
             for source in (ROOT/study/branch/tag).rglob('*'):
                 if source.suffix in {'.json','.yaml','.csv','.md','.xml','.log'}:add(source,source.relative_to(ROOT))
         for source in (ROOT/study/'runs'/tag).rglob('*'):

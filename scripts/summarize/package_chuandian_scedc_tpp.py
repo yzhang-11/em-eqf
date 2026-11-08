@@ -9,7 +9,7 @@ ROOT=Path('/root/autodl-tmp/em_eqf')
 TAG='chuandian_scedc_tpp_20261105'
 STORE=Path('/root/autodl-fs/em_eqf_training')/TAG
 BASE=ROOT/'experiments/revision/multiregion_pretraining'
-REPORTS=BASE/'reports'/TAG
+REPORTS=BASE/'shared/reports'/TAG
 REFERENCE=Path('/root/autodl-fs/em_eqf_training/mamba3_chuandian_transfer_20261105/frozen_project')
 
 

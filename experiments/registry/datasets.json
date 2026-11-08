@@ -1,0 +1,1000 @@
+[
+  {
+    "dataset": "AZDX",
+    "path": "data/AZDX",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/AZDX",
+    "raw": [
+      "data/AZDX/raw/size_3k_stress_0.6_dyn_0.8_mm_5.5_dm_0.5_b_0.4_yr_20k_eq.csv",
+      "data/AZDX/raw/size_3k_stress_0.6_dyn_0.8_mm_5.5_dm_0.5_b_0.4_yr_20k_eq.dat"
+    ],
+    "processed": [],
+    "cache": "/root/autodl-tmp/em_eqf/data/AZDX/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/AZDX/catalogs"
+  },
+  {
+    "dataset": "AZDX-taper",
+    "path": "data/AZDX-taper",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/AZDX-taper",
+    "raw": [
+      "data/AZDX-taper/raw/size_3k_stress_0.6_dyn_0.8_mm_5.5_dm_0.5_b_0.4_yr_20k_taper_EQ.csv",
+      "data/AZDX-taper/raw/size_3k_stress_0.6_dyn_0.8_mm_5.5_dm_0.5_b_0.4_yr_20k_taper_EQ.dat"
+    ],
+    "processed": [],
+    "cache": "/root/autodl-tmp/em_eqf/data/AZDX-taper/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/AZDX-taper/catalogs"
+  },
+  {
+    "dataset": "Basel",
+    "path": "data/Basel",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/Basel",
+    "raw": [
+      "data/Basel/raw/Basel_Eq.csv",
+      "data/Basel/raw/Basel_Head.json",
+      "data/Basel/raw/Basel_Inj.csv",
+      "data/Basel/raw/Basel_Meta.json",
+      "data/Basel/raw/Basel_Traj.csv"
+    ],
+    "processed": [
+      "data/Basel/processed/Basel_eq_processed.csv",
+      "data/Basel/processed/Basel_inj_1min_processed.csv",
+      "data/Basel/processed/Basel_summary.json"
+    ],
+    "cache": "/root/autodl-tmp/em_eqf/data/Basel/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/Basel/catalogs"
+  },
+  {
+    "dataset": "CB_HAB1a",
+    "path": "data/CB_HAB1a",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/CB_HAB1a",
+    "raw": [
+      "data/CB_HAB1a/raw/CB_HAB1a_Eq.csv",
+      "data/CB_HAB1a/raw/CB_HAB1a_Head.json",
+      "data/CB_HAB1a/raw/CB_HAB1a_Inj.csv",
+      "data/CB_HAB1a/raw/CB_HAB1a_Meta.json",
+      "data/CB_HAB1a/raw/CB_HAB1a_Traj.csv"
+    ],
+    "processed": [
+      "data/CB_HAB1a/processed/CB_HAB1a_eq_processed.csv",
+      "data/CB_HAB1a/processed/CB_HAB1a_inj_1min_processed.csv",
+      "data/CB_HAB1a/processed/CB_HAB1a_summary.json"
+    ],
+    "cache": "/root/autodl-tmp/em_eqf/data/CB_HAB1a/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/CB_HAB1a/catalogs"
+  },
+  {
+    "dataset": "CB_HAB1b",
+    "path": "data/CB_HAB1b",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/CB_HAB1b",
+    "raw": [
+      "data/CB_HAB1b/raw/CB_HAB1b_Eq.csv",
+      "data/CB_HAB1b/raw/CB_HAB1b_Head.json",
+      "data/CB_HAB1b/raw/CB_HAB1b_Inj.csv",
+      "data/CB_HAB1b/raw/CB_HAB1b_Meta.json",
+      "data/CB_HAB1b/raw/CB_HAB1b_Traj.csv"
+    ],
+    "processed": [
+      "data/CB_HAB1b/processed/CB_HAB1b_eq_processed.csv",
+      "data/CB_HAB1b/processed/CB_HAB1b_inj_1min_processed.csv",
+      "data/CB_HAB1b/processed/CB_HAB1b_summary.json"
+    ],
+    "cache": "/root/autodl-tmp/em_eqf/data/CB_HAB1b/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/CB_HAB1b/catalogs"
+  },
+  {
+    "dataset": "CB_HAB4",
+    "path": "data/CB_HAB4",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/CB_HAB4",
+    "raw": [
+      "data/CB_HAB4/raw/CB_HAB4_Eq.csv",
+      "data/CB_HAB4/raw/CB_HAB4_Head.json",
+      "data/CB_HAB4/raw/CB_HAB4_Inj.csv",
+      "data/CB_HAB4/raw/CB_HAB4_Meta.json",
+      "data/CB_HAB4/raw/CB_HAB4_Traj.csv"
+    ],
+    "processed": [
+      "data/CB_HAB4/processed/CB_HAB4_eq_processed.csv",
+      "data/CB_HAB4/processed/CB_HAB4_inj_1min_processed.csv",
+      "data/CB_HAB4/processed/CB_HAB4_summary.json"
+    ],
+    "cache": "/root/autodl-tmp/em_eqf/data/CB_HAB4/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/CB_HAB4/catalogs"
+  },
+  {
+    "dataset": "CCL",
+    "path": "data/CCL",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/CCL",
+    "raw": [],
+    "processed": [
+      "data/CCL/processed/CCL_eq_processed.csv",
+      "data/CCL/processed/CCL_inj_1min_processed.csv",
+      "data/CCL/processed/CCL_summary.json"
+    ],
+    "cache": "/root/autodl-tmp/em_eqf/data/CCL/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/CCL/catalogs"
+  },
+  {
+    "dataset": "CatalogExpansion_20261105",
+    "path": "data/CatalogExpansion_20261105",
+    "storage_target": "/autodl-fs/data/em_eqf_catalogs/expansion_20261105",
+    "raw": [],
+    "processed": [],
+    "cache": "/root/autodl-tmp/em_eqf/data/CatalogExpansion_20261105/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/CatalogExpansion_20261105/catalogs"
+  },
+  {
+    "dataset": "Chile_Atacama",
+    "path": "data/Chile_Atacama",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/Chile_Atacama",
+    "raw": [],
+    "processed": [
+      "data/Chile_Atacama/processed/standard_source_20261106.parquet"
+    ],
+    "cache": "/root/autodl-tmp/em_eqf/data/Chile_Atacama/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/Chile_Atacama/catalogs"
+  },
+  {
+    "dataset": "Chile_Potin",
+    "path": "data/Chile_Potin",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/Chile_Potin",
+    "raw": [],
+    "processed": [
+      "data/Chile_Potin/processed/standard_source_20261106.parquet"
+    ],
+    "cache": "/root/autodl-tmp/em_eqf/data/Chile_Potin/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/Chile_Potin/catalogs"
+  },
+  {
+    "dataset": "Chile_Potin2001NovPlus20261106",
+    "path": "data/Chile_Potin2001NovPlus20261106",
+    "storage_target": "/autodl-fs/data/em_eqf_catalogs/remediation_20261106/Chile_Potin2001NovPlus20261106",
+    "raw": [],
+    "processed": [],
+    "cache": "/root/autodl-tmp/em_eqf/data/Chile_Potin2001NovPlus20261106/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/Chile_Potin2001NovPlus20261106/catalogs"
+  },
+  {
+    "dataset": "ChinaArray",
+    "path": "data/ChinaArray",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/ChinaArray",
+    "raw": [
+      "data/ChinaArray/raw/china_array.csv",
+      "data/ChinaArray/raw/china_array.dat",
+      "data/ChinaArray/raw/processed_ChinaArray.csv"
+    ],
+    "processed": [
+      "data/ChinaArray/processed/processed_china_array.csv"
+    ],
+    "cache": "/root/autodl-tmp/em_eqf/data/ChinaArray/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/ChinaArray/catalogs"
+  },
+  {
+    "dataset": "ChuanDian",
+    "path": "data/ChuanDian",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/ChuanDian",
+    "raw": [
+      "data/ChuanDian/raw/chuandian_2021.csv",
+      "data/ChuanDian/raw/chuandian_2021.dat"
+    ],
+    "processed": [],
+    "cache": "/root/autodl-tmp/em_eqf/data/ChuanDian/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/ChuanDian/catalogs"
+  },
+  {
+    "dataset": "CooperBasin",
+    "path": "data/CooperBasin",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/CooperBasin",
+    "raw": [],
+    "processed": [],
+    "cache": "/root/autodl-tmp/em_eqf/data/CooperBasin/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/CooperBasin/catalogs"
+  },
+  {
+    "dataset": "ENPP_ComCat25",
+    "path": "data/ENPP_ComCat25",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/ENPP_ComCat25",
+    "raw": [
+      "data/ENPP_ComCat25/raw/author_snapshot"
+    ],
+    "processed": [],
+    "cache": "/root/autodl-tmp/em_eqf/data/ENPP_ComCat25/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/ENPP_ComCat25/catalogs"
+  },
+  {
+    "dataset": "ENPP_JapanDeprecated",
+    "path": "data/ENPP_JapanDeprecated",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/ENPP_JapanDeprecated",
+    "raw": [
+      "data/ENPP_JapanDeprecated/raw/author_snapshot"
+    ],
+    "processed": [],
+    "cache": "/root/autodl-tmp/em_eqf/data/ENPP_JapanDeprecated/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/ENPP_JapanDeprecated/catalogs"
+  },
+  {
+    "dataset": "ENPP_QTMSaltonSea10",
+    "path": "data/ENPP_QTMSaltonSea10",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/ENPP_QTMSaltonSea10",
+    "raw": [
+      "data/ENPP_QTMSaltonSea10/raw/author_snapshot"
+    ],
+    "processed": [],
+    "cache": "/root/autodl-tmp/em_eqf/data/ENPP_QTMSaltonSea10/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/ENPP_QTMSaltonSea10/catalogs"
+  },
+  {
+    "dataset": "ENPP_QTMSanJacinto10",
+    "path": "data/ENPP_QTMSanJacinto10",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/ENPP_QTMSanJacinto10",
+    "raw": [
+      "data/ENPP_QTMSanJacinto10/raw/author_snapshot"
+    ],
+    "processed": [],
+    "cache": "/root/autodl-tmp/em_eqf/data/ENPP_QTMSanJacinto10/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/ENPP_QTMSanJacinto10/catalogs"
+  },
+  {
+    "dataset": "ENPP_SCEDC20",
+    "path": "data/ENPP_SCEDC20",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/ENPP_SCEDC20",
+    "raw": [
+      "data/ENPP_SCEDC20/raw/author_snapshot"
+    ],
+    "processed": [],
+    "cache": "/root/autodl-tmp/em_eqf/data/ENPP_SCEDC20/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/ENPP_SCEDC20/catalogs"
+  },
+  {
+    "dataset": "ENPP_SCEDC25",
+    "path": "data/ENPP_SCEDC25",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/ENPP_SCEDC25",
+    "raw": [
+      "data/ENPP_SCEDC25/raw/author_snapshot"
+    ],
+    "processed": [],
+    "cache": "/root/autodl-tmp/em_eqf/data/ENPP_SCEDC25/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/ENPP_SCEDC25/catalogs"
+  },
+  {
+    "dataset": "ENPP_SCEDC30",
+    "path": "data/ENPP_SCEDC30",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/ENPP_SCEDC30",
+    "raw": [
+      "data/ENPP_SCEDC30/raw/author_snapshot"
+    ],
+    "processed": [],
+    "cache": "/root/autodl-tmp/em_eqf/data/ENPP_SCEDC30/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/ENPP_SCEDC30/catalogs"
+  },
+  {
+    "dataset": "ENPP_White06",
+    "path": "data/ENPP_White06",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/ENPP_White06",
+    "raw": [
+      "data/ENPP_White06/raw/author_snapshot"
+    ],
+    "processed": [],
+    "cache": "/root/autodl-tmp/em_eqf/data/ENPP_White06/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/ENPP_White06/catalogs"
+  },
+  {
+    "dataset": "FORGE2022",
+    "path": "data/FORGE2022",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/FORGE2022",
+    "raw": [
+      "data/FORGE2022/raw/FORGE2022_Eq.csv",
+      "data/FORGE2022/raw/FORGE2022_Head.json",
+      "data/FORGE2022/raw/FORGE2022_Inj.csv",
+      "data/FORGE2022/raw/FORGE2022_Meta.json",
+      "data/FORGE2022/raw/FORGE2022_Traj.csv"
+    ],
+    "processed": [
+      "data/FORGE2022/processed/FORGE2022_eq_processed.csv",
+      "data/FORGE2022/processed/FORGE2022_inj_1min_processed.csv",
+      "data/FORGE2022/processed/FORGE2022_summary.json"
+    ],
+    "cache": "/root/autodl-tmp/em_eqf/data/FORGE2022/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/FORGE2022/catalogs"
+  },
+  {
+    "dataset": "GeoNet",
+    "path": "data/GeoNet",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/GeoNet",
+    "raw": [
+      "data/GeoNet/raw/source_snapshot_20261105"
+    ],
+    "processed": [
+      "data/GeoNet/processed/multiregion_new_zealand_mc3.0_2007_2019.csv",
+      "data/GeoNet/processed/standard_source_20261105.parquet"
+    ],
+    "cache": "/root/autodl-tmp/em_eqf/data/GeoNet/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/GeoNet/catalogs"
+  },
+  {
+    "dataset": "Geysers",
+    "path": "data/Geysers",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/Geysers",
+    "raw": [
+      "data/Geysers/raw/InjData.csv",
+      "data/Geysers/raw/daily_injection_production.csv",
+      "data/Geysers/raw/geysers_catalog.csv",
+      "data/Geysers/raw/geysers_catalog.dat",
+      "data/Geysers/raw/geysers_injection_data.mat"
+    ],
+    "processed": [
+      "data/Geysers/processed/Geysers_eq_processed.csv",
+      "data/Geysers/processed/Geysers_inj_1440min_processed.csv",
+      "data/Geysers/processed/Geysers_summary.json"
+    ],
+    "cache": "/root/autodl-tmp/em_eqf/data/Geysers/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/Geysers/catalogs"
+  },
+  {
+    "dataset": "Greece_SantoriniSwarm",
+    "path": "data/Greece_SantoriniSwarm",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/Greece_SantoriniSwarm",
+    "raw": [],
+    "processed": [
+      "data/Greece_SantoriniSwarm/processed/standard_source_20261106.parquet"
+    ],
+    "cache": "/root/autodl-tmp/em_eqf/data/Greece_SantoriniSwarm/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/Greece_SantoriniSwarm/catalogs"
+  },
+  {
+    "dataset": "Greece_Santorini_GFT95_20261106",
+    "path": "data/Greece_Santorini_GFT95_20261106",
+    "storage_target": "/autodl-fs/data/em_eqf_catalogs/remediation_20261106/Greece_Santorini_GFT95_20261106",
+    "raw": [],
+    "processed": [],
+    "cache": "/root/autodl-tmp/em_eqf/data/Greece_Santorini_GFT95_20261106/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/Greece_Santorini_GFT95_20261106/catalogs"
+  },
+  {
+    "dataset": "Greece_WestHellenic",
+    "path": "data/Greece_WestHellenic",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/Greece_WestHellenic",
+    "raw": [],
+    "processed": [
+      "data/Greece_WestHellenic/processed/standard_source_20261106.parquet"
+    ],
+    "cache": "/root/autodl-tmp/em_eqf/data/Greece_WestHellenic/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/Greece_WestHellenic/catalogs"
+  },
+  {
+    "dataset": "Hengill",
+    "path": "data/Hengill",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/Hengill",
+    "raw": [
+      "data/Hengill/raw/COSEISMIQ_catalogue",
+      "data/Hengill/raw/Catalogue_Statistics.png",
+      "data/Hengill/raw/CumulativeDailyVolumes.mat",
+      "data/Hengill/raw/DailyRates.mat",
+      "data/Hengill/raw/DailyVolumes.mat",
+      "data/Hengill/raw/GlobRectGrid_ver3.m",
+      "data/Hengill/raw/TimesVolumes_serial.mat"
+    ],
+    "processed": [
+      "data/Hengill/processed/processed_Hengill.csv"
+    ],
+    "cache": "/root/autodl-tmp/em_eqf/data/Hengill/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/Hengill/catalogs"
+  },
+  {
+    "dataset": "INGV",
+    "path": "data/INGV",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/INGV",
+    "raw": [
+      "data/INGV/raw/source_snapshot_20261105"
+    ],
+    "processed": [
+      "data/INGV/processed/multiregion_italy_mc2.5_2007_2019.csv",
+      "data/INGV/processed/standard_source_20261105.parquet"
+    ],
+    "cache": "/root/autodl-tmp/em_eqf/data/INGV/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/INGV/catalogs"
+  },
+  {
+    "dataset": "IPOCDeep",
+    "path": "data/IPOCDeep",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/IPOCDeep",
+    "raw": [
+      "data/IPOCDeep/raw/2026-050_Najafipour-et-al_data-description.pdf",
+      "data/IPOCDeep/raw/2026-050_Najafipour-et-al_hypocenters.csv"
+    ],
+    "processed": [],
+    "cache": "/root/autodl-tmp/em_eqf/data/IPOCDeep/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/IPOCDeep/catalogs"
+  },
+  {
+    "dataset": "JMA",
+    "path": "data/JMA",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/JMA",
+    "raw": [
+      "data/JMA/raw/h1998.zip",
+      "data/JMA/raw/h1999.zip",
+      "data/JMA/raw/h2000.zip",
+      "data/JMA/raw/h2001.zip",
+      "data/JMA/raw/h2002.zip",
+      "data/JMA/raw/h2003.zip",
+      "data/JMA/raw/h2004.zip",
+      "data/JMA/raw/h2005.zip",
+      "data/JMA/raw/h2006.zip",
+      "data/JMA/raw/h2007.zip",
+      "data/JMA/raw/h2008.zip",
+      "data/JMA/raw/h2009.zip",
+      "data/JMA/raw/h2010.zip",
+      "data/JMA/raw/h2011.zip",
+      "data/JMA/raw/h2012.zip",
+      "data/JMA/raw/h2013.zip",
+      "data/JMA/raw/h2014.zip",
+      "data/JMA/raw/h2015.zip",
+      "data/JMA/raw/h2016.zip",
+      "data/JMA/raw/h2017.zip",
+      "data/JMA/raw/h2018.zip",
+      "data/JMA/raw/h2019.zip",
+      "data/JMA/raw/h2020.zip",
+      "data/JMA/raw/h2021.zip",
+      "data/JMA/raw/h2022.zip",
+      "data/JMA/raw/h2023.zip",
+      "data/JMA/raw/h2024.zip"
+    ],
+    "processed": [
+      "data/JMA/processed/multiregion_japan_kyushu_mc2.0_2007_2019.csv"
+    ],
+    "cache": "/root/autodl-tmp/em_eqf/data/JMA/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/JMA/catalogs"
+  },
+  {
+    "dataset": "JMA_EastHonshu",
+    "path": "data/JMA_EastHonshu",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/JMA_EastHonshu",
+    "raw": [
+      "data/JMA_EastHonshu/raw/source_snapshot_20261105"
+    ],
+    "processed": [
+      "data/JMA_EastHonshu/processed/standard_source_20261105.parquet"
+    ],
+    "cache": "/root/autodl-tmp/em_eqf/data/JMA_EastHonshu/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/JMA_EastHonshu/catalogs"
+  },
+  {
+    "dataset": "JMA_Hokkaido",
+    "path": "data/JMA_Hokkaido",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/JMA_Hokkaido",
+    "raw": [
+      "data/JMA_Hokkaido/raw/source_snapshot_20261105"
+    ],
+    "processed": [
+      "data/JMA_Hokkaido/processed/standard_source_20261105.parquet"
+    ],
+    "cache": "/root/autodl-tmp/em_eqf/data/JMA_Hokkaido/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/JMA_Hokkaido/catalogs"
+  },
+  {
+    "dataset": "JMA_Kyushu",
+    "path": "data/JMA_Kyushu",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/JMA_Kyushu",
+    "raw": [
+      "data/JMA_Kyushu/raw/source_snapshot_20261105"
+    ],
+    "processed": [
+      "data/JMA_Kyushu/processed/standard_source_20261105.parquet"
+    ],
+    "cache": "/root/autodl-tmp/em_eqf/data/JMA_Kyushu/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/JMA_Kyushu/catalogs"
+  },
+  {
+    "dataset": "JMA_WestHonshu",
+    "path": "data/JMA_WestHonshu",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/JMA_WestHonshu",
+    "raw": [
+      "data/JMA_WestHonshu/raw/source_snapshot_20261105"
+    ],
+    "processed": [
+      "data/JMA_WestHonshu/processed/standard_source_20261105.parquet"
+    ],
+    "cache": "/root/autodl-tmp/em_eqf/data/JMA_WestHonshu/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/JMA_WestHonshu/catalogs"
+  },
+  {
+    "dataset": "MultiRegion",
+    "path": "data/MultiRegion",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/MultiRegion",
+    "raw": [],
+    "processed": [],
+    "cache": "/root/autodl-tmp/em_eqf/data/MultiRegion/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/MultiRegion/catalogs"
+  },
+  {
+    "dataset": "NCEDC",
+    "path": "data/NCEDC",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/NCEDC",
+    "raw": [
+      "data/NCEDC/raw/source_snapshot_20261105"
+    ],
+    "processed": [
+      "data/NCEDC/processed/standard_source_20261105.parquet"
+    ],
+    "cache": "/root/autodl-tmp/em_eqf/data/NCEDC/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/NCEDC/catalogs"
+  },
+  {
+    "dataset": "NCEDC_Repaired20261106",
+    "path": "data/NCEDC_Repaired20261106",
+    "storage_target": "/autodl-fs/data/em_eqf_catalogs/remediation_20261106/NCEDC_Repaired20261106",
+    "raw": [],
+    "processed": [],
+    "cache": "/root/autodl-tmp/em_eqf/data/NCEDC_Repaired20261106/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/NCEDC_Repaired20261106/catalogs"
+  },
+  {
+    "dataset": "NOA_Greece",
+    "path": "data/NOA_Greece",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/NOA_Greece",
+    "raw": [
+      "data/NOA_Greece/raw/source_snapshot_20261105"
+    ],
+    "processed": [
+      "data/NOA_Greece/processed/standard_source_20261105.parquet"
+    ],
+    "cache": "/root/autodl-tmp/em_eqf/data/NOA_Greece/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/NOA_Greece/catalogs"
+  },
+  {
+    "dataset": "NORWAY_Bitdalsvatn",
+    "path": "data/NORWAY_Bitdalsvatn",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/NORWAY_Bitdalsvatn",
+    "raw": [
+      "data/NORWAY_Bitdalsvatn/raw/source_snapshot_20261106"
+    ],
+    "processed": [
+      "data/NORWAY_Bitdalsvatn/processed/standard_source_20261106.parquet"
+    ],
+    "cache": "/root/autodl-tmp/em_eqf/data/NORWAY_Bitdalsvatn/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/NORWAY_Bitdalsvatn/catalogs"
+  },
+  {
+    "dataset": "NORWAY_SW",
+    "path": "data/NORWAY_SW",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/NORWAY_SW",
+    "raw": [
+      "data/NORWAY_SW/raw/source_snapshot_20261106"
+    ],
+    "processed": [
+      "data/NORWAY_SW/processed/standard_source_20261106.parquet"
+    ],
+    "cache": "/root/autodl-tmp/em_eqf/data/NORWAY_SW/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/NORWAY_SW/catalogs"
+  },
+  {
+    "dataset": "PNR",
+    "path": "data/PNR",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/PNR",
+    "raw": [],
+    "processed": [],
+    "cache": "/root/autodl-tmp/em_eqf/data/PNR/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/PNR/catalogs"
+  },
+  {
+    "dataset": "PNR_1z",
+    "path": "data/PNR_1z",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/PNR_1z",
+    "raw": [
+      "data/PNR_1z/raw/PNR-1z_injection_rates.csv",
+      "data/PNR_1z/raw/PNR-1z_injection_rates.txt",
+      "data/PNR_1z/raw/PNR-1z_microseismicity_catalogue.txt",
+      "data/PNR_1z/raw/PNR-1z_ms_catalogue_nsta.csv",
+      "data/PNR_1z/raw/PNR_1z_catalog.csv",
+      "data/PNR_1z/raw/PNR_1z_injection_rate_per_min.csv"
+    ],
+    "processed": [],
+    "cache": "/root/autodl-tmp/em_eqf/data/PNR_1z/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/PNR_1z/catalogs"
+  },
+  {
+    "dataset": "PNR_2",
+    "path": "data/PNR_2",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/PNR_2",
+    "raw": [
+      "data/PNR_2/raw/PNR-2_injection_rates.csv",
+      "data/PNR_2/raw/PNR-2_injection_rates.txt",
+      "data/PNR_2/raw/PNR-2_microseismicity_catalogue.txt",
+      "data/PNR_2/raw/PNR-2_ms_catalogue_nsta.csv",
+      "data/PNR_2/raw/PNR_2_catalog.csv",
+      "data/PNR_2/raw/PNR_2_injection_rate_per_min.csv"
+    ],
+    "processed": [],
+    "cache": "/root/autodl-tmp/em_eqf/data/PNR_2/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/PNR_2/catalogs"
+  },
+  {
+    "dataset": "QTMSaltonSea",
+    "path": "data/QTMSaltonSea",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/QTMSaltonSea",
+    "raw": [
+      "data/QTMSaltonSea/raw/catalog_salton_sea.csv",
+      "data/QTMSaltonSea/raw/processed_salton_sea.csv",
+      "data/QTMSaltonSea/raw/salton_sea.csv"
+    ],
+    "processed": [
+      "data/QTMSaltonSea/processed/processed_salton_sea.csv"
+    ],
+    "cache": "/root/autodl-tmp/em_eqf/data/QTMSaltonSea/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/QTMSaltonSea/catalogs"
+  },
+  {
+    "dataset": "QTMSanJacinto",
+    "path": "data/QTMSanJacinto",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/QTMSanJacinto",
+    "raw": [
+      "data/QTMSanJacinto/raw/catalog_san_jacinto.csv",
+      "data/QTMSanJacinto/raw/processed_san_jacinto.csv",
+      "data/QTMSanJacinto/raw/san_jacinto.csv"
+    ],
+    "processed": [
+      "data/QTMSanJacinto/processed/processed_san_jacinto.csv"
+    ],
+    "cache": "/root/autodl-tmp/em_eqf/data/QTMSanJacinto/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/QTMSanJacinto/catalogs"
+  },
+  {
+    "dataset": "SCEDC",
+    "path": "data/SCEDC",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/SCEDC",
+    "raw": [
+      "data/SCEDC/raw/catalog.csv",
+      "data/SCEDC/raw/processed_scedc.csv",
+      "data/SCEDC/raw/scedc.csv",
+      "data/SCEDC/raw/scsn_eq_only_snapshot_20261102.csv"
+    ],
+    "processed": [
+      "data/SCEDC/processed/processed_scedc.csv",
+      "data/SCEDC/processed/scsn_all_types_snapshot_20261102.csv",
+      "data/SCEDC/processed/scsn_eq_2020_2024_snapshot_20261104.csv"
+    ],
+    "cache": "/root/autodl-tmp/em_eqf/data/SCEDC/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/SCEDC/catalogs"
+  },
+  {
+    "dataset": "SED_Switzerland",
+    "path": "data/SED_Switzerland",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/SED_Switzerland",
+    "raw": [
+      "data/SED_Switzerland/raw/source_snapshot_20261105"
+    ],
+    "processed": [
+      "data/SED_Switzerland/processed/standard_source_20261105.parquet"
+    ],
+    "cache": "/root/autodl-tmp/em_eqf/data/SED_Switzerland/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/SED_Switzerland/catalogs"
+  },
+  {
+    "dataset": "SSFS",
+    "path": "data/SSFS",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/SSFS",
+    "raw": [],
+    "processed": [],
+    "cache": "/root/autodl-tmp/em_eqf/data/SSFS/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/SSFS/catalogs"
+  },
+  {
+    "dataset": "SSFS1993",
+    "path": "data/SSFS1993",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/SSFS1993",
+    "raw": [
+      "data/SSFS1993/raw/SSFS1993_Eq.csv",
+      "data/SSFS1993/raw/SSFS1993_Head.json",
+      "data/SSFS1993/raw/SSFS1993_Inj.csv",
+      "data/SSFS1993/raw/SSFS1993_Meta.json",
+      "data/SSFS1993/raw/SSFS1993_Traj.csv"
+    ],
+    "processed": [
+      "data/SSFS1993/processed/SSFS1993_eq_processed.csv",
+      "data/SSFS1993/processed/SSFS1993_inj_5min_processed.csv",
+      "data/SSFS1993/processed/SSFS1993_summary.json"
+    ],
+    "cache": "/root/autodl-tmp/em_eqf/data/SSFS1993/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/SSFS1993/catalogs"
+  },
+  {
+    "dataset": "SSFS2000",
+    "path": "data/SSFS2000",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/SSFS2000",
+    "raw": [
+      "data/SSFS2000/raw/SSFS2000_Eq.csv",
+      "data/SSFS2000/raw/SSFS2000_Head.json",
+      "data/SSFS2000/raw/SSFS2000_Inj.csv",
+      "data/SSFS2000/raw/SSFS2000_Meta.json",
+      "data/SSFS2000/raw/SSFS2000_Traj.csv"
+    ],
+    "processed": [
+      "data/SSFS2000/processed/SSFS2000_eq_processed.csv",
+      "data/SSFS2000/processed/SSFS2000_inj_1min_processed.csv",
+      "data/SSFS2000/processed/SSFS2000_inj_5min_processed.csv",
+      "data/SSFS2000/processed/SSFS2000_summary.json"
+    ],
+    "cache": "/root/autodl-tmp/em_eqf/data/SSFS2000/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/SSFS2000/catalogs"
+  },
+  {
+    "dataset": "SSFS2003",
+    "path": "data/SSFS2003",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/SSFS2003",
+    "raw": [
+      "data/SSFS2003/raw/SSFS2003_Eq.csv",
+      "data/SSFS2003/raw/SSFS2003_Head.json",
+      "data/SSFS2003/raw/SSFS2003_Inj.csv",
+      "data/SSFS2003/raw/SSFS2003_Meta.json",
+      "data/SSFS2003/raw/SSFS2003_Traj.csv"
+    ],
+    "processed": [
+      "data/SSFS2003/processed/SSFS2003_eq_processed.csv",
+      "data/SSFS2003/processed/SSFS2003_inj_1min_processed.csv",
+      "data/SSFS2003/processed/SSFS2003_inj_5min_processed.csv",
+      "data/SSFS2003/processed/SSFS2003_summary.json"
+    ],
+    "cache": "/root/autodl-tmp/em_eqf/data/SSFS2003/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/SSFS2003/catalogs"
+  },
+  {
+    "dataset": "SSFS2004",
+    "path": "data/SSFS2004",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/SSFS2004",
+    "raw": [
+      "data/SSFS2004/raw/SSFS2004_Eq.csv",
+      "data/SSFS2004/raw/SSFS2004_Head.json",
+      "data/SSFS2004/raw/SSFS2004_Inj.csv",
+      "data/SSFS2004/raw/SSFS2004_Meta.json",
+      "data/SSFS2004/raw/SSFS2004_Traj.csv"
+    ],
+    "processed": [
+      "data/SSFS2004/processed/SSFS2004_eq_processed.csv",
+      "data/SSFS2004/processed/SSFS2004_inj_1min_processed.csv",
+      "data/SSFS2004/processed/SSFS2004_inj_5min_processed.csv",
+      "data/SSFS2004/processed/SSFS2004_summary.json"
+    ],
+    "cache": "/root/autodl-tmp/em_eqf/data/SSFS2004/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/SSFS2004/catalogs"
+  },
+  {
+    "dataset": "SSFS2005",
+    "path": "data/SSFS2005",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/SSFS2005",
+    "raw": [
+      "data/SSFS2005/raw/SSFS2005_Eq.csv",
+      "data/SSFS2005/raw/SSFS2005_Head.json",
+      "data/SSFS2005/raw/SSFS2005_Inj.csv",
+      "data/SSFS2005/raw/SSFS2005_Meta.json",
+      "data/SSFS2005/raw/SSFS2005_Traj.csv"
+    ],
+    "processed": [
+      "data/SSFS2005/processed/SSFS2005_eq_processed.csv",
+      "data/SSFS2005/processed/SSFS2005_inj_1min_processed.csv",
+      "data/SSFS2005/processed/SSFS2005_inj_5min_processed.csv",
+      "data/SSFS2005/processed/SSFS2005_summary.json"
+    ],
+    "cache": "/root/autodl-tmp/em_eqf/data/SSFS2005/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/SSFS2005/catalogs"
+  },
+  {
+    "dataset": "St1-2018",
+    "path": "data/St1-2018",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/St1-2018",
+    "raw": [
+      "data/St1-2018/raw/St1-2018_Eq.csv",
+      "data/St1-2018/raw/St1-2018_Head.json",
+      "data/St1-2018/raw/St1-2018_Inj.csv",
+      "data/St1-2018/raw/St1-2018_Meta.json",
+      "data/St1-2018/raw/St1-2018_Traj.csv"
+    ],
+    "processed": [
+      "data/St1-2018/processed/St1-2018_eq_processed.csv",
+      "data/St1-2018/processed/St1-2018_inj_1min_processed.csv",
+      "data/St1-2018/processed/St1-2018_summary.json"
+    ],
+    "cache": "/root/autodl-tmp/em_eqf/data/St1-2018/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/St1-2018/catalogs"
+  },
+  {
+    "dataset": "St1-2020",
+    "path": "data/St1-2020",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/St1-2020",
+    "raw": [
+      "data/St1-2020/raw/St1-2020_Eq.csv",
+      "data/St1-2020/raw/St1-2020_Head.json",
+      "data/St1-2020/raw/St1-2020_Inj.csv",
+      "data/St1-2020/raw/St1-2020_Meta.json",
+      "data/St1-2020/raw/St1-2020_Traj.csv"
+    ],
+    "processed": [
+      "data/St1-2020/processed/St1-2020_eq_processed.csv",
+      "data/St1-2020/processed/St1-2020_inj_1min_processed.csv",
+      "data/St1-2020/processed/St1-2020_summary.json"
+    ],
+    "cache": "/root/autodl-tmp/em_eqf/data/St1-2020/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/St1-2020/catalogs"
+  },
+  {
+    "dataset": "Taiwan_CWA",
+    "path": "data/Taiwan_CWA",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/Taiwan_CWA",
+    "raw": [],
+    "processed": [
+      "data/Taiwan_CWA/processed/standard_source_20261106.parquet"
+    ],
+    "cache": "/root/autodl-tmp/em_eqf/data/Taiwan_CWA/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/Taiwan_CWA/catalogs"
+  },
+  {
+    "dataset": "Taiwan_CWA1993Plus20261106",
+    "path": "data/Taiwan_CWA1993Plus20261106",
+    "storage_target": "/autodl-fs/data/em_eqf_catalogs/remediation_20261106/Taiwan_CWA1993Plus20261106",
+    "raw": [],
+    "processed": [],
+    "cache": "/root/autodl-tmp/em_eqf/data/Taiwan_CWA1993Plus20261106/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/Taiwan_CWA1993Plus20261106/catalogs"
+  },
+  {
+    "dataset": "Taiwan_Wu2008",
+    "path": "data/Taiwan_Wu2008",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/Taiwan_Wu2008",
+    "raw": [],
+    "processed": [
+      "data/Taiwan_Wu2008/processed/standard_source_20261106.parquet"
+    ],
+    "cache": "/root/autodl-tmp/em_eqf/data/Taiwan_Wu2008/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/Taiwan_Wu2008/catalogs"
+  },
+  {
+    "dataset": "Turkiye_EAFZ",
+    "path": "data/Turkiye_EAFZ",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/Turkiye_EAFZ",
+    "raw": [],
+    "processed": [
+      "data/Turkiye_EAFZ/processed/standard_source_20261106.parquet"
+    ],
+    "cache": "/root/autodl-tmp/em_eqf/data/Turkiye_EAFZ/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/Turkiye_EAFZ/catalogs"
+  },
+  {
+    "dataset": "Turkiye_EAFZ_GFT90_20261106",
+    "path": "data/Turkiye_EAFZ_GFT90_20261106",
+    "storage_target": "/autodl-fs/data/em_eqf_catalogs/remediation_20261106/Turkiye_EAFZ_GFT90_20261106",
+    "raw": [],
+    "processed": [],
+    "cache": "/root/autodl-tmp/em_eqf/data/Turkiye_EAFZ_GFT90_20261106/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/Turkiye_EAFZ_GFT90_20261106/catalogs"
+  },
+  {
+    "dataset": "Turkiye_EAFZ_GFT95_20261106",
+    "path": "data/Turkiye_EAFZ_GFT95_20261106",
+    "storage_target": "/autodl-fs/data/em_eqf_catalogs/remediation_20261106/Turkiye_EAFZ_GFT95_20261106",
+    "raw": [],
+    "processed": [],
+    "cache": "/root/autodl-tmp/em_eqf/data/Turkiye_EAFZ_GFT95_20261106/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/Turkiye_EAFZ_GFT95_20261106/catalogs"
+  },
+  {
+    "dataset": "USGS_Alaska",
+    "path": "data/USGS_Alaska",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/USGS_Alaska",
+    "raw": [
+      "data/USGS_Alaska/raw/source_snapshot_20261105"
+    ],
+    "processed": [
+      "data/USGS_Alaska/processed/standard_source_20261105.parquet"
+    ],
+    "cache": "/root/autodl-tmp/em_eqf/data/USGS_Alaska/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/USGS_Alaska/catalogs"
+  },
+  {
+    "dataset": "USGS_Hawaii",
+    "path": "data/USGS_Hawaii",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/USGS_Hawaii",
+    "raw": [
+      "data/USGS_Hawaii/raw/source_snapshot_20261105"
+    ],
+    "processed": [
+      "data/USGS_Hawaii/processed/standard_source_20261105.parquet"
+    ],
+    "cache": "/root/autodl-tmp/em_eqf/data/USGS_Hawaii/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/USGS_Hawaii/catalogs"
+  },
+  {
+    "dataset": "USGS_Montana",
+    "path": "data/USGS_Montana",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/USGS_Montana",
+    "raw": [
+      "data/USGS_Montana/raw/source_snapshot_20261106"
+    ],
+    "processed": [
+      "data/USGS_Montana/processed/standard_source_20261106.parquet"
+    ],
+    "cache": "/root/autodl-tmp/em_eqf/data/USGS_Montana/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/USGS_Montana/catalogs"
+  },
+  {
+    "dataset": "USGS_MontanaComCat20261106",
+    "path": "data/USGS_MontanaComCat20261106",
+    "storage_target": "/autodl-fs/data/em_eqf_catalogs/remediation_20261106/USGS_MontanaComCat20261106",
+    "raw": [],
+    "processed": [],
+    "cache": "/root/autodl-tmp/em_eqf/data/USGS_MontanaComCat20261106/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/USGS_MontanaComCat20261106/catalogs"
+  },
+  {
+    "dataset": "USGS_NewMadrid",
+    "path": "data/USGS_NewMadrid",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/USGS_NewMadrid",
+    "raw": [
+      "data/USGS_NewMadrid/raw/source_snapshot_20261105"
+    ],
+    "processed": [
+      "data/USGS_NewMadrid/processed/standard_source_20261105.parquet"
+    ],
+    "cache": "/root/autodl-tmp/em_eqf/data/USGS_NewMadrid/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/USGS_NewMadrid/catalogs"
+  },
+  {
+    "dataset": "USGS_PNW",
+    "path": "data/USGS_PNW",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/USGS_PNW",
+    "raw": [
+      "data/USGS_PNW/raw/source_snapshot_20261105"
+    ],
+    "processed": [
+      "data/USGS_PNW/processed/standard_source_20261105.parquet"
+    ],
+    "cache": "/root/autodl-tmp/em_eqf/data/USGS_PNW/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/USGS_PNW/catalogs"
+  },
+  {
+    "dataset": "USGS_PuertoRico",
+    "path": "data/USGS_PuertoRico",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/USGS_PuertoRico",
+    "raw": [
+      "data/USGS_PuertoRico/raw/source_snapshot_20261105"
+    ],
+    "processed": [
+      "data/USGS_PuertoRico/processed/standard_source_20261105.parquet"
+    ],
+    "cache": "/root/autodl-tmp/em_eqf/data/USGS_PuertoRico/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/USGS_PuertoRico/catalogs"
+  },
+  {
+    "dataset": "USGS_Utah",
+    "path": "data/USGS_Utah",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/USGS_Utah",
+    "raw": [
+      "data/USGS_Utah/raw/source_snapshot_20261105"
+    ],
+    "processed": [
+      "data/USGS_Utah/processed/standard_source_20261105.parquet"
+    ],
+    "cache": "/root/autodl-tmp/em_eqf/data/USGS_Utah/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/USGS_Utah/catalogs"
+  },
+  {
+    "dataset": "White",
+    "path": "data/White",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/White",
+    "raw": [
+      "data/White/raw/catalog.csv",
+      "data/White/raw/processed_white.csv",
+      "data/White/raw/white.csv"
+    ],
+    "processed": [
+      "data/White/processed/processed_white.csv"
+    ],
+    "cache": "/root/autodl-tmp/em_eqf/data/White/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/White/catalogs"
+  },
+  {
+    "dataset": "ne_10m_admin_0_countries",
+    "path": "data/ne_10m_admin_0_countries",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/ne_10m_admin_0_countries",
+    "raw": [],
+    "processed": [],
+    "cache": "/root/autodl-tmp/em_eqf/data/ne_10m_admin_0_countries/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/ne_10m_admin_0_countries/catalogs"
+  }
+]

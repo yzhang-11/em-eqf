@@ -23,7 +23,7 @@ ROOT = Path('/root/autodl-tmp/em_eqf')
 STORE = Path('/root/autodl-fs/em_eqf_training/mamba3_chuandian_transfer_20261105')
 BASE = ROOT / 'experiments/revision/controls'
 TAG = 'chuandian_linear_probe_20261105'
-REPORTS, CONFIGS, RUNS = [BASE / name / TAG for name in ['reports', 'configs', 'runs']]
+REPORTS, CONFIGS, RUNS = [BASE / name / TAG for name in ['shared/reports', 'configs', 'runs']]
 WORK = STORE / 'linear_probe'
 READOUT = 'last'
 FAMILIES = ['mamba2_legacy', 'mamba3_oracle_residual']
@@ -43,7 +43,7 @@ def configure_readout(readout):
     READOUT = readout
     suffix = '_mean' if readout == 'mean' else ''
     TAG = f'chuandian_linear_probe{suffix}_20261105'
-    REPORTS, CONFIGS, RUNS = [BASE / name / TAG for name in ['reports', 'configs', 'runs']]
+    REPORTS, CONFIGS, RUNS = [BASE / name / TAG for name in ['shared/reports', 'configs', 'runs']]
     WORK = STORE / f'linear_probe{suffix}'
 
 

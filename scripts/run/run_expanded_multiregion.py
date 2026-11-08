@@ -152,7 +152,7 @@ class Study:
         self.options = config["training"]
         self.data_dir = ROOT / config["paths"]["data"]
         self.runs = ROOT / config["paths"]["runs"]
-        self.reports = ROOT / config["paths"]["reports"]
+        self.reports = ROOT / config["paths"]["shared/reports"]
         self.manifest = read_json(self.data_dir / "dataset.json")
         self.full_sequence = config.get("protocol") == "full_sequence_calendar"
         self.baseline = self.options.get("baseline", "mamba3")

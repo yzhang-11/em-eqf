@@ -14,7 +14,7 @@ import scripts.data.resume_noa_catalog as r
 def isolated(monkeypatch,tmp_path):
     monkeypatch.setattr(r,'STORE',tmp_path/'data')
     monkeypatch.setattr(r,'PLANS',tmp_path/'plans')
-    monkeypatch.setattr(r,'OUT',tmp_path/'reports')
+    monkeypatch.setattr(r,'OUT',tmp_path/'shared/reports')
     return tmp_path
 
 

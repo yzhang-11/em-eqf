@@ -8,7 +8,7 @@ import tarfile
 ROOT=Path('/root/autodl-tmp/em_eqf');TAG='recast_single_region_tpp_20261105'
 BASE=ROOT/'experiments/revision/multiregion_pretraining'
 STORE=Path('/root/autodl-fs/em_eqf_training')/TAG;OLD=STORE.parent/'chuandian_scedc_tpp_20261105'
-REPORTS=BASE/'reports'/TAG
+REPORTS=BASE/'shared/reports'/TAG
 REFERENCE=STORE.parent/'mamba3_chuandian_transfer_20261105/frozen_project'
 
 
@@ -46,7 +46,7 @@ for name in ['tuning/run_recast_single_region_tpp.py','summarize/audit_recast_si
 ref=Path('references')/OLD.name
 for name in ['targets.pt','frozen_runner.py','frozen_summary.py']:
     items.append((OLD/name,ref/name))
-items.extend([(BASE/'reports'/OLD.name,ref/'reports'),(BASE/'configs'/OLD.name,ref/'configs')])
+items.extend([(BASE/'shared/reports'/OLD.name,ref/'shared/reports'),(BASE/'configs'/OLD.name,ref/'configs')])
 for p in (OLD/'runs').glob('*/training_complete.json'):
     items.append((p,ref/'training_metadata'/p.parent.name/p.name))
 for source,name in [(BASE/'reports/mamba3_oracle_residual_20261105/frozen_source.json','frozen_model_manifest.json'),

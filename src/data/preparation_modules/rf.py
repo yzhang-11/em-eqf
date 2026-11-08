@@ -51,7 +51,6 @@ def prepare_data_rf(args, base_dir):
         Tfore=args.Tfore,
         dt=args.dt,
         context_len=context_len,
-        task_prefix='classifier',
         **_window_options(args),
     )
     df = event_bundle.df

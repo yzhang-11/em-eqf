@@ -93,13 +93,12 @@ def test_versioned_cache_does_not_reuse_changed_raw_data(tmp_path):
     path = raw / 'events.csv'
     df.to_csv(path, index=False)
     kw = dict(Mc=3, Mf=4, Twindow=2, Tfore=2, dt=2,
-              context_len=0, task_prefix='classifier', fit_end=10,
-              cache_namespace='review_v2')
+              context_len=0, fit_end=10)
     load_event_windows_with_cache(tmp_path, **kw)
-    previous = set((tmp_path / 'classifier').glob('*.pkl'))
+    previous = set((tmp_path / 'cache/windows').glob('*.pkl'))
     df.loc[len(df) - 1, 'Magnitude'] = 7.
     df.to_csv(path, index=False)
     load_event_windows_with_cache(tmp_path, **kw)
-    current = set((tmp_path / 'classifier').glob('*.pkl'))
+    current = set((tmp_path / 'cache/windows').glob('*.pkl'))
     assert len(previous) == 1 and len(current) == 2
     assert previous < current

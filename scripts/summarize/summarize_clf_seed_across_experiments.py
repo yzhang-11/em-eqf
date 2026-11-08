@@ -3,10 +3,10 @@
 
 This script is designed for cross-experiment comparison such as:
   - experiments/clf_grid_r_2
-  - experiments/clf_grid_r_2_AZDX_minus_b
-  - experiments/clf_grid_r_2_SCEDC
-  - experiments/clf_grid_r_2_SCEDC_minus_b
-  - experiments/clf_grid_r_2_scratch
+  - experiments/mtpp/classification/grid_r_2_azdx_minus_b
+  - experiments/mtpp/classification/grid_r_2_scedc
+  - experiments/mtpp/classification/grid_r_2_scedc_minus_b
+  - experiments/mtpp/classification/grid_r_2_scratch
 
 Outputs:
 1) long table: one row per run (filtered by selected seeds),
@@ -43,10 +43,10 @@ from automation import (
 ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_EXPERIMENT_DIRS = (
     "experiments/clf_grid_r_2",
-    "experiments/clf_grid_r_2_AZDX_minus_b",
-    "experiments/clf_grid_r_2_SCEDC",
-    "experiments/clf_grid_r_2_SCEDC_minus_b",
-    "experiments/clf_grid_r_2_scratch",
+    "experiments/mtpp/classification/grid_r_2_azdx_minus_b",
+    "experiments/mtpp/classification/grid_r_2_scedc",
+    "experiments/mtpp/classification/grid_r_2_scedc_minus_b",
+    "experiments/mtpp/classification/grid_r_2_scratch",
 )
 DEFAULT_METRIC_KEYS = (
     "precision",
@@ -318,7 +318,7 @@ def parse_args():
         "--out_dir",
         type=str,
         default=None,
-        help="Output directory. Default: experiments/reports/clf_seed_compare_seed_<seed> or ..._seeds_<s0_s1_...>",
+        help="Output directory. Default: experiments/shared/reports/clf_seed_compare_seed_<seed> or ..._seeds_<s0_s1_...>",
     )
     return parser.parse_args()
 
@@ -346,10 +346,10 @@ def main():
         out_dir = _resolve_exp_dir(args.out_dir)
     else:
         if len(target_seeds) == 1:
-            out_dir = ROOT / "experiments" / "reports" / f"clf_seed_compare_seed_{int(target_seeds[0])}"
+            out_dir = ROOT / "experiments" / "shared/reports" / f"clf_seed_compare_seed_{int(target_seeds[0])}"
         else:
             seed_tag = "_".join(str(seed) for seed in target_seeds)
-            out_dir = ROOT / "experiments" / "reports" / f"clf_seed_compare_seeds_{seed_tag}"
+            out_dir = ROOT / "experiments" / "shared/reports" / f"clf_seed_compare_seeds_{seed_tag}"
 
     per_run_rows = collect_rows_for_seeds(
         exp_dirs=exp_dirs,

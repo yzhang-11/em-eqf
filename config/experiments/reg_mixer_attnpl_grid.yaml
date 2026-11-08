@@ -9,7 +9,7 @@ jobs_per_gpu: 3
 stop_on_error: false
 
 exp_root: experiments
-exp_name: reg_mixer_ablation_5_seeds
+exp_name: mtpp/regression/mixer_ablation_5_seeds
 
 run_test: true
 ckpt_select: both

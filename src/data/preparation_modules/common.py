@@ -132,7 +132,7 @@ def _split_boundaries(args):
 def _window_options(args):
     boundaries = _split_boundaries(args)
     return {} if boundaries is None else {
-        "fit_end": boundaries[0], "cache_namespace": "review_v2"}
+        "fit_end": boundaries[0]}
 
 
 def _target_period_indices(origins, args):

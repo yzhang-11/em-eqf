@@ -12,7 +12,7 @@ OUT = ROOT/'experiments/revision/multiregion_pretraining'
 
 
 def main():
-    report = OUT/'reports'
+    report = OUT/'shared/reports'
     dataset = json.loads((report/'pilot_data_20261104.json').read_text())
     results = []
     for path in sorted((OUT/'runs').glob('*/metrics.json')):

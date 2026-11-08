@@ -15,7 +15,7 @@ import torch
 ROOT=Path('/root/autodl-tmp/em_eqf');TAG='original_etas_tpp_20261105'
 BASE=ROOT/'experiments/revision/multiregion_pretraining';STORE=Path('/root/autodl-fs/em_eqf_training')/TAG
 OLD=STORE.parent/'chuandian_scedc_tpp_20261105'
-REPORTS,CONFIGS,RUNS=[BASE/key/TAG for key in ['reports','configs','runs']]
+REPORTS,CONFIGS,RUNS=[BASE/key/TAG for key in ['shared/reports','configs','runs']]
 spec=importlib.util.spec_from_file_location('previous_control',OLD/'frozen_runner.py')
 control=importlib.util.module_from_spec(spec);spec.loader.exec_module(control);c=control.c
 TARGETS=['chuandian','scedc'];DATA=OLD/'targets.pt'

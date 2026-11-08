@@ -13,7 +13,7 @@ jobs_per_gpu: 3
 stop_on_error: false
 
 exp_root: experiments
-exp_name: rtpp_v2_multi_dataset_norm_0.2
+exp_name: netas/recast/legacy_norm_0p2
 
 run_test: true
 ckpt_select: both

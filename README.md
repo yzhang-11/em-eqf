@@ -435,3 +435,5 @@ python -m pytest -q
 ```
 
 The project is released under the MIT License; see [LICENSE](LICENSE).
+
+数据、实验命名、结果文件索引和存储维护说明：[README_experiments.md](README_experiments.md)。

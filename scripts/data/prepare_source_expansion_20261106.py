@@ -132,7 +132,7 @@ def build(name, row):
 
 def main():
     (OUT / "configs").mkdir(parents=True, exist_ok=True)
-    reports = OUT / "reports"
+    reports = OUT / "shared/reports"
     sources = json.loads((reports / "sources.json").read_text(encoding="utf-8"))
     guards = {}
     for manifest in [

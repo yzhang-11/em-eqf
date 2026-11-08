@@ -112,7 +112,7 @@ def main():
         for name in ['README.md','manifest.json','plan.json','selection.json']:
             copy(BASE/name,stage/name)
         for path in (BASE/'configs').glob('*.json'):copy(path,stage/'configs'/path.name)
-        for path in (BASE/'reports').rglob('*'):
+        for path in (BASE/'shared/reports').rglob('*'):
             if path.is_file() and 'failed_attempt' not in str(path):copy(path,stage/path.relative_to(BASE))
         for path in (BASE/'features').glob('*.json'):copy(path,stage/'features'/path.name)
         dynamic_runs=[Path(r['checkpoint']).parent for r in dynamic_statuses]

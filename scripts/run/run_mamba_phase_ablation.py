@@ -23,7 +23,7 @@ import torch
 ROOT = Path(__file__).resolve().parents[2]
 ORIGIN = Path('/root/autodl-tmp/em_eqf')
 STORE = Path('/root/autodl-fs/em_eqf_training/mamba_phase_ablation_20261105')
-REPORTS = STORE / 'reports'
+REPORTS = STORE / 'shared/reports'
 RUNS = STORE / 'runs'
 FROZEN = STORE / 'frozen_project'
 PREVIOUS = ORIGIN / 'experiments/revision/mamba_backbones_20261105/reports'

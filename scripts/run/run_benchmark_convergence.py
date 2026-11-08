@@ -87,11 +87,11 @@ def study_for(root, plan, target, seed, lr, helpers):
     reference = Path(plan['reference'])
     config = yaml.safe_load((reference / 'gr' / target / f's{seed}' / 'transfer.yaml').read_text())
     case = root / 'recast' / case_name(target, seed, lr)
-    config['paths'].update(runs=str(case / 'runs'), reports=str(case / 'reports'))
+    config['paths'].update(runs=str(case / 'runs'), reports=str(case / 'shared/reports'))
     config['training'].update(seeds=[seed], target_steps=plan['targets'][target]['steps'],
                               target_lrs=[lr], target_validate_every=100)
     case.mkdir(parents=True, exist_ok=True)
-    (case / 'reports').mkdir(exist_ok=True)
+    (case / 'shared/reports').mkdir(exist_ok=True)
     (case / 'runs').mkdir(exist_ok=True)
     (case / 'transfer.yaml').write_text(yaml.safe_dump(config, sort_keys=False))
     study = Study(config)

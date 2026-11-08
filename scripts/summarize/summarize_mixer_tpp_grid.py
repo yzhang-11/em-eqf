@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Summarize metrics from run_mixer_tpp_grid.py experiments.
 
-This script scans one experiment directory (e.g. experiments/mixer_tpp_ablation_v1),
+This script scans one experiment directory (e.g. experiments/mtpp/generation/legacy_ablation_v1),
 collects per-run test metrics, and exports:
 1) per-run table (one row per seed/run),
 2) grouped mean/std table by variant (or matrix key fallback),
@@ -221,7 +221,7 @@ def main():
     if not exp_dir.exists():
         raise FileNotFoundError(f"Experiment dir not found: {exp_dir}")
 
-    out_dir = Path(args.out_dir).resolve() if args.out_dir else exp_dir / "reports"
+    out_dir = Path(args.out_dir).resolve() if args.out_dir else exp_dir / "shared/reports"
     metric_keys = [x.strip() for x in str(args.metrics).split(",") if x.strip()]
     if not metric_keys:
         raise ValueError("--metrics must contain at least one key")

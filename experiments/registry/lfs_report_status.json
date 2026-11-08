@@ -1,0 +1,581 @@
+{
+  "materialized": [
+    {
+      "path": "notebooks/metrics/classifier_baseline/global/clf_ci_long_AZDX_b.csv",
+      "oid": "48a2d0c403bad2ec11f7b0982420fb7e8ef5ce85489e756f9ee4937727762766",
+      "bytes": 2462
+    },
+    {
+      "path": "notebooks/metrics/classifier_baseline/global/clf_ci_pairwise_delta_AZDX_b.csv",
+      "oid": "17a173229d114d23bfa9ec6c15c954d85f1f7c6b1a652d977caf7fd28d1d2dbc",
+      "bytes": 1088
+    },
+    {
+      "path": "notebooks/metrics/classifier_baseline/window/clf_ci_long_AZDX_b.csv",
+      "oid": "2f6dc0a176c80a204343a49c80524ed8b8541412b90298575995564a5ff98d9c",
+      "bytes": 2459
+    },
+    {
+      "path": "notebooks/metrics/classifier_baseline/window/clf_ci_pairwise_delta_AZDX_b.csv",
+      "oid": "d41d4888ce67f2114e7b6b004bf83da8ace573cd500e628bf0906ac22819b123",
+      "bytes": 1090
+    },
+    {
+      "path": "notebooks/metrics/classifier_pretrain_comparison/mean/clf_ci_long_pretrain_cmp.csv",
+      "oid": "a0962b32658cb9e886b42b78af76a5cb235de6bc21deb4334fbf63f703b7bc05",
+      "bytes": 5250
+    },
+    {
+      "path": "notebooks/metrics/classifier_pretrain_comparison/mean/clf_ci_pairwise_delta_pretrain_cmp.csv",
+      "oid": "0310fc381ec87f3e6db398c19f932c4b1d2a29ff386c8488b621075783d3bc26",
+      "bytes": 3159
+    },
+    {
+      "path": "notebooks/metrics/classifier_pretrain_comparison/median/clf_ci_long_pretrain_cmp.csv",
+      "oid": "6ba5df9b5d9ca9ad9f7b80407901c31912290343beac2cefc9cc5e58fb805206",
+      "bytes": 4862
+    },
+    {
+      "path": "notebooks/metrics/classifier_pretrain_comparison/median/clf_ci_pairwise_delta_pretrain_cmp.csv",
+      "oid": "715680f69ca63e25dd676526f0c7d6d95336563b88d8d6cfda8632b82edd06b8",
+      "bytes": 3171
+    },
+    {
+      "path": "notebooks/metrics/cumulative_likelihood_over_time/cig_2x2_excluding_CCL_test_0_from_test_reset_y_curves.csv",
+      "oid": "fba19f2306d5cbc23f5f731e2325c9d2691bbcd792ff4c8b1be2efee66f095f3",
+      "bytes": 6282709
+    },
+    {
+      "path": "notebooks/metrics/cumulative_likelihood_over_time/cum_log_likelihood_compare_CCL_test_0_curves.csv",
+      "oid": "91ecc0c2d2f99d0b89f4848ff9fee79a840653d134908d0ddd69e37c3ac0e7fd",
+      "bytes": 3853759
+    },
+    {
+      "path": "notebooks/metrics/cumulative_likelihood_over_time/cum_log_likelihood_compare_CCL_test_0_summary.csv",
+      "oid": "c010be042a055a85cfeed18ff1fa59fcc782bac7633a49963b2facc395bbe5a6",
+      "bytes": 642
+    },
+    {
+      "path": "notebooks/metrics/cumulative_likelihood_over_time/legacy_from_outputs/cum_log_likelihood_compare_CB_HAB1a_test_0_curves.csv",
+      "oid": "1c4cd187ce7a05f3ccf993c3b6f93a58f5c0ad90f2dd827956d8be39575efa06",
+      "bytes": 6703977
+    },
+    {
+      "path": "notebooks/metrics/cumulative_likelihood_over_time/legacy_from_outputs/cum_log_likelihood_compare_CB_HAB1a_test_0_summary.csv",
+      "oid": "d03fb072a68d32d72f34ac956fbc3a5beccf3da139868f23a48b3a5ce0796b72",
+      "bytes": 1605
+    },
+    {
+      "path": "notebooks/metrics/cumulative_likelihood_over_time/legacy_from_outputs/cum_log_likelihood_compare_CB_HAB4_test_0_curves.csv",
+      "oid": "88f84a820e888174d91396a4f21ca4cdaada3af5676f699163ba08474f174576",
+      "bytes": 4744985
+    },
+    {
+      "path": "notebooks/metrics/cumulative_likelihood_over_time/legacy_from_outputs/cum_log_likelihood_compare_CB_HAB4_test_0_summary.csv",
+      "oid": "91a3de5526e15a1804d51713d3d2ab4619e9364ead3e859d04cd662e6a959307",
+      "bytes": 1667
+    },
+    {
+      "path": "notebooks/metrics/cumulative_likelihood_over_time/legacy_from_outputs/cum_log_likelihood_compare_PNR_1z_test_0_curves.csv",
+      "oid": "7864d3287e072046c852f484bff7a0f32cda02e27f71b786bd02fc5e7f158ed2",
+      "bytes": 6069359
+    },
+    {
+      "path": "notebooks/metrics/cumulative_likelihood_over_time/legacy_from_outputs/cum_log_likelihood_compare_PNR_1z_test_0_summary.csv",
+      "oid": "46e3b63414b304aa877c0fea587a89ff0d1bdaab19b82627afb933eb0c358e68",
+      "bytes": 1638
+    },
+    {
+      "path": "notebooks/metrics/regression_comparison/rc_bp_paired_block_hier_seed_sample_long.csv",
+      "oid": "4562ad8c7792d72bcc17cb3cbf873c7e20f4587c4615c4fc4039b98c8af9d4c0",
+      "bytes": 5342
+    },
+    {
+      "path": "notebooks/metrics/regression_comparison/rc_bp_paired_block_hier_seed_sample_pairwise_delta.csv",
+      "oid": "09b295d97346cffa1a934c3ebf0eac3ec2cd5ac099012e4d3c2b8dfb3dd0051e",
+      "bytes": 4869
+    },
+    {
+      "path": "notebooks/metrics/regression_comparison/rc_bp_paired_block_hier_seed_sample_wide.csv",
+      "oid": "dd127d315b337855a7c7a5f7ef30941bcb4388d9e109105e186aca5eb9c91f02",
+      "bytes": 968
+    },
+    {
+      "path": "notebooks/metrics/tpp_comparison/ChuanDian_m/bootstrap_paired_iid_long.csv",
+      "oid": "2b714ba22bc5a0d33ef5a461a7f17fc75f11dcc4f21c4f22bceabc4b2bd513a1",
+      "bytes": 241
+    },
+    {
+      "path": "notebooks/metrics/tpp_comparison/ChuanDian_m/bootstrap_paired_iid_pairwise_delta.csv",
+      "oid": "d81ad610c9fe82c8805f934332d436392f777570813e4bb3253bcd39e5166182",
+      "bytes": 216
+    },
+    {
+      "path": "notebooks/metrics/tpp_comparison/ChuanDian_m/bootstrap_paired_iid_wide.csv",
+      "oid": "44e2ca56f2f4e4225dfa1e64d5cad415acdeb515a06eb32419dbedcdaa43b013",
+      "bytes": 68
+    },
+    {
+      "path": "notebooks/metrics/tpp_comparison/ChuanDian_m/bootstrap_paired_iid_window.csv",
+      "oid": "4ec21b8f7739dd6473f0f2853568a23be3a802180d59276648d6062654b17d7f",
+      "bytes": 4625
+    },
+    {
+      "path": "notebooks/metrics/tpp_comparison/ChuanDian_t/bootstrap_paired_iid_long.csv",
+      "oid": "14b311627071f06b7a1c29a90610393db7ce3761def8777e7eac8fe7fb2c3939",
+      "bytes": 325
+    },
+    {
+      "path": "notebooks/metrics/tpp_comparison/ChuanDian_t/bootstrap_paired_iid_pairwise_delta.csv",
+      "oid": "6f3ae84511bfe2c1b3d21348595e115cd175a450f2549053dc5f98518063ae06",
+      "bytes": 331
+    },
+    {
+      "path": "notebooks/metrics/tpp_comparison/ChuanDian_t/bootstrap_paired_iid_wide.csv",
+      "oid": "94be1e10a4b820689740e4d50098d48c14fc5ddbdc2ef5e8774128324ac32bfb",
+      "bytes": 92
+    },
+    {
+      "path": "notebooks/metrics/tpp_comparison/ChuanDian_t/bootstrap_paired_iid_window.csv",
+      "oid": "e2aae91f917e10d4d1a1c47ec2ad7470b0a511caa365c1edb0b624f15438df64",
+      "bytes": 6131
+    },
+    {
+      "path": "notebooks/metrics/tpp_comparison/SCEDC_m/bootstrap_paired_iid_long.csv",
+      "oid": "1dcc912eaf13c1e5aba887fdb47e4a82c92463d0646da16cd0aa4f64ff4dea8b",
+      "bytes": 235
+    },
+    {
+      "path": "notebooks/metrics/tpp_comparison/SCEDC_m/bootstrap_paired_iid_pairwise_delta.csv",
+      "oid": "05da61067ae1a4f4273cf2e1b16b0b0f2abce940384ec0cf3994aba53d1aa30e",
+      "bytes": 214
+    },
+    {
+      "path": "notebooks/metrics/tpp_comparison/SCEDC_m/bootstrap_paired_iid_wide.csv",
+      "oid": "ef660314347194bca72e4c4910c76d883acbdc1de7078108234d3d2d2807bab6",
+      "bytes": 64
+    },
+    {
+      "path": "notebooks/metrics/tpp_comparison/SCEDC_m/bootstrap_paired_iid_window.csv",
+      "oid": "9e17756248cd0cc0363c43edda175afd544224ae18ef765331ea90774f4fd64e",
+      "bytes": 4733
+    },
+    {
+      "path": "notebooks/metrics/tpp_comparison/SCEDC_t/bootstrap_paired_iid_long.csv",
+      "oid": "7916e3c0bd3864e14ce39c2659fb2b4ad63553b47d8f287edcb2f70b374d8d8c",
+      "bytes": 328
+    },
+    {
+      "path": "notebooks/metrics/tpp_comparison/SCEDC_t/bootstrap_paired_iid_pairwise_delta.csv",
+      "oid": "afe03e5303d08015a54a8fee3c9016d1708da034680fbf5f48e15ef021f42e63",
+      "bytes": 323
+    },
+    {
+      "path": "notebooks/metrics/tpp_comparison/SCEDC_t/bootstrap_paired_iid_wide.csv",
+      "oid": "08331cfa4832fb2c78d0bbee74783c60503e7c2d41e70c76df2f19edea3b8258",
+      "bytes": 93
+    },
+    {
+      "path": "notebooks/metrics/tpp_comparison/SCEDC_t/bootstrap_paired_iid_window.csv",
+      "oid": "ff247bcad55e8130e93e7cffe795d7de20af460cbae0078646d1ef79d7d6bb9b",
+      "bytes": 6354
+    },
+    {
+      "path": "experiments/netas/etas/norm_0p2/reports/etas_grid_metrics_group_best.csv",
+      "oid": "ac8e204f82dc12a069c8302aed5574582c9ee6bc3484046ef1280b4dbce374d7",
+      "bytes": 10823
+    },
+    {
+      "path": "experiments/netas/etas/norm_0p2/reports/etas_grid_metrics_group_mean_std.csv",
+      "oid": "5b0d0ed8fedd8129051a673a27aabbab3e8a8a626394740d9b847959186fba9c",
+      "bytes": 9939
+    },
+    {
+      "path": "experiments/netas/etas/norm_0p2/reports/etas_grid_metrics_per_run.csv",
+      "oid": "6aa2436afbcf08c26ede897abbe11c9a65da664389dd2cf4b0832709d17b857f",
+      "bytes": 45650
+    },
+    {
+      "path": "experiments/netas/etas/norm_0p2/reports/etas_grid_metrics_summary.json",
+      "oid": "325d5e25806ce62bdf2535518cfe8a4a5d670d677bd6b9fbebdba9101b480776",
+      "bytes": 1112
+    },
+    {
+      "path": "experiments/netas/etas/norm_0p2/reports/sliding_window_eval_metrics_by_split_start_group_best.csv",
+      "oid": "f7737a8e242b3e7cbbb5d49d21fb5a56c5899123ce917d4e9482091cc30bb083",
+      "bytes": 9655
+    },
+    {
+      "path": "experiments/netas/etas/norm_0p2/reports/sliding_window_eval_metrics_by_split_start_group_mean_std.csv",
+      "oid": "25d80c4558beb5c93ea51838cebf1a8410e27354d5544492ece15c1389f9c1ee",
+      "bytes": 14342
+    },
+    {
+      "path": "experiments/netas/etas/norm_0p2/reports/sliding_window_eval_metrics_by_split_start_long.csv",
+      "oid": "5a20fe47cd4596e61fc36b21090cdc8cb2e44c6c69f35a82de1c6f29ecb51b7b",
+      "bytes": 123406
+    },
+    {
+      "path": "experiments/netas/etas/norm_0p2/reports/sliding_window_eval_metrics_by_split_start_per_run.csv",
+      "oid": "b5b1bcc4fefa2048b55c8ee89cd373da520074fdacaea9982350710e99d1aa2e",
+      "bytes": 87987
+    },
+    {
+      "path": "experiments/netas/etas/norm_0p2/reports/sliding_window_eval_metrics_by_split_start_summary.json",
+      "oid": "04e986dc29d0451903af3701bc61f4fed1b86266781744e2048810c5efddc9c0",
+      "bytes": 208
+    },
+    {
+      "path": "experiments/netas/etas/norm_0p2/reports/sliding_window_eval_metrics_group_best.csv",
+      "oid": "d1ddf7fb3eff7a03c63115a7f54cd1c9b82ad9f5564530d34bb3c0c0f360de04",
+      "bytes": 10741
+    },
+    {
+      "path": "experiments/netas/etas/norm_0p2/reports/sliding_window_eval_metrics_group_mean_std.csv",
+      "oid": "b9003136ac6fef8c8e82fabb919119f6128918ab0eb417bdddeb7a655615cc3e",
+      "bytes": 10079
+    },
+    {
+      "path": "experiments/netas/etas/norm_0p2/reports/sliding_window_eval_metrics_per_run.csv",
+      "oid": "56a42ba72ca9a78bcd5cd54de884af734ceaf346f8f1d3bf5253fef7b9682aed",
+      "bytes": 43693
+    },
+    {
+      "path": "experiments/netas/etas/norm_0p2/reports/sliding_window_eval_metrics_summary.json",
+      "oid": "7baf66d446758527fe73c601ce6d3387b27e74450d153e3eb44f1f4b5df49a68",
+      "bytes": 1044
+    },
+    {
+      "path": "experiments/netas/etas/split_0p7/reports/sliding_window_eval_metrics_by_split_start_group_best.csv",
+      "oid": "7bfdb79b9694d43989e858550f13bde32a713593b3322d6b41b826ca1eb944fc",
+      "bytes": 8630
+    },
+    {
+      "path": "experiments/netas/etas/split_0p7/reports/sliding_window_eval_metrics_by_split_start_group_mean_std.csv",
+      "oid": "9bee477461abecdacee20e182ca4c1ec19bf0ff25a586b3b08fb81a940987306",
+      "bytes": 12265
+    },
+    {
+      "path": "experiments/netas/etas/split_0p7/reports/sliding_window_eval_metrics_by_split_start_long.csv",
+      "oid": "9bb7fdbd0e3fd1877af3c3bfd402de8079c31eb2721b30f7f49888667a3d96a5",
+      "bytes": 104899
+    },
+    {
+      "path": "experiments/netas/etas/split_0p7/reports/sliding_window_eval_metrics_by_split_start_per_run.csv",
+      "oid": "e40a6d49ce7ff02bd1ff8dba93c059a37f0a3c1e080ab4cf054e6431630ebfad",
+      "bytes": 75792
+    },
+    {
+      "path": "experiments/netas/etas/split_0p7/reports/sliding_window_eval_metrics_by_split_start_summary.json",
+      "oid": "a28d435dd6556106e4b1fb764522e6fe03a4e253e286fcc111e024956b0c7de0",
+      "bytes": 208
+    },
+    {
+      "path": "experiments/netas/etas/split_0p7/reports/sliding_window_eval_metrics_group_best.csv",
+      "oid": "e8dd6dcd62c534e9130ba3ac6430f7728fb5fb5995105097a856bd4c5a8dbd50",
+      "bytes": 9080
+    },
+    {
+      "path": "experiments/netas/etas/split_0p7/reports/sliding_window_eval_metrics_group_mean_std.csv",
+      "oid": "b712ca588e53049e4ec07c8f5f4590aa074f88a3636cef834fb82f4443d8f561",
+      "bytes": 8421
+    },
+    {
+      "path": "experiments/netas/etas/split_0p7/reports/sliding_window_eval_metrics_per_run.csv",
+      "oid": "c7419db8573ec9ff0a3a08e354e8a8c340949ea98666617654b5e30663183119",
+      "bytes": 37266
+    },
+    {
+      "path": "experiments/netas/etas/split_0p7/reports/sliding_window_eval_metrics_summary.json",
+      "oid": "8e68a0ac0c0fb189d6d0fcc62ee4e11c1326a42bb7b8fe45459b8fb902879dfd",
+      "bytes": 1014
+    },
+    {
+      "path": "experiments/netas/etas/split_0p7/reports/sliding_window_eval_metrics_test_trunc_group_best.csv",
+      "oid": "12cfa30d9ba2d84a319493560a69ec58493edac51aef6107d559262af5d45c15",
+      "bytes": 9387
+    },
+    {
+      "path": "experiments/netas/etas/split_0p7/reports/sliding_window_eval_metrics_test_trunc_group_mean_std.csv",
+      "oid": "757538d546c16cd1660f73570b2b70b37574141a43296bcfcd0c7d1788ba9b34",
+      "bytes": 11135
+    },
+    {
+      "path": "experiments/netas/etas/split_0p7/reports/sliding_window_eval_metrics_test_trunc_per_run.csv",
+      "oid": "c8c439dd1ef53980b67caf588ba43dc43b7f7aee3f5dc7e9e05ff8c1240025ce",
+      "bytes": 45919
+    },
+    {
+      "path": "experiments/netas/etas/split_0p7/reports/sliding_window_eval_metrics_test_trunc_summary.json",
+      "oid": "2cabc72f3a379465eb28318aee7d13890bf6e5bc9539abe6d993c7927f20ffc9",
+      "bytes": 1418
+    },
+    {
+      "path": "experiments/netas/etas/split_0p7/reports/sliding_window_eval_metrics_test_trunc_vs_by_split_start_compare_group.csv",
+      "oid": "ceb048e0555a72563e286d7b5c9ad8856a28affac35badcd97c3479ce5db5685",
+      "bytes": 10441
+    },
+    {
+      "path": "experiments/netas/etas/split_0p7/reports/sliding_window_eval_metrics_test_trunc_vs_by_split_start_compare_per_run.csv",
+      "oid": "ac031c2e673c6ac223eabd37fb087ce1c5a0fbd1aeb666b320fa3643929303cd",
+      "bytes": 47685
+    },
+    {
+      "path": "experiments/netas/recast/norm_0p2/reports/rtpp_v2_grid_metrics_group_best.csv",
+      "oid": "61802fdb6e1984e0020b25aae19e77b10b4c3c00d3ede0c60576ea65562ce3ff",
+      "bytes": 11462
+    },
+    {
+      "path": "experiments/netas/recast/norm_0p2/reports/rtpp_v2_grid_metrics_group_mean_std.csv",
+      "oid": "e50681e73283a551ffe3a8a7156134ad6fbfd084b7eb0700572500a848b26543",
+      "bytes": 11239
+    },
+    {
+      "path": "experiments/netas/recast/norm_0p2/reports/rtpp_v2_grid_metrics_per_run.csv",
+      "oid": "cfa2d2e3684ac7a85e130108f2aae0177af01944caba0dd0d35fdfb6c69eb5b7",
+      "bytes": 46678
+    },
+    {
+      "path": "experiments/netas/recast/norm_0p2/reports/rtpp_v2_grid_metrics_summary.json",
+      "oid": "2da465d896ddf7659be326ce5c7f65b186d4d3a875f5fc7487b942ff8e21f23a",
+      "bytes": 1121
+    },
+    {
+      "path": "experiments/netas/recast/norm_0p2/reports/sliding_window_eval_metrics_by_split_start_group_best.csv",
+      "oid": "b15a3e0ab291e46da009f1d0bbd57e7bb6730918813c8180e53483d6fb56f0c6",
+      "bytes": 10195
+    },
+    {
+      "path": "experiments/netas/recast/norm_0p2/reports/sliding_window_eval_metrics_by_split_start_group_mean_std.csv",
+      "oid": "3d5c568290a4ead36540185022a3c8cacc8418974b9e53d97619dca09e39642c",
+      "bytes": 15960
+    },
+    {
+      "path": "experiments/netas/recast/norm_0p2/reports/sliding_window_eval_metrics_by_split_start_long.csv",
+      "oid": "acaafd0f97c807a68fc1eebe131f33b81db29e0b4778fd453dc9a84dc05a3ef8",
+      "bytes": 128720
+    },
+    {
+      "path": "experiments/netas/recast/norm_0p2/reports/sliding_window_eval_metrics_by_split_start_per_run.csv",
+      "oid": "ced2cd286e04c1b11b2dbe4a8ad1480513ca9127c8b231db6f6331dce4b3bdb9",
+      "bytes": 90905
+    },
+    {
+      "path": "experiments/netas/recast/norm_0p2/reports/sliding_window_eval_metrics_by_split_start_summary.json",
+      "oid": "04e986dc29d0451903af3701bc61f4fed1b86266781744e2048810c5efddc9c0",
+      "bytes": 208
+    },
+    {
+      "path": "experiments/netas/recast/norm_0p2/reports/sliding_window_eval_metrics_group_best.csv",
+      "oid": "11ec213860de6d46e7bb3a4f1ddc75d91844fce0c5da73b0f2e00e90b96bcbf7",
+      "bytes": 11383
+    },
+    {
+      "path": "experiments/netas/recast/norm_0p2/reports/sliding_window_eval_metrics_group_mean_std.csv",
+      "oid": "bfc0245242cc0e33ac34194ba82ce84fd9dee408e86b82ad1fefe6a39ea8aeda",
+      "bytes": 10503
+    },
+    {
+      "path": "experiments/netas/recast/norm_0p2/reports/sliding_window_eval_metrics_per_run.csv",
+      "oid": "066d4756eed2a3b662131c7daa629724b498e3bb2861d56bd5348485b3ebbf2c",
+      "bytes": 45575
+    },
+    {
+      "path": "experiments/netas/recast/norm_0p2/reports/sliding_window_eval_metrics_summary.json",
+      "oid": "1f8c18da627986ae7e0bf9cd844c757d989311dddb94168dcdfb0c29f8dd97db",
+      "bytes": 1044
+    },
+    {
+      "path": "experiments/netas/recast/split_0p7/reports/sliding_window_eval_metrics_test_trunc_summary.json",
+      "oid": "10f3131c713ce2fa769517d527d49d8e1eceb53e2f36a64fbf6f6ed01842d2d9",
+      "bytes": 1415
+    },
+    {
+      "path": "experiments/netas/recast/split_0p7/reports/sliding_window_eval_metrics_rtpp_boundary_fix_smoke_group_best.csv",
+      "oid": "33095d14f1e53ab2cee66fdc436dedaf5534adc1a1898ff2a91e351b8919b948",
+      "bytes": 828
+    },
+    {
+      "path": "experiments/netas/recast/split_0p7/reports/sliding_window_eval_metrics_rtpp_boundary_fix_smoke_group_mean_std.csv",
+      "oid": "87cfd723e48ecf19ac965ac9b140180470afd4813ef232e1dc80a48c2924d3c9",
+      "bytes": 1460
+    },
+    {
+      "path": "experiments/netas/recast/split_0p7/reports/sliding_window_eval_metrics_rtpp_boundary_fix_smoke_per_run.csv",
+      "oid": "d3cfcc242eb5ce164f853a8eec54e7d3fae60cffeb5eb24686c7d15f3e2feec4",
+      "bytes": 3861
+    },
+    {
+      "path": "experiments/netas/recast/split_0p7/reports/sliding_window_eval_metrics_rtpp_boundary_fix_smoke_summary.json",
+      "oid": "51049fec62f7f0c25dc8a4665c324c19534586e58ec7669c8be03a535c698bbf",
+      "bytes": 1480
+    },
+    {
+      "path": "experiments/mtpp/regression/mixer_ablation_5_seeds/reports/reg_grid_metrics_group_best.csv",
+      "oid": "28fe306f6d1db81b3417864392a5f4af21781ed8692397201b0d8ea789db0b8b",
+      "bytes": 1779
+    },
+    {
+      "path": "experiments/mtpp/regression/mixer_ablation_5_seeds/reports/reg_grid_metrics_group_mean_std.csv",
+      "oid": "a675ecc1a612c30e9d99d54dad50093c20e906253b3e697536d59c0475ffc4c2",
+      "bytes": 3133
+    },
+    {
+      "path": "experiments/mtpp/regression/mixer_ablation_5_seeds/reports/reg_grid_metrics_per_run.csv",
+      "oid": "252641987b766626221fe86e9512fe42d0b69e7ef22db6f88225b42518bd2787",
+      "bytes": 16161
+    }
+  ],
+  "not_materialized": [
+    {
+      "path": "notebooks/metrics/classifier_brier_reliability_single_seed/global/brier_reliability_seed_0.csv",
+      "oid": "9ac21c76ac9b83bca5be2bb063cb26b238551ca3d59204ca4de596805dd088c9",
+      "bytes": 1416,
+      "reason": "object_absent_locally"
+    },
+    {
+      "path": "notebooks/metrics/classifier_brier_reliability_single_seed/global/reliability_bins_seed_0.csv",
+      "oid": "ee0d2491293ba88b5a99fe1af2e75361f367d8b2420655c610c05bab76de9755",
+      "bytes": 5464,
+      "reason": "object_absent_locally"
+    },
+    {
+      "path": "notebooks/metrics/cumulative_likelihood_over_time/cig_2x2_excluding_CCL_test_0_from_full_reset_y_curves.csv",
+      "oid": "9ae549d3453fc34837de98650f8ea9f6dc11208ff597ed9b21a52bad93b8cefb",
+      "bytes": 61397529,
+      "reason": "object_absent_locally"
+    },
+    {
+      "path": "notebooks/metrics/cumulative_likelihood_over_time/cig_2x2_excluding_CCL_test_0_from_full_reset_y_split_reset_curves.csv",
+      "oid": "b2259f9099037b55770551069b54784c264f9a124b0355319e0bf5af4f4bd3d5",
+      "bytes": 95868983,
+      "reason": "object_absent_locally"
+    },
+    {
+      "path": "notebooks/metrics/cumulative_likelihood_over_time/cig_2x2_excluding_CCL_test_0_from_test_reset_y_split_reset_curves.csv",
+      "oid": "c6e4bae74e2e8d7cc5f2101cfb82c844096428cd0b3d2060db1a4f4fa1d6ae2a",
+      "bytes": 11453907,
+      "reason": "object_absent_locally"
+    },
+    {
+      "path": "notebooks/metrics/cumulative_likelihood_over_time/cig_2x2_excluding_CCL_test_0_from_val_reset_y_curves.csv",
+      "oid": "314223c0137ffedc852ff2c29fab71bec5aa4b7777659c3d43887382104afdcf",
+      "bytes": 17045939,
+      "reason": "object_absent_locally"
+    },
+    {
+      "path": "notebooks/metrics/cumulative_likelihood_over_time/cig_2x2_excluding_CCL_test_0_from_val_reset_y_split_reset_curves.csv",
+      "oid": "fbef3f47de4141fdbac82e15e08f72b416a7f9ae16067c1edb1655a9632a4c68",
+      "bytes": 30355774,
+      "reason": "object_absent_locally"
+    },
+    {
+      "path": "notebooks/metrics/cumulative_likelihood_over_time/cig_2x2_phase_boundaries_excluding_CCL_test_0.csv",
+      "oid": "a9c34875815c04318f0902aff12e76ab6a29d1c2c5eaf106a4644fed14f255a2",
+      "bytes": 3574,
+      "reason": "object_absent_locally"
+    },
+    {
+      "path": "notebooks/metrics/cumulative_likelihood_over_time/cig_phases.csv",
+      "oid": "a9c34875815c04318f0902aff12e76ab6a29d1c2c5eaf106a4644fed14f255a2",
+      "bytes": 3574,
+      "reason": "object_absent_locally"
+    },
+    {
+      "path": "notebooks/metrics/cumulative_likelihood_over_time/cum_log_likelihood_compare_CB_HAB1a_test_0_curves.csv",
+      "oid": "4a6132653d2fc1a614a69e2ad5989fb89725b667fab80945d51d755ec99f8d3c",
+      "bytes": 8198332,
+      "reason": "object_absent_locally"
+    },
+    {
+      "path": "notebooks/metrics/cumulative_likelihood_over_time/cum_log_likelihood_compare_CB_HAB1a_test_0_summary.csv",
+      "oid": "8fecd8908082603b007b144310683273fc56818e11f99ba73453b05878b3dfc1",
+      "bytes": 4242,
+      "reason": "object_absent_locally"
+    },
+    {
+      "path": "notebooks/metrics/cumulative_likelihood_over_time/cum_log_likelihood_compare_CB_HAB4_test_0_curves.csv",
+      "oid": "87b1fe8df638a12a8cb6e6d32a8a00867a4a2b5c0e5f57d693a4fe10dc3703c9",
+      "bytes": 5687837,
+      "reason": "object_absent_locally"
+    },
+    {
+      "path": "notebooks/metrics/cumulative_likelihood_over_time/cum_log_likelihood_compare_CB_HAB4_test_0_summary.csv",
+      "oid": "30c9968aac4aefad29309e7948c437da0bcef9f6bc6b4023bab2b58c9950b808",
+      "bytes": 4316,
+      "reason": "object_absent_locally"
+    },
+    {
+      "path": "notebooks/metrics/cumulative_likelihood_over_time/cum_log_likelihood_compare_PNR_1z_test_0_curves.csv",
+      "oid": "5fda2f21b2516e3ef13bdf0dd8056a8c0d96b58eac34aab32e541a833164fd6d",
+      "bytes": 7457625,
+      "reason": "object_absent_locally"
+    },
+    {
+      "path": "notebooks/metrics/cumulative_likelihood_over_time/cum_log_likelihood_compare_PNR_1z_test_0_summary.csv",
+      "oid": "7cb3597e13d2d82adbc524f93de5cf9d5eb0c18d008e96907bd9492b8d513277",
+      "bytes": 4265,
+      "reason": "object_absent_locally"
+    },
+    {
+      "path": "notebooks/metrics/cumulative_likelihood_over_time/cum_log_likelihood_compare_St1-2018_test_0_curves.csv",
+      "oid": "11193895475fe6a03ee775e81d4af41f36e6cddf97250e4d3026a4547d5f41d6",
+      "bytes": 35927346,
+      "reason": "object_absent_locally"
+    },
+    {
+      "path": "notebooks/metrics/cumulative_likelihood_over_time/cum_log_likelihood_compare_St1-2018_test_0_summary.csv",
+      "oid": "0da35fe6899828ab51029faaec230b9f1b2cf3880f13898167f37249838e1acd",
+      "bytes": 4241,
+      "reason": "object_absent_locally"
+    },
+    {
+      "path": "notebooks/metrics/cumulative_likelihood_over_time/injection_event_count_2x2_test_0_from_full_curves.csv",
+      "oid": "c869597f3ae69977e1169c4ddf941ac237e926b919ef325aacc7b231c4498ce3",
+      "bytes": 61445686,
+      "reason": "object_absent_locally"
+    },
+    {
+      "path": "notebooks/metrics/cumulative_likelihood_over_time/injection_event_count_2x2_test_0_from_test_curves.csv",
+      "oid": "383607a2680ad6fad336a94138e63fc87129c36180a818103982ec72a134d8ad",
+      "bytes": 7330575,
+      "reason": "object_absent_locally"
+    },
+    {
+      "path": "notebooks/metrics/cumulative_likelihood_over_time/injection_event_count_2x2_test_0_from_val_curves.csv",
+      "oid": "314223c0137ffedc852ff2c29fab71bec5aa4b7777659c3d43887382104afdcf",
+      "bytes": 17045939,
+      "reason": "object_absent_locally"
+    },
+    {
+      "path": "experiments/netas/oracle/baseline/reports/sliding_window_eval_metrics_by_split_start_summary.json",
+      "oid": "ea18b99d4b1442e6d792870715147bae090d39f32af817eb79e2fe9d41337b01",
+      "bytes": 207,
+      "reason": "object_absent_locally"
+    },
+    {
+      "path": "experiments/mtpp/regression/mixer_ablation_5_seeds/reports/seeds_0_2_3_4_7_8/reg_grid_metrics_group_best.csv",
+      "oid": "5de79ffff22b0db5d735ef7528382b53a0e3ed61c9d425a3b44c426692e485c9",
+      "bytes": 1849,
+      "reason": "object_absent_locally"
+    },
+    {
+      "path": "experiments/mtpp/regression/mixer_ablation_5_seeds/reports/seeds_0_2_3_4_7_8/reg_grid_metrics_group_mean_std.csv",
+      "oid": "70e2c4b039b9bdb8f143a0b41f5dc56c4da37bb78568ca1497757eea7a6cf08d",
+      "bytes": 3160,
+      "reason": "object_absent_locally"
+    },
+    {
+      "path": "experiments/mtpp/regression/mixer_ablation_5_seeds/reports/seeds_0_2_3_4_7_8/reg_grid_metrics_per_run.csv",
+      "oid": "908d98cf9d8b63f3fc9850e354b6579f3c80f34c4bebb075b23afb9193de0f4e",
+      "bytes": 16617,
+      "reason": "object_absent_locally"
+    },
+    {
+      "path": "experiments/mtpp/regression/mixer_ablation_5_seeds/reports/seeds_0_2_3_4_7_8/reg_grid_metrics_summary.json",
+      "oid": "976a382ba5087fc3d1ee50429cfac24601c3066d488c77fe1b16bc10c8c76c09",
+      "bytes": 1039,
+      "reason": "object_absent_locally"
+    }
+  ]
+}

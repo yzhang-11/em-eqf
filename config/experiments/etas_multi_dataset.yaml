@@ -13,7 +13,7 @@ jobs_per_gpu: 1
 stop_on_error: false
 
 exp_root: experiments
-exp_name: etas_multi_dataset
+exp_name: netas/etas/baseline
 
 run_test: true
 ckpt_select: both

@@ -13,7 +13,7 @@ jobs_per_gpu: 1
 stop_on_error: false
 
 exp_root: experiments
-exp_name: etas_multi_ds_bg_split_0.7
+exp_name: netas/etas/split_0p7
 
 run_test: true
 ckpt_select: both

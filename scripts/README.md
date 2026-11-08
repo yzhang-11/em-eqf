@@ -1,35 +1,22 @@
-# Scripts Layout
+# Scripts
 
-`scripts/` is organized by responsibility so entrypoints are easier to discover and maintain.
+Use one entrypoint per operation. Root-level forwarding wrappers have been removed.
 
-## Directory Structure
-
-- `scripts/run/`: experiment runners and orchestration scripts.
-- `scripts/summarize/`: post-run metric summarization/report generation.
-- `scripts/analyze/`: deeper analytical scripts and comparative studies.
-- `scripts/maintenance/`: maintenance/backfill/reorganization helpers.
-- `scripts/data/`: data preparation/build scripts.
-- `scripts/diagnostics/`: debugging and state-comparison tools.
-- `scripts/tuning/`: targeted tuning utilities.
-- `scripts/automation/`: shared Python modules used by runner/summarizer scripts.
-
-## Naming Conventions
-
-- Use verb-first, snake_case names:
-  - `run_*` for run/orchestration.
-  - `summarize_*` for result aggregation.
-  - `analyze_*` for deeper analysis.
-  - `backfill_*`, `reorganize_*`, `compare_*`, `build_*`, `tune_*` for specific utility intent.
-- Put each script in the matching functional folder above.
-
-## Backward Compatibility
-
-Legacy root-level script paths (for example `scripts/run_clf_mf_tf_grid.py`) are kept as thin wrappers that delegate to the new locations. Existing commands continue to work.
-
-Preferred new invocation style:
+| Directory | Purpose |
+| --- | --- |
+| `run/` | Experiment runners |
+| `summarize/` | Metric summaries |
+| `analyze/` | Analyses and comparisons |
+| `data/` | Source acquisition and preparation |
+| `diagnostics/` | Focused validation |
+| `tuning/` | Hyperparameter studies |
+| `maintenance/` | Storage and repository maintenance |
+| `automation/` | Shared runner implementation |
 
 ```bash
-python scripts/run/run_clf_mf_tf_grid.py ...
-python scripts/summarize/summarize_clf_mf_tf_grid.py ...
-python scripts/analyze/analyze_clf_trainhp_sweep.py ...
+python scripts/run/run_clf_mf_tf_grid.py --help
+python scripts/summarize/summarize_etas_grid.py --help
+python scripts/maintenance/index_experiments.py
 ```
+
+Data, experiment names, and result files are indexed in `experiments/registry/`.

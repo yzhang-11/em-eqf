@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Summarize metrics from run_oracle_grid.py experiments.
 
-This script scans one experiment directory (e.g. experiments/oracle_multi_dataset),
+This script scans one experiment directory (e.g. experiments/netas/oracle/baseline),
 collects per-run test metrics, and exports:
 1) per-run table (one row per seed/run),
 2) grouped mean/std table by variant (seed suffix stripped from run name),
@@ -130,7 +130,7 @@ def parse_args():
     parser.add_argument(
         "--exp_dir",
         type=str,
-        default="experiments/oracle_multi_dataset",
+        default="experiments/netas/oracle/baseline",
         help="Experiment directory produced by run_oracle_grid.py",
     )
     parser.add_argument(
@@ -182,7 +182,7 @@ def main():
     if not exp_dir.exists():
         raise FileNotFoundError(f"Experiment dir not found: {exp_dir}")
 
-    out_dir = Path(args.out_dir).resolve() if args.out_dir else exp_dir / "reports"
+    out_dir = Path(args.out_dir).resolve() if args.out_dir else exp_dir / "shared/reports"
     metric_keys = [x.strip() for x in str(args.metrics).split(",") if x.strip()]
     if not metric_keys:
         raise ValueError("--metrics must contain at least one key")

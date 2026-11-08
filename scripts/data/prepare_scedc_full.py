@@ -25,7 +25,7 @@ raw=ORIGIN/'data/SCEDC/raw/scsn_annual_snapshot_20261102'
 sources={str(year):raw/f'{year}.catalog' for year in range(1981,2020)}
 assert all(p.is_file() for p in sources.values())
 STORE.mkdir(parents=True,exist_ok=True)
-(STORE/'reports').mkdir(exist_ok=True)
+(STORE/'shared/reports').mkdir(exist_ok=True)
 def local_response(url,**kwargs):
     match=re.search(r'/(\d{4})\.catalog$',url)
     assert match and match[1] in sources, url

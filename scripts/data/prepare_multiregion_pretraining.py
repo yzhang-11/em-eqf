@@ -114,7 +114,7 @@ def make_windows(frame, start, end, metadata, context=64, targets=128):
 
 
 def main():
-    (OUT/'reports').mkdir(parents=True, exist_ok=True)
+    (OUT/'shared/reports').mkdir(parents=True, exist_ok=True)
     raw_frames = {'japan_kyushu': read_jma()}
     with concurrent.futures.ThreadPoolExecutor(max_workers=4) as pool:
         jobs = {(name, year): pool.submit(fetch_period, name, pd.Timestamp(f'{year}-01-01', tz='UTC'),

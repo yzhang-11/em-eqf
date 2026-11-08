@@ -22,7 +22,7 @@ ROOT = Path(__file__).resolve().parents[2]
 ORIGIN = Path('/root/autodl-tmp/em_eqf')
 BASE = Path('/root/autodl-fs/em_eqf_training/mamba3_mimo_no_deltat_20261105')
 STORE = Path('/root/autodl-fs/em_eqf_training/mamba_time_dynamics_20261105')
-REPORTS, RUNS, FROZEN = STORE/'reports', STORE/'runs', STORE/'frozen_project'
+REPORTS, RUNS, FROZEN = STORE/'shared/reports', STORE/'runs', STORE/'frozen_project'
 DATA = STORE/'dataset_snapshot.pt'
 sys.path[:0] = [str(ROOT), str(ROOT/'scripts/run')]
 ARMS = [('base_real', 'base', 'real'), ('base_native', 'base', 'native'),
@@ -323,9 +323,9 @@ def launch():
         shutil.copyfile(ORIGIN/name,target);files[name]=sha(target)
     shutil.copyfile(BASE/'dataset_snapshot.pt',DATA)
     for name in ['base_plan.json','environment.json','native_kernels_sha256.json']:
-        shutil.copyfile(BASE/'reports'/name,REPORTS/name)
+        shutil.copyfile(BASE/'shared/reports'/name,REPORTS/name)
     for seed in SEEDS:
-        shutil.copyfile(BASE/'reports'/f'common_initialization_seed_{seed}.pth',REPORTS/f'common_initialization_seed_{seed}.pth')
+        shutil.copyfile(BASE/'shared/reports'/f'common_initialization_seed_{seed}.pth',REPORTS/f'common_initialization_seed_{seed}.pth')
         shutil.copyfile(BASE/'runs'/f'mimo_real_no_deltat_seed_{seed}'/'metrics.json',REPORTS/f'baseline_seed_{seed}.json')
     references={
         'backbones':ORIGIN/'experiments/revision/mamba_backbones_20261105/reports/summary.json',

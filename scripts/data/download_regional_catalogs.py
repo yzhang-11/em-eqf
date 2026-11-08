@@ -215,14 +215,14 @@ def curate(provider,frame,paths):
         kept_missing_quality_fields={c:int(f.loc[f.quality_screen_pass,c].isna().sum()) for c in ['station_count','azimuthal_gap','horizontal_error_km']},
         retained_spatial_quality_verified=int(f.loc[f.quality_screen_pass,'spatial_quality_verified'].sum()))
     pd.DataFrame([dict(year=y,records=len(g),reviewed_earthquakes=int((g.event_type.eq('earthquake')&g.evaluation_mode.eq('manual')).sum()),
-        quality_screened=int(g.quality_screen_pass.sum())) for y,g in f.groupby(f.time.dt.year)]).to_csv(OUT/'reports'/f'{provider}_annual.csv',index=False)
-    dump(OUT/'reports'/f'{provider}_audit.json',report)
+        quality_screened=int(g.quality_screen_pass.sum())) for y,g in f.groupby(f.time.dt.year)]).to_csv(OUT/'shared/reports'/f'{provider}_annual.csv',index=False)
+    dump(OUT/'shared/reports'/f'{provider}_audit.json',report)
     log('CURATED',provider,len(f),int(f.quality_screen_pass.sum()))
     return report
 
 
 def main():
-    (OUT/'reports').mkdir(parents=True,exist_ok=True)
+    (OUT/'shared/reports').mkdir(parents=True,exist_ok=True)
     results,errors={},{}
     for provider,cfg in SOURCES.items():
         try:

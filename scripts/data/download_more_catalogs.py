@@ -171,7 +171,7 @@ def main():
     parser.add_argument('--only',nargs='+',choices=list(SOURCES),help='Resume selected sources; preserve other completed audits.')
     parser.add_argument('--workers',type=int,choices=range(1,5),default=2)
     args=parser.parse_args()
-    (OUT/'reports').mkdir(parents=True,exist_ok=True)
+    (OUT/'shared/reports').mkdir(parents=True,exist_ok=True)
     previous=OUT/'reports/download_summary.json'
     previous=json.loads(previous.read_text()) if previous.exists() else {}
     results=previous.get('sources',{});errors=previous.get('errors',{})

@@ -39,7 +39,7 @@ stop_on_error: false
 
 # 输出目录
 exp_root: experiments/
-exp_name: clf_grid_AZDX_2
+exp_name: mtpp/classification/grid_azdx_2
 
 # 可选：训练后自动测试
 run_test: true

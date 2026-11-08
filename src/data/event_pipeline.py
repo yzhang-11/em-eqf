@@ -13,12 +13,6 @@ import src.features.seismic_features as seismic_features
 from src.data.preprocessing import load_and_filter_catalog
 from src.utils.file_utils import save_or_load_data
 
-TASK_PREFIX_BY_TASK_TYPE = {
-    "classification": "classifier",
-    "regression": "regressor",
-    "count": "counter",
-}
-
 FEATURE_CONSTRUCTION_FULL_WINDOW = "full_window"
 FEATURE_CONSTRUCTION_INNER_SLIDING = "inner_sliding"
 FEATURE_CONSTRUCTION_EXTERNAL_SLIDING = "external_sliding"
@@ -33,13 +27,6 @@ class EventWindowBundle:
     array_dict: dict[str, dict[str, list[np.ndarray]]]
 
 
-def resolve_task_prefix(task_type: str) -> str:
-    if task_type not in TASK_PREFIX_BY_TASK_TYPE:
-        supported = ", ".join(sorted(TASK_PREFIX_BY_TASK_TYPE))
-        raise ValueError(f"Unsupported task_type='{task_type}', supported: {supported}")
-    return TASK_PREFIX_BY_TASK_TYPE[task_type]
-
-
 def load_event_windows_with_cache(
     base_dir: str | Path,
     *,
@@ -49,68 +36,51 @@ def load_event_windows_with_cache(
     Tfore: float,
     dt: float,
     context_len: int,
-    task_prefix: str,
     fit_end: float | None = None,
-    cache_namespace: str | None = None,
 ) -> EventWindowBundle:
-    base_dir = str(base_dir)
-    df = load_and_filter_catalog(base_dir, Mc=Mc)
+    """Share event windows across tasks; downstream feature settings are not inputs.
+
+    The source fingerprint and normalization fit boundary are part of the key.
+    There is one cache schema and no fallback to historical task-specific files.
+    """
+    df = load_and_filter_catalog(str(base_dir), Mc=Mc)
     fit_df = df.loc[df["t"] < fit_end] if fit_end is not None else None
     if fit_df is not None and len(fit_df) < 2:
         raise ValueError("Training period has too few events for normalization")
     df_nl, _ = (event_loader.normalize_df(df) if fit_df is None else
                 event_loader.normalize_df(df, fit_df=fit_df))
 
+    # The loader records raw-file provenance. In-memory catalogs are identified
+    # by their table values, columns and dtypes instead.
+    source_hash = df.attrs.get("source_sha256")
+    if source_hash is None:
+        digest = hashlib.sha256(pd.util.hash_pandas_object(df, index=True).values.tobytes())
+        digest.update(str(list(zip(df.columns, map(str, df.dtypes)))).encode())
+        source_hash = digest.hexdigest()
+        df.attrs["source_sha256"] = source_hash
+    spec = {
+        "schema": "event_windows_v1", "source_sha256": source_hash,
+        "Mc": float(Mc), "Mf": float(Mf), "Twindow": float(Twindow),
+        "Tfore": float(Tfore), "dt": float(dt), "context_len": int(context_len),
+        "fit_end": float(fit_end) if fit_end is not None else None,
+    }
+    key = hashlib.sha256(json.dumps(spec, sort_keys=True).encode()).hexdigest()[:20]
+
     def generate_data():
         samples_list, array_dict = event_loader.construct_samples_list(
-            df,
-            df_nl,
-            Mc=Mc,
-            Mf=Mf,
-            Twindow=Twindow,
-            Tfore=Tfore,
-            dt=dt,
-            context_len=context_len,
+            df, df_nl, Mc=Mc, Mf=Mf, Twindow=Twindow, Tfore=Tfore,
+            dt=dt, context_len=context_len,
         )
-        return {
-            "samples_list": samples_list,
-            "array_dict": array_dict,
-        }
+        return {"samples_list": samples_list, "array_dict": array_dict}
 
-    cache_key_kwargs = {
-        "Mc": Mc,
-        "Mf": Mf,
-        "Twindow": Twindow,
-        "Tfore": Tfore,
-        "dt": dt,
-        "context_len": context_len,
-    }
-
-    cache_options = {}
-    cache_dir = task_prefix
-    if cache_namespace is not None:
-        candidates = list((Path(base_dir) / "raw").glob("*.csv"))
-        if len(candidates) > 1:
-            candidates = [p for p in candidates if p.name.startswith("processed_")]
-        if len(candidates) != 1:
-            raise ValueError("Cannot identify source CSV for cache provenance")
-        digest = hashlib.sha256()
-        with candidates[0].open("rb") as source:
-            for chunk in iter(lambda: source.read(1048576), b""):
-                digest.update(chunk)
-        df.attrs["source_sha256"] = digest.hexdigest()
-        spec = {**cache_key_kwargs, "fit_end": fit_end,
-                "source_sha256": digest.hexdigest(), "schema": cache_namespace}
-        key = hashlib.sha256(json.dumps(spec, sort_keys=True).encode()).hexdigest()[:20]
-        cache_options["filename"] = f"{key}.pkl"
     cached = save_or_load_data(
-        base_path=base_dir,
-        generate_fn=generate_data,
-        sub_dir=cache_dir,
-        prefix=task_prefix,
-        **cache_options,
-        **cache_key_kwargs,
+        base_path=str(base_dir), generate_fn=generate_data,
+        sub_dir="cache/windows", filename=f"{key}.pkl",
     )
+    metadata = Path(base_dir) / "cache/windows" / f"{key}.json"
+    metadata.parent.mkdir(parents=True, exist_ok=True)
+    metadata.write_text(json.dumps(spec, indent=2, sort_keys=True) + "\n")
+    df.attrs["window_cache_path"] = str(metadata.with_suffix(".pkl"))
     return EventWindowBundle(df=df, samples_list=cached["samples_list"], array_dict=cached["array_dict"])
 
 
@@ -118,28 +88,11 @@ def load_event_windows_for_task(
     base_dir: str | Path,
     *,
     task_type: str,
-    Mc: float,
-    Mf: float,
-    Twindow: float,
-    Tfore: float,
-    dt: float,
-    context_len: int,
-    fit_end: float | None = None,
-    cache_namespace: str | None = None,
+    **window_options,
 ) -> EventWindowBundle:
-    task_prefix = resolve_task_prefix(task_type)
-    return load_event_windows_with_cache(
-        base_dir=base_dir,
-        Mc=Mc,
-        Mf=Mf,
-        Twindow=Twindow,
-        Tfore=Tfore,
-        dt=dt,
-        context_len=context_len,
-        task_prefix=task_prefix,
-        fit_end=fit_end,
-        cache_namespace=cache_namespace,
-    )
+    if task_type not in {"classification", "regression", "count"}:
+        raise ValueError(f"Unsupported task_type={task_type!r}")
+    return load_event_windows_with_cache(base_dir, **window_options)
 
 
 def build_classification_targets(array_dict, Mf: float):

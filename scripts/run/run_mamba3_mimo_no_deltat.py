@@ -20,7 +20,7 @@ ROOT = Path(__file__).resolve().parents[2]
 ORIGIN = Path('/root/autodl-tmp/em_eqf')
 BASE = Path('/root/autodl-fs/em_eqf_training/mamba_phase_ablation_20261105')
 STORE = Path('/root/autodl-fs/em_eqf_training/mamba3_mimo_no_deltat_20261105')
-REPORTS = STORE / 'reports'
+REPORTS = STORE / 'shared/reports'
 RUNS = STORE / 'runs'
 FROZEN = STORE / 'frozen_project'
 DATA = STORE / 'dataset_snapshot.pt'
@@ -223,9 +223,9 @@ def launch():
         sources[name] = sha(target)
     shutil.copyfile(BASE / 'dataset_snapshot.pt', DATA)
     for name in ['base_plan.json', 'environment.json', 'native_kernels_sha256.json']:
-        shutil.copyfile(BASE / 'reports' / name, REPORTS / name)
+        shutil.copyfile(BASE / 'shared/reports' / name, REPORTS / name)
     for seed in SEEDS:
-        shutil.copyfile(BASE / 'reports' / f'common_initialization_seed_{seed}.pth',
+        shutil.copyfile(BASE / 'shared/reports' / f'common_initialization_seed_{seed}.pth',
                         REPORTS / f'common_initialization_seed_{seed}.pth')
         shutil.copyfile(BASE / 'runs' / f'mimo_real_seed_{seed}' / 'metrics.json',
                         REPORTS / f'baseline_seed_{seed}.json')

@@ -48,7 +48,7 @@ def main():
     parser.add_argument('--seeds', nargs='+', type=int, default=list(range(5)))
     parser.add_argument('--variants', nargs='+', default=['main', 'sensitivity'])
     args = parser.parse_args()
-    for folder in ['configs', 'runs', 'reports', 'logs', 'features']:
+    for folder in ['configs', 'runs', 'shared/reports', 'logs', 'features']:
         (OUT / folder).mkdir(parents=True, exist_ok=True)
     periods = pd.read_csv(ROOT / 'experiments/revision/generation_baselines/reports/generation_periods.csv')
     records = []

@@ -95,7 +95,7 @@ def test_different_metrics_files_get_non_conflicting_reports(monkeypatch, tmp_pa
     )
     summarize.main()
 
-    reports_dir = exp_dir / "reports"
+    reports_dir = exp_dir / "shared/reports"
     default_summary = json.loads(
         (reports_dir / "sliding_window_eval_metrics_summary.json").read_text(
             encoding="utf-8"
@@ -190,7 +190,7 @@ def test_exclude_truncated_final_window_recomputes_from_cache(monkeypatch, tmp_p
     )
     summarize.main()
 
-    reports_dir = exp_dir / "reports"
+    reports_dir = exp_dir / "shared/reports"
     summary = json.loads(
         (
             reports_dir

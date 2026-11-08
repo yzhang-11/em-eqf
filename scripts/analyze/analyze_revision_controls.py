@@ -19,7 +19,7 @@ from src.utils.classifier_compare_utils import paired_metric_bootstrap
 
 BASE = ROOT/'experiments/revision/main'
 CONTROL = ROOT/'experiments/revision/controls'
-OUT = CONTROL/'reports'
+OUT = CONTROL/'shared/reports'
 
 
 def load(name, parent, task):

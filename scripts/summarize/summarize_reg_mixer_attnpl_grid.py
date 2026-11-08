@@ -288,7 +288,7 @@ def main():
         out_dir = Path(args.out_dir).resolve()
     else:
         seed_dir_name = _seed_report_dir_name(target_seeds)
-        out_dir = exp_dir / "reports" / seed_dir_name if seed_dir_name else exp_dir / "reports"
+        out_dir = exp_dir / "shared/reports" / seed_dir_name if seed_dir_name else exp_dir / "shared/reports"
 
     metric_keys = [x.strip() for x in str(args.metrics).split(",") if x.strip()]
     if not metric_keys:

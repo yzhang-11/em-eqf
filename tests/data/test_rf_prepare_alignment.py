@@ -111,7 +111,6 @@ def test_shared_window_cache_builder_matches_direct_construct(monkeypatch, tmp_p
         Tfore=args.Tfore,
         dt=args.dt,
         context_len=args.context_len,
-        task_prefix="rf_classifier",
     )
     got_df, got_samples, got_array = bundle.df, bundle.samples_list, bundle.array_dict
 
@@ -124,33 +123,3 @@ def test_shared_window_cache_builder_matches_direct_construct(monkeypatch, tmp_p
             assert len(got_array[scope][key]) == len(exp_array[scope][key])
             for a, b in zip(got_array[scope][key], exp_array[scope][key]):
                 assert np.array_equal(a, b)
-
-
-def test_event_window_cache_key_can_include_mag_elaps(monkeypatch, tmp_path):
-    df = _make_catalog_df()
-    monkeypatch.setattr(event_pipeline, "load_and_filter_catalog", lambda base_dir, Mc: df.copy())
-
-    captured = {}
-
-    def _fake_save_or_load_data(base_path, generate_fn, **kwargs):
-        captured.update(kwargs)
-        return generate_fn()
-
-    monkeypatch.setattr(event_pipeline, "save_or_load_data", _fake_save_or_load_data)
-
-    event_pipeline.load_event_windows_with_cache(
-        str(tmp_path),
-        Mc=3.0,
-        Mf=5.5,
-        Twindow=20.0,
-        Tfore=8.0,
-        dt=4.0,
-        context_len=1,
-        task_prefix="rf_classifier",
-        cache_key_extra={"Mag_elaps": [5.5, 6.0], "dMag": 0.1},
-    )
-
-    assert "Mag_elaps" in captured
-    assert captured["Mag_elaps"] == [5.5, 6.0]
-    assert "dMag" in captured
-    assert captured["dMag"] == 0.1

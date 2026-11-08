@@ -62,23 +62,16 @@ htmlcov/
 # OS files
 .DS_Store
 
-# Ignore all experiment subdirectories by default. Only the four published
-# ETAS/RTPP multi-dataset result sets below are included in this branch.
-experiments/*
-!experiments/etas_multi_ds_bg_norm_0.2/
-!experiments/etas_multi_ds_bg_norm_0.2/**
-!experiments/etas_multi_ds_bg_split_0.7/
-!experiments/etas_multi_ds_bg_split_0.7/**
-!experiments/rtpp_v2_multi_bg_norm_0.2/
-!experiments/rtpp_v2_multi_bg_norm_0.2/**
-!experiments/rtpp_v2_multi_bg_split_0.7/
-!experiments/rtpp_v2_multi_bg_split_0.7/**
-
-# Training runs are local/generated artifacts; publish reports and summaries only.
-experiments/etas_multi_ds_bg_norm_0.2/runs/
-experiments/etas_multi_ds_bg_split_0.7/runs/
-experiments/rtpp_v2_multi_bg_norm_0.2/runs/
-experiments/rtpp_v2_multi_bg_split_0.7/runs/
+# Experiment outputs are local; retain the selected published reports.
+experiments/**
+!experiments/**/
+!experiments/README.md
+!experiments/registry/**
+!experiments/netas/etas/norm_0p2/**
+!experiments/netas/etas/split_0p7/**
+!experiments/netas/recast/norm_0p2/**
+!experiments/netas/recast/split_0p7/**
+experiments/**/runs/
 
 # Generated window caches; raw and processed inputs are retained.
 data/*/classifier/

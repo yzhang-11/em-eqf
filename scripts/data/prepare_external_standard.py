@@ -39,7 +39,7 @@ def link(path,target):
 
 
 def main():
-    (OUT/'reports').mkdir(parents=True,exist_ok=True)
+    (OUT/'shared/reports').mkdir(parents=True,exist_ok=True)
     (OUT/'configs').mkdir(parents=True,exist_ok=True)
     protected=[ROOT/'data/MultiRegion/catalogs/pilot_2007_2019.pt',
                ROOT/'data/MultiRegion/catalogs/long_sequence_20261105.pt',

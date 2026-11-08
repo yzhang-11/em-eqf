@@ -10,7 +10,7 @@ import torch
 STORE=Path('/root/autodl-fs/em_eqf_training/mamba3_decay_transfer_20261105')
 sp=importlib.util.spec_from_file_location('default_study',STORE/'frozen_runner.py')
 study=importlib.util.module_from_spec(sp);sp.loader.exec_module(study);study.configure()
-c,R=study.c,study.REPORTS;read=study.read;OLD_REPORTS=study.BASE/'reports'/study.OLD.name
+c,R=study.c,study.REPORTS;read=study.read;OLD_REPORTS=study.BASE/'shared/reports'/study.OLD.name
 
 
 def new_windows(target,mode,updates):

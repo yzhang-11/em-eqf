@@ -754,7 +754,7 @@ def main():
     if not exp_dir.exists():
         raise FileNotFoundError(f"Experiment dir not found: {exp_dir}")
 
-    out_dir = resolve_path(args.out_dir) if args.out_dir else exp_dir / "reports"
+    out_dir = resolve_path(args.out_dir) if args.out_dir else exp_dir / "shared/reports"
     field_keys = parse_csv(args.fields)
     if not field_keys:
         raise ValueError("--fields must contain at least one field")

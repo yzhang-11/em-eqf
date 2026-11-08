@@ -5,6 +5,7 @@ import logging
 import os
 import pickle
 import re
+import tempfile
 from datetime import datetime
 
 import pandas as pd
@@ -99,8 +100,15 @@ def save_or_load_data(base_path, generate_fn, args=None, filename=None, sub_dir=
     else:
         logger.info("Processing and saving new data to: %s", full_path)
         data = generate_fn(*(args or ()))
-        with open(full_path, "wb") as f:
-            pickle.dump(data, f)
+        temporary_path = None
+        try:
+            with tempfile.NamedTemporaryFile(dir=save_dir, prefix=".cache-", delete=False) as f:
+                temporary_path = f.name
+                pickle.dump(data, f)
+            os.replace(temporary_path, full_path)
+        finally:
+            if temporary_path is not None and os.path.exists(temporary_path):
+                os.unlink(temporary_path)
         return data
 
 

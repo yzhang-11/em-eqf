@@ -7,6 +7,7 @@ from pathlib import Path
 SCRIPT_PATH = (
     Path(__file__).parents[2]
     / "scripts"
+    / "run"
     / "run_sliding_window_forecast_for_seeds.py"
 )
 SCRIPT_SPEC = importlib.util.spec_from_file_location(
@@ -33,7 +34,7 @@ def _args() -> Namespace:
 def test_build_command_forwards_seed_from_run_name():
     command = SEED_WRAPPER.build_command(
         args=_args(),
-        script_path=Path("scripts/run_sliding_window_forecast.py"),
+        script_path=Path("scripts/run/run_sliding_window_forecast.py"),
         run_dir=Path("/tmp/demo_seed_2"),
         forwarded_args=["--eval-range", "test"],
         device=None,
@@ -45,7 +46,7 @@ def test_build_command_forwards_seed_from_run_name():
 def test_build_command_preserves_explicit_seed_override():
     command = SEED_WRAPPER.build_command(
         args=_args(),
-        script_path=Path("scripts/run_sliding_window_forecast.py"),
+        script_path=Path("scripts/run/run_sliding_window_forecast.py"),
         run_dir=Path("/tmp/demo_seed_2"),
         forwarded_args=["--seed", "17"],
         device=None,

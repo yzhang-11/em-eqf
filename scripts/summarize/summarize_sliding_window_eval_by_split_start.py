@@ -186,7 +186,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "exp_dir",
         nargs="?",
-        default="experiments/etas_multi_ds_bg_norm_0.2",
+        default="experiments/netas/etas/norm_0p2",
         help="Experiment directory containing runs/. Defaults to ETAS multi-dataset experiment.",
     )
     parser.add_argument(
@@ -871,7 +871,7 @@ def main() -> int:
     runs_dir = resolve_path(args.runs_dir) if args.runs_dir else exp_dir / "runs"
     if args.runs_dir:
         exp_dir = runs_dir.parent
-    output_dir = resolve_path(args.output_dir) if args.output_dir else exp_dir / "reports"
+    output_dir = resolve_path(args.output_dir) if args.output_dir else exp_dir / "shared/reports"
     data_root = resolve_path(args.data_root)
 
     run_dirs = discover_run_dirs(exp_dir, runs_dir)

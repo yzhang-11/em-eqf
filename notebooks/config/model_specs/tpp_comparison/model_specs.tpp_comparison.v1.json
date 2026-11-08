@@ -8,7 +8,7 @@
       "models": [
         {
           "label": "EM-EQF",
-          "checkpoint_rel_path": "experiments/mixer_tpp_ablation_chuandian/runs/mixer_tpp_ablation_tpp_b_seed_0/best_model_1.pth",
+          "checkpoint_rel_path": "experiments/mtpp/generation/swc_ablation/runs/mixer_tpp_ablation_tpp_b_seed_0/best_model_1.pth",
           "compile": true,
           "override_M_m": 10.0
         },
@@ -31,7 +31,7 @@
       "models": [
         {
           "label": "EM-EQF",
-          "checkpoint_rel_path": "experiments/mixer_tpp_ablation_chuandian/runs/mixer_tpp_ablation_tpp_b_seed_0/best_model_1.pth",
+          "checkpoint_rel_path": "experiments/mtpp/generation/swc_ablation/runs/mixer_tpp_ablation_tpp_b_seed_0/best_model_1.pth",
           "compile": true,
           "override_M_m": 10.0
         },

@@ -20,7 +20,7 @@ ROOT = Path('/root/autodl-tmp/em_eqf')
 TAG = 'chuandian_scedc_tpp_20261105'
 BASE = ROOT / 'experiments/revision/multiregion_pretraining'
 STORE = Path('/root/autodl-fs/em_eqf_training') / TAG
-REPORTS, CONFIGS, RUNS = [BASE / key / TAG for key in ['reports', 'configs', 'runs']]
+REPORTS, CONFIGS, RUNS = [BASE / key / TAG for key in ['shared/reports', 'configs', 'runs']]
 DATA = STORE / 'targets.pt'
 REFERENCE = Path('/root/autodl-fs/em_eqf_training/mamba3_chuandian_transfer_20261105/frozen_project')
 sys.path.insert(0, str(REFERENCE / 'scripts/tuning'))

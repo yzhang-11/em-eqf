@@ -14,7 +14,7 @@ jobs_per_gpu: 3
 stop_on_error: false
 
 exp_root: experiments
-exp_name: oracle_multi_dataset_0.7
+exp_name: netas/oracle/split_0p7
 
 run_test: true
 ckpt_select: both

@@ -1,0 +1,34 @@
+{
+  "branch": "research/main",
+  "tests": "151 passed, 6 skipped, 42 warnings in 93.38s (0:01:33)",
+  "python_files_checked": 580,
+  "syntax_errors": [],
+  "datasets": 73,
+  "experiments": 76,
+  "indexed_runs": 2593,
+  "index_errors": [],
+  "verified_tpp_presets": 10,
+  "cache_files_archived": 42,
+  "cache_bytes_archived": 2713062347,
+  "offloaded_directories": 20,
+  "offloaded_bytes": 4502605563,
+  "disk_before": {
+    "total": 53687091200,
+    "used": 44677312512,
+    "free": 9009778688
+  },
+  "disk_after": {
+    "total": 53687091200,
+    "used": 37074165760,
+    "free": 16612925440
+  },
+  "temporary_source_backups_archived": 6,
+  "python_cache_bytes_removed": 6636826,
+  "archive": "/root/autodl-fs/em_eqf_archive/maintenance_20261109",
+  "pushed": false,
+  "archived_demonstration_scripts": 5,
+  "removed_test_generated_reports": [
+    "number_test.json",
+    "spatial_test.json"
+  ]
+}

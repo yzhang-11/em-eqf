@@ -25,7 +25,7 @@ def link(path,target):
 
 
 def main():
-    (OUT/'configs').mkdir(parents=True,exist_ok=True);(OUT/'reports').mkdir(parents=True,exist_ok=True)
+    (OUT/'configs').mkdir(parents=True,exist_ok=True);(OUT/'shared/reports').mkdir(parents=True,exist_ok=True)
     guard=json.loads((ROOT/'experiments/revision/catalog_optimization_20261105/protected_14_before.json').read_text())
     results=[]
     for name,s in SPECS.items():

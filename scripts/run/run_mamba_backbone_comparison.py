@@ -24,7 +24,7 @@ from run_multidomain_pretraining import build_model,model_settings,make_batch,ev
 from run_long_multiregion import pools,evaluation_pools
 
 STUDY=ROOT/"experiments/revision/mamba_backbones_20261105"
-REPORTS=STUDY/"reports"
+REPORTS=STUDY/"shared/reports"
 RUNS=Path("/root/autodl-fs/em_eqf_training/mamba_backbones_20261105/runs")
 DATA=ROOT/"data/MultiRegion/catalogs/long_sequence_20261105.pt"
 ARMS=["mamba2_rotary_xpos","mamba2_rotary","mamba3_rotary_siso","mamba3_rotary_mimo"]

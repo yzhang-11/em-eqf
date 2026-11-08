@@ -31,7 +31,7 @@ def read_json(path):
 
 
 def read_rows(study, filename):
-    report = REVISION / study / "reports" / filename
+    report = REVISION / study / "shared/reports" / filename
     with report.open(encoding="utf-8", newline="") as handle:
         return [dict(row, evidence=str(report.relative_to(ROOT))) for row in csv.DictReader(handle)]
 

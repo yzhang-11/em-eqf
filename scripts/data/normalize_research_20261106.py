@@ -201,7 +201,7 @@ def publish(name,f,provenance,policy,extra):
         quality_protocol='research-source-specific-20261106-v1',regional_strict_equivalent=False,
         input_rows=len(f),invalid_required_rows=int((~valid).sum()),artifacts=artifacts,
         kept_missing_fields={c:int(f.loc[f.quality_screen_pass,c].isna().sum()) for c in ['station_count','azimuthal_gap','rms']},**extra)
-    dump(OUT/'reports'/f'{name}_audit.json',result)
+    dump(OUT/'shared/reports'/f'{name}_audit.json',result)
     print('NORMALISED',name,len(f),'SCREENED',int(f.quality_screen_pass.sum()),artifacts['quality_screened']['year_counts'],flush=True)
     return result
 
@@ -228,7 +228,7 @@ def stage_auxiliary():
 
 
 def montana():
-    name='USGS_Montana';audit=OUT/'reports'/f'{name}_audit.json'
+    name='USGS_Montana';audit=OUT/'shared/reports'/f'{name}_audit.json'
     if audit.exists():
         result=json.loads(audit.read_text())
         for item in result['artifacts'].values():assert sha(item['path'])==item['sha256']
@@ -255,7 +255,7 @@ def montana():
 
 
 def main():
-    (OUT/'reports').mkdir(parents=True,exist_ok=True)
+    (OUT/'shared/reports').mkdir(parents=True,exist_ok=True)
     results={}
     for name,fn in [('NORWAY_SW',sw_relocated_frame),('NORWAY_Bitdalsvatn',bit_frame)]:
         results[name]=publish(name,*fn())

@@ -8,9 +8,4 @@ This folder contains shared automation logic used by experiment runners under `s
 - `grid_script_utils.py`: shared runner-script helpers (run-name normalization, grid-point expansion, load-strategy parsing, encoder-load strategy apply).
 - `summary_script_utils.py`: shared summarizer helpers (seed suffix parse, summary dedupe, cfg-path resolve, tf/mf group-mode inference, per-run row collection template and common group-key builders).
 
-Compatibility wrappers remain for imports:
-
-- `scripts/grid_runner_common.py` re-exports `automation.grid_common`.
-- `scripts/optuna_profiles_common.py` re-exports `automation.optuna_common`.
-
-Root-level legacy entrypoint wrappers (e.g. `scripts/run/run_clf_mf_tf_grid.py`) also delegate to the new grouped folders so existing commands continue to work.
+Import shared modules directly from `automation`; invoke scripts in their functional subdirectory.

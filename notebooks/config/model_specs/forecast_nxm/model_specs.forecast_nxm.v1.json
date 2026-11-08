@@ -8,27 +8,27 @@
       "models": [
         {
           "label": "ETAS + p",
-          "checkpoint_rel_path": "experiments/etas_multi_ds_bg_split_0.7/runs/etas__CB_HAB4_proportional_seed_1/best_model_1.pth"
+          "checkpoint_rel_path": "experiments/netas/etas/split_0p7/runs/etas__CB_HAB4_proportional_seed_1/best_model_1.pth"
         },
         {
           "label": "ETAS + conv",
-          "checkpoint_rel_path": "experiments/etas_multi_ds_bg_split_0.7/runs/etas__CB_HAB4_kernel_seed_1/best_model_1.pth"
+          "checkpoint_rel_path": "experiments/netas/etas/split_0p7/runs/etas__CB_HAB4_kernel_seed_1/best_model_1.pth"
         },
         {
           "label": "ETAS + Mamba",
-          "checkpoint_rel_path": "experiments/etas_multi_ds_bg_split_0.7/runs/etas__CB_HAB4_mamba_seed_1/best_model_1.pth"
+          "checkpoint_rel_path": "experiments/netas/etas/split_0p7/runs/etas__CB_HAB4_mamba_seed_1/best_model_1.pth"
         },
         {
           "label": "RECAST + p",
-          "checkpoint_rel_path": "experiments/rtpp_v2_multi_bg_split_0.7/runs/rtpp_v2_bg_CB_HAB4_proportional_seed_2/best_model_1.pth"
+          "checkpoint_rel_path": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_CB_HAB4_proportional_seed_2/best_model_1.pth"
         },
         {
           "label": "RECAST + conv",
-          "checkpoint_rel_path": "experiments/rtpp_v2_multi_bg_split_0.7/runs/rtpp_v2_bg_CB_HAB4_kernel_seed_2/best_model_1.pth"
+          "checkpoint_rel_path": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_CB_HAB4_kernel_seed_2/best_model_1.pth"
         },
         {
           "label": "RECAST + Mamba",
-          "checkpoint_rel_path": "experiments/rtpp_v2_multi_bg_split_0.7/runs/rtpp_v2_bg_CB_HAB4_mamba_seed_2/best_model_1.pth"
+          "checkpoint_rel_path": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_CB_HAB4_mamba_seed_2/best_model_1.pth"
         }
       ]
     },
@@ -37,27 +37,27 @@
       "models": [
         {
           "label": "ETAS + p",
-          "checkpoint_rel_path": "experiments/etas_multi_ds_bg_split_0.7/runs/etas__CB_HAB1a_proportional_seed_1/best_model_1.pth"
+          "checkpoint_rel_path": "experiments/netas/etas/split_0p7/runs/etas__CB_HAB1a_proportional_seed_1/best_model_1.pth"
         },
         {
           "label": "ETAS + conv",
-          "checkpoint_rel_path": "experiments/etas_multi_ds_bg_split_0.7/runs/etas__CB_HAB1a_kernel_seed_1/best_model_1.pth"
+          "checkpoint_rel_path": "experiments/netas/etas/split_0p7/runs/etas__CB_HAB1a_kernel_seed_1/best_model_1.pth"
         },
         {
           "label": "ETAS + Mamba",
-          "checkpoint_rel_path": "experiments/etas_multi_ds_bg_split_0.7/runs/etas__CB_HAB1a_mamba_seed_1/best_model_1.pth"
+          "checkpoint_rel_path": "experiments/netas/etas/split_0p7/runs/etas__CB_HAB1a_mamba_seed_1/best_model_1.pth"
         },
         {
           "label": "RECAST + p",
-          "checkpoint_rel_path": "experiments/rtpp_v2_multi_bg_split_0.7/runs/rtpp_v2_bg_CB_HAB1a_proportional_seed_2/best_model_1.pth"
+          "checkpoint_rel_path": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_CB_HAB1a_proportional_seed_2/best_model_1.pth"
         },
         {
           "label": "RECAST + conv",
-          "checkpoint_rel_path": "experiments/rtpp_v2_multi_bg_split_0.7/runs/rtpp_v2_bg_CB_HAB1a_kernel_seed_2/best_model_1.pth"
+          "checkpoint_rel_path": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_CB_HAB1a_kernel_seed_2/best_model_1.pth"
         },
         {
           "label": "RECAST + Mamba",
-          "checkpoint_rel_path": "experiments/rtpp_v2_multi_bg_split_0.7/runs/rtpp_v2_bg_CB_HAB1a_mamba_seed_2/best_model_1.pth"
+          "checkpoint_rel_path": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_CB_HAB1a_mamba_seed_2/best_model_1.pth"
         }
       ]
     },
@@ -66,39 +66,39 @@
       "models": [
         {
           "label": "ETAS",
-          "checkpoint_rel_path": "experiments/etas_multi_ds_bg_split_0.7/runs/etas__CB_HAB4_no_bg_seed_1/best_model_1.pth"
+          "checkpoint_rel_path": "experiments/netas/etas/split_0p7/runs/etas__CB_HAB4_no_bg_seed_1/best_model_1.pth"
         },
         {
           "label": "RECAST",
-          "checkpoint_rel_path": "experiments/rtpp_v2_multi_bg_split_0.7/runs/rtpp_v2_bg_CB_HAB4_no_bg_seed_2/best_model_1.pth"
+          "checkpoint_rel_path": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_CB_HAB4_no_bg_seed_2/best_model_1.pth"
         },
         {
           "label": "Oracle",
-          "checkpoint_rel_path": "experiments/oracle_multi_dataset_0.7/runs/oracle_CB_HAB4_seed_0/best_model_1.pth"
+          "checkpoint_rel_path": "experiments/netas/oracle/split_0p7/runs/oracle_CB_HAB4_seed_0/best_model_1.pth"
         },
         {
           "label": "ETAS + p",
-          "checkpoint_rel_path": "experiments/etas_multi_ds_bg_split_0.7/runs/etas__CB_HAB4_proportional_seed_1/best_model_1.pth"
+          "checkpoint_rel_path": "experiments/netas/etas/split_0p7/runs/etas__CB_HAB4_proportional_seed_1/best_model_1.pth"
         },
         {
           "label": "ETAS + conv",
-          "checkpoint_rel_path": "experiments/etas_multi_ds_bg_split_0.7/runs/etas__CB_HAB4_kernel_seed_1/best_model_1.pth"
+          "checkpoint_rel_path": "experiments/netas/etas/split_0p7/runs/etas__CB_HAB4_kernel_seed_1/best_model_1.pth"
         },
         {
           "label": "ETAS + Mamba",
-          "checkpoint_rel_path": "experiments/etas_multi_ds_bg_split_0.7/runs/etas__CB_HAB4_mamba_seed_1/best_model_1.pth"
+          "checkpoint_rel_path": "experiments/netas/etas/split_0p7/runs/etas__CB_HAB4_mamba_seed_1/best_model_1.pth"
         },
         {
           "label": "RECAST + p",
-          "checkpoint_rel_path": "experiments/rtpp_v2_multi_bg_split_0.7/runs/rtpp_v2_bg_CB_HAB4_proportional_seed_2/best_model_1.pth"
+          "checkpoint_rel_path": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_CB_HAB4_proportional_seed_2/best_model_1.pth"
         },
         {
           "label": "RECAST + conv",
-          "checkpoint_rel_path": "experiments/rtpp_v2_multi_bg_split_0.7/runs/rtpp_v2_bg_CB_HAB4_kernel_seed_2/best_model_1.pth"
+          "checkpoint_rel_path": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_CB_HAB4_kernel_seed_2/best_model_1.pth"
         },
         {
           "label": "RECAST + Mamba",
-          "checkpoint_rel_path": "experiments/rtpp_v2_multi_bg_split_0.7/runs/rtpp_v2_bg_CB_HAB4_mamba_seed_2/best_model_1.pth"
+          "checkpoint_rel_path": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_CB_HAB4_mamba_seed_2/best_model_1.pth"
         }
       ]
     },
@@ -107,27 +107,27 @@
       "models": [
         {
           "label": "ETAS + p",
-          "checkpoint_rel_path": "experiments/etas_multi_ds_bg_split_0.7/runs/etas__PNR_1z_proportional_seed_1/best_model_1.pth"
+          "checkpoint_rel_path": "experiments/netas/etas/split_0p7/runs/etas__PNR_1z_proportional_seed_1/best_model_1.pth"
         },
         {
           "label": "ETAS + conv",
-          "checkpoint_rel_path": "experiments/etas_multi_ds_bg_split_0.7/runs/etas__PNR_1z_kernel_seed_1/best_model_1.pth"
+          "checkpoint_rel_path": "experiments/netas/etas/split_0p7/runs/etas__PNR_1z_kernel_seed_1/best_model_1.pth"
         },
         {
           "label": "ETAS + Mamba",
-          "checkpoint_rel_path": "experiments/etas_multi_ds_bg_split_0.7/runs/etas__PNR_1z_mamba_seed_1/best_model_1.pth"
+          "checkpoint_rel_path": "experiments/netas/etas/split_0p7/runs/etas__PNR_1z_mamba_seed_1/best_model_1.pth"
         },
         {
           "label": "RECAST + p",
-          "checkpoint_rel_path": "experiments/rtpp_v2_multi_bg_split_0.7/runs/rtpp_v2_bg_PNR_1z_proportional_seed_2/best_model_1.pth"
+          "checkpoint_rel_path": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_PNR_1z_proportional_seed_2/best_model_1.pth"
         },
         {
           "label": "RECAST + conv",
-          "checkpoint_rel_path": "experiments/rtpp_v2_multi_bg_split_0.7/runs/rtpp_v2_bg_PNR_1z_kernel_seed_2/best_model_1.pth"
+          "checkpoint_rel_path": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_PNR_1z_kernel_seed_2/best_model_1.pth"
         },
         {
           "label": "RECAST + Mamba",
-          "checkpoint_rel_path": "experiments/rtpp_v2_multi_bg_split_0.7/runs/rtpp_v2_bg_PNR_1z_mamba_seed_2/best_model_1.pth"
+          "checkpoint_rel_path": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_PNR_1z_mamba_seed_2/best_model_1.pth"
         }
       ]
     },
@@ -136,40 +136,40 @@
       "models": [
         {
           "label": "ETAS",
-          "checkpoint_rel_path": "experiments/etas_multi_ds_bg_split_0.7/runs/etas__PNR_1z_no_bg_seed_1/best_model_1.pth"
+          "checkpoint_rel_path": "experiments/netas/etas/split_0p7/runs/etas__PNR_1z_no_bg_seed_1/best_model_1.pth"
         },
         {
           "label": "RECAST",
-          "checkpoint_rel_path": "experiments/rtpp_v2_multi_bg_split_0.7/runs/rtpp_v2_bg_PNR_1z_no_bg_seed_2/best_model_1.pth"
+          "checkpoint_rel_path": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_PNR_1z_no_bg_seed_2/best_model_1.pth"
         },
         {
           "label": "Oracle",
-          "checkpoint_rel_path": "experiments/oracle_multi_dataset_0.7/runs/oracle_PNR_1z_seed_0/best_model_1.pth"
+          "checkpoint_rel_path": "experiments/netas/oracle/split_0p7/runs/oracle_PNR_1z_seed_0/best_model_1.pth"
         },
         {
           "label": "ETAS + p",
-          "checkpoint_rel_path": "experiments/etas_multi_ds_bg_split_0.7/runs/etas__PNR_1z_proportional_seed_1/best_model_1.pth"
+          "checkpoint_rel_path": "experiments/netas/etas/split_0p7/runs/etas__PNR_1z_proportional_seed_1/best_model_1.pth"
         },
         {
           "label": "ETAS + conv",
-          "checkpoint_rel_path": "experiments/etas_multi_ds_bg_split_0.7/runs/etas__PNR_1z_kernel_seed_1/best_model_1.pth"
+          "checkpoint_rel_path": "experiments/netas/etas/split_0p7/runs/etas__PNR_1z_kernel_seed_1/best_model_1.pth"
         },
         {
           "label": "ETAS + Mamba",
-          "checkpoint_rel_path": "experiments/etas_multi_ds_bg_split_0.7/runs/etas__PNR_1z_mamba_seed_1/best_model_1.pth"
+          "checkpoint_rel_path": "experiments/netas/etas/split_0p7/runs/etas__PNR_1z_mamba_seed_1/best_model_1.pth"
         },
 
         {
           "label": "RECAST + p",
-          "checkpoint_rel_path": "experiments/rtpp_v2_multi_bg_split_0.7/runs/rtpp_v2_bg_PNR_1z_proportional_seed_2/best_model_1.pth"
+          "checkpoint_rel_path": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_PNR_1z_proportional_seed_2/best_model_1.pth"
         },
         {
           "label": "RECAST + conv",
-          "checkpoint_rel_path": "experiments/rtpp_v2_multi_bg_split_0.7/runs/rtpp_v2_bg_PNR_1z_kernel_seed_2/best_model_1.pth"
+          "checkpoint_rel_path": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_PNR_1z_kernel_seed_2/best_model_1.pth"
         },
         {
           "label": "RECAST + Mamba",
-          "checkpoint_rel_path": "experiments/rtpp_v2_multi_bg_split_0.7/runs/rtpp_v2_bg_PNR_1z_mamba_seed_2/best_model_1.pth"
+          "checkpoint_rel_path": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_PNR_1z_mamba_seed_2/best_model_1.pth"
         }
         
       ]
@@ -179,39 +179,39 @@
       "models": [
         {
           "label": "ETAS",
-          "checkpoint_rel_path": "experiments/etas_multi_ds_bg_split_0.7/runs/etas__CB_HAB1a_no_bg_seed_1/best_model_1.pth"
+          "checkpoint_rel_path": "experiments/netas/etas/split_0p7/runs/etas__CB_HAB1a_no_bg_seed_1/best_model_1.pth"
         },
         {
           "label": "RECAST",
-          "checkpoint_rel_path": "experiments/rtpp_v2_multi_bg_split_0.7/runs/rtpp_v2_bg_CB_HAB1a_no_bg_seed_2/best_model_1.pth"
+          "checkpoint_rel_path": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_CB_HAB1a_no_bg_seed_2/best_model_1.pth"
         },
         {
           "label": "Oracle",
-          "checkpoint_rel_path": "experiments/oracle_multi_dataset_0.7/runs/oracle_CB_HAB1a_seed_0/best_model_1.pth"
+          "checkpoint_rel_path": "experiments/netas/oracle/split_0p7/runs/oracle_CB_HAB1a_seed_0/best_model_1.pth"
         },
         {
           "label": "ETAS + p",
-          "checkpoint_rel_path": "experiments/etas_multi_ds_bg_split_0.7/runs/etas__CB_HAB1a_proportional_seed_1/best_model_1.pth"
+          "checkpoint_rel_path": "experiments/netas/etas/split_0p7/runs/etas__CB_HAB1a_proportional_seed_1/best_model_1.pth"
         },
         {
           "label": "ETAS + conv",
-          "checkpoint_rel_path": "experiments/etas_multi_ds_bg_split_0.7/runs/etas__CB_HAB1a_kernel_seed_1/best_model_1.pth"
+          "checkpoint_rel_path": "experiments/netas/etas/split_0p7/runs/etas__CB_HAB1a_kernel_seed_1/best_model_1.pth"
         },
         {
           "label": "ETAS + Mamba",
-          "checkpoint_rel_path": "experiments/etas_multi_ds_bg_split_0.7/runs/etas__CB_HAB1a_mamba_seed_1/best_model_1.pth"
+          "checkpoint_rel_path": "experiments/netas/etas/split_0p7/runs/etas__CB_HAB1a_mamba_seed_1/best_model_1.pth"
         },
         {
           "label": "RECAST + p",
-          "checkpoint_rel_path": "experiments/rtpp_v2_multi_bg_split_0.7/runs/rtpp_v2_bg_CB_HAB1a_proportional_seed_2/best_model_1.pth"
+          "checkpoint_rel_path": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_CB_HAB1a_proportional_seed_2/best_model_1.pth"
         },
         {
           "label": "RECAST + conv",
-          "checkpoint_rel_path": "experiments/rtpp_v2_multi_bg_split_0.7/runs/rtpp_v2_bg_CB_HAB1a_kernel_seed_2/best_model_1.pth"
+          "checkpoint_rel_path": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_CB_HAB1a_kernel_seed_2/best_model_1.pth"
         },
         {
           "label": "RECAST + Mamba",
-          "checkpoint_rel_path": "experiments/rtpp_v2_multi_bg_split_0.7/runs/rtpp_v2_bg_CB_HAB1a_mamba_seed_2/best_model_1.pth"
+          "checkpoint_rel_path": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_CB_HAB1a_mamba_seed_2/best_model_1.pth"
         }
       ]
     },
@@ -220,27 +220,27 @@
       "models": [
         {
           "label": "ETAS + p",
-          "checkpoint_rel_path": "experiments/etas_multi_ds_bg_split_0.7/runs/etas__St1_2018_proportional_seed_1/best_model_1.pth"
+          "checkpoint_rel_path": "experiments/netas/etas/split_0p7/runs/etas__St1_2018_proportional_seed_1/best_model_1.pth"
         },
         {
           "label": "ETAS + conv",
-          "checkpoint_rel_path": "experiments/etas_multi_ds_bg_split_0.7/runs/etas__St1_2018_kernel_seed_1/best_model_1.pth"
+          "checkpoint_rel_path": "experiments/netas/etas/split_0p7/runs/etas__St1_2018_kernel_seed_1/best_model_1.pth"
         },
         {
           "label": "ETAS + Mamba",
-          "checkpoint_rel_path": "experiments/etas_multi_ds_bg_split_0.7/runs/etas__St1_2018_mamba_seed_1/best_model_1.pth"
+          "checkpoint_rel_path": "experiments/netas/etas/split_0p7/runs/etas__St1_2018_mamba_seed_1/best_model_1.pth"
         },
         {
           "label": "RECAST + p",
-          "checkpoint_rel_path": "experiments/rtpp_v2_multi_bg_split_0.7/runs/rtpp_v2_bg_St1_2018_proportional_seed_2/best_model_1.pth"
+          "checkpoint_rel_path": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_St1_2018_proportional_seed_2/best_model_1.pth"
         },
         {
           "label": "RECAST + conv",
-          "checkpoint_rel_path": "experiments/rtpp_v2_multi_bg_split_0.7/runs/rtpp_v2_bg_St1_2018_kernel_seed_2/best_model_1.pth"
+          "checkpoint_rel_path": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_St1_2018_kernel_seed_2/best_model_1.pth"
         },
         {
           "label": "RECAST + Mamba",
-          "checkpoint_rel_path": "experiments/rtpp_v2_multi_bg_split_0.7/runs/rtpp_v2_bg_St1_2018_mamba_seed_2/best_model_1.pth"
+          "checkpoint_rel_path": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_St1_2018_mamba_seed_2/best_model_1.pth"
         }
       ]
     },
@@ -249,39 +249,39 @@
       "models": [
         {
           "label": "ETAS",
-          "checkpoint_rel_path": "experiments/etas_multi_ds_bg_split_0.7/runs/etas__St1_2018_no_bg_seed_1/best_model_1.pth"
+          "checkpoint_rel_path": "experiments/netas/etas/split_0p7/runs/etas__St1_2018_no_bg_seed_1/best_model_1.pth"
         },
         {
           "label": "RECAST",
-          "checkpoint_rel_path": "experiments/rtpp_v2_multi_bg_split_0.7/runs/rtpp_v2_bg_St1_2018_no_bg_seed_2/best_model_1.pth"
+          "checkpoint_rel_path": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_St1_2018_no_bg_seed_2/best_model_1.pth"
         },
         {
           "label": "Oracle",
-          "checkpoint_rel_path": "experiments/oracle_multi_dataset_0.7/runs/oracle_St1_2018_seed_0/best_model_1.pth"
+          "checkpoint_rel_path": "experiments/netas/oracle/split_0p7/runs/oracle_St1_2018_seed_0/best_model_1.pth"
         },
         {
           "label": "ETAS + p",
-          "checkpoint_rel_path": "experiments/etas_multi_ds_bg_split_0.7/runs/etas__St1_2018_proportional_seed_1/best_model_1.pth"
+          "checkpoint_rel_path": "experiments/netas/etas/split_0p7/runs/etas__St1_2018_proportional_seed_1/best_model_1.pth"
         },
         {
           "label": "ETAS + conv",
-          "checkpoint_rel_path": "experiments/etas_multi_ds_bg_split_0.7/runs/etas__St1_2018_kernel_seed_1/best_model_1.pth"
+          "checkpoint_rel_path": "experiments/netas/etas/split_0p7/runs/etas__St1_2018_kernel_seed_1/best_model_1.pth"
         },
         {
           "label": "ETAS + Mamba",
-          "checkpoint_rel_path": "experiments/etas_multi_ds_bg_split_0.7/runs/etas__St1_2018_mamba_seed_1/best_model_1.pth"
+          "checkpoint_rel_path": "experiments/netas/etas/split_0p7/runs/etas__St1_2018_mamba_seed_1/best_model_1.pth"
         },
         {
           "label": "RECAST + p",
-          "checkpoint_rel_path": "experiments/rtpp_v2_multi_bg_split_0.7/runs/rtpp_v2_bg_St1_2018_proportional_seed_2/best_model_1.pth"
+          "checkpoint_rel_path": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_St1_2018_proportional_seed_2/best_model_1.pth"
         },
         {
           "label": "RECAST + conv",
-          "checkpoint_rel_path": "experiments/rtpp_v2_multi_bg_split_0.7/runs/rtpp_v2_bg_St1_2018_kernel_seed_2/best_model_1.pth"
+          "checkpoint_rel_path": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_St1_2018_kernel_seed_2/best_model_1.pth"
         },
         {
           "label": "RECAST + Mamba",
-          "checkpoint_rel_path": "experiments/rtpp_v2_multi_bg_split_0.7/runs/rtpp_v2_bg_St1_2018_mamba_seed_2/best_model_1.pth"
+          "checkpoint_rel_path": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_St1_2018_mamba_seed_2/best_model_1.pth"
         }
       ]
     }

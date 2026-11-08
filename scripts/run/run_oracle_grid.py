@@ -10,7 +10,7 @@ import runpy
 import sys
 
 
-DEFAULT_EXP_CONFIG = "config/experiments/oracle_multi_dataset.yaml"
+DEFAULT_EXP_CONFIG = "config/experiments/netas/oracle/baseline.yaml"
 DEFAULT_MODEL = "oracle"
 DEFAULT_BASE_CONFIG = "config/oracle.yaml"
 

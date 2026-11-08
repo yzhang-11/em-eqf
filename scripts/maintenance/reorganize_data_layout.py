@@ -25,7 +25,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 
 HASH_DIR_RE = re.compile(r"^[0-9a-f]{8}$")
-RESERVED_NAMES = {"raw", "processed", "catalogs", "source"}
+RESERVED_NAMES = {"raw", "processed", "catalogs", "source", "cache", "reports", "analysis_plots"}
 CATALOG_ARTIFACT_FILES = {
     "catalog_cfg.json",
     "full_sequence.pt",
@@ -79,7 +79,8 @@ def same_file(a: Path, b: Path) -> bool:
 
 
 def _move_file(src: Path, dst: Path, stats: Stats, dry_run: bool) -> None:
-    dst.parent.mkdir(parents=True, exist_ok=True)
+    if not dry_run:
+        dst.parent.mkdir(parents=True, exist_ok=True)
     if not dst.exists():
         if not dry_run:
             shutil.move(str(src), str(dst))
@@ -96,7 +97,7 @@ def _move_file(src: Path, dst: Path, stats: Stats, dry_run: bool) -> None:
 
 
 def move_entry(src: Path, dst: Path, stats: Stats, dry_run: bool) -> None:
-    if not src.exists():
+    if src.is_symlink() or not src.exists():
         return
 
     if src.is_file():
@@ -105,7 +106,8 @@ def move_entry(src: Path, dst: Path, stats: Stats, dry_run: bool) -> None:
 
     if src.is_dir():
         if not dst.exists():
-            dst.parent.mkdir(parents=True, exist_ok=True)
+            if not dry_run:
+                dst.parent.mkdir(parents=True, exist_ok=True)
             if not dry_run:
                 shutil.move(str(src), str(dst))
             stats.moved.append((src, dst))
@@ -134,7 +136,8 @@ def move_source_to_raw(dataset_dir: Path, stats: Stats, dry_run: bool) -> None:
     raw = dataset_dir / "raw"
     if not source.exists():
         return
-    raw.mkdir(parents=True, exist_ok=True)
+    if not dry_run:
+        raw.mkdir(parents=True, exist_ok=True)
     for child in sorted(source.iterdir()):
         move_entry(child, raw / child.name, stats, dry_run)
     if not dry_run:
@@ -147,10 +150,12 @@ def move_source_to_raw(dataset_dir: Path, stats: Stats, dry_run: bool) -> None:
 def move_top_level_to_raw(dataset_dir: Path, stats: Stats, dry_run: bool) -> None:
     raw = dataset_dir / "raw"
     catalogs = dataset_dir / "catalogs"
-    raw.mkdir(parents=True, exist_ok=True)
-    catalogs.mkdir(parents=True, exist_ok=True)
+    if not dry_run:
+        raw.mkdir(parents=True, exist_ok=True)
+    if not dry_run:
+        catalogs.mkdir(parents=True, exist_ok=True)
     for entry in sorted(dataset_dir.iterdir()):
-        if entry.name.startswith("."):
+        if entry.is_symlink() or entry.name.startswith("."):
             continue
         if entry.name in RESERVED_NAMES:
             continue
@@ -165,7 +170,8 @@ def move_hash_dirs_raw_to_catalogs(dataset_dir: Path, stats: Stats, dry_run: boo
     if not raw.exists():
         return
     catalogs = dataset_dir / "catalogs"
-    catalogs.mkdir(parents=True, exist_ok=True)
+    if not dry_run:
+        catalogs.mkdir(parents=True, exist_ok=True)
     for entry in sorted(raw.iterdir()):
         if entry.is_dir() and HASH_DIR_RE.fullmatch(entry.name):
             move_entry(entry, catalogs / entry.name, stats, dry_run)
@@ -176,7 +182,8 @@ def move_catalog_files_raw_to_catalogs(dataset_dir: Path, stats: Stats, dry_run:
     if not raw.exists():
         return
     catalogs = dataset_dir / "catalogs"
-    catalogs.mkdir(parents=True, exist_ok=True)
+    if not dry_run:
+        catalogs.mkdir(parents=True, exist_ok=True)
     for entry in sorted(raw.iterdir()):
         if is_catalog_artifact_file(entry):
             move_entry(entry, catalogs / entry.name, stats, dry_run)

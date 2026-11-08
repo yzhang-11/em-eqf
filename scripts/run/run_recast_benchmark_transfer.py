@@ -112,7 +112,7 @@ def prepare(root):
                 job = root / arm / target / f's{seed}'
                 job.mkdir(parents=True, exist_ok=True)
                 cfg = copy.deepcopy(base_config)
-                cfg['paths'].update(data=str(directory), runs=str(job / 'runs'), reports=str(job / 'reports'))
+                cfg['paths'].update(data=str(directory), runs=str(job / 'runs'), reports=str(job / 'shared/reports'))
                 cfg['training'].update(targets=[target], seeds=[seed], baseline='recast',
                                        recurrent_width=32, region_condition_stats=True,
                                        region_magnitude_preprocess=arm, driver_sha256=sha(Path(__file__)))

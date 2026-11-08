@@ -1,0 +1,1773 @@
+[
+  {
+    "experiment": "mtpp/classification/azdx",
+    "datasets": [
+      "ChuanDian"
+    ],
+    "configs": [
+      "experiments/mtpp/classification/azdx/configs/clf_mf_tf_grid.yaml",
+      "experiments/mtpp/classification/azdx/configs/clf_mixer_attnpl_t.yaml"
+    ],
+    "reports": [
+      "experiments/mtpp/classification/azdx/reports/clf_grid_metrics_group_best.csv",
+      "experiments/mtpp/classification/azdx/reports/clf_grid_metrics_group_mean_std.csv",
+      "experiments/mtpp/classification/azdx/reports/clf_grid_metrics_per_run.csv"
+    ],
+    "run_count": 25,
+    "storage_target": "/root/autodl-tmp/em_eqf/experiments/mtpp/classification/azdx"
+  },
+  {
+    "experiment": "mtpp/classification/azdx_minus_b",
+    "datasets": [
+      "ChuanDian"
+    ],
+    "configs": [
+      "experiments/mtpp/classification/azdx_minus_b/configs/clf_mf_tf_grid.yaml",
+      "experiments/mtpp/classification/azdx_minus_b/configs/clf_mixer_attnpl_t.yaml"
+    ],
+    "reports": [
+      "experiments/mtpp/classification/azdx_minus_b/reports/clf_grid_metrics_group_best.csv",
+      "experiments/mtpp/classification/azdx_minus_b/reports/clf_grid_metrics_group_mean_std.csv",
+      "experiments/mtpp/classification/azdx_minus_b/reports/clf_grid_metrics_per_run.csv"
+    ],
+    "run_count": 25,
+    "storage_target": "/root/autodl-tmp/em_eqf/experiments/mtpp/classification/azdx_minus_b"
+  },
+  {
+    "experiment": "mtpp/classification/grid_azdx",
+    "datasets": [
+      "ChuanDian"
+    ],
+    "configs": [
+      "experiments/mtpp/classification/grid_azdx/configs/clf_mf_tf_grid.yaml",
+      "experiments/mtpp/classification/grid_azdx/configs/clf_mixer_attnpl_t.yaml"
+    ],
+    "reports": [
+      "experiments/mtpp/classification/grid_azdx/reports/clf_grid_metrics_group_best.csv",
+      "experiments/mtpp/classification/grid_azdx/reports/clf_grid_metrics_group_mean_std.csv",
+      "experiments/mtpp/classification/grid_azdx/reports/clf_grid_metrics_per_run.csv"
+    ],
+    "run_count": 50,
+    "storage_target": "/root/autodl-tmp/em_eqf/experiments/mtpp/classification/grid_azdx"
+  },
+  {
+    "experiment": "mtpp/classification/grid_azdx_2",
+    "datasets": [
+      "ChuanDian"
+    ],
+    "configs": [
+      "experiments/mtpp/classification/grid_azdx_2/configs/clf_mf_tf_grid.yaml",
+      "experiments/mtpp/classification/grid_azdx_2/configs/clf_mixer_attnpl_t.yaml"
+    ],
+    "reports": [
+      "experiments/mtpp/classification/grid_azdx_2/reports/clf_grid_metrics_group_best.csv",
+      "experiments/mtpp/classification/grid_azdx_2/reports/clf_grid_metrics_group_mean_std.csv",
+      "experiments/mtpp/classification/grid_azdx_2/reports/clf_grid_metrics_per_run.csv"
+    ],
+    "run_count": 50,
+    "storage_target": "/root/autodl-tmp/em_eqf/experiments/mtpp/classification/grid_azdx_2"
+  },
+  {
+    "experiment": "mtpp/classification/grid_encoder_lr",
+    "datasets": [
+      "ChuanDian"
+    ],
+    "configs": [
+      "experiments/mtpp/classification/grid_encoder_lr/configs/clf_mf_tf_grid.yaml",
+      "experiments/mtpp/classification/grid_encoder_lr/configs/clf_mixer_attnpl_t.yaml"
+    ],
+    "reports": [
+      "experiments/mtpp/classification/grid_encoder_lr/reports/clf_grid_metrics_group_best.csv",
+      "experiments/mtpp/classification/grid_encoder_lr/reports/clf_grid_metrics_group_mean_std.csv",
+      "experiments/mtpp/classification/grid_encoder_lr/reports/clf_grid_metrics_per_run.csv"
+    ],
+    "run_count": 15,
+    "storage_target": "/root/autodl-tmp/em_eqf/experiments/mtpp/classification/grid_encoder_lr"
+  },
+  {
+    "experiment": "mtpp/classification/grid_r_2_azdx_minus_b",
+    "datasets": [
+      "ChuanDian"
+    ],
+    "configs": [
+      "experiments/mtpp/classification/grid_r_2_azdx_minus_b/configs/clf_mf_tf_grid.yaml",
+      "experiments/mtpp/classification/grid_r_2_azdx_minus_b/configs/clf_mixer_attnpl_t.yaml"
+    ],
+    "reports": [
+      "experiments/mtpp/classification/grid_r_2_azdx_minus_b/reports/clf_grid_metrics_group_best.csv",
+      "experiments/mtpp/classification/grid_r_2_azdx_minus_b/reports/clf_grid_metrics_group_mean_std.csv",
+      "experiments/mtpp/classification/grid_r_2_azdx_minus_b/reports/clf_grid_metrics_per_run.csv",
+      "experiments/mtpp/classification/grid_r_2_azdx_minus_b/reports/reg_grid_metrics_group_best.csv",
+      "experiments/mtpp/classification/grid_r_2_azdx_minus_b/reports/reg_grid_metrics_group_mean_std.csv",
+      "experiments/mtpp/classification/grid_r_2_azdx_minus_b/reports/reg_grid_metrics_per_run.csv"
+    ],
+    "run_count": 15,
+    "storage_target": "/root/autodl-tmp/em_eqf/experiments/mtpp/classification/grid_r_2_azdx_minus_b"
+  },
+  {
+    "experiment": "mtpp/classification/grid_r_2_layer_1",
+    "datasets": [
+      "ChuanDian"
+    ],
+    "configs": [
+      "experiments/mtpp/classification/grid_r_2_layer_1/configs/clf_mf_tf_grid.yaml",
+      "experiments/mtpp/classification/grid_r_2_layer_1/configs/clf_mixer_attnpl_t.yaml"
+    ],
+    "reports": [
+      "experiments/mtpp/classification/grid_r_2_layer_1/reports/clf_grid_metrics_group_best.csv",
+      "experiments/mtpp/classification/grid_r_2_layer_1/reports/clf_grid_metrics_group_mean_std.csv",
+      "experiments/mtpp/classification/grid_r_2_layer_1/reports/clf_grid_metrics_per_run.csv"
+    ],
+    "run_count": 15,
+    "storage_target": "/root/autodl-tmp/em_eqf/experiments/mtpp/classification/grid_r_2_layer_1"
+  },
+  {
+    "experiment": "mtpp/classification/grid_r_2_scedc",
+    "datasets": [
+      "ChuanDian"
+    ],
+    "configs": [
+      "experiments/mtpp/classification/grid_r_2_scedc/configs/clf_mf_tf_grid.yaml",
+      "experiments/mtpp/classification/grid_r_2_scedc/configs/clf_mixer_attnpl_t.yaml"
+    ],
+    "reports": [
+      "experiments/mtpp/classification/grid_r_2_scedc/reports/clf_grid_metrics_group_best.csv",
+      "experiments/mtpp/classification/grid_r_2_scedc/reports/clf_grid_metrics_group_mean_std.csv",
+      "experiments/mtpp/classification/grid_r_2_scedc/reports/clf_grid_metrics_per_run.csv"
+    ],
+    "run_count": 15,
+    "storage_target": "/root/autodl-tmp/em_eqf/experiments/mtpp/classification/grid_r_2_scedc"
+  },
+  {
+    "experiment": "mtpp/classification/grid_r_2_scedc_minus_b",
+    "datasets": [
+      "ChuanDian"
+    ],
+    "configs": [
+      "experiments/mtpp/classification/grid_r_2_scedc_minus_b/configs/clf_mf_tf_grid.yaml",
+      "experiments/mtpp/classification/grid_r_2_scedc_minus_b/configs/clf_mixer_attnpl_t.yaml"
+    ],
+    "reports": [
+      "experiments/mtpp/classification/grid_r_2_scedc_minus_b/reports/clf_grid_metrics_group_best.csv",
+      "experiments/mtpp/classification/grid_r_2_scedc_minus_b/reports/clf_grid_metrics_group_mean_std.csv",
+      "experiments/mtpp/classification/grid_r_2_scedc_minus_b/reports/clf_grid_metrics_per_run.csv"
+    ],
+    "run_count": 15,
+    "storage_target": "/root/autodl-tmp/em_eqf/experiments/mtpp/classification/grid_r_2_scedc_minus_b"
+  },
+  {
+    "experiment": "mtpp/classification/grid_r_2_scedc_minus_b_bs_64",
+    "datasets": [
+      "ChuanDian"
+    ],
+    "configs": [
+      "experiments/mtpp/classification/grid_r_2_scedc_minus_b_bs_64/configs/clf_mf_tf_grid.yaml",
+      "experiments/mtpp/classification/grid_r_2_scedc_minus_b_bs_64/configs/clf_mixer_attnpl_t.yaml"
+    ],
+    "reports": [
+      "experiments/mtpp/classification/grid_r_2_scedc_minus_b_bs_64/reports/clf_grid_metrics_group_best.csv",
+      "experiments/mtpp/classification/grid_r_2_scedc_minus_b_bs_64/reports/clf_grid_metrics_group_mean_std.csv",
+      "experiments/mtpp/classification/grid_r_2_scedc_minus_b_bs_64/reports/clf_grid_metrics_per_run.csv"
+    ],
+    "run_count": 50,
+    "storage_target": "/root/autodl-tmp/em_eqf/experiments/mtpp/classification/grid_r_2_scedc_minus_b_bs_64"
+  },
+  {
+    "experiment": "mtpp/classification/grid_r_2_scratch",
+    "datasets": [
+      "ChuanDian"
+    ],
+    "configs": [
+      "experiments/mtpp/classification/grid_r_2_scratch/configs/clf_mf_tf_grid.yaml",
+      "experiments/mtpp/classification/grid_r_2_scratch/configs/clf_mixer_attnpl_t.yaml"
+    ],
+    "reports": [
+      "experiments/mtpp/classification/grid_r_2_scratch/reports/clf_grid_metrics_group_best.csv",
+      "experiments/mtpp/classification/grid_r_2_scratch/reports/clf_grid_metrics_group_mean_std.csv",
+      "experiments/mtpp/classification/grid_r_2_scratch/reports/clf_grid_metrics_per_run.csv"
+    ],
+    "run_count": 15,
+    "storage_target": "/root/autodl-tmp/em_eqf/experiments/mtpp/classification/grid_r_2_scratch"
+  },
+  {
+    "experiment": "mtpp/classification/grid_r_2_scratch_2",
+    "datasets": [
+      "ChuanDian"
+    ],
+    "configs": [
+      "experiments/mtpp/classification/grid_r_2_scratch_2/configs/clf_mf_tf_grid.yaml",
+      "experiments/mtpp/classification/grid_r_2_scratch_2/configs/clf_mixer_attnpl_t.yaml"
+    ],
+    "reports": [
+      "experiments/mtpp/classification/grid_r_2_scratch_2/reports/clf_grid_metrics_group_best.csv",
+      "experiments/mtpp/classification/grid_r_2_scratch_2/reports/clf_grid_metrics_group_mean_std.csv",
+      "experiments/mtpp/classification/grid_r_2_scratch_2/reports/clf_grid_metrics_per_run.csv"
+    ],
+    "run_count": 15,
+    "storage_target": "/root/autodl-tmp/em_eqf/experiments/mtpp/classification/grid_r_2_scratch_2"
+  },
+  {
+    "experiment": "mtpp/classification/grid_tf_90_alpha_075",
+    "datasets": [
+      "ChuanDian"
+    ],
+    "configs": [
+      "experiments/mtpp/classification/grid_tf_90_alpha_075/configs/clf_mf_tf_grid.yaml",
+      "experiments/mtpp/classification/grid_tf_90_alpha_075/configs/clf_mixer_attnpl_t.yaml"
+    ],
+    "reports": [
+      "experiments/mtpp/classification/grid_tf_90_alpha_075/reports/clf_grid_metrics_group_best.csv",
+      "experiments/mtpp/classification/grid_tf_90_alpha_075/reports/clf_grid_metrics_group_mean_std.csv",
+      "experiments/mtpp/classification/grid_tf_90_alpha_075/reports/clf_grid_metrics_per_run.csv"
+    ],
+    "run_count": 10,
+    "storage_target": "/root/autodl-tmp/em_eqf/experiments/mtpp/classification/grid_tf_90_alpha_075"
+  },
+  {
+    "experiment": "mtpp/classification/grid_tf_90_azdx",
+    "datasets": [
+      "ChuanDian"
+    ],
+    "configs": [
+      "experiments/mtpp/classification/grid_tf_90_azdx/configs/clf_mf_tf_grid.yaml",
+      "experiments/mtpp/classification/grid_tf_90_azdx/configs/clf_mixer_attnpl_t.yaml"
+    ],
+    "reports": [
+      "experiments/mtpp/classification/grid_tf_90_azdx/reports/clf_grid_metrics_group_best.csv",
+      "experiments/mtpp/classification/grid_tf_90_azdx/reports/clf_grid_metrics_group_mean_std.csv",
+      "experiments/mtpp/classification/grid_tf_90_azdx/reports/clf_grid_metrics_per_run.csv"
+    ],
+    "run_count": 150,
+    "storage_target": "/root/autodl-tmp/em_eqf/experiments/mtpp/classification/grid_tf_90_azdx"
+  },
+  {
+    "experiment": "mtpp/classification/grid_tf_90_stability_grid",
+    "datasets": [
+      "ChuanDian"
+    ],
+    "configs": [
+      "experiments/mtpp/classification/grid_tf_90_stability_grid/configs/clf_mf_tf_grid.yaml",
+      "experiments/mtpp/classification/grid_tf_90_stability_grid/configs/clf_mixer_attnpl_t.yaml"
+    ],
+    "reports": [
+      "experiments/mtpp/classification/grid_tf_90_stability_grid/reports/clf_grid_metrics_group_best.csv",
+      "experiments/mtpp/classification/grid_tf_90_stability_grid/reports/clf_grid_metrics_group_mean_std.csv",
+      "experiments/mtpp/classification/grid_tf_90_stability_grid/reports/clf_grid_metrics_per_run.csv"
+    ],
+    "run_count": 60,
+    "storage_target": "/root/autodl-tmp/em_eqf/experiments/mtpp/classification/grid_tf_90_stability_grid"
+  },
+  {
+    "experiment": "mtpp/classification/grid_tf_90_stability_grid_v2",
+    "datasets": [
+      "ChuanDian"
+    ],
+    "configs": [
+      "experiments/mtpp/classification/grid_tf_90_stability_grid_v2/configs/clf_mf_tf_grid.yaml",
+      "experiments/mtpp/classification/grid_tf_90_stability_grid_v2/configs/clf_mixer_attnpl_t.yaml"
+    ],
+    "reports": [
+      "experiments/mtpp/classification/grid_tf_90_stability_grid_v2/reports/clf_grid_metrics_group_best.csv",
+      "experiments/mtpp/classification/grid_tf_90_stability_grid_v2/reports/clf_grid_metrics_group_mean_std.csv",
+      "experiments/mtpp/classification/grid_tf_90_stability_grid_v2/reports/clf_grid_metrics_per_run.csv"
+    ],
+    "run_count": 36,
+    "storage_target": "/root/autodl-tmp/em_eqf/experiments/mtpp/classification/grid_tf_90_stability_grid_v2"
+  },
+  {
+    "experiment": "mtpp/classification/paper_pretraining/azdx",
+    "datasets": [
+      "ChuanDian"
+    ],
+    "configs": [
+      "experiments/mtpp/classification/paper_pretraining/azdx/configs/clf_kffb1g8o.yaml",
+      "experiments/mtpp/classification/paper_pretraining/azdx/configs/clf_mixer_attnpl_t.yaml",
+      "experiments/mtpp/classification/paper_pretraining/azdx/configs/clf_wgwhqlso.yaml"
+    ],
+    "reports": [
+      "experiments/mtpp/classification/paper_pretraining/azdx/reports/clf_grid_metrics_group_best.csv",
+      "experiments/mtpp/classification/paper_pretraining/azdx/reports/clf_grid_metrics_group_mean_std.csv",
+      "experiments/mtpp/classification/paper_pretraining/azdx/reports/clf_grid_metrics_per_run.csv"
+    ],
+    "run_count": 40,
+    "storage_target": "/autodl-fs/data/em_eqf_archive/maintenance_20261109/paper_experiments/classification/paper_pretraining/azdx"
+  },
+  {
+    "experiment": "mtpp/classification/paper_pretraining/azdx_minus_b",
+    "datasets": [
+      "ChuanDian"
+    ],
+    "configs": [
+      "experiments/mtpp/classification/paper_pretraining/azdx_minus_b/configs/clf_kffb1g8o.yaml",
+      "experiments/mtpp/classification/paper_pretraining/azdx_minus_b/configs/clf_mixer_attnpl_t.yaml",
+      "experiments/mtpp/classification/paper_pretraining/azdx_minus_b/configs/clf_wgwhqlso.yaml"
+    ],
+    "reports": [
+      "experiments/mtpp/classification/paper_pretraining/azdx_minus_b/reports/clf_grid_metrics_group_best.csv",
+      "experiments/mtpp/classification/paper_pretraining/azdx_minus_b/reports/clf_grid_metrics_group_mean_std.csv",
+      "experiments/mtpp/classification/paper_pretraining/azdx_minus_b/reports/clf_grid_metrics_per_run.csv"
+    ],
+    "run_count": 40,
+    "storage_target": "/autodl-fs/data/em_eqf_archive/maintenance_20261109/paper_experiments/classification/paper_pretraining/azdx_minus_b"
+  },
+  {
+    "experiment": "mtpp/classification/paper_pretraining/scratch",
+    "datasets": [
+      "ChuanDian"
+    ],
+    "configs": [
+      "experiments/mtpp/classification/paper_pretraining/scratch/configs/clf_kffb1g8o.yaml",
+      "experiments/mtpp/classification/paper_pretraining/scratch/configs/clf_mixer_attnpl_t.yaml"
+    ],
+    "reports": [
+      "experiments/mtpp/classification/paper_pretraining/scratch/reports/clf_grid_metrics_group_best.csv",
+      "experiments/mtpp/classification/paper_pretraining/scratch/reports/clf_grid_metrics_group_mean_std.csv",
+      "experiments/mtpp/classification/paper_pretraining/scratch/reports/clf_grid_metrics_per_run.csv"
+    ],
+    "run_count": 40,
+    "storage_target": "/autodl-fs/data/em_eqf_archive/maintenance_20261109/paper_experiments/classification/paper_pretraining/scratch"
+  },
+  {
+    "experiment": "mtpp/classification/paper_pretraining/scsn",
+    "datasets": [
+      "ChuanDian"
+    ],
+    "configs": [
+      "experiments/mtpp/classification/paper_pretraining/scsn/configs/clf_kffb1g8o.yaml",
+      "experiments/mtpp/classification/paper_pretraining/scsn/configs/clf_mixer_attnpl_t.yaml",
+      "experiments/mtpp/classification/paper_pretraining/scsn/configs/clf_wgwhqlso.yaml"
+    ],
+    "reports": [
+      "experiments/mtpp/classification/paper_pretraining/scsn/reports/clf_grid_metrics_group_best.csv",
+      "experiments/mtpp/classification/paper_pretraining/scsn/reports/clf_grid_metrics_group_mean_std.csv",
+      "experiments/mtpp/classification/paper_pretraining/scsn/reports/clf_grid_metrics_per_run.csv"
+    ],
+    "run_count": 40,
+    "storage_target": "/autodl-fs/data/em_eqf_archive/maintenance_20261109/paper_experiments/classification/paper_pretraining/scsn"
+  },
+  {
+    "experiment": "mtpp/classification/paper_pretraining/scsn_minus_b",
+    "datasets": [
+      "ChuanDian"
+    ],
+    "configs": [
+      "experiments/mtpp/classification/paper_pretraining/scsn_minus_b/configs/clf_kffb1g8o.yaml",
+      "experiments/mtpp/classification/paper_pretraining/scsn_minus_b/configs/clf_mixer_attnpl_t.yaml"
+    ],
+    "reports": [
+      "experiments/mtpp/classification/paper_pretraining/scsn_minus_b/reports/clf_grid_metrics_group_best.csv",
+      "experiments/mtpp/classification/paper_pretraining/scsn_minus_b/reports/clf_grid_metrics_group_mean_std.csv",
+      "experiments/mtpp/classification/paper_pretraining/scsn_minus_b/reports/clf_grid_metrics_per_run.csv"
+    ],
+    "run_count": 40,
+    "storage_target": "/autodl-fs/data/em_eqf_archive/maintenance_20261109/paper_experiments/classification/paper_pretraining/scsn_minus_b"
+  },
+  {
+    "experiment": "mtpp/classification/scedc",
+    "datasets": [
+      "ChuanDian"
+    ],
+    "configs": [
+      "experiments/mtpp/classification/scedc/configs/clf_mf_tf_grid.yaml",
+      "experiments/mtpp/classification/scedc/configs/clf_mixer_attnpl_t.yaml"
+    ],
+    "reports": [
+      "experiments/mtpp/classification/scedc/reports/clf_grid_metrics_group_best.csv",
+      "experiments/mtpp/classification/scedc/reports/clf_grid_metrics_group_mean_std.csv",
+      "experiments/mtpp/classification/scedc/reports/clf_grid_metrics_per_run.csv"
+    ],
+    "run_count": 25,
+    "storage_target": "/root/autodl-tmp/em_eqf/experiments/mtpp/classification/scedc"
+  },
+  {
+    "experiment": "mtpp/classification/scedc_minus_b",
+    "datasets": [
+      "ChuanDian"
+    ],
+    "configs": [
+      "experiments/mtpp/classification/scedc_minus_b/configs/clf_mf_tf_grid.yaml",
+      "experiments/mtpp/classification/scedc_minus_b/configs/clf_mixer_attnpl_t.yaml"
+    ],
+    "reports": [
+      "experiments/mtpp/classification/scedc_minus_b/reports/clf_grid_metrics_group_best.csv",
+      "experiments/mtpp/classification/scedc_minus_b/reports/clf_grid_metrics_group_mean_std.csv",
+      "experiments/mtpp/classification/scedc_minus_b/reports/clf_grid_metrics_per_run.csv"
+    ],
+    "run_count": 25,
+    "storage_target": "/root/autodl-tmp/em_eqf/experiments/mtpp/classification/scedc_minus_b"
+  },
+  {
+    "experiment": "mtpp/classification/scratch",
+    "datasets": [
+      "ChuanDian"
+    ],
+    "configs": [
+      "experiments/mtpp/classification/scratch/configs/clf_mf_tf_grid.yaml",
+      "experiments/mtpp/classification/scratch/configs/clf_mixer_attnpl_t.yaml"
+    ],
+    "reports": [
+      "experiments/mtpp/classification/scratch/reports/clf_grid_metrics_group_best.csv",
+      "experiments/mtpp/classification/scratch/reports/clf_grid_metrics_group_mean_std.csv",
+      "experiments/mtpp/classification/scratch/reports/clf_grid_metrics_per_run.csv"
+    ],
+    "run_count": 25,
+    "storage_target": "/root/autodl-tmp/em_eqf/experiments/mtpp/classification/scratch"
+  },
+  {
+    "experiment": "mtpp/classification/single_window_pretrain",
+    "datasets": [
+      "ChuanDian"
+    ],
+    "configs": [
+      "experiments/mtpp/classification/single_window_pretrain/configs/clf_mixer_attnpl_t.yaml",
+      "experiments/mtpp/classification/single_window_pretrain/configs/clf_single_window_pretrain.yaml"
+    ],
+    "reports": [
+      "experiments/mtpp/classification/single_window_pretrain/reports/clf_grid_metrics_group_best.csv",
+      "experiments/mtpp/classification/single_window_pretrain/reports/clf_grid_metrics_group_mean_std.csv",
+      "experiments/mtpp/classification/single_window_pretrain/reports/clf_grid_metrics_per_run.csv"
+    ],
+    "run_count": 25,
+    "storage_target": "/root/autodl-tmp/em_eqf/experiments/mtpp/classification/single_window_pretrain"
+  },
+  {
+    "experiment": "mtpp/classification/single_window_pretrain_b64",
+    "datasets": [
+      "ChuanDian"
+    ],
+    "configs": [
+      "experiments/mtpp/classification/single_window_pretrain_b64/configs/clf_mixer_attnpl_t.yaml",
+      "experiments/mtpp/classification/single_window_pretrain_b64/configs/clf_single_window_pretrain.yaml"
+    ],
+    "reports": [
+      "experiments/mtpp/classification/single_window_pretrain_b64/reports/clf_grid_metrics_group_best.csv",
+      "experiments/mtpp/classification/single_window_pretrain_b64/reports/clf_grid_metrics_group_mean_std.csv",
+      "experiments/mtpp/classification/single_window_pretrain_b64/reports/clf_grid_metrics_per_run.csv"
+    ],
+    "run_count": 25,
+    "storage_target": "/root/autodl-tmp/em_eqf/experiments/mtpp/classification/single_window_pretrain_b64"
+  },
+  {
+    "experiment": "mtpp/classification/single_window_pretrain_b64_layer1",
+    "datasets": [
+      "ChuanDian"
+    ],
+    "configs": [
+      "experiments/mtpp/classification/single_window_pretrain_b64_layer1/configs/clf_mixer_attnpl_t.yaml",
+      "experiments/mtpp/classification/single_window_pretrain_b64_layer1/configs/clf_single_window_pretrain.yaml"
+    ],
+    "reports": [
+      "experiments/mtpp/classification/single_window_pretrain_b64_layer1/reports/clf_grid_metrics_group_best.csv",
+      "experiments/mtpp/classification/single_window_pretrain_b64_layer1/reports/clf_grid_metrics_group_mean_std.csv",
+      "experiments/mtpp/classification/single_window_pretrain_b64_layer1/reports/clf_grid_metrics_per_run.csv"
+    ],
+    "run_count": 25,
+    "storage_target": "/root/autodl-tmp/em_eqf/experiments/mtpp/classification/single_window_pretrain_b64_layer1"
+  },
+  {
+    "experiment": "mtpp/classification/single_window_pretrain_b64_lr3e3",
+    "datasets": [
+      "ChuanDian"
+    ],
+    "configs": [
+      "experiments/mtpp/classification/single_window_pretrain_b64_lr3e3/configs/clf_mixer_attnpl_t.yaml",
+      "experiments/mtpp/classification/single_window_pretrain_b64_lr3e3/configs/clf_single_window_pretrain.yaml"
+    ],
+    "reports": [
+      "experiments/mtpp/classification/single_window_pretrain_b64_lr3e3/reports/clf_grid_metrics_group_best.csv",
+      "experiments/mtpp/classification/single_window_pretrain_b64_lr3e3/reports/clf_grid_metrics_group_mean_std.csv",
+      "experiments/mtpp/classification/single_window_pretrain_b64_lr3e3/reports/clf_grid_metrics_per_run.csv"
+    ],
+    "run_count": 25,
+    "storage_target": "/root/autodl-tmp/em_eqf/experiments/mtpp/classification/single_window_pretrain_b64_lr3e3"
+  },
+  {
+    "experiment": "mtpp/generation/legacy_ablation_v1",
+    "datasets": [
+      "ChuanDian"
+    ],
+    "configs": [
+      "experiments/mtpp/generation/legacy_ablation_v1/configs/mixer_tpp.yaml",
+      "experiments/mtpp/generation/legacy_ablation_v1/configs/mixer_tpp_grid.yaml"
+    ],
+    "reports": [
+      "experiments/mtpp/generation/legacy_ablation_v1/reports/mixer_tpp_grid_metrics_group_best.csv",
+      "experiments/mtpp/generation/legacy_ablation_v1/reports/mixer_tpp_grid_metrics_group_mean_std.csv",
+      "experiments/mtpp/generation/legacy_ablation_v1/reports/mixer_tpp_grid_metrics_per_run.csv"
+    ],
+    "run_count": 5,
+    "storage_target": "/root/autodl-tmp/em_eqf/experiments/mtpp/generation/legacy_ablation_v1"
+  },
+  {
+    "experiment": "mtpp/generation/swc_ablation",
+    "datasets": [
+      "ChuanDian"
+    ],
+    "configs": [
+      "experiments/mtpp/generation/swc_ablation/configs/mixer_tpp.yaml",
+      "experiments/mtpp/generation/swc_ablation/configs/mixer_tpp_grid.yaml"
+    ],
+    "reports": [
+      "experiments/mtpp/generation/swc_ablation/reports/mixer_tpp_grid_metrics_group_best.csv",
+      "experiments/mtpp/generation/swc_ablation/reports/mixer_tpp_grid_metrics_group_mean_std.csv",
+      "experiments/mtpp/generation/swc_ablation/reports/mixer_tpp_grid_metrics_per_run.csv"
+    ],
+    "run_count": 6,
+    "storage_target": "/root/autodl-tmp/em_eqf/experiments/mtpp/generation/swc_ablation"
+  },
+  {
+    "experiment": "mtpp/regression/grid_inter9_excl2_round",
+    "datasets": [
+      "ChuanDian"
+    ],
+    "configs": [
+      "experiments/mtpp/regression/grid_inter9_excl2_round/configs/reg_mixer_attnpl_grid.yaml",
+      "experiments/mtpp/regression/grid_inter9_excl2_round/configs/reg_mixer_attnpl_t.yaml"
+    ],
+    "reports": [
+      "experiments/mtpp/regression/grid_inter9_excl2_round/reports/reg_grid_metrics_group_best.csv",
+      "experiments/mtpp/regression/grid_inter9_excl2_round/reports/reg_grid_metrics_group_mean_std.csv",
+      "experiments/mtpp/regression/grid_inter9_excl2_round/reports/reg_grid_metrics_per_run.csv"
+    ],
+    "run_count": 18,
+    "storage_target": "/root/autodl-tmp/em_eqf/experiments/mtpp/regression/grid_inter9_excl2_round"
+  },
+  {
+    "experiment": "mtpp/regression/grid_r04_stable8",
+    "datasets": [
+      "ChuanDian"
+    ],
+    "configs": [
+      "experiments/mtpp/regression/grid_r04_stable8/configs/reg_mixer_attnpl_grid.yaml",
+      "experiments/mtpp/regression/grid_r04_stable8/configs/reg_mixer_attnpl_t.yaml"
+    ],
+    "reports": [
+      "experiments/mtpp/regression/grid_r04_stable8/reports/reg_grid_metrics_group_best.csv",
+      "experiments/mtpp/regression/grid_r04_stable8/reports/reg_grid_metrics_group_mean_std.csv",
+      "experiments/mtpp/regression/grid_r04_stable8/reports/reg_grid_metrics_per_run.csv"
+    ],
+    "run_count": 24,
+    "storage_target": "/root/autodl-tmp/em_eqf/experiments/mtpp/regression/grid_r04_stable8"
+  },
+  {
+    "experiment": "mtpp/regression/lstm/5_seeds",
+    "datasets": [
+      "ChuanDian"
+    ],
+    "configs": [
+      "experiments/mtpp/regression/lstm/5_seeds/configs/base_lstm.yaml",
+      "experiments/mtpp/regression/lstm/5_seeds/configs/lstm_mf_tf_grid.yaml"
+    ],
+    "reports": [
+      "experiments/mtpp/regression/lstm/5_seeds/reports/lstm_grid_metrics_group_best.csv",
+      "experiments/mtpp/regression/lstm/5_seeds/reports/lstm_grid_metrics_group_mean_std.csv",
+      "experiments/mtpp/regression/lstm/5_seeds/reports/lstm_grid_metrics_per_run.csv"
+    ],
+    "run_count": 60,
+    "storage_target": "/root/autodl-tmp/em_eqf/experiments/mtpp/regression/lstm/5_seeds"
+  },
+  {
+    "experiment": "mtpp/regression/lstm/5_seeds_v6",
+    "datasets": [
+      "ChuanDian"
+    ],
+    "configs": [
+      "experiments/mtpp/regression/lstm/5_seeds_v6/configs/base_lstm.yaml",
+      "experiments/mtpp/regression/lstm/5_seeds_v6/configs/lstm_mf_tf_grid.yaml"
+    ],
+    "reports": [
+      "experiments/mtpp/regression/lstm/5_seeds_v6/reports/lstm_grid_metrics_group_best.csv",
+      "experiments/mtpp/regression/lstm/5_seeds_v6/reports/lstm_grid_metrics_group_mean_std.csv",
+      "experiments/mtpp/regression/lstm/5_seeds_v6/reports/lstm_grid_metrics_per_run.csv"
+    ],
+    "run_count": 18,
+    "storage_target": "/root/autodl-tmp/em_eqf/experiments/mtpp/regression/lstm/5_seeds_v6"
+  },
+  {
+    "experiment": "mtpp/regression/lstm/optuna_profiles/run_20x2",
+    "datasets": [],
+    "configs": [],
+    "reports": [],
+    "run_count": 0,
+    "storage_target": "/root/autodl-tmp/em_eqf/experiments/mtpp/regression/lstm/optuna_profiles/run_20x2"
+  },
+  {
+    "experiment": "mtpp/regression/lstm/seed",
+    "datasets": [
+      "ChuanDian"
+    ],
+    "configs": [
+      "experiments/mtpp/regression/lstm/seed/configs/base_lstm.yaml",
+      "experiments/mtpp/regression/lstm/seed/configs/lstm_mf_tf_grid.yaml"
+    ],
+    "reports": [
+      "experiments/mtpp/regression/lstm/seed/reports/lstm_grid_metrics_group_best.csv",
+      "experiments/mtpp/regression/lstm/seed/reports/lstm_grid_metrics_group_mean_std.csv",
+      "experiments/mtpp/regression/lstm/seed/reports/lstm_grid_metrics_per_run.csv"
+    ],
+    "run_count": 3,
+    "storage_target": "/root/autodl-tmp/em_eqf/experiments/mtpp/regression/lstm/seed"
+  },
+  {
+    "experiment": "mtpp/regression/lstm/seed_global",
+    "datasets": [
+      "ChuanDian"
+    ],
+    "configs": [
+      "experiments/mtpp/regression/lstm/seed_global/configs/base_lstm.yaml",
+      "experiments/mtpp/regression/lstm/seed_global/configs/lstm_mf_tf_grid.yaml"
+    ],
+    "reports": [
+      "experiments/mtpp/regression/lstm/seed_global/reports/lstm_grid_metrics_group_best.csv",
+      "experiments/mtpp/regression/lstm/seed_global/reports/lstm_grid_metrics_group_mean_std.csv",
+      "experiments/mtpp/regression/lstm/seed_global/reports/lstm_grid_metrics_per_run.csv"
+    ],
+    "run_count": 3,
+    "storage_target": "/root/autodl-tmp/em_eqf/experiments/mtpp/regression/lstm/seed_global"
+  },
+  {
+    "experiment": "mtpp/regression/mixer_ablation_5_seeds",
+    "datasets": [
+      "ChuanDian"
+    ],
+    "configs": [
+      "experiments/mtpp/regression/mixer_ablation_5_seeds/configs/reg_mixer_attnpl_grid.yaml",
+      "experiments/mtpp/regression/mixer_ablation_5_seeds/configs/reg_mixer_attnpl_t.yaml"
+    ],
+    "reports": [
+      "experiments/mtpp/regression/mixer_ablation_5_seeds/reports/reg_grid_metrics_group_best.csv",
+      "experiments/mtpp/regression/mixer_ablation_5_seeds/reports/reg_grid_metrics_group_mean_std.csv",
+      "experiments/mtpp/regression/mixer_ablation_5_seeds/reports/reg_grid_metrics_per_run.csv"
+    ],
+    "run_count": 30,
+    "storage_target": "/root/autodl-tmp/em_eqf/experiments/mtpp/regression/mixer_ablation_5_seeds"
+  },
+  {
+    "experiment": "mtpp/regression/mixer_attnpl_t_optuna_profiles/20260510-232207",
+    "datasets": [],
+    "configs": [],
+    "reports": [],
+    "run_count": 0,
+    "storage_target": "/root/autodl-tmp/em_eqf/experiments/mtpp/regression/mixer_attnpl_t_optuna_profiles/20260510-232207"
+  },
+  {
+    "experiment": "mtpp/regression/mixer_attnpl_t_optuna_profiles/run_20260511-000926",
+    "datasets": [],
+    "configs": [],
+    "reports": [],
+    "run_count": 0,
+    "storage_target": "/root/autodl-tmp/em_eqf/experiments/mtpp/regression/mixer_attnpl_t_optuna_profiles/run_20260511-000926"
+  },
+  {
+    "experiment": "mtpp/regression/mixer_attnpl_t_optuna_profiles/run_20260511-001210",
+    "datasets": [],
+    "configs": [],
+    "reports": [],
+    "run_count": 0,
+    "storage_target": "/root/autodl-tmp/em_eqf/experiments/mtpp/regression/mixer_attnpl_t_optuna_profiles/run_20260511-001210"
+  },
+  {
+    "experiment": "mtpp/regression/mixer_layer_1_grid",
+    "datasets": [
+      "ChuanDian"
+    ],
+    "configs": [
+      "experiments/mtpp/regression/mixer_layer_1_grid/configs/reg_mixer_attnpl_grid.yaml",
+      "experiments/mtpp/regression/mixer_layer_1_grid/configs/reg_mixer_attnpl_t.yaml"
+    ],
+    "reports": [
+      "experiments/mtpp/regression/mixer_layer_1_grid/reports/reg_grid_metrics_group_best.csv",
+      "experiments/mtpp/regression/mixer_layer_1_grid/reports/reg_grid_metrics_group_mean_std.csv",
+      "experiments/mtpp/regression/mixer_layer_1_grid/reports/reg_grid_metrics_per_run.csv"
+    ],
+    "run_count": 24,
+    "storage_target": "/root/autodl-tmp/em_eqf/experiments/mtpp/regression/mixer_layer_1_grid"
+  },
+  {
+    "experiment": "mtpp/regression/mixer_layer_1_grid_2",
+    "datasets": [
+      "ChuanDian"
+    ],
+    "configs": [
+      "experiments/mtpp/regression/mixer_layer_1_grid_2/configs/reg_mixer_attnpl_grid.yaml",
+      "experiments/mtpp/regression/mixer_layer_1_grid_2/configs/reg_mixer_attnpl_t.yaml"
+    ],
+    "reports": [
+      "experiments/mtpp/regression/mixer_layer_1_grid_2/reports/reg_grid_metrics_group_best.csv",
+      "experiments/mtpp/regression/mixer_layer_1_grid_2/reports/reg_grid_metrics_group_mean_std.csv",
+      "experiments/mtpp/regression/mixer_layer_1_grid_2/reports/reg_grid_metrics_per_run.csv"
+    ],
+    "run_count": 8,
+    "storage_target": "/root/autodl-tmp/em_eqf/experiments/mtpp/regression/mixer_layer_1_grid_2"
+  },
+  {
+    "experiment": "mtpp/regression/mixer_layer_1_grid_bs_128",
+    "datasets": [
+      "ChuanDian"
+    ],
+    "configs": [
+      "experiments/mtpp/regression/mixer_layer_1_grid_bs_128/configs/reg_mixer_attnpl_grid.yaml",
+      "experiments/mtpp/regression/mixer_layer_1_grid_bs_128/configs/reg_mixer_attnpl_t.yaml"
+    ],
+    "reports": [
+      "experiments/mtpp/regression/mixer_layer_1_grid_bs_128/reports/reg_grid_metrics_group_best.csv",
+      "experiments/mtpp/regression/mixer_layer_1_grid_bs_128/reports/reg_grid_metrics_group_mean_std.csv",
+      "experiments/mtpp/regression/mixer_layer_1_grid_bs_128/reports/reg_grid_metrics_per_run.csv"
+    ],
+    "run_count": 25,
+    "storage_target": "/root/autodl-tmp/em_eqf/experiments/mtpp/regression/mixer_layer_1_grid_bs_128"
+  },
+  {
+    "experiment": "mtpp/regression/mixer_layer_1_grid_bs_128_followup",
+    "datasets": [
+      "ChuanDian"
+    ],
+    "configs": [
+      "experiments/mtpp/regression/mixer_layer_1_grid_bs_128_followup/configs/reg_mixer_attnpl_grid.yaml",
+      "experiments/mtpp/regression/mixer_layer_1_grid_bs_128_followup/configs/reg_mixer_attnpl_t.yaml"
+    ],
+    "reports": [
+      "experiments/mtpp/regression/mixer_layer_1_grid_bs_128_followup/reports/reg_grid_metrics_group_best.csv",
+      "experiments/mtpp/regression/mixer_layer_1_grid_bs_128_followup/reports/reg_grid_metrics_group_mean_std.csv",
+      "experiments/mtpp/regression/mixer_layer_1_grid_bs_128_followup/reports/reg_grid_metrics_per_run.csv"
+    ],
+    "run_count": 54,
+    "storage_target": "/root/autodl-tmp/em_eqf/experiments/mtpp/regression/mixer_layer_1_grid_bs_128_followup"
+  },
+  {
+    "experiment": "mtpp/regression/mixer_layer_1_grid_max_grad_norm",
+    "datasets": [
+      "ChuanDian"
+    ],
+    "configs": [
+      "experiments/mtpp/regression/mixer_layer_1_grid_max_grad_norm/configs/reg_mixer_attnpl_grid.yaml",
+      "experiments/mtpp/regression/mixer_layer_1_grid_max_grad_norm/configs/reg_mixer_attnpl_t.yaml"
+    ],
+    "reports": [
+      "experiments/mtpp/regression/mixer_layer_1_grid_max_grad_norm/reports/reg_grid_metrics_group_best.csv",
+      "experiments/mtpp/regression/mixer_layer_1_grid_max_grad_norm/reports/reg_grid_metrics_group_mean_std.csv",
+      "experiments/mtpp/regression/mixer_layer_1_grid_max_grad_norm/reports/reg_grid_metrics_per_run.csv"
+    ],
+    "run_count": 18,
+    "storage_target": "/root/autodl-tmp/em_eqf/experiments/mtpp/regression/mixer_layer_1_grid_max_grad_norm"
+  },
+  {
+    "experiment": "netas/etas/baseline",
+    "datasets": [
+      "CB_HAB1a",
+      "CB_HAB4",
+      "PNR_1z",
+      "St1-2018"
+    ],
+    "configs": [
+      "experiments/netas/etas/baseline/configs/base_etas.yaml",
+      "experiments/netas/etas/baseline/configs/etas_multi_dataset.yaml"
+    ],
+    "reports": [
+      "experiments/netas/etas/baseline/reports/etas_grid_metrics_group_best.csv",
+      "experiments/netas/etas/baseline/reports/etas_grid_metrics_group_mean_std.csv",
+      "experiments/netas/etas/baseline/reports/etas_grid_metrics_per_run.csv"
+    ],
+    "run_count": 12,
+    "storage_target": "/root/autodl-tmp/em_eqf/experiments/netas/etas/baseline"
+  },
+  {
+    "experiment": "netas/etas/norm_0p2",
+    "datasets": [
+      "CB_HAB1a",
+      "CB_HAB4",
+      "PNR_1z",
+      "St1-2018"
+    ],
+    "configs": [
+      "experiments/netas/etas/norm_0p2/configs/base_etas.yaml",
+      "experiments/netas/etas/norm_0p2/configs/etas_multi_ds_bg.yaml"
+    ],
+    "reports": [
+      "experiments/netas/etas/norm_0p2/reports/etas_grid_metrics_group_best.csv",
+      "experiments/netas/etas/norm_0p2/reports/etas_grid_metrics_group_mean_std.csv",
+      "experiments/netas/etas/norm_0p2/reports/etas_grid_metrics_per_run.csv",
+      "experiments/netas/etas/norm_0p2/reports/sliding_window_eval_metrics_by_split_start_group_best.csv",
+      "experiments/netas/etas/norm_0p2/reports/sliding_window_eval_metrics_by_split_start_group_mean_std.csv",
+      "experiments/netas/etas/norm_0p2/reports/sliding_window_eval_metrics_by_split_start_long.csv",
+      "experiments/netas/etas/norm_0p2/reports/sliding_window_eval_metrics_by_split_start_per_run.csv",
+      "experiments/netas/etas/norm_0p2/reports/sliding_window_eval_metrics_group_best.csv",
+      "experiments/netas/etas/norm_0p2/reports/sliding_window_eval_metrics_group_mean_std.csv",
+      "experiments/netas/etas/norm_0p2/reports/sliding_window_eval_metrics_per_run.csv"
+    ],
+    "run_count": 87,
+    "storage_target": "/root/autodl-tmp/em_eqf/experiments/netas/etas/norm_0p2"
+  },
+  {
+    "experiment": "netas/etas/split_0p7",
+    "datasets": [
+      "CB_HAB1a",
+      "CB_HAB4",
+      "PNR_1z",
+      "St1-2018"
+    ],
+    "configs": [
+      "experiments/netas/etas/split_0p7/configs/base_etas.yaml",
+      "experiments/netas/etas/split_0p7/configs/etas_multi_ds_bg.yaml"
+    ],
+    "reports": [
+      "experiments/netas/etas/split_0p7/reports/etas_grid_metrics_group_best.csv",
+      "experiments/netas/etas/split_0p7/reports/etas_grid_metrics_group_mean_std.csv",
+      "experiments/netas/etas/split_0p7/reports/etas_grid_metrics_per_run.csv",
+      "experiments/netas/etas/split_0p7/reports/sliding_window_eval_metrics_by_split_start_group_best.csv",
+      "experiments/netas/etas/split_0p7/reports/sliding_window_eval_metrics_by_split_start_group_mean_std.csv",
+      "experiments/netas/etas/split_0p7/reports/sliding_window_eval_metrics_by_split_start_long.csv",
+      "experiments/netas/etas/split_0p7/reports/sliding_window_eval_metrics_by_split_start_per_run.csv",
+      "experiments/netas/etas/split_0p7/reports/sliding_window_eval_metrics_group_best.csv",
+      "experiments/netas/etas/split_0p7/reports/sliding_window_eval_metrics_group_mean_std.csv",
+      "experiments/netas/etas/split_0p7/reports/sliding_window_eval_metrics_per_run.csv",
+      "experiments/netas/etas/split_0p7/reports/sliding_window_eval_metrics_test_trunc_group_best.csv",
+      "experiments/netas/etas/split_0p7/reports/sliding_window_eval_metrics_test_trunc_group_mean_std.csv",
+      "experiments/netas/etas/split_0p7/reports/sliding_window_eval_metrics_test_trunc_no_truncated_final_window_group_best.csv",
+      "experiments/netas/etas/split_0p7/reports/sliding_window_eval_metrics_test_trunc_no_truncated_final_window_group_mean_std.csv",
+      "experiments/netas/etas/split_0p7/reports/sliding_window_eval_metrics_test_trunc_no_truncated_final_window_per_run.csv",
+      "experiments/netas/etas/split_0p7/reports/sliding_window_eval_metrics_test_trunc_per_run.csv",
+      "experiments/netas/etas/split_0p7/reports/sliding_window_eval_metrics_test_trunc_vs_by_split_start_compare_group.csv",
+      "experiments/netas/etas/split_0p7/reports/sliding_window_eval_metrics_test_trunc_vs_by_split_start_compare_per_run.csv"
+    ],
+    "run_count": 84,
+    "storage_target": "/root/autodl-tmp/em_eqf/experiments/netas/etas/split_0p7"
+  },
+  {
+    "experiment": "netas/oracle/baseline",
+    "datasets": [
+      "CB_HAB1a",
+      "CB_HAB4",
+      "St1-2018"
+    ],
+    "configs": [
+      "experiments/netas/oracle/baseline/configs/base_oracle.yaml",
+      "experiments/netas/oracle/baseline/configs/oracle_multi_dataset.yaml"
+    ],
+    "reports": [
+      "experiments/netas/oracle/baseline/reports/oracle_grid_metrics_group_best.csv",
+      "experiments/netas/oracle/baseline/reports/oracle_grid_metrics_group_mean_std.csv",
+      "experiments/netas/oracle/baseline/reports/oracle_grid_metrics_per_run.csv",
+      "experiments/netas/oracle/baseline/reports/sliding_window_eval_metrics_by_split_start_group_best.csv",
+      "experiments/netas/oracle/baseline/reports/sliding_window_eval_metrics_by_split_start_group_mean_std.csv",
+      "experiments/netas/oracle/baseline/reports/sliding_window_eval_metrics_by_split_start_long.csv",
+      "experiments/netas/oracle/baseline/reports/sliding_window_eval_metrics_by_split_start_per_run.csv",
+      "experiments/netas/oracle/baseline/reports/sliding_window_eval_metrics_group_best.csv",
+      "experiments/netas/oracle/baseline/reports/sliding_window_eval_metrics_group_mean_std.csv",
+      "experiments/netas/oracle/baseline/reports/sliding_window_eval_metrics_per_run.csv"
+    ],
+    "run_count": 5,
+    "storage_target": "/root/autodl-tmp/em_eqf/experiments/netas/oracle/baseline"
+  },
+  {
+    "experiment": "netas/oracle/split_0p7",
+    "datasets": [
+      "CB_HAB1a",
+      "CB_HAB4",
+      "PNR_1z",
+      "St1-2018"
+    ],
+    "configs": [
+      "experiments/netas/oracle/split_0p7/configs/base_oracle.yaml",
+      "experiments/netas/oracle/split_0p7/configs/oracle_multi_dataset.yaml"
+    ],
+    "reports": [
+      "experiments/netas/oracle/split_0p7/reports/oracle_grid_metrics_group_best.csv",
+      "experiments/netas/oracle/split_0p7/reports/oracle_grid_metrics_group_mean_std.csv",
+      "experiments/netas/oracle/split_0p7/reports/oracle_grid_metrics_per_run.csv",
+      "experiments/netas/oracle/split_0p7/reports/sliding_window_eval_metrics_by_split_start_group_best.csv",
+      "experiments/netas/oracle/split_0p7/reports/sliding_window_eval_metrics_by_split_start_group_mean_std.csv",
+      "experiments/netas/oracle/split_0p7/reports/sliding_window_eval_metrics_by_split_start_long.csv",
+      "experiments/netas/oracle/split_0p7/reports/sliding_window_eval_metrics_by_split_start_per_run.csv",
+      "experiments/netas/oracle/split_0p7/reports/sliding_window_eval_metrics_group_best.csv",
+      "experiments/netas/oracle/split_0p7/reports/sliding_window_eval_metrics_group_mean_std.csv",
+      "experiments/netas/oracle/split_0p7/reports/sliding_window_eval_metrics_per_run.csv",
+      "experiments/netas/oracle/split_0p7/reports/sliding_window_eval_metrics_test_trunc_no_truncated_final_window_group_best.csv",
+      "experiments/netas/oracle/split_0p7/reports/sliding_window_eval_metrics_test_trunc_no_truncated_final_window_group_mean_std.csv",
+      "experiments/netas/oracle/split_0p7/reports/sliding_window_eval_metrics_test_trunc_no_truncated_final_window_per_run.csv"
+    ],
+    "run_count": 12,
+    "storage_target": "/root/autodl-tmp/em_eqf/experiments/netas/oracle/split_0p7"
+  },
+  {
+    "experiment": "netas/recast/dual_ablation",
+    "datasets": [
+      "CB_HAB1a"
+    ],
+    "configs": [
+      "experiments/netas/recast/dual_ablation/configs/base_rtpp_v2.yaml",
+      "experiments/netas/recast/dual_ablation/configs/rtpp_v2_dual_grid.yaml"
+    ],
+    "reports": [],
+    "run_count": 8,
+    "storage_target": "/root/autodl-tmp/em_eqf/experiments/netas/recast/dual_ablation"
+  },
+  {
+    "experiment": "netas/recast/grid_20260528-102245",
+    "datasets": [
+      "CB_HAB1a"
+    ],
+    "configs": [
+      "experiments/netas/recast/grid_20260528-102245/configs/base_rtpp_v2.yaml"
+    ],
+    "reports": [],
+    "run_count": 3,
+    "storage_target": "/root/autodl-tmp/em_eqf/experiments/netas/recast/grid_20260528-102245"
+  },
+  {
+    "experiment": "netas/recast/legacy_0p4",
+    "datasets": [
+      "CB_HAB1a",
+      "CB_HAB4",
+      "PNR_1z",
+      "St1-2018"
+    ],
+    "configs": [
+      "experiments/netas/recast/legacy_0p4/configs/base_rtpp_v2.yaml",
+      "experiments/netas/recast/legacy_0p4/configs/rtpp_v2_multi_dataset.yaml"
+    ],
+    "reports": [
+      "experiments/netas/recast/legacy_0p4/reports/rtpp_v2_grid_metrics_group_best.csv",
+      "experiments/netas/recast/legacy_0p4/reports/rtpp_v2_grid_metrics_group_mean_std.csv",
+      "experiments/netas/recast/legacy_0p4/reports/rtpp_v2_grid_metrics_per_run.csv"
+    ],
+    "run_count": 12,
+    "storage_target": "/root/autodl-tmp/em_eqf/experiments/netas/recast/legacy_0p4"
+  },
+  {
+    "experiment": "netas/recast/legacy_norm_0p2",
+    "datasets": [
+      "CB_HAB1a",
+      "CB_HAB4",
+      "PNR_1z",
+      "St1-2018"
+    ],
+    "configs": [
+      "experiments/netas/recast/legacy_norm_0p2/configs/base_rtpp_v2.yaml",
+      "experiments/netas/recast/legacy_norm_0p2/configs/rtpp_v2_multi_dataset.yaml"
+    ],
+    "reports": [
+      "experiments/netas/recast/legacy_norm_0p2/reports/rtpp_v2_grid_metrics_group_best.csv",
+      "experiments/netas/recast/legacy_norm_0p2/reports/rtpp_v2_grid_metrics_group_mean_std.csv",
+      "experiments/netas/recast/legacy_norm_0p2/reports/rtpp_v2_grid_metrics_per_run.csv"
+    ],
+    "run_count": 12,
+    "storage_target": "/root/autodl-tmp/em_eqf/experiments/netas/recast/legacy_norm_0p2"
+  },
+  {
+    "experiment": "netas/recast/norm_0p2",
+    "datasets": [
+      "CB_HAB1a",
+      "CB_HAB4",
+      "PNR_1z",
+      "St1-2018"
+    ],
+    "configs": [
+      "experiments/netas/recast/norm_0p2/configs/base_rtpp_v2.yaml",
+      "experiments/netas/recast/norm_0p2/configs/rtpp_v2_multi_ds_bg.yaml"
+    ],
+    "reports": [
+      "experiments/netas/recast/norm_0p2/reports/rtpp_v2_grid_metrics_group_best.csv",
+      "experiments/netas/recast/norm_0p2/reports/rtpp_v2_grid_metrics_group_mean_std.csv",
+      "experiments/netas/recast/norm_0p2/reports/rtpp_v2_grid_metrics_per_run.csv",
+      "experiments/netas/recast/norm_0p2/reports/sliding_window_eval_metrics_by_split_start_group_best.csv",
+      "experiments/netas/recast/norm_0p2/reports/sliding_window_eval_metrics_by_split_start_group_mean_std.csv",
+      "experiments/netas/recast/norm_0p2/reports/sliding_window_eval_metrics_by_split_start_long.csv",
+      "experiments/netas/recast/norm_0p2/reports/sliding_window_eval_metrics_by_split_start_per_run.csv",
+      "experiments/netas/recast/norm_0p2/reports/sliding_window_eval_metrics_group_best.csv",
+      "experiments/netas/recast/norm_0p2/reports/sliding_window_eval_metrics_group_mean_std.csv",
+      "experiments/netas/recast/norm_0p2/reports/sliding_window_eval_metrics_per_run.csv"
+    ],
+    "run_count": 87,
+    "storage_target": "/root/autodl-tmp/em_eqf/experiments/netas/recast/norm_0p2"
+  },
+  {
+    "experiment": "netas/recast/split_0p7",
+    "datasets": [
+      "St1-2018"
+    ],
+    "configs": [
+      "experiments/netas/recast/split_0p7/configs/base_rtpp_v2.yaml",
+      "experiments/netas/recast/split_0p7/configs/rtpp_v2_multi_ds_bg.yaml"
+    ],
+    "reports": [
+      "experiments/netas/recast/split_0p7/reports/rtpp_v2_grid_metrics_group_best.csv",
+      "experiments/netas/recast/split_0p7/reports/rtpp_v2_grid_metrics_group_mean_std.csv",
+      "experiments/netas/recast/split_0p7/reports/rtpp_v2_grid_metrics_per_run.csv",
+      "experiments/netas/recast/split_0p7/reports/sliding_window_eval_metrics_by_split_start_group_best.csv",
+      "experiments/netas/recast/split_0p7/reports/sliding_window_eval_metrics_by_split_start_group_mean_std.csv",
+      "experiments/netas/recast/split_0p7/reports/sliding_window_eval_metrics_by_split_start_long.csv",
+      "experiments/netas/recast/split_0p7/reports/sliding_window_eval_metrics_by_split_start_per_run.csv",
+      "experiments/netas/recast/split_0p7/reports/sliding_window_eval_metrics_default_group_best.csv",
+      "experiments/netas/recast/split_0p7/reports/sliding_window_eval_metrics_default_group_mean_std.csv",
+      "experiments/netas/recast/split_0p7/reports/sliding_window_eval_metrics_default_per_run.csv",
+      "experiments/netas/recast/split_0p7/reports/sliding_window_eval_metrics_group_best.csv",
+      "experiments/netas/recast/split_0p7/reports/sliding_window_eval_metrics_group_mean_std.csv",
+      "experiments/netas/recast/split_0p7/reports/sliding_window_eval_metrics_per_run.csv",
+      "experiments/netas/recast/split_0p7/reports/sliding_window_eval_metrics_rtpp_boundary_fix_smoke_group_best.csv",
+      "experiments/netas/recast/split_0p7/reports/sliding_window_eval_metrics_rtpp_boundary_fix_smoke_group_mean_std.csv",
+      "experiments/netas/recast/split_0p7/reports/sliding_window_eval_metrics_rtpp_boundary_fix_smoke_per_run.csv",
+      "experiments/netas/recast/split_0p7/reports/sliding_window_eval_metrics_test_trunc_group_best.csv",
+      "experiments/netas/recast/split_0p7/reports/sliding_window_eval_metrics_test_trunc_group_mean_std.csv",
+      "experiments/netas/recast/split_0p7/reports/sliding_window_eval_metrics_test_trunc_no_truncated_final_window_group_best.csv",
+      "experiments/netas/recast/split_0p7/reports/sliding_window_eval_metrics_test_trunc_no_truncated_final_window_group_mean_std.csv",
+      "experiments/netas/recast/split_0p7/reports/sliding_window_eval_metrics_test_trunc_no_truncated_final_window_per_run.csv",
+      "experiments/netas/recast/split_0p7/reports/sliding_window_eval_metrics_test_trunc_per_run.csv"
+    ],
+    "run_count": 0,
+    "storage_target": "/root/autodl-tmp/em_eqf/experiments/netas/recast/split_0p7"
+  },
+  {
+    "experiment": "revision/catalog_additions_20261105",
+    "datasets": [
+      "SED_Switzerland",
+      "USGS_Alaska",
+      "USGS_Hawaii",
+      "USGS_PuertoRico"
+    ],
+    "configs": [
+      "experiments/revision/catalog_additions_20261105/configs/SED_Switzerland_mixer_tpp.yaml",
+      "experiments/revision/catalog_additions_20261105/configs/USGS_Alaska_mixer_tpp.yaml",
+      "experiments/revision/catalog_additions_20261105/configs/USGS_Hawaii_mixer_tpp.yaml",
+      "experiments/revision/catalog_additions_20261105/configs/USGS_PuertoRico_mixer_tpp.yaml"
+    ],
+    "reports": [
+      "experiments/revision/catalog_additions_20261105/reports/SED_INGV_overlap_candidates.csv",
+      "experiments/revision/catalog_additions_20261105/reports/SED_Switzerland_annual.csv",
+      "experiments/revision/catalog_additions_20261105/reports/USGS_Alaska_annual.csv",
+      "experiments/revision/catalog_additions_20261105/reports/USGS_Hawaii_annual.csv",
+      "experiments/revision/catalog_additions_20261105/reports/USGS_PuertoRico_annual.csv",
+      "experiments/revision/catalog_additions_20261105/reports/catalogs.csv"
+    ],
+    "run_count": 0,
+    "storage_target": "/root/autodl-tmp/em_eqf/experiments/revision/catalog_additions_20261105"
+  },
+  {
+    "experiment": "revision/catalog_benchmarks_20261106",
+    "datasets": [
+      "ENPP_ComCat25",
+      "ENPP_JapanDeprecated",
+      "ENPP_QTMSaltonSea10",
+      "ENPP_QTMSanJacinto10",
+      "ENPP_SCEDC20",
+      "ENPP_SCEDC25",
+      "ENPP_SCEDC30",
+      "ENPP_White06"
+    ],
+    "configs": [
+      "experiments/revision/catalog_benchmarks_20261106/configs/ENPP_ComCat25_mixer_tpp.yaml",
+      "experiments/revision/catalog_benchmarks_20261106/configs/ENPP_JapanDeprecated_mixer_tpp.yaml",
+      "experiments/revision/catalog_benchmarks_20261106/configs/ENPP_QTMSaltonSea10_mixer_tpp.yaml",
+      "experiments/revision/catalog_benchmarks_20261106/configs/ENPP_QTMSanJacinto10_mixer_tpp.yaml",
+      "experiments/revision/catalog_benchmarks_20261106/configs/ENPP_SCEDC20_mixer_tpp.yaml",
+      "experiments/revision/catalog_benchmarks_20261106/configs/ENPP_SCEDC25_mixer_tpp.yaml",
+      "experiments/revision/catalog_benchmarks_20261106/configs/ENPP_SCEDC30_mixer_tpp.yaml",
+      "experiments/revision/catalog_benchmarks_20261106/configs/ENPP_White06_mixer_tpp.yaml"
+    ],
+    "reports": [
+      "experiments/revision/catalog_benchmarks_20261106/reports/benchmark_catalogs.csv"
+    ],
+    "run_count": 0,
+    "storage_target": "/root/autodl-tmp/em_eqf/experiments/revision/catalog_benchmarks_20261106"
+  },
+  {
+    "experiment": "revision/catalog_more_20261105",
+    "datasets": [
+      "NOA_Greece",
+      "USGS_NewMadrid",
+      "USGS_PNW",
+      "USGS_Utah"
+    ],
+    "configs": [
+      "experiments/revision/catalog_more_20261105/configs/NOA_Greece_mixer_tpp.yaml",
+      "experiments/revision/catalog_more_20261105/configs/USGS_NewMadrid_mixer_tpp.yaml",
+      "experiments/revision/catalog_more_20261105/configs/USGS_PNW_mixer_tpp.yaml",
+      "experiments/revision/catalog_more_20261105/configs/USGS_Utah_mixer_tpp.yaml"
+    ],
+    "reports": [
+      "experiments/revision/catalog_more_20261105/reports/ISOR_Hengill_annual.csv",
+      "experiments/revision/catalog_more_20261105/reports/NOA_Greece_annual.csv",
+      "experiments/revision/catalog_more_20261105/reports/USGS_NewMadrid_annual.csv",
+      "experiments/revision/catalog_more_20261105/reports/USGS_PNW_annual.csv",
+      "experiments/revision/catalog_more_20261105/reports/USGS_Utah_annual.csv",
+      "experiments/revision/catalog_more_20261105/reports/all_standard_catalogs.csv",
+      "experiments/revision/catalog_more_20261105/reports/catalogs.csv",
+      "experiments/revision/catalog_more_20261105/reports/cross_catalog_overlap_candidates.csv",
+      "experiments/revision/catalog_more_20261105/reports/overlap_summary.csv",
+      "experiments/revision/catalog_more_20261105/reports/staged_catalogs.csv"
+    ],
+    "run_count": 0,
+    "storage_target": "/root/autodl-tmp/em_eqf/experiments/revision/catalog_more_20261105"
+  },
+  {
+    "experiment": "revision/catalog_research_20261106",
+    "datasets": [
+      "NORWAY_Bitdalsvatn",
+      "NORWAY_SW",
+      "USGS_Montana"
+    ],
+    "configs": [
+      "experiments/revision/catalog_research_20261106/configs/NORWAY_Bitdalsvatn_mixer_tpp.yaml",
+      "experiments/revision/catalog_research_20261106/configs/NORWAY_SW_mixer_tpp.yaml",
+      "experiments/revision/catalog_research_20261106/configs/USGS_Montana_mixer_tpp.yaml"
+    ],
+    "reports": [
+      "experiments/revision/catalog_research_20261106/reports/USGS_Montana_annual.csv",
+      "experiments/revision/catalog_research_20261106/reports/catalogs.csv",
+      "experiments/revision/catalog_research_20261106/reports/overlap_candidates.csv"
+    ],
+    "run_count": 0,
+    "storage_target": "/root/autodl-tmp/em_eqf/experiments/revision/catalog_research_20261106"
+  },
+  {
+    "experiment": "revision/catalog_source_expansion_20261106",
+    "datasets": [
+      "Taiwan_CWA",
+      "Taiwan_Wu2008",
+      "Turkiye_EAFZ"
+    ],
+    "configs": [
+      "experiments/revision/catalog_source_expansion_20261106/configs/Taiwan_CWA_mixer_tpp.yaml",
+      "experiments/revision/catalog_source_expansion_20261106/configs/Taiwan_Wu2008_mixer_tpp.yaml",
+      "experiments/revision/catalog_source_expansion_20261106/configs/Turkiye_EAFZ_mixer_tpp.yaml"
+    ],
+    "reports": [
+      "experiments/revision/catalog_source_expansion_20261106/reports/eafz_identical_physical_records.csv",
+      "experiments/revision/catalog_source_expansion_20261106/reports/overlap_candidates.csv"
+    ],
+    "run_count": 0,
+    "storage_target": "/root/autodl-tmp/em_eqf/experiments/revision/catalog_source_expansion_20261106"
+  },
+  {
+    "experiment": "revision/catalog_standardization_20261105",
+    "datasets": [
+      "GeoNet",
+      "INGV",
+      "JMA_EastHonshu",
+      "JMA_Hokkaido",
+      "JMA_Kyushu",
+      "JMA_WestHonshu",
+      "NCEDC"
+    ],
+    "configs": [
+      "experiments/revision/catalog_standardization_20261105/configs/GeoNet_mixer_tpp.yaml",
+      "experiments/revision/catalog_standardization_20261105/configs/INGV_mixer_tpp.yaml",
+      "experiments/revision/catalog_standardization_20261105/configs/JMA_EastHonshu_mixer_tpp.yaml",
+      "experiments/revision/catalog_standardization_20261105/configs/JMA_Hokkaido_mixer_tpp.yaml",
+      "experiments/revision/catalog_standardization_20261105/configs/JMA_Kyushu_mixer_tpp.yaml",
+      "experiments/revision/catalog_standardization_20261105/configs/JMA_WestHonshu_mixer_tpp.yaml",
+      "experiments/revision/catalog_standardization_20261105/configs/NCEDC_mixer_tpp.yaml"
+    ],
+    "reports": [
+      "experiments/revision/catalog_standardization_20261105/reports/catalogs.csv"
+    ],
+    "run_count": 0,
+    "storage_target": "/root/autodl-tmp/em_eqf/experiments/revision/catalog_standardization_20261105"
+  },
+  {
+    "experiment": "revision/controls",
+    "datasets": [
+      "ChuanDian"
+    ],
+    "configs": [
+      "experiments/revision/controls/configs/loss_lstm_mae_seed_0.yaml",
+      "experiments/revision/controls/configs/loss_lstm_mae_seed_1.yaml",
+      "experiments/revision/controls/configs/loss_lstm_mae_seed_2.yaml",
+      "experiments/revision/controls/configs/loss_lstm_mae_seed_3.yaml",
+      "experiments/revision/controls/configs/loss_lstm_mae_seed_4.yaml",
+      "experiments/revision/controls/configs/loss_lstm_mse_seed_0.yaml",
+      "experiments/revision/controls/configs/loss_lstm_mse_seed_1.yaml",
+      "experiments/revision/controls/configs/loss_lstm_mse_seed_2.yaml",
+      "experiments/revision/controls/configs/loss_lstm_mse_seed_3.yaml",
+      "experiments/revision/controls/configs/loss_lstm_mse_seed_4.yaml",
+      "experiments/revision/controls/configs/loss_reg_azdx_mae_seed_0.yaml",
+      "experiments/revision/controls/configs/loss_reg_azdx_mae_seed_1.yaml",
+      "experiments/revision/controls/configs/loss_reg_azdx_mae_seed_2.yaml",
+      "experiments/revision/controls/configs/loss_reg_azdx_mae_seed_3.yaml",
+      "experiments/revision/controls/configs/loss_reg_azdx_mae_seed_4.yaml",
+      "experiments/revision/controls/configs/loss_reg_azdx_mse_seed_0.yaml",
+      "experiments/revision/controls/configs/loss_reg_azdx_mse_seed_1.yaml",
+      "experiments/revision/controls/configs/loss_reg_azdx_mse_seed_2.yaml",
+      "experiments/revision/controls/configs/loss_reg_azdx_mse_seed_3.yaml",
+      "experiments/revision/controls/configs/loss_reg_azdx_mse_seed_4.yaml",
+      "experiments/revision/controls/configs/loss_reg_scratch_mae_seed_0.yaml",
+      "experiments/revision/controls/configs/loss_reg_scratch_mae_seed_1.yaml",
+      "experiments/revision/controls/configs/loss_reg_scratch_mae_seed_2.yaml",
+      "experiments/revision/controls/configs/loss_reg_scratch_mae_seed_3.yaml",
+      "experiments/revision/controls/configs/loss_reg_scratch_mae_seed_4.yaml",
+      "experiments/revision/controls/configs/loss_reg_scratch_mse_seed_0.yaml",
+      "experiments/revision/controls/configs/loss_reg_scratch_mse_seed_1.yaml",
+      "experiments/revision/controls/configs/loss_reg_scratch_mse_seed_2.yaml",
+      "experiments/revision/controls/configs/loss_reg_scratch_mse_seed_3.yaml",
+      "experiments/revision/controls/configs/loss_reg_scratch_mse_seed_4.yaml",
+      "experiments/revision/controls/configs/transfer_clf_full_seed_0.yaml",
+      "experiments/revision/controls/configs/transfer_clf_full_seed_1.yaml",
+      "experiments/revision/controls/configs/transfer_clf_full_seed_2.yaml",
+      "experiments/revision/controls/configs/transfer_clf_full_seed_3.yaml",
+      "experiments/revision/controls/configs/transfer_clf_full_seed_4.yaml",
+      "experiments/revision/controls/configs/transfer_clf_partial_seed_0.yaml",
+      "experiments/revision/controls/configs/transfer_clf_partial_seed_1.yaml",
+      "experiments/revision/controls/configs/transfer_clf_partial_seed_2.yaml",
+      "experiments/revision/controls/configs/transfer_clf_partial_seed_3.yaml",
+      "experiments/revision/controls/configs/transfer_clf_partial_seed_4.yaml",
+      "experiments/revision/controls/configs/transfer_clf_scratch_seed_0.yaml",
+      "experiments/revision/controls/configs/transfer_clf_scratch_seed_1.yaml",
+      "experiments/revision/controls/configs/transfer_clf_scratch_seed_2.yaml",
+      "experiments/revision/controls/configs/transfer_clf_scratch_seed_3.yaml",
+      "experiments/revision/controls/configs/transfer_clf_scratch_seed_4.yaml",
+      "experiments/revision/controls/configs/transfer_reg_full_seed_0.yaml",
+      "experiments/revision/controls/configs/transfer_reg_full_seed_1.yaml",
+      "experiments/revision/controls/configs/transfer_reg_full_seed_2.yaml",
+      "experiments/revision/controls/configs/transfer_reg_full_seed_3.yaml",
+      "experiments/revision/controls/configs/transfer_reg_full_seed_4.yaml",
+      "experiments/revision/controls/configs/transfer_reg_partial_seed_0.yaml",
+      "experiments/revision/controls/configs/transfer_reg_partial_seed_1.yaml",
+      "experiments/revision/controls/configs/transfer_reg_partial_seed_2.yaml",
+      "experiments/revision/controls/configs/transfer_reg_partial_seed_3.yaml",
+      "experiments/revision/controls/configs/transfer_reg_partial_seed_4.yaml",
+      "experiments/revision/controls/configs/transfer_reg_scratch_seed_0.yaml",
+      "experiments/revision/controls/configs/transfer_reg_scratch_seed_1.yaml",
+      "experiments/revision/controls/configs/transfer_reg_scratch_seed_2.yaml",
+      "experiments/revision/controls/configs/transfer_reg_scratch_seed_3.yaml",
+      "experiments/revision/controls/configs/transfer_reg_scratch_seed_4.yaml"
+    ],
+    "reports": [
+      "experiments/revision/controls/reports/large_target_support.csv",
+      "experiments/revision/controls/reports/paired_block_intervals.csv",
+      "experiments/revision/controls/reports/partial_vs_scratch_block_intervals.csv",
+      "experiments/revision/controls/reports/seed_scores.csv",
+      "experiments/revision/controls/reports/summary.csv"
+    ],
+    "run_count": 60,
+    "storage_target": "/root/autodl-tmp/em_eqf/experiments/revision/controls"
+  },
+  {
+    "experiment": "revision/generation_baselines",
+    "datasets": [
+      "ChuanDian",
+      "SCEDC"
+    ],
+    "configs": [
+      "experiments/revision/generation_baselines/configs/etas_scsn_main_seed_0.yaml",
+      "experiments/revision/generation_baselines/configs/etas_swc_main_seed_0.yaml",
+      "experiments/revision/generation_baselines/configs/recast_scsn_main_seed_0.yaml",
+      "experiments/revision/generation_baselines/configs/recast_scsn_main_seed_1.yaml",
+      "experiments/revision/generation_baselines/configs/recast_scsn_main_seed_2.yaml",
+      "experiments/revision/generation_baselines/configs/recast_scsn_main_seed_3.yaml",
+      "experiments/revision/generation_baselines/configs/recast_scsn_main_seed_4.yaml",
+      "experiments/revision/generation_baselines/configs/recast_swc_main_seed_0.yaml",
+      "experiments/revision/generation_baselines/configs/recast_swc_main_seed_1.yaml",
+      "experiments/revision/generation_baselines/configs/recast_swc_main_seed_2.yaml",
+      "experiments/revision/generation_baselines/configs/recast_swc_main_seed_3.yaml",
+      "experiments/revision/generation_baselines/configs/recast_swc_main_seed_4.yaml"
+    ],
+    "reports": [
+      "experiments/revision/generation_baselines/reports/generation_periods.csv",
+      "experiments/revision/generation_baselines/reports/time_nll_summary.csv"
+    ],
+    "run_count": 12,
+    "storage_target": "/root/autodl-tmp/em_eqf/experiments/revision/generation_baselines"
+  },
+  {
+    "experiment": "revision/magnitude_models",
+    "datasets": [],
+    "configs": [
+      "experiments/revision/magnitude_models/configs/confirm_scsn_main_gr1_history_seed_0.json",
+      "experiments/revision/magnitude_models/configs/confirm_scsn_main_gr1_history_seed_1.json",
+      "experiments/revision/magnitude_models/configs/confirm_scsn_main_gr1_history_seed_2.json",
+      "experiments/revision/magnitude_models/configs/confirm_scsn_main_gr1_history_seed_3.json",
+      "experiments/revision/magnitude_models/configs/confirm_scsn_main_gr1_history_seed_4.json",
+      "experiments/revision/magnitude_models/configs/confirm_scsn_main_kumaraswamy2_context_history_seed_0.json",
+      "experiments/revision/magnitude_models/configs/confirm_scsn_main_kumaraswamy2_context_history_seed_1.json",
+      "experiments/revision/magnitude_models/configs/confirm_scsn_main_kumaraswamy2_context_history_seed_2.json",
+      "experiments/revision/magnitude_models/configs/confirm_scsn_main_kumaraswamy2_context_history_seed_3.json",
+      "experiments/revision/magnitude_models/configs/confirm_scsn_main_kumaraswamy2_context_history_seed_4.json",
+      "experiments/revision/magnitude_models/configs/confirm_scsn_main_kumaraswamy2_history_seed_0.json",
+      "experiments/revision/magnitude_models/configs/confirm_scsn_main_kumaraswamy2_history_seed_1.json",
+      "experiments/revision/magnitude_models/configs/confirm_scsn_main_kumaraswamy2_history_seed_2.json",
+      "experiments/revision/magnitude_models/configs/confirm_scsn_main_kumaraswamy2_history_seed_3.json",
+      "experiments/revision/magnitude_models/configs/confirm_scsn_main_kumaraswamy2_history_seed_4.json",
+      "experiments/revision/magnitude_models/configs/confirm_scsn_sensitivity_gr1_history_seed_0.json",
+      "experiments/revision/magnitude_models/configs/confirm_scsn_sensitivity_gr1_history_seed_1.json",
+      "experiments/revision/magnitude_models/configs/confirm_scsn_sensitivity_gr1_history_seed_2.json",
+      "experiments/revision/magnitude_models/configs/confirm_scsn_sensitivity_gr1_history_seed_3.json",
+      "experiments/revision/magnitude_models/configs/confirm_scsn_sensitivity_gr1_history_seed_4.json",
+      "experiments/revision/magnitude_models/configs/confirm_scsn_sensitivity_kumaraswamy2_context_history_seed_0.json",
+      "experiments/revision/magnitude_models/configs/confirm_scsn_sensitivity_kumaraswamy2_context_history_seed_1.json",
+      "experiments/revision/magnitude_models/configs/confirm_scsn_sensitivity_kumaraswamy2_context_history_seed_2.json",
+      "experiments/revision/magnitude_models/configs/confirm_scsn_sensitivity_kumaraswamy2_context_history_seed_3.json",
+      "experiments/revision/magnitude_models/configs/confirm_scsn_sensitivity_kumaraswamy2_context_history_seed_4.json",
+      "experiments/revision/magnitude_models/configs/confirm_scsn_sensitivity_kumaraswamy2_history_seed_0.json",
+      "experiments/revision/magnitude_models/configs/confirm_scsn_sensitivity_kumaraswamy2_history_seed_1.json",
+      "experiments/revision/magnitude_models/configs/confirm_scsn_sensitivity_kumaraswamy2_history_seed_2.json",
+      "experiments/revision/magnitude_models/configs/confirm_scsn_sensitivity_kumaraswamy2_history_seed_3.json",
+      "experiments/revision/magnitude_models/configs/confirm_scsn_sensitivity_kumaraswamy2_history_seed_4.json",
+      "experiments/revision/magnitude_models/configs/confirm_swc_main_gr1_context_seed_0.json",
+      "experiments/revision/magnitude_models/configs/confirm_swc_main_gr1_context_seed_1.json",
+      "experiments/revision/magnitude_models/configs/confirm_swc_main_gr1_context_seed_2.json",
+      "experiments/revision/magnitude_models/configs/confirm_swc_main_gr1_context_seed_3.json",
+      "experiments/revision/magnitude_models/configs/confirm_swc_main_gr1_context_seed_4.json",
+      "experiments/revision/magnitude_models/configs/confirm_swc_main_weibull1_context_history_seed_0.json",
+      "experiments/revision/magnitude_models/configs/confirm_swc_main_weibull1_context_history_seed_1.json",
+      "experiments/revision/magnitude_models/configs/confirm_swc_main_weibull1_context_history_seed_2.json",
+      "experiments/revision/magnitude_models/configs/confirm_swc_main_weibull1_context_history_seed_3.json",
+      "experiments/revision/magnitude_models/configs/confirm_swc_main_weibull1_context_history_seed_4.json",
+      "experiments/revision/magnitude_models/configs/confirm_swc_main_weibull1_context_seed_0.json",
+      "experiments/revision/magnitude_models/configs/confirm_swc_main_weibull1_context_seed_1.json",
+      "experiments/revision/magnitude_models/configs/confirm_swc_main_weibull1_context_seed_2.json",
+      "experiments/revision/magnitude_models/configs/confirm_swc_main_weibull1_context_seed_3.json",
+      "experiments/revision/magnitude_models/configs/confirm_swc_main_weibull1_context_seed_4.json",
+      "experiments/revision/magnitude_models/configs/confirm_swc_sensitivity_gr1_context_seed_0.json",
+      "experiments/revision/magnitude_models/configs/confirm_swc_sensitivity_gr1_context_seed_1.json",
+      "experiments/revision/magnitude_models/configs/confirm_swc_sensitivity_gr1_context_seed_2.json",
+      "experiments/revision/magnitude_models/configs/confirm_swc_sensitivity_gr1_context_seed_3.json",
+      "experiments/revision/magnitude_models/configs/confirm_swc_sensitivity_gr1_context_seed_4.json",
+      "experiments/revision/magnitude_models/configs/confirm_swc_sensitivity_weibull1_context_history_seed_0.json",
+      "experiments/revision/magnitude_models/configs/confirm_swc_sensitivity_weibull1_context_history_seed_1.json",
+      "experiments/revision/magnitude_models/configs/confirm_swc_sensitivity_weibull1_context_history_seed_2.json",
+      "experiments/revision/magnitude_models/configs/confirm_swc_sensitivity_weibull1_context_history_seed_3.json",
+      "experiments/revision/magnitude_models/configs/confirm_swc_sensitivity_weibull1_context_history_seed_4.json",
+      "experiments/revision/magnitude_models/configs/confirm_swc_sensitivity_weibull1_context_seed_0.json",
+      "experiments/revision/magnitude_models/configs/confirm_swc_sensitivity_weibull1_context_seed_1.json",
+      "experiments/revision/magnitude_models/configs/confirm_swc_sensitivity_weibull1_context_seed_2.json",
+      "experiments/revision/magnitude_models/configs/confirm_swc_sensitivity_weibull1_context_seed_3.json",
+      "experiments/revision/magnitude_models/configs/confirm_swc_sensitivity_weibull1_context_seed_4.json",
+      "experiments/revision/magnitude_models/configs/confirmation_recipes.json",
+      "experiments/revision/magnitude_models/configs/dynamics_scsn_main_gr_contractive_cap_0.1_init_99.json",
+      "experiments/revision/magnitude_models/configs/dynamics_scsn_main_gr_contractive_cap_0.2_init_99.json",
+      "experiments/revision/magnitude_models/configs/dynamics_scsn_main_gr_contractive_init_0.json",
+      "experiments/revision/magnitude_models/configs/dynamics_scsn_main_gr_contractive_init_1.json",
+      "experiments/revision/magnitude_models/configs/dynamics_scsn_main_gr_contractive_init_2.json",
+      "experiments/revision/magnitude_models/configs/dynamics_scsn_main_gr_contractive_init_3.json",
+      "experiments/revision/magnitude_models/configs/dynamics_scsn_main_gr_contractive_init_4.json",
+      "experiments/revision/magnitude_models/configs/dynamics_scsn_main_gr_free_init_0.json",
+      "experiments/revision/magnitude_models/configs/dynamics_scsn_main_gr_free_init_1.json",
+      "experiments/revision/magnitude_models/configs/dynamics_scsn_main_gr_free_init_2.json",
+      "experiments/revision/magnitude_models/configs/dynamics_scsn_main_gr_free_init_3.json",
+      "experiments/revision/magnitude_models/configs/dynamics_scsn_main_gr_free_init_4.json",
+      "experiments/revision/magnitude_models/configs/dynamics_scsn_main_mixture_contractive_cap_0.5_init_99.json",
+      "experiments/revision/magnitude_models/configs/dynamics_scsn_main_mixture_contractive_cap_1_init_99.json",
+      "experiments/revision/magnitude_models/configs/dynamics_scsn_main_mixture_contractive_init_0.json",
+      "experiments/revision/magnitude_models/configs/dynamics_scsn_main_mixture_contractive_init_1.json",
+      "experiments/revision/magnitude_models/configs/dynamics_scsn_main_mixture_contractive_init_2.json",
+      "experiments/revision/magnitude_models/configs/dynamics_scsn_main_mixture_contractive_init_3.json",
+      "experiments/revision/magnitude_models/configs/dynamics_scsn_main_mixture_contractive_init_4.json",
+      "experiments/revision/magnitude_models/configs/dynamics_scsn_sensitivity_gr_contractive_cap_0.1_init_99.json",
+      "experiments/revision/magnitude_models/configs/dynamics_scsn_sensitivity_gr_contractive_cap_0.2_init_99.json",
+      "experiments/revision/magnitude_models/configs/dynamics_scsn_sensitivity_gr_contractive_init_0.json",
+      "experiments/revision/magnitude_models/configs/dynamics_scsn_sensitivity_gr_contractive_init_1.json",
+      "experiments/revision/magnitude_models/configs/dynamics_scsn_sensitivity_gr_contractive_init_2.json",
+      "experiments/revision/magnitude_models/configs/dynamics_scsn_sensitivity_gr_contractive_init_3.json",
+      "experiments/revision/magnitude_models/configs/dynamics_scsn_sensitivity_gr_contractive_init_4.json",
+      "experiments/revision/magnitude_models/configs/dynamics_scsn_sensitivity_gr_free_init_0.json",
+      "experiments/revision/magnitude_models/configs/dynamics_scsn_sensitivity_gr_free_init_1.json",
+      "experiments/revision/magnitude_models/configs/dynamics_scsn_sensitivity_gr_free_init_2.json",
+      "experiments/revision/magnitude_models/configs/dynamics_scsn_sensitivity_gr_free_init_3.json",
+      "experiments/revision/magnitude_models/configs/dynamics_scsn_sensitivity_gr_free_init_4.json",
+      "experiments/revision/magnitude_models/configs/dynamics_scsn_sensitivity_mixture_contractive_cap_0.5_init_99.json",
+      "experiments/revision/magnitude_models/configs/dynamics_scsn_sensitivity_mixture_contractive_cap_1_init_99.json",
+      "experiments/revision/magnitude_models/configs/dynamics_scsn_sensitivity_mixture_contractive_init_0.json",
+      "experiments/revision/magnitude_models/configs/dynamics_scsn_sensitivity_mixture_contractive_init_1.json",
+      "experiments/revision/magnitude_models/configs/dynamics_scsn_sensitivity_mixture_contractive_init_2.json",
+      "experiments/revision/magnitude_models/configs/dynamics_scsn_sensitivity_mixture_contractive_init_3.json",
+      "experiments/revision/magnitude_models/configs/dynamics_scsn_sensitivity_mixture_contractive_init_4.json",
+      "experiments/revision/magnitude_models/configs/dynamics_static_scsn_main_kumaraswamy2_static_seed_0.json",
+      "experiments/revision/magnitude_models/configs/dynamics_static_scsn_sensitivity_kumaraswamy2_static_seed_0.json",
+      "experiments/revision/magnitude_models/configs/dynamics_static_swc_main_kumaraswamy2_static_seed_0.json",
+      "experiments/revision/magnitude_models/configs/dynamics_static_swc_sensitivity_kumaraswamy2_static_seed_0.json",
+      "experiments/revision/magnitude_models/configs/dynamics_swc_main_gr_contractive_cap_0.1_init_99.json",
+      "experiments/revision/magnitude_models/configs/dynamics_swc_main_gr_contractive_cap_0.2_init_99.json",
+      "experiments/revision/magnitude_models/configs/dynamics_swc_main_gr_contractive_init_0.json",
+      "experiments/revision/magnitude_models/configs/dynamics_swc_main_gr_contractive_init_1.json",
+      "experiments/revision/magnitude_models/configs/dynamics_swc_main_gr_contractive_init_2.json",
+      "experiments/revision/magnitude_models/configs/dynamics_swc_main_gr_contractive_init_3.json",
+      "experiments/revision/magnitude_models/configs/dynamics_swc_main_gr_contractive_init_4.json",
+      "experiments/revision/magnitude_models/configs/dynamics_swc_main_gr_free_init_0.json",
+      "experiments/revision/magnitude_models/configs/dynamics_swc_main_gr_free_init_1.json",
+      "experiments/revision/magnitude_models/configs/dynamics_swc_main_gr_free_init_2.json",
+      "experiments/revision/magnitude_models/configs/dynamics_swc_main_gr_free_init_3.json",
+      "experiments/revision/magnitude_models/configs/dynamics_swc_main_gr_free_init_4.json",
+      "experiments/revision/magnitude_models/configs/dynamics_swc_main_mixture_contractive_cap_0.5_init_99.json",
+      "experiments/revision/magnitude_models/configs/dynamics_swc_main_mixture_contractive_cap_1_init_99.json",
+      "experiments/revision/magnitude_models/configs/dynamics_swc_main_mixture_contractive_init_0.json",
+      "experiments/revision/magnitude_models/configs/dynamics_swc_main_mixture_contractive_init_1.json",
+      "experiments/revision/magnitude_models/configs/dynamics_swc_main_mixture_contractive_init_2.json",
+      "experiments/revision/magnitude_models/configs/dynamics_swc_main_mixture_contractive_init_3.json",
+      "experiments/revision/magnitude_models/configs/dynamics_swc_main_mixture_contractive_init_4.json",
+      "experiments/revision/magnitude_models/configs/dynamics_swc_sensitivity_gr_contractive_cap_0.1_init_99.json",
+      "experiments/revision/magnitude_models/configs/dynamics_swc_sensitivity_gr_contractive_cap_0.2_init_99.json",
+      "experiments/revision/magnitude_models/configs/dynamics_swc_sensitivity_gr_contractive_init_0.json",
+      "experiments/revision/magnitude_models/configs/dynamics_swc_sensitivity_gr_contractive_init_1.json",
+      "experiments/revision/magnitude_models/configs/dynamics_swc_sensitivity_gr_contractive_init_2.json",
+      "experiments/revision/magnitude_models/configs/dynamics_swc_sensitivity_gr_contractive_init_3.json",
+      "experiments/revision/magnitude_models/configs/dynamics_swc_sensitivity_gr_contractive_init_4.json",
+      "experiments/revision/magnitude_models/configs/dynamics_swc_sensitivity_gr_free_init_0.json",
+      "experiments/revision/magnitude_models/configs/dynamics_swc_sensitivity_gr_free_init_1.json",
+      "experiments/revision/magnitude_models/configs/dynamics_swc_sensitivity_gr_free_init_2.json",
+      "experiments/revision/magnitude_models/configs/dynamics_swc_sensitivity_gr_free_init_3.json",
+      "experiments/revision/magnitude_models/configs/dynamics_swc_sensitivity_gr_free_init_4.json",
+      "experiments/revision/magnitude_models/configs/dynamics_swc_sensitivity_mixture_contractive_cap_0.5_init_99.json",
+      "experiments/revision/magnitude_models/configs/dynamics_swc_sensitivity_mixture_contractive_cap_1_init_99.json",
+      "experiments/revision/magnitude_models/configs/dynamics_swc_sensitivity_mixture_contractive_init_0.json",
+      "experiments/revision/magnitude_models/configs/dynamics_swc_sensitivity_mixture_contractive_init_1.json",
+      "experiments/revision/magnitude_models/configs/dynamics_swc_sensitivity_mixture_contractive_init_2.json",
+      "experiments/revision/magnitude_models/configs/dynamics_swc_sensitivity_mixture_contractive_init_3.json",
+      "experiments/revision/magnitude_models/configs/dynamics_swc_sensitivity_mixture_contractive_init_4.json",
+      "experiments/revision/magnitude_models/configs/gated_confirmation_recipes.json",
+      "experiments/revision/magnitude_models/configs/gated_plan.json",
+      "experiments/revision/magnitude_models/configs/gated_screen_scsn_main_kumaraswamy2_context_history_seed_0.json",
+      "experiments/revision/magnitude_models/configs/gated_screen_scsn_main_kumaraswamy2_context_seed_0.json",
+      "experiments/revision/magnitude_models/configs/gated_screen_scsn_main_kumaraswamy2_history_seed_0.json",
+      "experiments/revision/magnitude_models/configs/gated_screen_scsn_main_weibull2_context_history_seed_0.json",
+      "experiments/revision/magnitude_models/configs/gated_screen_scsn_main_weibull2_context_seed_0.json",
+      "experiments/revision/magnitude_models/configs/gated_screen_scsn_main_weibull2_history_seed_0.json",
+      "experiments/revision/magnitude_models/configs/gated_screen_swc_main_kumaraswamy2_context_history_seed_0.json",
+      "experiments/revision/magnitude_models/configs/gated_screen_swc_main_kumaraswamy2_context_seed_0.json",
+      "experiments/revision/magnitude_models/configs/gated_screen_swc_main_kumaraswamy2_history_seed_0.json",
+      "experiments/revision/magnitude_models/configs/gated_screen_swc_main_weibull2_context_history_seed_0.json",
+      "experiments/revision/magnitude_models/configs/gated_screen_swc_main_weibull2_context_seed_0.json",
+      "experiments/revision/magnitude_models/configs/gated_screen_swc_main_weibull2_history_seed_0.json",
+      "experiments/revision/magnitude_models/configs/matched_control_scsn_main_gr1_context_history_seed_0.json",
+      "experiments/revision/magnitude_models/configs/matched_control_scsn_main_gr1_context_history_seed_1.json",
+      "experiments/revision/magnitude_models/configs/matched_control_scsn_main_gr1_context_history_seed_2.json",
+      "experiments/revision/magnitude_models/configs/matched_control_scsn_main_gr1_context_history_seed_3.json",
+      "experiments/revision/magnitude_models/configs/matched_control_scsn_main_gr1_context_history_seed_4.json",
+      "experiments/revision/magnitude_models/configs/matched_control_scsn_sensitivity_gr1_context_history_seed_0.json",
+      "experiments/revision/magnitude_models/configs/matched_control_scsn_sensitivity_gr1_context_history_seed_1.json",
+      "experiments/revision/magnitude_models/configs/matched_control_scsn_sensitivity_gr1_context_history_seed_2.json",
+      "experiments/revision/magnitude_models/configs/matched_control_scsn_sensitivity_gr1_context_history_seed_3.json",
+      "experiments/revision/magnitude_models/configs/matched_control_scsn_sensitivity_gr1_context_history_seed_4.json",
+      "experiments/revision/magnitude_models/configs/memory_plan.json",
+      "experiments/revision/magnitude_models/configs/memory_selection.json",
+      "experiments/revision/magnitude_models/configs/screen_scsn_main_gr1_context_64_seed_0.json",
+      "experiments/revision/magnitude_models/configs/screen_scsn_main_gr1_context_history_seed_0.json",
+      "experiments/revision/magnitude_models/configs/screen_scsn_main_gr1_context_seed_0.json",
+      "experiments/revision/magnitude_models/configs/screen_scsn_main_gr1_history_seed_0.json",
+      "experiments/revision/magnitude_models/configs/screen_scsn_main_gr1_static_seed_0.json",
+      "experiments/revision/magnitude_models/configs/screen_scsn_main_kumaraswamy2_context_64_seed_0.json",
+      "experiments/revision/magnitude_models/configs/screen_scsn_main_kumaraswamy2_context_history_seed_0.json",
+      "experiments/revision/magnitude_models/configs/screen_scsn_main_kumaraswamy2_context_seed_0.json",
+      "experiments/revision/magnitude_models/configs/screen_scsn_main_kumaraswamy2_history_seed_0.json",
+      "experiments/revision/magnitude_models/configs/screen_scsn_main_kumaraswamy2_static_seed_0.json",
+      "experiments/revision/magnitude_models/configs/screen_scsn_main_weibull1_context_64_seed_0.json",
+      "experiments/revision/magnitude_models/configs/screen_scsn_main_weibull1_context_history_seed_0.json",
+      "experiments/revision/magnitude_models/configs/screen_scsn_main_weibull1_context_seed_0.json",
+      "experiments/revision/magnitude_models/configs/screen_scsn_main_weibull1_history_seed_0.json",
+      "experiments/revision/magnitude_models/configs/screen_scsn_main_weibull1_static_seed_0.json",
+      "experiments/revision/magnitude_models/configs/screen_swc_main_gr1_context_64_seed_0.json",
+      "experiments/revision/magnitude_models/configs/screen_swc_main_gr1_context_history_seed_0.json",
+      "experiments/revision/magnitude_models/configs/screen_swc_main_gr1_context_seed_0.json",
+      "experiments/revision/magnitude_models/configs/screen_swc_main_gr1_history_seed_0.json",
+      "experiments/revision/magnitude_models/configs/screen_swc_main_gr1_static_seed_0.json",
+      "experiments/revision/magnitude_models/configs/screen_swc_main_kumaraswamy2_context_64_seed_0.json",
+      "experiments/revision/magnitude_models/configs/screen_swc_main_kumaraswamy2_context_history_seed_0.json",
+      "experiments/revision/magnitude_models/configs/screen_swc_main_kumaraswamy2_context_seed_0.json",
+      "experiments/revision/magnitude_models/configs/screen_swc_main_kumaraswamy2_history_seed_0.json",
+      "experiments/revision/magnitude_models/configs/screen_swc_main_kumaraswamy2_static_seed_0.json",
+      "experiments/revision/magnitude_models/configs/screen_swc_main_weibull1_context_64_seed_0.json",
+      "experiments/revision/magnitude_models/configs/screen_swc_main_weibull1_context_history_seed_0.json",
+      "experiments/revision/magnitude_models/configs/screen_swc_main_weibull1_context_seed_0.json",
+      "experiments/revision/magnitude_models/configs/screen_swc_main_weibull1_history_seed_0.json",
+      "experiments/revision/magnitude_models/configs/screen_swc_main_weibull1_static_seed_0.json",
+      "experiments/revision/magnitude_models/configs/state_confirmation_recipes.json",
+      "experiments/revision/magnitude_models/configs/state_plan.json",
+      "experiments/revision/magnitude_models/configs/state_screen_scsn_main_state2_p0.95_seed_0.json",
+      "experiments/revision/magnitude_models/configs/state_screen_scsn_main_state2_p0.995_seed_0.json",
+      "experiments/revision/magnitude_models/configs/state_screen_scsn_main_state3_p0.95_seed_0.json",
+      "experiments/revision/magnitude_models/configs/state_screen_scsn_main_state3_p0.995_seed_0.json",
+      "experiments/revision/magnitude_models/configs/state_screen_scsn_sensitivity_state2_p0.95_seed_0.json",
+      "experiments/revision/magnitude_models/configs/state_screen_scsn_sensitivity_state2_p0.995_seed_0.json",
+      "experiments/revision/magnitude_models/configs/state_screen_scsn_sensitivity_state3_p0.95_seed_0.json",
+      "experiments/revision/magnitude_models/configs/state_screen_scsn_sensitivity_state3_p0.995_seed_0.json",
+      "experiments/revision/magnitude_models/configs/state_screen_swc_main_state2_p0.95_seed_0.json",
+      "experiments/revision/magnitude_models/configs/state_screen_swc_main_state2_p0.995_seed_0.json",
+      "experiments/revision/magnitude_models/configs/state_screen_swc_main_state3_p0.95_seed_0.json",
+      "experiments/revision/magnitude_models/configs/state_screen_swc_main_state3_p0.995_seed_0.json",
+      "experiments/revision/magnitude_models/configs/state_screen_swc_sensitivity_state2_p0.95_seed_0.json",
+      "experiments/revision/magnitude_models/configs/state_screen_swc_sensitivity_state2_p0.995_seed_0.json",
+      "experiments/revision/magnitude_models/configs/state_screen_swc_sensitivity_state3_p0.95_seed_0.json",
+      "experiments/revision/magnitude_models/configs/state_screen_swc_sensitivity_state3_p0.995_seed_0.json"
+    ],
+    "reports": [
+      "experiments/revision/magnitude_models/reports/confirmation_validation_scores.csv",
+      "experiments/revision/magnitude_models/reports/gated_validation_scores.csv",
+      "experiments/revision/magnitude_models/reports/matched_control_validation_scores.csv",
+      "experiments/revision/magnitude_models/reports/memory_validation_scores.csv",
+      "experiments/revision/magnitude_models/reports/screen_validation_scores.csv",
+      "experiments/revision/magnitude_models/reports/state_validation_scores.csv"
+    ],
+    "run_count": 0,
+    "storage_target": "/root/autodl-tmp/em_eqf/experiments/revision/magnitude_models"
+  },
+  {
+    "experiment": "revision/main",
+    "datasets": [
+      "AZDX",
+      "ChuanDian",
+      "SCEDC"
+    ],
+    "configs": [
+      "experiments/revision/main/configs/clf_azdx_h10_seed_0.yaml",
+      "experiments/revision/main/configs/clf_azdx_h10_seed_1.yaml",
+      "experiments/revision/main/configs/clf_azdx_h10_seed_2.yaml",
+      "experiments/revision/main/configs/clf_azdx_h10_seed_3.yaml",
+      "experiments/revision/main/configs/clf_azdx_h10_seed_4.yaml",
+      "experiments/revision/main/configs/clf_azdx_h20_seed_0.yaml",
+      "experiments/revision/main/configs/clf_azdx_h20_seed_1.yaml",
+      "experiments/revision/main/configs/clf_azdx_h20_seed_2.yaml",
+      "experiments/revision/main/configs/clf_azdx_h20_seed_3.yaml",
+      "experiments/revision/main/configs/clf_azdx_h20_seed_4.yaml",
+      "experiments/revision/main/configs/clf_azdx_h30_seed_0.yaml",
+      "experiments/revision/main/configs/clf_azdx_h30_seed_1.yaml",
+      "experiments/revision/main/configs/clf_azdx_h30_seed_2.yaml",
+      "experiments/revision/main/configs/clf_azdx_h30_seed_3.yaml",
+      "experiments/revision/main/configs/clf_azdx_h30_seed_4.yaml",
+      "experiments/revision/main/configs/clf_azdx_h60_seed_0.yaml",
+      "experiments/revision/main/configs/clf_azdx_h60_seed_1.yaml",
+      "experiments/revision/main/configs/clf_azdx_h60_seed_2.yaml",
+      "experiments/revision/main/configs/clf_azdx_h60_seed_3.yaml",
+      "experiments/revision/main/configs/clf_azdx_h60_seed_4.yaml",
+      "experiments/revision/main/configs/clf_azdx_h90_seed_0.yaml",
+      "experiments/revision/main/configs/clf_azdx_h90_seed_1.yaml",
+      "experiments/revision/main/configs/clf_azdx_h90_seed_2.yaml",
+      "experiments/revision/main/configs/clf_azdx_h90_seed_3.yaml",
+      "experiments/revision/main/configs/clf_azdx_h90_seed_4.yaml",
+      "experiments/revision/main/configs/clf_scratch_h10_seed_0.yaml",
+      "experiments/revision/main/configs/clf_scratch_h10_seed_1.yaml",
+      "experiments/revision/main/configs/clf_scratch_h10_seed_2.yaml",
+      "experiments/revision/main/configs/clf_scratch_h10_seed_3.yaml",
+      "experiments/revision/main/configs/clf_scratch_h10_seed_4.yaml",
+      "experiments/revision/main/configs/clf_scratch_h20_seed_0.yaml",
+      "experiments/revision/main/configs/clf_scratch_h20_seed_1.yaml",
+      "experiments/revision/main/configs/clf_scratch_h20_seed_2.yaml",
+      "experiments/revision/main/configs/clf_scratch_h20_seed_3.yaml",
+      "experiments/revision/main/configs/clf_scratch_h20_seed_4.yaml",
+      "experiments/revision/main/configs/clf_scratch_h30_seed_0.yaml",
+      "experiments/revision/main/configs/clf_scratch_h30_seed_1.yaml",
+      "experiments/revision/main/configs/clf_scratch_h30_seed_2.yaml",
+      "experiments/revision/main/configs/clf_scratch_h30_seed_3.yaml",
+      "experiments/revision/main/configs/clf_scratch_h30_seed_4.yaml",
+      "experiments/revision/main/configs/clf_scratch_h60_seed_0.yaml",
+      "experiments/revision/main/configs/clf_scratch_h60_seed_1.yaml",
+      "experiments/revision/main/configs/clf_scratch_h60_seed_2.yaml",
+      "experiments/revision/main/configs/clf_scratch_h60_seed_3.yaml",
+      "experiments/revision/main/configs/clf_scratch_h60_seed_4.yaml",
+      "experiments/revision/main/configs/clf_scratch_h90_seed_0.yaml",
+      "experiments/revision/main/configs/clf_scratch_h90_seed_1.yaml",
+      "experiments/revision/main/configs/clf_scratch_h90_seed_2.yaml",
+      "experiments/revision/main/configs/clf_scratch_h90_seed_3.yaml",
+      "experiments/revision/main/configs/clf_scratch_h90_seed_4.yaml",
+      "experiments/revision/main/configs/generation_scsn_main_seed_0.yaml",
+      "experiments/revision/main/configs/generation_scsn_main_seed_1.yaml",
+      "experiments/revision/main/configs/generation_scsn_main_seed_2.yaml",
+      "experiments/revision/main/configs/generation_scsn_main_seed_3.yaml",
+      "experiments/revision/main/configs/generation_scsn_main_seed_4.yaml",
+      "experiments/revision/main/configs/generation_scsn_sensitivity_seed_0.yaml",
+      "experiments/revision/main/configs/generation_scsn_sensitivity_seed_1.yaml",
+      "experiments/revision/main/configs/generation_scsn_sensitivity_seed_2.yaml",
+      "experiments/revision/main/configs/generation_scsn_sensitivity_seed_3.yaml",
+      "experiments/revision/main/configs/generation_scsn_sensitivity_seed_4.yaml",
+      "experiments/revision/main/configs/generation_swc_main_seed_0.yaml",
+      "experiments/revision/main/configs/generation_swc_main_seed_1.yaml",
+      "experiments/revision/main/configs/generation_swc_main_seed_2.yaml",
+      "experiments/revision/main/configs/generation_swc_main_seed_3.yaml",
+      "experiments/revision/main/configs/generation_swc_main_seed_4.yaml",
+      "experiments/revision/main/configs/generation_swc_sensitivity_seed_0.yaml",
+      "experiments/revision/main/configs/generation_swc_sensitivity_seed_1.yaml",
+      "experiments/revision/main/configs/generation_swc_sensitivity_seed_2.yaml",
+      "experiments/revision/main/configs/generation_swc_sensitivity_seed_3.yaml",
+      "experiments/revision/main/configs/generation_swc_sensitivity_seed_4.yaml",
+      "experiments/revision/main/configs/lstm_seed_0.yaml",
+      "experiments/revision/main/configs/lstm_seed_1.yaml",
+      "experiments/revision/main/configs/lstm_seed_2.yaml",
+      "experiments/revision/main/configs/lstm_seed_3.yaml",
+      "experiments/revision/main/configs/lstm_seed_4.yaml",
+      "experiments/revision/main/configs/pretrain_azdx_main_seed_0.yaml",
+      "experiments/revision/main/configs/pretrain_azdx_main_seed_1.yaml",
+      "experiments/revision/main/configs/pretrain_azdx_main_seed_2.yaml",
+      "experiments/revision/main/configs/pretrain_azdx_main_seed_3.yaml",
+      "experiments/revision/main/configs/pretrain_azdx_main_seed_4.yaml",
+      "experiments/revision/main/configs/pretrain_azdx_sensitivity_seed_0.yaml",
+      "experiments/revision/main/configs/pretrain_azdx_sensitivity_seed_1.yaml",
+      "experiments/revision/main/configs/pretrain_azdx_sensitivity_seed_2.yaml",
+      "experiments/revision/main/configs/pretrain_azdx_sensitivity_seed_3.yaml",
+      "experiments/revision/main/configs/pretrain_azdx_sensitivity_seed_4.yaml",
+      "experiments/revision/main/configs/pretrain_scsn_main_seed_0.yaml",
+      "experiments/revision/main/configs/pretrain_scsn_main_seed_1.yaml",
+      "experiments/revision/main/configs/pretrain_scsn_main_seed_2.yaml",
+      "experiments/revision/main/configs/pretrain_scsn_main_seed_3.yaml",
+      "experiments/revision/main/configs/pretrain_scsn_main_seed_4.yaml",
+      "experiments/revision/main/configs/pretrain_scsn_sensitivity_seed_0.yaml",
+      "experiments/revision/main/configs/pretrain_scsn_sensitivity_seed_1.yaml",
+      "experiments/revision/main/configs/pretrain_scsn_sensitivity_seed_2.yaml",
+      "experiments/revision/main/configs/pretrain_scsn_sensitivity_seed_3.yaml",
+      "experiments/revision/main/configs/pretrain_scsn_sensitivity_seed_4.yaml",
+      "experiments/revision/main/configs/reg_azdx_seed_0.yaml",
+      "experiments/revision/main/configs/reg_azdx_seed_1.yaml",
+      "experiments/revision/main/configs/reg_azdx_seed_2.yaml",
+      "experiments/revision/main/configs/reg_azdx_seed_3.yaml",
+      "experiments/revision/main/configs/reg_azdx_seed_4.yaml",
+      "experiments/revision/main/configs/reg_scratch_seed_0.yaml",
+      "experiments/revision/main/configs/reg_scratch_seed_1.yaml",
+      "experiments/revision/main/configs/reg_scratch_seed_2.yaml",
+      "experiments/revision/main/configs/reg_scratch_seed_3.yaml",
+      "experiments/revision/main/configs/reg_scratch_seed_4.yaml",
+      "experiments/revision/main/configs/rf.yaml"
+    ],
+    "reports": [],
+    "run_count": 86,
+    "storage_target": "/root/autodl-tmp/em_eqf/experiments/revision/main"
+  },
+  {
+    "experiment": "revision/mamba3_mimo_no_deltat_20261105",
+    "datasets": [],
+    "configs": [],
+    "reports": [
+      "experiments/revision/mamba3_mimo_no_deltat_20261105/reports/all_results.csv"
+    ],
+    "run_count": 0,
+    "storage_target": "/autodl-fs/data/em_eqf_training/mamba3_mimo_no_deltat_20261105"
+  },
+  {
+    "experiment": "revision/mamba_backbones_20261105",
+    "datasets": [],
+    "configs": [],
+    "reports": [
+      "experiments/revision/mamba_backbones_20261105/reports/all_results.csv"
+    ],
+    "run_count": 0,
+    "storage_target": "/root/autodl-tmp/em_eqf/experiments/revision/mamba_backbones_20261105"
+  },
+  {
+    "experiment": "revision/mamba_phase_ablation_20261105",
+    "datasets": [],
+    "configs": [],
+    "reports": [
+      "experiments/revision/mamba_phase_ablation_20261105/reports/all_results.csv"
+    ],
+    "run_count": 0,
+    "storage_target": "/autodl-fs/data/em_eqf_training/mamba_phase_ablation_20261105"
+  },
+  {
+    "experiment": "revision/mamba_time_dynamics_20261105",
+    "datasets": [],
+    "configs": [],
+    "reports": [
+      "experiments/revision/mamba_time_dynamics_20261105/reports/all_results.csv"
+    ],
+    "run_count": 0,
+    "storage_target": "/autodl-fs/data/em_eqf_training/mamba_time_dynamics_20261105"
+  },
+  {
+    "experiment": "revision/multiregion_pretraining",
+    "datasets": [],
+    "configs": [
+      "experiments/revision/multiregion_pretraining/configs/italy__conditioned__seed_0.yaml",
+      "experiments/revision/multiregion_pretraining/configs/italy__conditioned__seed_1.yaml",
+      "experiments/revision/multiregion_pretraining/configs/italy__conditioned__seed_2.yaml",
+      "experiments/revision/multiregion_pretraining/configs/italy__conditioned_fewshot__seed_0.yaml",
+      "experiments/revision/multiregion_pretraining/configs/italy__pooled__seed_0.yaml",
+      "experiments/revision/multiregion_pretraining/configs/italy__pooled__seed_1.yaml",
+      "experiments/revision/multiregion_pretraining/configs/italy__pooled__seed_2.yaml",
+      "experiments/revision/multiregion_pretraining/configs/italy__scratch_fewshot__seed_0.yaml",
+      "experiments/revision/multiregion_pretraining/configs/italy__single_japan_kyushu__seed_0.yaml",
+      "experiments/revision/multiregion_pretraining/configs/italy__single_new_zealand__seed_0.yaml",
+      "experiments/revision/multiregion_pretraining/configs/japan_kyushu__conditioned__seed_0.yaml",
+      "experiments/revision/multiregion_pretraining/configs/japan_kyushu__conditioned__seed_1.yaml",
+      "experiments/revision/multiregion_pretraining/configs/japan_kyushu__conditioned__seed_2.yaml",
+      "experiments/revision/multiregion_pretraining/configs/japan_kyushu__conditioned_fewshot__seed_0.yaml",
+      "experiments/revision/multiregion_pretraining/configs/japan_kyushu__pooled__seed_0.yaml",
+      "experiments/revision/multiregion_pretraining/configs/japan_kyushu__pooled__seed_1.yaml",
+      "experiments/revision/multiregion_pretraining/configs/japan_kyushu__pooled__seed_2.yaml",
+      "experiments/revision/multiregion_pretraining/configs/japan_kyushu__scratch_fewshot__seed_0.yaml",
+      "experiments/revision/multiregion_pretraining/configs/japan_kyushu__single_italy__seed_0.yaml",
+      "experiments/revision/multiregion_pretraining/configs/japan_kyushu__single_new_zealand__seed_0.yaml",
+      "experiments/revision/multiregion_pretraining/configs/new_zealand__conditioned__seed_0.yaml",
+      "experiments/revision/multiregion_pretraining/configs/new_zealand__conditioned__seed_1.yaml",
+      "experiments/revision/multiregion_pretraining/configs/new_zealand__conditioned__seed_2.yaml",
+      "experiments/revision/multiregion_pretraining/configs/new_zealand__conditioned_fewshot__seed_0.yaml",
+      "experiments/revision/multiregion_pretraining/configs/new_zealand__pooled__seed_0.yaml",
+      "experiments/revision/multiregion_pretraining/configs/new_zealand__pooled__seed_1.yaml",
+      "experiments/revision/multiregion_pretraining/configs/new_zealand__pooled__seed_2.yaml",
+      "experiments/revision/multiregion_pretraining/configs/new_zealand__scratch_fewshot__seed_0.yaml",
+      "experiments/revision/multiregion_pretraining/configs/new_zealand__single_italy__seed_0.yaml",
+      "experiments/revision/multiregion_pretraining/configs/new_zealand__single_japan_kyushu__seed_0.yaml"
+    ],
+    "reports": [
+      "experiments/revision/multiregion_pretraining/reports/jma_annual_inventory_20261104.csv",
+      "experiments/revision/multiregion_pretraining/reports/pilot_all_runs_20261104.csv",
+      "experiments/revision/multiregion_pretraining/reports/pilot_paired_gains_20261104.csv",
+      "experiments/revision/multiregion_pretraining/reports/pilot_region_summary_20261104.csv",
+      "experiments/revision/multiregion_pretraining/reports/pilot_results_20261104.csv",
+      "experiments/revision/multiregion_pretraining/reports/pilot_results_seed_0_20261104.csv",
+      "experiments/revision/multiregion_pretraining/reports/pilot_results_seed_1_20261104.csv",
+      "experiments/revision/multiregion_pretraining/reports/pilot_results_seed_2_20261104.csv"
+    ],
+    "run_count": 0,
+    "storage_target": "/root/autodl-tmp/em_eqf/experiments/revision/multiregion_pretraining"
+  },
+  {
+    "experiment": "revision/scedc_full_mamba2_baseline_20261105",
+    "datasets": [],
+    "configs": [],
+    "reports": [
+      "experiments/revision/scedc_full_mamba2_baseline_20261105/reports/all_results.csv",
+      "experiments/revision/scedc_full_mamba2_baseline_20261105/reports/combined_all_results.csv"
+    ],
+    "run_count": 0,
+    "storage_target": "/autodl-fs/data/em_eqf_training/scedc_full_mamba2_baseline_20261105"
+  },
+  {
+    "experiment": "revision/scedc_full_recast_20261106",
+    "datasets": [],
+    "configs": [],
+    "reports": [
+      "experiments/revision/scedc_full_recast_20261106/reports/all_results.csv",
+      "experiments/revision/scedc_full_recast_20261106/reports/combined_all_results.csv"
+    ],
+    "run_count": 0,
+    "storage_target": "/autodl-fs/data/em_eqf_training/scedc_full_recast_20261106"
+  },
+  {
+    "experiment": "revision/scedc_full_time_dynamics_20261105",
+    "datasets": [],
+    "configs": [],
+    "reports": [
+      "experiments/revision/scedc_full_time_dynamics_20261105/reports/all_results.csv"
+    ],
+    "run_count": 0,
+    "storage_target": "/autodl-fs/data/em_eqf_training/scedc_full_time_dynamics_20261105"
+  },
+  {
+    "experiment": "standalone",
+    "datasets": [
+      "AZDX",
+      "Basel",
+      "CB_HAB1a",
+      "CB_HAB1b",
+      "CB_HAB4",
+      "CCL",
+      "CD2021",
+      "ChinaArray",
+      "ChuanDian",
+      "CooperBasin",
+      "FORGE2022",
+      "Geysers",
+      "PNR",
+      "PNR_1z",
+      "QTMSaltonSea",
+      "QTMSanJacinto",
+      "S2",
+      "SCEDC",
+      "SSFS",
+      "SSFS2005",
+      "St1-2018",
+      "St1-2020",
+      "White"
+    ],
+    "configs": [],
+    "reports": [],
+    "run_count": 881,
+    "storage_target": "/root/autodl-tmp/em_eqf/checkpoints"
+  }
+]

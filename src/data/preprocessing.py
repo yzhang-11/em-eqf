@@ -1,4 +1,5 @@
 import logging
+import hashlib
 import pandas as pd
 import numpy as np
 import os
@@ -83,7 +84,15 @@ def load_and_filter_catalog(base_dir, Mc):
     else:
         raise ValueError("No CSV files found in the 'raw' directory.")
     
-    df = pd.read_csv(os.path.join(raw_dir, chosen_file))
+    source_path = Path(raw_dir) / chosen_file
+    with source_path.open("rb") as source:
+        digest = hashlib.sha256()
+        for chunk in iter(lambda: source.read(1024 * 1024), b""):
+            digest.update(chunk)
+        source.seek(0)
+        df = pd.read_csv(source)
+    df.attrs["source_sha256"] = digest.hexdigest()
+    df.attrs["source_path"] = str(source_path.resolve())
     df = df[df['Magnitude'] >= Mc].reset_index(drop=True)
     df = df.sort_values(by='t').reset_index(drop=True)
     df['dt_unfiltered'] = df['dt']

@@ -64,5 +64,5 @@ def plot(path):
 
 if __name__ == "__main__":
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("reports",type=Path)
+    parser.add_argument("shared/reports",type=Path)
     plot(parser.parse_args().reports)

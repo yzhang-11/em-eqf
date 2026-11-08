@@ -73,7 +73,7 @@ def inventory(root):
         for row in load(base / batch / "reports/summary.json")["datasets"]:
             yield row["dataset"], batch, Path(row["cache"]), Path(row["source"])
     batch = "catalog_doi_expansion_20261106"
-    for report in sorted((base / batch / "reports").glob("*.json")):
+    for report in sorted((base / batch / "shared/reports").glob("*.json")):
         row = load(report)
         if row.get("dataloader_verified") and "raw_path" in row:
             cache = Path(row["cache"])

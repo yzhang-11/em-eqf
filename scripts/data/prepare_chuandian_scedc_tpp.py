@@ -10,7 +10,7 @@ ROOT = Path('/root/autodl-tmp/em_eqf')
 TAG = 'chuandian_scedc_tpp_20261105'
 BASE = ROOT / 'experiments/revision/multiregion_pretraining'
 STORE = Path('/root/autodl-fs/em_eqf_training') / TAG
-REPORTS = BASE / 'reports' / TAG
+REPORTS = BASE / 'shared/reports' / TAG
 TARGETS = {
     'chuandian': dict(dataset='ChuanDian', source='data/ChuanDian/raw/chuandian_2021.csv', mc=3.,
                      dates=['2000-01-01', '2015-01-01', '2018-01-01', '2021-05-24']),

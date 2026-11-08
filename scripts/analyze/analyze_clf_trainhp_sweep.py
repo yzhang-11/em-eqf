@@ -605,7 +605,7 @@ def main():
     if not exp_root.exists():
         raise FileNotFoundError(f"Experiment root not found: {exp_root}")
 
-    out_dir = Path(args.out_dir).resolve() if args.out_dir else exp_root / "reports"
+    out_dir = Path(args.out_dir).resolve() if args.out_dir else exp_root / "shared/reports"
     metric_keys = [m.strip() for m in str(args.metrics).split(",") if m.strip()]
     if not metric_keys:
         raise ValueError("--metrics must contain at least one key")

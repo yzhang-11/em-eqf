@@ -1,0 +1,1186 @@
+[
+  {
+    "config_file": "notebooks/config/model_specs/cumulative_likelihood_over_time/model_specs.cumulative_likelihood_over_time.v1.json",
+    "config_name": "CB_HAB4",
+    "label": "ETAS",
+    "checkpoint": "experiments/netas/etas/split_0p7/runs/etas__CB_HAB4_no_bg_seed_0/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/cumulative_likelihood_over_time/model_specs.cumulative_likelihood_over_time.v1.json",
+    "config_name": "CB_HAB4",
+    "label": "ETAS+p",
+    "checkpoint": "experiments/netas/etas/split_0p7/runs/etas__CB_HAB4_proportional_norm_0_seed_0/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/cumulative_likelihood_over_time/model_specs.cumulative_likelihood_over_time.v1.json",
+    "config_name": "CB_HAB4",
+    "label": "ETAS+conv",
+    "checkpoint": "experiments/netas/etas/split_0p7/runs/etas__CB_HAB4_kernel_norm_0_seed_0/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/cumulative_likelihood_over_time/model_specs.cumulative_likelihood_over_time.v1.json",
+    "config_name": "CB_HAB4",
+    "label": "ETAS+mamba",
+    "checkpoint": "experiments/netas/etas/split_0p7/runs/etas__CB_HAB4_mamba_norm_0_seed_0/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/cumulative_likelihood_over_time/model_specs.cumulative_likelihood_over_time.v1.json",
+    "config_name": "CB_HAB4",
+    "label": "RECAST",
+    "checkpoint": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_CB_HAB4_no_bg_seed_0/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/cumulative_likelihood_over_time/model_specs.cumulative_likelihood_over_time.v1.json",
+    "config_name": "CB_HAB4",
+    "label": "RECAST+p",
+    "checkpoint": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_CB_HAB4_proportional_norm_0_seed_0/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/cumulative_likelihood_over_time/model_specs.cumulative_likelihood_over_time.v1.json",
+    "config_name": "CB_HAB4",
+    "label": "RECAST+conv",
+    "checkpoint": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_CB_HAB4_kernel_norm_0_seed_0/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/cumulative_likelihood_over_time/model_specs.cumulative_likelihood_over_time.v1.json",
+    "config_name": "CB_HAB4",
+    "label": "RECAST+mamba",
+    "checkpoint": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_CB_HAB4_mamba_norm_0_seed_0/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/cumulative_likelihood_over_time/model_specs.cumulative_likelihood_over_time.v1.json",
+    "config_name": "CB_HAB4",
+    "label": "ORACLE",
+    "checkpoint": "experiments/ORACLE_multi_dataset_0.7/runs/ORACLE_CB_HAB4_seed_0/best_model_1.pth",
+    "exists": false,
+    "materialized": false
+  },
+  {
+    "config_file": "notebooks/config/model_specs/cumulative_likelihood_over_time/model_specs.cumulative_likelihood_over_time.v1.json",
+    "config_name": "CB_HAB1a",
+    "label": "ETAS",
+    "checkpoint": "experiments/netas/etas/split_0p7/runs/etas__CB_HAB1a_no_bg_seed_0/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/cumulative_likelihood_over_time/model_specs.cumulative_likelihood_over_time.v1.json",
+    "config_name": "CB_HAB1a",
+    "label": "ETAS+p",
+    "checkpoint": "experiments/netas/etas/split_0p7/runs/etas__CB_HAB1a_proportional_seed_0/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/cumulative_likelihood_over_time/model_specs.cumulative_likelihood_over_time.v1.json",
+    "config_name": "CB_HAB1a",
+    "label": "ETAS+conv",
+    "checkpoint": "experiments/netas/etas/split_0p7/runs/etas__CB_HAB1a_kernel_seed_0/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/cumulative_likelihood_over_time/model_specs.cumulative_likelihood_over_time.v1.json",
+    "config_name": "CB_HAB1a",
+    "label": "ETAS+mamba",
+    "checkpoint": "experiments/netas/etas/split_0p7/runs/etas__CB_HAB1a_mamba_seed_0/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/cumulative_likelihood_over_time/model_specs.cumulative_likelihood_over_time.v1.json",
+    "config_name": "CB_HAB1a",
+    "label": "RECAST",
+    "checkpoint": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_CB_HAB1a_no_bg_seed_0/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/cumulative_likelihood_over_time/model_specs.cumulative_likelihood_over_time.v1.json",
+    "config_name": "CB_HAB1a",
+    "label": "RECAST+p",
+    "checkpoint": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_CB_HAB1a_proportional_seed_0/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/cumulative_likelihood_over_time/model_specs.cumulative_likelihood_over_time.v1.json",
+    "config_name": "CB_HAB1a",
+    "label": "RECAST+conv",
+    "checkpoint": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_CB_HAB1a_kernel_seed_0/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/cumulative_likelihood_over_time/model_specs.cumulative_likelihood_over_time.v1.json",
+    "config_name": "CB_HAB1a",
+    "label": "RECAST+mamba",
+    "checkpoint": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_CB_HAB1a_mamba_seed_0/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/cumulative_likelihood_over_time/model_specs.cumulative_likelihood_over_time.v1.json",
+    "config_name": "CB_HAB1a",
+    "label": "ORACLE",
+    "checkpoint": "experiments/ORACLE_multi_dataset_0.7/runs/ORACLE_CB_HAB1a_seed_0/best_model_1.pth",
+    "exists": false,
+    "materialized": false
+  },
+  {
+    "config_file": "notebooks/config/model_specs/cumulative_likelihood_over_time/model_specs.cumulative_likelihood_over_time.v1.json",
+    "config_name": "PNR_1z",
+    "label": "ETAS",
+    "checkpoint": "experiments/netas/etas/split_0p7/runs/etas__PNR_1z_no_bg_seed_0/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/cumulative_likelihood_over_time/model_specs.cumulative_likelihood_over_time.v1.json",
+    "config_name": "PNR_1z",
+    "label": "ETAS+p",
+    "checkpoint": "experiments/netas/etas/split_0p7/runs/etas__PNR_1z_proportional_norm_0_seed_0/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/cumulative_likelihood_over_time/model_specs.cumulative_likelihood_over_time.v1.json",
+    "config_name": "PNR_1z",
+    "label": "ETAS+conv",
+    "checkpoint": "experiments/netas/etas/split_0p7/runs/etas__PNR_1z_kernel_norm_0_seed_0/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/cumulative_likelihood_over_time/model_specs.cumulative_likelihood_over_time.v1.json",
+    "config_name": "PNR_1z",
+    "label": "ETAS+mamba",
+    "checkpoint": "experiments/netas/etas/split_0p7/runs/etas__PNR_1z_mamba_norm_0_seed_0/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/cumulative_likelihood_over_time/model_specs.cumulative_likelihood_over_time.v1.json",
+    "config_name": "PNR_1z",
+    "label": "RECAST",
+    "checkpoint": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_PNR_1z_no_bg_seed_0/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/cumulative_likelihood_over_time/model_specs.cumulative_likelihood_over_time.v1.json",
+    "config_name": "PNR_1z",
+    "label": "RECAST+p",
+    "checkpoint": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_PNR_1z_proportional_seed_0/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/cumulative_likelihood_over_time/model_specs.cumulative_likelihood_over_time.v1.json",
+    "config_name": "PNR_1z",
+    "label": "RECAST+conv",
+    "checkpoint": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_PNR_1z_kernel_seed_0/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/cumulative_likelihood_over_time/model_specs.cumulative_likelihood_over_time.v1.json",
+    "config_name": "PNR_1z",
+    "label": "RECAST+mamba",
+    "checkpoint": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_PNR_1z_mamba_seed_0/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/cumulative_likelihood_over_time/model_specs.cumulative_likelihood_over_time.v1.json",
+    "config_name": "PNR_1z",
+    "label": "ORACLE",
+    "checkpoint": "experiments/ORACLE_multi_dataset_0.7/runs/ORACLE_PNR_1z_seed_0/best_model_1.pth",
+    "exists": false,
+    "materialized": false
+  },
+  {
+    "config_file": "notebooks/config/model_specs/cumulative_likelihood_over_time/model_specs.cumulative_likelihood_over_time.v1.json",
+    "config_name": "St1_2018",
+    "label": "ETAS",
+    "checkpoint": "experiments/netas/etas/split_0p7/runs/etas__St1_2018_no_bg_seed_0/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/cumulative_likelihood_over_time/model_specs.cumulative_likelihood_over_time.v1.json",
+    "config_name": "St1_2018",
+    "label": "ETAS+p",
+    "checkpoint": "experiments/netas/etas/split_0p7/runs/etas__St1_2018_proportional_norm_0_seed_0/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/cumulative_likelihood_over_time/model_specs.cumulative_likelihood_over_time.v1.json",
+    "config_name": "St1_2018",
+    "label": "ETAS+conv",
+    "checkpoint": "experiments/netas/etas/split_0p7/runs/etas__St1_2018_kernel_norm_0_seed_0/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/cumulative_likelihood_over_time/model_specs.cumulative_likelihood_over_time.v1.json",
+    "config_name": "St1_2018",
+    "label": "ETAS+mamba",
+    "checkpoint": "experiments/netas/etas/split_0p7/runs/etas__St1_2018_mamba_norm_0_seed_0/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/cumulative_likelihood_over_time/model_specs.cumulative_likelihood_over_time.v1.json",
+    "config_name": "St1_2018",
+    "label": "RECAST",
+    "checkpoint": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_St1_2018_no_bg_seed_0/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/cumulative_likelihood_over_time/model_specs.cumulative_likelihood_over_time.v1.json",
+    "config_name": "St1_2018",
+    "label": "RECAST+p",
+    "checkpoint": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_St1_2018_proportional_seed_0/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/cumulative_likelihood_over_time/model_specs.cumulative_likelihood_over_time.v1.json",
+    "config_name": "St1_2018",
+    "label": "RECAST+conv",
+    "checkpoint": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_St1_2018_kernel_seed_0/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/cumulative_likelihood_over_time/model_specs.cumulative_likelihood_over_time.v1.json",
+    "config_name": "St1_2018",
+    "label": "RECAST+mamba",
+    "checkpoint": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_St1_2018_mamba_seed_0/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/cumulative_likelihood_over_time/model_specs.cumulative_likelihood_over_time.v1.json",
+    "config_name": "St1_2018",
+    "label": "ORACLE",
+    "checkpoint": "experiments/ORACLE_multi_dataset_0.7/runs/ORACLE_St1_2018_seed_0/best_model_1.pth",
+    "exists": false,
+    "materialized": false
+  },
+  {
+    "config_file": "notebooks/config/model_specs/cumulative_likelihood_over_time/model_specs.cumulative_likelihood_over_time.v1.json",
+    "config_name": "CCL",
+    "label": "ETAS+mamba_mix",
+    "checkpoint": "checkpoints/etas_20260609-182125/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/cumulative_likelihood_over_time/model_specs.cumulative_likelihood_over_time.v1.json",
+    "config_name": "CCL",
+    "label": "RECAST+mamba_mix",
+    "checkpoint": "checkpoints/rtpp_v2_20260608-210148/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/forecast_nxm/model_specs.forecast_nxm.v1.json",
+    "config_name": "CB_HAB4",
+    "label": "ETAS + p",
+    "checkpoint": "experiments/netas/etas/split_0p7/runs/etas__CB_HAB4_proportional_seed_1/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/forecast_nxm/model_specs.forecast_nxm.v1.json",
+    "config_name": "CB_HAB4",
+    "label": "ETAS + conv",
+    "checkpoint": "experiments/netas/etas/split_0p7/runs/etas__CB_HAB4_kernel_seed_1/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/forecast_nxm/model_specs.forecast_nxm.v1.json",
+    "config_name": "CB_HAB4",
+    "label": "ETAS + Mamba",
+    "checkpoint": "experiments/netas/etas/split_0p7/runs/etas__CB_HAB4_mamba_seed_1/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/forecast_nxm/model_specs.forecast_nxm.v1.json",
+    "config_name": "CB_HAB4",
+    "label": "RECAST + p",
+    "checkpoint": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_CB_HAB4_proportional_seed_2/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/forecast_nxm/model_specs.forecast_nxm.v1.json",
+    "config_name": "CB_HAB4",
+    "label": "RECAST + conv",
+    "checkpoint": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_CB_HAB4_kernel_seed_2/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/forecast_nxm/model_specs.forecast_nxm.v1.json",
+    "config_name": "CB_HAB4",
+    "label": "RECAST + Mamba",
+    "checkpoint": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_CB_HAB4_mamba_seed_2/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/forecast_nxm/model_specs.forecast_nxm.v1.json",
+    "config_name": "CB_HAB1a",
+    "label": "ETAS + p",
+    "checkpoint": "experiments/netas/etas/split_0p7/runs/etas__CB_HAB1a_proportional_seed_1/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/forecast_nxm/model_specs.forecast_nxm.v1.json",
+    "config_name": "CB_HAB1a",
+    "label": "ETAS + conv",
+    "checkpoint": "experiments/netas/etas/split_0p7/runs/etas__CB_HAB1a_kernel_seed_1/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/forecast_nxm/model_specs.forecast_nxm.v1.json",
+    "config_name": "CB_HAB1a",
+    "label": "ETAS + Mamba",
+    "checkpoint": "experiments/netas/etas/split_0p7/runs/etas__CB_HAB1a_mamba_seed_1/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/forecast_nxm/model_specs.forecast_nxm.v1.json",
+    "config_name": "CB_HAB1a",
+    "label": "RECAST + p",
+    "checkpoint": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_CB_HAB1a_proportional_seed_2/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/forecast_nxm/model_specs.forecast_nxm.v1.json",
+    "config_name": "CB_HAB1a",
+    "label": "RECAST + conv",
+    "checkpoint": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_CB_HAB1a_kernel_seed_2/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/forecast_nxm/model_specs.forecast_nxm.v1.json",
+    "config_name": "CB_HAB1a",
+    "label": "RECAST + Mamba",
+    "checkpoint": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_CB_HAB1a_mamba_seed_2/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/forecast_nxm/model_specs.forecast_nxm.v1.json",
+    "config_name": "CB_HAB4_full",
+    "label": "ETAS",
+    "checkpoint": "experiments/netas/etas/split_0p7/runs/etas__CB_HAB4_no_bg_seed_1/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/forecast_nxm/model_specs.forecast_nxm.v1.json",
+    "config_name": "CB_HAB4_full",
+    "label": "RECAST",
+    "checkpoint": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_CB_HAB4_no_bg_seed_2/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/forecast_nxm/model_specs.forecast_nxm.v1.json",
+    "config_name": "CB_HAB4_full",
+    "label": "Oracle",
+    "checkpoint": "experiments/netas/oracle/split_0p7/runs/oracle_CB_HAB4_seed_0/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/forecast_nxm/model_specs.forecast_nxm.v1.json",
+    "config_name": "CB_HAB4_full",
+    "label": "ETAS + p",
+    "checkpoint": "experiments/netas/etas/split_0p7/runs/etas__CB_HAB4_proportional_seed_1/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/forecast_nxm/model_specs.forecast_nxm.v1.json",
+    "config_name": "CB_HAB4_full",
+    "label": "ETAS + conv",
+    "checkpoint": "experiments/netas/etas/split_0p7/runs/etas__CB_HAB4_kernel_seed_1/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/forecast_nxm/model_specs.forecast_nxm.v1.json",
+    "config_name": "CB_HAB4_full",
+    "label": "ETAS + Mamba",
+    "checkpoint": "experiments/netas/etas/split_0p7/runs/etas__CB_HAB4_mamba_seed_1/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/forecast_nxm/model_specs.forecast_nxm.v1.json",
+    "config_name": "CB_HAB4_full",
+    "label": "RECAST + p",
+    "checkpoint": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_CB_HAB4_proportional_seed_2/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/forecast_nxm/model_specs.forecast_nxm.v1.json",
+    "config_name": "CB_HAB4_full",
+    "label": "RECAST + conv",
+    "checkpoint": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_CB_HAB4_kernel_seed_2/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/forecast_nxm/model_specs.forecast_nxm.v1.json",
+    "config_name": "CB_HAB4_full",
+    "label": "RECAST + Mamba",
+    "checkpoint": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_CB_HAB4_mamba_seed_2/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/forecast_nxm/model_specs.forecast_nxm.v1.json",
+    "config_name": "PNR_1z",
+    "label": "ETAS + p",
+    "checkpoint": "experiments/netas/etas/split_0p7/runs/etas__PNR_1z_proportional_seed_1/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/forecast_nxm/model_specs.forecast_nxm.v1.json",
+    "config_name": "PNR_1z",
+    "label": "ETAS + conv",
+    "checkpoint": "experiments/netas/etas/split_0p7/runs/etas__PNR_1z_kernel_seed_1/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/forecast_nxm/model_specs.forecast_nxm.v1.json",
+    "config_name": "PNR_1z",
+    "label": "ETAS + Mamba",
+    "checkpoint": "experiments/netas/etas/split_0p7/runs/etas__PNR_1z_mamba_seed_1/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/forecast_nxm/model_specs.forecast_nxm.v1.json",
+    "config_name": "PNR_1z",
+    "label": "RECAST + p",
+    "checkpoint": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_PNR_1z_proportional_seed_2/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/forecast_nxm/model_specs.forecast_nxm.v1.json",
+    "config_name": "PNR_1z",
+    "label": "RECAST + conv",
+    "checkpoint": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_PNR_1z_kernel_seed_2/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/forecast_nxm/model_specs.forecast_nxm.v1.json",
+    "config_name": "PNR_1z",
+    "label": "RECAST + Mamba",
+    "checkpoint": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_PNR_1z_mamba_seed_2/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/forecast_nxm/model_specs.forecast_nxm.v1.json",
+    "config_name": "PNR_1z_full",
+    "label": "ETAS",
+    "checkpoint": "experiments/netas/etas/split_0p7/runs/etas__PNR_1z_no_bg_seed_1/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/forecast_nxm/model_specs.forecast_nxm.v1.json",
+    "config_name": "PNR_1z_full",
+    "label": "RECAST",
+    "checkpoint": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_PNR_1z_no_bg_seed_2/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/forecast_nxm/model_specs.forecast_nxm.v1.json",
+    "config_name": "PNR_1z_full",
+    "label": "Oracle",
+    "checkpoint": "experiments/netas/oracle/split_0p7/runs/oracle_PNR_1z_seed_0/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/forecast_nxm/model_specs.forecast_nxm.v1.json",
+    "config_name": "PNR_1z_full",
+    "label": "ETAS + p",
+    "checkpoint": "experiments/netas/etas/split_0p7/runs/etas__PNR_1z_proportional_seed_1/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/forecast_nxm/model_specs.forecast_nxm.v1.json",
+    "config_name": "PNR_1z_full",
+    "label": "ETAS + conv",
+    "checkpoint": "experiments/netas/etas/split_0p7/runs/etas__PNR_1z_kernel_seed_1/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/forecast_nxm/model_specs.forecast_nxm.v1.json",
+    "config_name": "PNR_1z_full",
+    "label": "ETAS + Mamba",
+    "checkpoint": "experiments/netas/etas/split_0p7/runs/etas__PNR_1z_mamba_seed_1/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/forecast_nxm/model_specs.forecast_nxm.v1.json",
+    "config_name": "PNR_1z_full",
+    "label": "RECAST + p",
+    "checkpoint": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_PNR_1z_proportional_seed_2/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/forecast_nxm/model_specs.forecast_nxm.v1.json",
+    "config_name": "PNR_1z_full",
+    "label": "RECAST + conv",
+    "checkpoint": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_PNR_1z_kernel_seed_2/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/forecast_nxm/model_specs.forecast_nxm.v1.json",
+    "config_name": "PNR_1z_full",
+    "label": "RECAST + Mamba",
+    "checkpoint": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_PNR_1z_mamba_seed_2/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/forecast_nxm/model_specs.forecast_nxm.v1.json",
+    "config_name": "CB_HAB1a_full",
+    "label": "ETAS",
+    "checkpoint": "experiments/netas/etas/split_0p7/runs/etas__CB_HAB1a_no_bg_seed_1/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/forecast_nxm/model_specs.forecast_nxm.v1.json",
+    "config_name": "CB_HAB1a_full",
+    "label": "RECAST",
+    "checkpoint": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_CB_HAB1a_no_bg_seed_2/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/forecast_nxm/model_specs.forecast_nxm.v1.json",
+    "config_name": "CB_HAB1a_full",
+    "label": "Oracle",
+    "checkpoint": "experiments/netas/oracle/split_0p7/runs/oracle_CB_HAB1a_seed_0/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/forecast_nxm/model_specs.forecast_nxm.v1.json",
+    "config_name": "CB_HAB1a_full",
+    "label": "ETAS + p",
+    "checkpoint": "experiments/netas/etas/split_0p7/runs/etas__CB_HAB1a_proportional_seed_1/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/forecast_nxm/model_specs.forecast_nxm.v1.json",
+    "config_name": "CB_HAB1a_full",
+    "label": "ETAS + conv",
+    "checkpoint": "experiments/netas/etas/split_0p7/runs/etas__CB_HAB1a_kernel_seed_1/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/forecast_nxm/model_specs.forecast_nxm.v1.json",
+    "config_name": "CB_HAB1a_full",
+    "label": "ETAS + Mamba",
+    "checkpoint": "experiments/netas/etas/split_0p7/runs/etas__CB_HAB1a_mamba_seed_1/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/forecast_nxm/model_specs.forecast_nxm.v1.json",
+    "config_name": "CB_HAB1a_full",
+    "label": "RECAST + p",
+    "checkpoint": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_CB_HAB1a_proportional_seed_2/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/forecast_nxm/model_specs.forecast_nxm.v1.json",
+    "config_name": "CB_HAB1a_full",
+    "label": "RECAST + conv",
+    "checkpoint": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_CB_HAB1a_kernel_seed_2/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/forecast_nxm/model_specs.forecast_nxm.v1.json",
+    "config_name": "CB_HAB1a_full",
+    "label": "RECAST + Mamba",
+    "checkpoint": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_CB_HAB1a_mamba_seed_2/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/forecast_nxm/model_specs.forecast_nxm.v1.json",
+    "config_name": "St1_2018",
+    "label": "ETAS + p",
+    "checkpoint": "experiments/netas/etas/split_0p7/runs/etas__St1_2018_proportional_seed_1/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/forecast_nxm/model_specs.forecast_nxm.v1.json",
+    "config_name": "St1_2018",
+    "label": "ETAS + conv",
+    "checkpoint": "experiments/netas/etas/split_0p7/runs/etas__St1_2018_kernel_seed_1/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/forecast_nxm/model_specs.forecast_nxm.v1.json",
+    "config_name": "St1_2018",
+    "label": "ETAS + Mamba",
+    "checkpoint": "experiments/netas/etas/split_0p7/runs/etas__St1_2018_mamba_seed_1/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/forecast_nxm/model_specs.forecast_nxm.v1.json",
+    "config_name": "St1_2018",
+    "label": "RECAST + p",
+    "checkpoint": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_St1_2018_proportional_seed_2/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/forecast_nxm/model_specs.forecast_nxm.v1.json",
+    "config_name": "St1_2018",
+    "label": "RECAST + conv",
+    "checkpoint": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_St1_2018_kernel_seed_2/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/forecast_nxm/model_specs.forecast_nxm.v1.json",
+    "config_name": "St1_2018",
+    "label": "RECAST + Mamba",
+    "checkpoint": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_St1_2018_mamba_seed_2/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/forecast_nxm/model_specs.forecast_nxm.v1.json",
+    "config_name": "St1_2018_full",
+    "label": "ETAS",
+    "checkpoint": "experiments/netas/etas/split_0p7/runs/etas__St1_2018_no_bg_seed_1/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/forecast_nxm/model_specs.forecast_nxm.v1.json",
+    "config_name": "St1_2018_full",
+    "label": "RECAST",
+    "checkpoint": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_St1_2018_no_bg_seed_2/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/forecast_nxm/model_specs.forecast_nxm.v1.json",
+    "config_name": "St1_2018_full",
+    "label": "Oracle",
+    "checkpoint": "experiments/netas/oracle/split_0p7/runs/oracle_St1_2018_seed_0/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/forecast_nxm/model_specs.forecast_nxm.v1.json",
+    "config_name": "St1_2018_full",
+    "label": "ETAS + p",
+    "checkpoint": "experiments/netas/etas/split_0p7/runs/etas__St1_2018_proportional_seed_1/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/forecast_nxm/model_specs.forecast_nxm.v1.json",
+    "config_name": "St1_2018_full",
+    "label": "ETAS + conv",
+    "checkpoint": "experiments/netas/etas/split_0p7/runs/etas__St1_2018_kernel_seed_1/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/forecast_nxm/model_specs.forecast_nxm.v1.json",
+    "config_name": "St1_2018_full",
+    "label": "ETAS + Mamba",
+    "checkpoint": "experiments/netas/etas/split_0p7/runs/etas__St1_2018_mamba_seed_1/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/forecast_nxm/model_specs.forecast_nxm.v1.json",
+    "config_name": "St1_2018_full",
+    "label": "RECAST + p",
+    "checkpoint": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_St1_2018_proportional_seed_2/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/forecast_nxm/model_specs.forecast_nxm.v1.json",
+    "config_name": "St1_2018_full",
+    "label": "RECAST + conv",
+    "checkpoint": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_St1_2018_kernel_seed_2/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/forecast_nxm/model_specs.forecast_nxm.v1.json",
+    "config_name": "St1_2018_full",
+    "label": "RECAST + Mamba",
+    "checkpoint": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_St1_2018_mamba_seed_2/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/induced_eq_bg_comparison/model_specs.induced_eq_bg_comparison.v1.json",
+    "config_name": "hd_cmp_st1",
+    "label": "mamba(ETAS)",
+    "checkpoint": "experiments/netas/etas/split_0p7/runs/etas__St1_2018_mamba_seed_1/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/induced_eq_bg_comparison/model_specs.induced_eq_bg_comparison.v1.json",
+    "config_name": "hd_cmp_st1",
+    "label": "mamba(RECAST)",
+    "checkpoint": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_St1_2018_mamba_seed_1/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/induced_eq_bg_comparison/model_specs.induced_eq_bg_comparison.v1.json",
+    "config_name": "hd_cmp_cb1a",
+    "label": "ETAS+mamba",
+    "checkpoint": "experiments/netas/etas/split_0p7/runs/etas__CB_HAB1a_mamba_seed_1/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/induced_eq_bg_comparison/model_specs.induced_eq_bg_comparison.v1.json",
+    "config_name": "hd_cmp_cb1a",
+    "label": "RECAST+mamba",
+    "checkpoint": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_CB_HAB1a_mamba_seed_1/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/induced_eq_bg_comparison/model_specs.induced_eq_bg_comparison.v1.json",
+    "config_name": "hd_cmp_cb1a_conv",
+    "label": "ETAS+mamba",
+    "checkpoint": "experiments/netas/etas/split_0p7/runs/etas__CB_HAB1a_kernel_seed_1/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/induced_eq_bg_comparison/model_specs.induced_eq_bg_comparison.v1.json",
+    "config_name": "hd_cmp_cb1a_conv",
+    "label": "RECAST+mamba",
+    "checkpoint": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_CB_HAB1a_kernel_seed_1/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/induced_eq_bg_comparison/model_specs.induced_eq_bg_comparison.v1.json",
+    "config_name": "hd_cmp_pnr",
+    "label": "ETAS+mamba",
+    "checkpoint": "experiments/netas/etas/split_0p7/runs/etas__PNR_1z_mamba_norm_0_seed_1/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/induced_eq_bg_comparison/model_specs.induced_eq_bg_comparison.v1.json",
+    "config_name": "hd_cmp_pnr",
+    "label": "RECAST+mamba",
+    "checkpoint": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_PNR_1z_mamba_seed_2/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/induced_eq_bg_comparison/model_specs.induced_eq_bg_comparison.v1.json",
+    "config_name": "bg_cmp_st1",
+    "label": "p(ETAS)",
+    "checkpoint": "experiments/netas/etas/split_0p7/runs/etas__St1_2018_proportional_norm_0_seed_0/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/induced_eq_bg_comparison/model_specs.induced_eq_bg_comparison.v1.json",
+    "config_name": "bg_cmp_st1",
+    "label": "mamba(ETAS)",
+    "checkpoint": "experiments/netas/etas/split_0p7/runs/etas__St1_2018_mamba_norm_0_seed_0/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/induced_eq_bg_comparison/model_specs.induced_eq_bg_comparison.v1.json",
+    "config_name": "bg_cmp_st1",
+    "label": "conv(ETAS)",
+    "checkpoint": "experiments/netas/etas/split_0p7/runs/etas__St1_2018_kernel_norm_0_seed_0/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/induced_eq_bg_comparison/model_specs.induced_eq_bg_comparison.v1.json",
+    "config_name": "bg_cmp_pnr",
+    "label": "p(ETAS)",
+    "checkpoint": "experiments/netas/etas/split_0p7/runs/etas__PNR_1z_proportional_norm_0_seed_0/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/induced_eq_bg_comparison/model_specs.induced_eq_bg_comparison.v1.json",
+    "config_name": "bg_cmp_pnr",
+    "label": "mamba(ETAS)",
+    "checkpoint": "experiments/netas/etas/split_0p7/runs/etas__PNR_1z_mamba_norm_0_seed_0/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/induced_eq_bg_comparison/model_specs.induced_eq_bg_comparison.v1.json",
+    "config_name": "bg_cmp_pnr",
+    "label": "conv(ETAS)",
+    "checkpoint": "experiments/netas/etas/split_0p7/runs/etas__PNR_1z_kernel_norm_0_seed_0/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/induced_eq_bg_comparison/model_specs.induced_eq_bg_comparison.v1.json",
+    "config_name": "CB_HAB4",
+    "label": "ETAS+p",
+    "checkpoint": "experiments/netas/etas/split_0p7/runs/etas__CB_HAB4_proportional_norm_0_seed_0/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/induced_eq_bg_comparison/model_specs.induced_eq_bg_comparison.v1.json",
+    "config_name": "CB_HAB4",
+    "label": "ETAS+conv",
+    "checkpoint": "experiments/netas/etas/split_0p7/runs/etas__CB_HAB4_kernel_norm_0_seed_0/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/induced_eq_bg_comparison/model_specs.induced_eq_bg_comparison.v1.json",
+    "config_name": "CB_HAB4",
+    "label": "ETAS+mamba",
+    "checkpoint": "experiments/netas/etas/split_0p7/runs/etas__CB_HAB4_mamba_norm_0_seed_0/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/induced_eq_bg_comparison/model_specs.induced_eq_bg_comparison.v1.json",
+    "config_name": "CB_HAB4",
+    "label": "RECAST+p",
+    "checkpoint": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_CB_HAB4_proportional_norm_0_seed_0/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/induced_eq_bg_comparison/model_specs.induced_eq_bg_comparison.v1.json",
+    "config_name": "CB_HAB4",
+    "label": "RECAST+conv",
+    "checkpoint": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_CB_HAB4_kernel_norm_0_seed_0/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/induced_eq_bg_comparison/model_specs.induced_eq_bg_comparison.v1.json",
+    "config_name": "CB_HAB4",
+    "label": "RECAST+mamba",
+    "checkpoint": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_CB_HAB4_mamba_norm_0_seed_0/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/induced_eq_bg_comparison/model_specs.induced_eq_bg_comparison.v1.json",
+    "config_name": "CB_HAB1a",
+    "label": "ETAS+p",
+    "checkpoint": "experiments/netas/etas/split_0p7/runs/etas__CB_HAB1a_proportional_seed_0/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/induced_eq_bg_comparison/model_specs.induced_eq_bg_comparison.v1.json",
+    "config_name": "CB_HAB1a",
+    "label": "ETAS+conv",
+    "checkpoint": "experiments/netas/etas/split_0p7/runs/etas__CB_HAB1a_kernel_seed_0/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/induced_eq_bg_comparison/model_specs.induced_eq_bg_comparison.v1.json",
+    "config_name": "CB_HAB1a",
+    "label": "ETAS+mamba",
+    "checkpoint": "experiments/netas/etas/split_0p7/runs/etas__CB_HAB1a_mamba_seed_0/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/induced_eq_bg_comparison/model_specs.induced_eq_bg_comparison.v1.json",
+    "config_name": "CB_HAB1a",
+    "label": "RECAST+p",
+    "checkpoint": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_CB_HAB1a_proportional_seed_0/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/induced_eq_bg_comparison/model_specs.induced_eq_bg_comparison.v1.json",
+    "config_name": "CB_HAB1a",
+    "label": "RECAST+conv",
+    "checkpoint": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_CB_HAB1a_kernel_seed_0/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/induced_eq_bg_comparison/model_specs.induced_eq_bg_comparison.v1.json",
+    "config_name": "CB_HAB1a",
+    "label": "RECAST+mamba",
+    "checkpoint": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_CB_HAB1a_mamba_seed_0/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/induced_eq_bg_comparison/model_specs.induced_eq_bg_comparison.v1.json",
+    "config_name": "PNR_1z",
+    "label": "ETAS+p",
+    "checkpoint": "experiments/netas/etas/split_0p7/runs/etas__PNR_1z_proportional_norm_0_seed_0/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/induced_eq_bg_comparison/model_specs.induced_eq_bg_comparison.v1.json",
+    "config_name": "PNR_1z",
+    "label": "ETAS+conv",
+    "checkpoint": "experiments/netas/etas/split_0p7/runs/etas__PNR_1z_kernel_norm_0_seed_0/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/induced_eq_bg_comparison/model_specs.induced_eq_bg_comparison.v1.json",
+    "config_name": "PNR_1z",
+    "label": "ETAS+mamba",
+    "checkpoint": "experiments/netas/etas/split_0p7/runs/etas__PNR_1z_mamba_norm_0_seed_0/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/induced_eq_bg_comparison/model_specs.induced_eq_bg_comparison.v1.json",
+    "config_name": "PNR_1z",
+    "label": "RECAST+p",
+    "checkpoint": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_PNR_1z_proportional_seed_0/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/induced_eq_bg_comparison/model_specs.induced_eq_bg_comparison.v1.json",
+    "config_name": "PNR_1z",
+    "label": "RECAST+conv",
+    "checkpoint": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_PNR_1z_kernel_seed_0/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/induced_eq_bg_comparison/model_specs.induced_eq_bg_comparison.v1.json",
+    "config_name": "PNR_1z",
+    "label": "RECAST+mamba",
+    "checkpoint": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_PNR_1z_mamba_seed_0/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/induced_eq_bg_comparison/model_specs.induced_eq_bg_comparison.v1.json",
+    "config_name": "St1_2018",
+    "label": "ETAS+p",
+    "checkpoint": "experiments/netas/etas/split_0p7/runs/etas__St1_2018_proportional_norm_0_seed_0/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/induced_eq_bg_comparison/model_specs.induced_eq_bg_comparison.v1.json",
+    "config_name": "St1_2018",
+    "label": "ETAS+conv",
+    "checkpoint": "experiments/netas/etas/split_0p7/runs/etas__St1_2018_kernel_norm_0_seed_0/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/induced_eq_bg_comparison/model_specs.induced_eq_bg_comparison.v1.json",
+    "config_name": "St1_2018",
+    "label": "ETAS+mamba",
+    "checkpoint": "experiments/netas/etas/split_0p7/runs/etas__St1_2018_mamba_norm_0_seed_0/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/induced_eq_bg_comparison/model_specs.induced_eq_bg_comparison.v1.json",
+    "config_name": "St1_2018",
+    "label": "RECAST+p",
+    "checkpoint": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_St1_2018_proportional_seed_0/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/induced_eq_bg_comparison/model_specs.induced_eq_bg_comparison.v1.json",
+    "config_name": "St1_2018",
+    "label": "RECAST+conv",
+    "checkpoint": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_St1_2018_kernel_seed_0/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/induced_eq_bg_comparison/model_specs.induced_eq_bg_comparison.v1.json",
+    "config_name": "St1_2018",
+    "label": "RECAST+mamba",
+    "checkpoint": "experiments/netas/recast/split_0p7/runs/rtpp_v2_bg_St1_2018_mamba_seed_0/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/induced_eq_bg_comparison/model_specs.induced_eq_bg_comparison.v1.json",
+    "config_name": "CCL",
+    "label": "ETAS+mamba_mix",
+    "checkpoint": "checkpoints/etas_20260609-182125/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/induced_eq_bg_comparison/model_specs.induced_eq_bg_comparison.v1.json",
+    "config_name": "CCL",
+    "label": "RECAST+mamba_mix",
+    "checkpoint": "checkpoints/rtpp_v2_20260608-210148/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/tpp_comparison/model_specs.tpp_comparison.v1.json",
+    "config_name": "ChuanDian_t",
+    "label": "EM-EQF",
+    "checkpoint": "experiments/mtpp/generation/swc_ablation/runs/mixer_tpp_ablation_tpp_b_seed_0/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/tpp_comparison/model_specs.tpp_comparison.v1.json",
+    "config_name": "ChuanDian_t",
+    "label": "RECAST",
+    "checkpoint": "checkpoints/rtpp_20260506-173356/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/tpp_comparison/model_specs.tpp_comparison.v1.json",
+    "config_name": "ChuanDian_t",
+    "label": "ETAS",
+    "checkpoint": "checkpoints/etas_20260507-162603/last_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/tpp_comparison/model_specs.tpp_comparison.v1.json",
+    "config_name": "ChuanDian_m",
+    "label": "EM-EQF",
+    "checkpoint": "experiments/mtpp/generation/swc_ablation/runs/mixer_tpp_ablation_tpp_b_seed_0/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/tpp_comparison/model_specs.tpp_comparison.v1.json",
+    "config_name": "ChuanDian_m",
+    "label": "b-mle",
+    "checkpoint": "checkpoints/mixer_tpp_20260206-102040/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/tpp_comparison/model_specs.tpp_comparison.v1.json",
+    "config_name": "SCEDC_t",
+    "label": "EM-EQF",
+    "checkpoint": "checkpoints/mixer_tpp_20260205-110204/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/tpp_comparison/model_specs.tpp_comparison.v1.json",
+    "config_name": "SCEDC_t",
+    "label": "RECAST",
+    "checkpoint": "checkpoints/rtpp_20260506-120628/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/tpp_comparison/model_specs.tpp_comparison.v1.json",
+    "config_name": "SCEDC_t",
+    "label": "ETAS",
+    "checkpoint": "checkpoints/etas_20260507-144632/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/tpp_comparison/model_specs.tpp_comparison.v1.json",
+    "config_name": "SCEDC_m",
+    "label": "EM-EQF",
+    "checkpoint": "checkpoints/mixer_tpp_20260205-110204/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  },
+  {
+    "config_file": "notebooks/config/model_specs/tpp_comparison/model_specs.tpp_comparison.v1.json",
+    "config_name": "SCEDC_m",
+    "label": "b-mle",
+    "checkpoint": "checkpoints/mixer_tpp_20260204-233222/best_model_1.pth",
+    "exists": true,
+    "materialized": true
+  }
+]
