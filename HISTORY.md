@@ -1,8 +1,8 @@
 # Repository history
 
-The `research/main` branch starts from the September 25, 2026 release tree and groups subsequent work by responsibility.
+The `research-main` branch starts from the September 25, 2026 release tree and groups subsequent work by responsibility.
 
-The complete 486-commit development lineage remains at `archive/development-20261109` (`6801a3ceb6bdfac5dc06e78fa182a21c1f30227d`). Published branches and remote refs were not rewritten.
+The complete 486-commit development lineage remains at `archive-development-20261109` (`6801a3ceb6bdfac5dc06e78fa182a21c1f30227d`). Published branches and remote refs were not rewritten.
 
 The tree at the end of the grouped commits is byte-for-byte identical to the submitted development snapshot. The later maintenance commits contain the storage and layout changes.
 
@@ -14,6 +14,6 @@ The tree at the end of the grouped commits is byte-for-byte identical to the sub
 | `b4035bb794` | feat(experiments): add revision runners, diagnostics and analysis |
 | `169cd7dd00` | chore(data): record source snapshots and exclude generated artifacts |
 
-Use `git log --oneline research/main` for the concise history and `git log archive/development-20261109` for the original lineage.
+Use `git log --oneline research-main` for the concise history and `git log archive-development-20261109` for the original lineage.
 
 Generated caches and training weights are local artifacts. Source snapshots are tracked through Git LFS; do not put new cache variants into Git. No remote push has been performed.

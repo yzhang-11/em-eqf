@@ -67,4 +67,4 @@ python scripts/maintenance/clean_storage.py --archive-root /path/to/new/archive
 
 脚本按 run、summarize、data、analyze、diagnostics、tuning、maintenance 分目录，直接调用真实入口。
 已移除根目录转发脚本及已完成的一次性迁移代码。旧演示脚本已归档，pytest 目录只保留可自动运行的测试。
-`research/main` 提供简洁的主题提交历史；完整旧历史保留在 `archive/development-20261109`，详见 `HISTORY.md`。未推送或改写已发布分支。
+`research-main` 提供简洁的主题提交历史；完整旧历史保留在 `archive-development-20261109`，详见 `HISTORY.md`。未推送或改写已发布分支。
