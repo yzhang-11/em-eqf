@@ -1,0 +1,4 @@
+{
+  "url": "https://service.geonet.org.nz/fdsnws/event/1/query?starttime=2013-01-01T00%3A00%3A00&endtime=2014-01-01T00%3A00%3A00&minlatitude=-48.0&maxlatitude=-33.0&minlongitude=165.0&maxlongitude=180.0&minmagnitude=2.999&eventtype=earthquake&format=text",
+  "bytes": 219345
+}

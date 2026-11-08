@@ -1,0 +1,4 @@
+{
+  "url": "https://webservices.ingv.it/fdsnws/event/1/query?starttime=2007-01-01T00%3A00%3A00&endtime=2008-01-01T00%3A00%3A00&minlatitude=35.0&maxlatitude=48.0&minlongitude=6.0&maxlongitude=19.0&minmagnitude=2.499&eventtype=earthquake&format=text",
+  "bytes": 54823
+}
