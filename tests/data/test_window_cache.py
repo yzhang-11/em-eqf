@@ -1,4 +1,5 @@
 from types import SimpleNamespace
+import json
 
 import numpy as np
 import pandas as pd
@@ -27,6 +28,14 @@ def options():
 def test_tasks_and_feature_settings_share_windows(catalog_dir, monkeypatch):
     original = event_pipeline.event_loader.construct_samples_list
     calls = []
+    normalizations = []
+    original_normalize = event_pipeline.event_loader.normalize_df
+
+    def normalize(*args, **kwargs):
+        normalizations.append(1)
+        return original_normalize(*args, **kwargs)
+
+    monkeypatch.setattr(event_pipeline.event_loader, "normalize_df", normalize)
 
     def construct(*args, **kwargs):
         calls.append(1)
@@ -41,6 +50,7 @@ def test_tasks_and_feature_settings_share_windows(catalog_dir, monkeypatch):
     args.Mag_elaps = [6, 7]
     _load_lstm_event_windows_with_cache(args, catalog_dir)
     assert len(calls) == 1
+    assert len(normalizations) == 1
     assert len(list((catalog_dir / "cache/windows").glob("*.pkl"))) == 1
     assert a.df.attrs["window_cache_path"] == b.df.attrs["window_cache_path"] == c.df.attrs["window_cache_path"]
     assert [s["t"] for s in a.samples_list] == [s["t"] for s in c.samples_list]
@@ -66,3 +76,22 @@ def test_failed_cache_write_does_not_publish_partial_file(tmp_path, monkeypatch)
     assert not (tmp_path / "processed/sample.pkl").exists()
     assert not list((tmp_path / "processed").glob(".cache-*"))
     assert file_utils.save_or_load_data(tmp_path, lambda: {"value": 2}, filename="sample.pkl") == {"value": 2}
+
+
+def test_cache_hit_preserves_metadata_mtime_and_repairs_corrupt_sidecar(catalog_dir, monkeypatch):
+    bundle = event_pipeline.load_event_windows_with_cache(catalog_dir, **options())
+    metadata = next((catalog_dir / "cache/windows").glob("*.json"))
+    before = metadata.stat().st_mtime_ns
+
+    def fail(*args, **kwargs):
+        raise AssertionError("Warm cache must not normalize or reconstruct windows")
+
+    monkeypatch.setattr(event_pipeline.event_loader, "normalize_df", fail)
+    monkeypatch.setattr(event_pipeline.event_loader, "construct_samples_list", fail)
+    event_pipeline.load_event_windows_with_cache(catalog_dir, **options())
+    assert metadata.stat().st_mtime_ns == before
+    metadata.write_text("corrupt")
+    restored = event_pipeline.load_event_windows_with_cache(catalog_dir, **options())
+    assert json.loads(metadata.read_text())["schema"] == "event_windows_v1"
+    assert restored.df.attrs["window_cache_path"] == bundle.df.attrs["window_cache_path"]
+    assert not list(metadata.parent.glob(".metadata-*"))

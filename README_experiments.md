@@ -21,7 +21,11 @@ SWC 对应代码中的 `ChuanDian`，SCSN 对应 `SCEDC`。不同原始快照、
 ```bash
 python scripts/maintenance/index_experiments.py --dataset ChuanDian
 python scripts/maintenance/index_experiments.py --dataset SCEDC
+# 数据或实验发生变化后，先刷新再查询
+python scripts/maintenance/index_experiments.py --dataset ChuanDian --refresh
 ```
+
+普通 `--dataset` 查询只读取已保存的索引，不扫描实验目录，也不改写文件；不带查询参数时重建完整索引。嵌套 Optuna trial 与 RF 对照运行也纳入索引。
 
 `experiments/registry/runs.csv` 每行给出数据集、源 CSV、具体 YAML、时间划分、指标文件和 checkpoint。
 `datasets.json` 给出各数据集的 raw/processed 文件；`notebook_models.json` 给出每个分析预设对应的权重及其可用状态。
@@ -45,6 +49,7 @@ python scripts/maintenance/index_experiments.py --dataset SCEDC
 事件窗口只有一个当前格式：`cache/windows/<hash>.pkl`，旁边的 JSON 记录来源 SHA-256、窗口参数与训练拟合边界。
 模型类别、LSTM 时间步、特征列和 Mag_elaps 不参与原始窗口缓存标识。相同参数的 `3` 与 `3.0` 共用缓存。
 源数据或拟合边界改变会生成新缓存；写入采用临时文件和原子替换，避免中断后留下半个 pickle。
+命中已有缓存时跳过归一化和窗口重建，完整元数据不重复写入；损坏的元数据会从当前来源信息原子修复。
 旧的 classifier/regressor/lstm_regressor/rf_classifier 缓存不再读取，也不再提交到 Git。
 
 ## 存储和恢复

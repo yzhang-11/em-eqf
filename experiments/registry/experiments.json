@@ -592,6 +592,14 @@
     "storage_target": "/root/autodl-tmp/em_eqf/experiments/mtpp/regression/lstm/optuna_profiles/run_20x2"
   },
   {
+    "experiment": "mtpp/regression/lstm/optuna_profiles/trial_cfg_check",
+    "datasets": [],
+    "configs": [],
+    "reports": [],
+    "run_count": 0,
+    "storage_target": "/root/autodl-tmp/em_eqf/experiments/mtpp/regression/lstm/optuna_profiles/trial_cfg_check"
+  },
+  {
     "experiment": "mtpp/regression/lstm/seed",
     "datasets": [
       "ChuanDian"
@@ -652,10 +660,12 @@
   },
   {
     "experiment": "mtpp/regression/mixer_attnpl_t_optuna_profiles/run_20260511-000926",
-    "datasets": [],
+    "datasets": [
+      "ChuanDian"
+    ],
     "configs": [],
     "reports": [],
-    "run_count": 0,
+    "run_count": 1,
     "storage_target": "/root/autodl-tmp/em_eqf/experiments/mtpp/regression/mixer_attnpl_t_optuna_profiles/run_20260511-000926"
   },
   {
@@ -1615,7 +1625,7 @@
       "experiments/revision/main/configs/rf.yaml"
     ],
     "reports": [],
-    "run_count": 86,
+    "run_count": 111,
     "storage_target": "/root/autodl-tmp/em_eqf/experiments/revision/main"
   },
   {

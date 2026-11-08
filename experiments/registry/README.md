@@ -1,6 +1,6 @@
 # Data and experiment index
 
-Regenerate with `python scripts/maintenance/index_experiments.py`.
+Regenerate with `python scripts/maintenance/index_experiments.py`. Query the existing index with `--dataset ChuanDian`; add `--refresh` to rebuild first.
 
 `datasets.json` lists source and processed inputs. `runs.csv` maps each dataset to its exact run, YAML, metrics and checkpoints.
 
@@ -45,11 +45,12 @@ SWC is the paper name for `ChuanDian`; SCSN is the paper name for `SCEDC`. Names
 | `mtpp/regression/lstm/5_seeds` | ChuanDian | 60 | `experiments/mtpp/regression/lstm/5_seeds/reports/lstm_grid_metrics_group_best.csv` |
 | `mtpp/regression/lstm/5_seeds_v6` | ChuanDian | 18 | `experiments/mtpp/regression/lstm/5_seeds_v6/reports/lstm_grid_metrics_group_best.csv` |
 | `mtpp/regression/lstm/optuna_profiles/run_20x2` |  | 0 | `` |
+| `mtpp/regression/lstm/optuna_profiles/trial_cfg_check` |  | 0 | `` |
 | `mtpp/regression/lstm/seed` | ChuanDian | 3 | `experiments/mtpp/regression/lstm/seed/reports/lstm_grid_metrics_group_best.csv` |
 | `mtpp/regression/lstm/seed_global` | ChuanDian | 3 | `experiments/mtpp/regression/lstm/seed_global/reports/lstm_grid_metrics_group_best.csv` |
 | `mtpp/regression/mixer_ablation_5_seeds` | ChuanDian | 30 | `experiments/mtpp/regression/mixer_ablation_5_seeds/reports/reg_grid_metrics_group_best.csv` |
 | `mtpp/regression/mixer_attnpl_t_optuna_profiles/20260510-232207` |  | 0 | `` |
-| `mtpp/regression/mixer_attnpl_t_optuna_profiles/run_20260511-000926` |  | 0 | `` |
+| `mtpp/regression/mixer_attnpl_t_optuna_profiles/run_20260511-000926` | ChuanDian | 1 | `` |
 | `mtpp/regression/mixer_attnpl_t_optuna_profiles/run_20260511-001210` |  | 0 | `` |
 | `mtpp/regression/mixer_layer_1_grid` | ChuanDian | 24 | `experiments/mtpp/regression/mixer_layer_1_grid/reports/reg_grid_metrics_group_best.csv` |
 | `mtpp/regression/mixer_layer_1_grid_2` | ChuanDian | 8 | `experiments/mtpp/regression/mixer_layer_1_grid_2/reports/reg_grid_metrics_group_best.csv` |
@@ -76,7 +77,7 @@ SWC is the paper name for `ChuanDian`; SCSN is the paper name for `SCEDC`. Names
 | `revision/controls` | ChuanDian | 60 | `experiments/revision/controls/reports/large_target_support.csv` |
 | `revision/generation_baselines` | ChuanDian, SCEDC | 12 | `experiments/revision/generation_baselines/reports/generation_periods.csv` |
 | `revision/magnitude_models` |  | 0 | `experiments/revision/magnitude_models/reports/confirmation_validation_scores.csv` |
-| `revision/main` | AZDX, ChuanDian, SCEDC | 86 | `` |
+| `revision/main` | AZDX, ChuanDian, SCEDC | 111 | `` |
 | `revision/mamba3_mimo_no_deltat_20261105` |  | 0 | `experiments/revision/mamba3_mimo_no_deltat_20261105/reports/all_results.csv` |
 | `revision/mamba_backbones_20261105` |  | 0 | `experiments/revision/mamba_backbones_20261105/reports/all_results.csv` |
 | `revision/mamba_phase_ablation_20261105` |  | 0 | `experiments/revision/mamba_phase_ablation_20261105/reports/all_results.csv` |

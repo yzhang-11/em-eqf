@@ -1,11 +1,11 @@
 {
   "branch": "research-main",
-  "tests": "151 passed, 6 skipped, 42 warnings in 93.38s (0:01:33)",
-  "python_files_checked": 580,
+  "tests": "156 passed, 6 skipped, 7 warnings in 43.39s",
+  "python_files_checked": 581,
   "syntax_errors": [],
   "datasets": 73,
-  "experiments": 76,
-  "indexed_runs": 2593,
+  "experiments": 77,
+  "indexed_runs": 2619,
   "index_errors": [],
   "verified_tpp_presets": 10,
   "cache_files_archived": 42,
@@ -30,5 +30,6 @@
   "removed_test_generated_reports": [
     "number_test.json",
     "spatial_test.json"
-  ]
+  ],
+  "latest_optimization": "optimization_round2.json"
 }

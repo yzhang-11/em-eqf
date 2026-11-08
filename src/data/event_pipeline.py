@@ -1,5 +1,7 @@
 import hashlib
 import json
+import os
+import tempfile
 
 from dataclasses import dataclass
 from pathlib import Path
@@ -47,8 +49,6 @@ def load_event_windows_with_cache(
     fit_df = df.loc[df["t"] < fit_end] if fit_end is not None else None
     if fit_df is not None and len(fit_df) < 2:
         raise ValueError("Training period has too few events for normalization")
-    df_nl, _ = (event_loader.normalize_df(df) if fit_df is None else
-                event_loader.normalize_df(df, fit_df=fit_df))
 
     # The loader records raw-file provenance. In-memory catalogs are identified
     # by their table values, columns and dtypes instead.
@@ -67,6 +67,8 @@ def load_event_windows_with_cache(
     key = hashlib.sha256(json.dumps(spec, sort_keys=True).encode()).hexdigest()[:20]
 
     def generate_data():
+        df_nl, _ = (event_loader.normalize_df(df) if fit_df is None else
+                    event_loader.normalize_df(df, fit_df=fit_df))
         samples_list, array_dict = event_loader.construct_samples_list(
             df, df_nl, Mc=Mc, Mf=Mf, Twindow=Twindow, Tfore=Tfore,
             dt=dt, context_len=context_len,
@@ -79,7 +81,17 @@ def load_event_windows_with_cache(
     )
     metadata = Path(base_dir) / "cache/windows" / f"{key}.json"
     metadata.parent.mkdir(parents=True, exist_ok=True)
-    metadata.write_text(json.dumps(spec, indent=2, sort_keys=True) + "\n")
+    serialized = json.dumps(spec, indent=2, sort_keys=True) + "\n"
+    if not metadata.exists() or metadata.read_text() != serialized:
+        temporary = None
+        try:
+            with tempfile.NamedTemporaryFile(mode="w", encoding="utf-8", dir=metadata.parent, prefix=".metadata-", delete=False) as stream:
+                temporary = Path(stream.name)
+                stream.write(serialized)
+            os.replace(temporary, metadata)
+        finally:
+            if temporary is not None:
+                temporary.unlink(missing_ok=True)
     df.attrs["window_cache_path"] = str(metadata.with_suffix(".pkl"))
     return EventWindowBundle(df=df, samples_list=cached["samples_list"], array_dict=cached["array_dict"])
 

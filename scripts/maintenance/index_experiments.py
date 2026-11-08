@@ -4,10 +4,14 @@ import argparse
 import csv
 import json
 import os
+import tempfile
 from collections import Counter
 from pathlib import Path
 
 import yaml
+
+CONFIG_NAMES = ('config.yaml', 'config_input.yaml', 'config.json')
+SKIP_DIRS = {'archive', 'registry', 'reports', 'configs', '__pycache__', 'tensorboard', 'raw', 'processed', 'cache', 'figures', 'plots'}
 
 
 def read_config(path):
@@ -24,21 +28,49 @@ def experiment_dirs(base):
             return
         seen.add(parent.resolve())
         names = {p.name for p in parent.iterdir()}
-        if 'runs' in names or ('configs' in names and ('reports' in names or 'plan.json' in names)):
+        if 'runs' in names or 'optuna_trials' in names or any(n in names for n in CONFIG_NAMES) or ('configs' in names and ('reports' in names or 'plan.json' in names)):
             yield parent
             return
         for p in sorted(parent.iterdir()):
-            if p.is_dir() and p.name not in {'archive', 'registry', 'reports', '__pycache__', 'raw', 'processed'}:
+            if p.name not in SKIP_DIRS and p.is_dir():
                 yield from walk(p, depth + 1)
 
     yield from walk(base)
 
 
+def run_configs(base):
+    """Read each run directory once, including nested Optuna trials."""
+    seen = set()
+
+    def walk(folder, depth=0):
+        resolved = folder.resolve()
+        if depth > 8 or resolved in seen:
+            return
+        seen.add(resolved)
+        entries = {p.name: p for p in folder.iterdir()}
+        config = next((entries[n] for n in CONFIG_NAMES if n in entries and entries[n].is_file()), None)
+        if config:
+            yield folder, config, entries
+        for name, path in sorted(entries.items()):
+            if name in SKIP_DIRS:
+                continue
+            if config and name not in {'optuna_trials', 'runs', 'profiles'}:
+                continue
+            if path.is_dir():
+                yield from walk(path, depth + 1)
+
+    if base.is_dir():
+        yield from walk(base)
+
+
 def write_csv(path, rows, fields):
-    with path.open('w', newline='') as stream:
-        writer = csv.DictWriter(stream, fieldnames=fields)
-        writer.writeheader()
-        writer.writerows(rows)
+    with tempfile.TemporaryDirectory(dir=path.parent, prefix='.index-') as folder:
+        temporary = Path(folder) / path.name
+        with temporary.open('w', newline='') as stream:
+            writer = csv.DictWriter(stream, fieldnames=fields)
+            writer.writeheader()
+            writer.writerows(rows)
+        os.replace(temporary, path)
 
 
 def build_index(root, output):
@@ -55,6 +87,7 @@ def build_index(root, output):
         datasets.append(row)
 
     groups, runs, errors = [], [], []
+    source_csvs = {}
     studies = list(experiment_dirs(root / 'experiments'))
     if (root / 'checkpoints').is_dir():
         studies.append(root / 'checkpoints')
@@ -62,19 +95,15 @@ def build_index(root, output):
         standalone = p == root / 'checkpoints'
         group = 'standalone' if standalone else str(p.relative_to(root / 'experiments'))
         group_datasets = set()
-        configs_dir, runs_dir, reports_dir = p / 'configs', p if standalone else p / 'runs', p / 'reports'
+        configs_dir, reports_dir = p / 'configs', p / 'reports'
+        runs_dir = p if standalone or not (p / 'runs').is_dir() else p / 'runs'
         group_configs = []
         if configs_dir.exists():
             group_configs = sorted(c for c in configs_dir.iterdir() if c.suffix in {'.yaml', '.yml', '.json'})
-        config_candidates = [(c.parent, c) for c in group_configs]
-        if runs_dir.is_dir():
-            for run in sorted(runs_dir.iterdir()):
-                if not run.is_dir():
-                    continue
-                cfg_path = next((run / name for name in ('config.yaml', 'config_input.yaml', 'config.json') if (run / name).is_file()), None)
-                if cfg_path:
-                    config_candidates.append((run, cfg_path))
-        for run, cfg_path in config_candidates:
+        config_candidates = [(c.parent, c, None) for c in group_configs]
+        config_candidates.extend(run_configs(runs_dir))
+        first_run = len(runs)
+        for run, cfg_path, entries in config_candidates:
             try:
                 cfg = read_config(cfg_path)
             except Exception as exc:
@@ -87,8 +116,10 @@ def build_index(root, output):
             if run == configs_dir:
                 continue
             base = root / 'data' / dataset
-            source = sorted((base / 'raw').glob('*.csv'))
-            selected = source if len(source) == 1 else [s for s in source if s.name.startswith('processed_')]
+            if dataset not in source_csvs:
+                source = sorted((base / 'raw').glob('*.csv'))
+                source_csvs[dataset] = source if len(source) == 1 else [s for s in source if s.name.startswith('processed_')]
+            selected = source_csvs[dataset]
             model_cfg = cfg.get('mixer_model_config') or {}
             runs.append({'experiment': group, 'run': str(run.relative_to(root)), 'config': str(cfg_path.relative_to(root)),
                          'dataset': dataset, 'model': cfg.get('model', ''), 'seed': cfg.get('seed', ''),
@@ -97,13 +128,13 @@ def build_index(root, output):
                          'split_dates': json.dumps(cfg.get('split_dates', {}), sort_keys=True, default=str),
                          'Mc': cfg.get('Mc', ''), 'Mf': cfg.get('Mf', ''), 'Twindow': cfg.get('Twindow', ''), 'Tfore': cfg.get('Tfore', ''),
                          'backbone': model_cfg.get('ssm_cfg', {}).get('layer', '') if isinstance(model_cfg, dict) and isinstance(model_cfg.get('ssm_cfg'), dict) else '',
-                         'metrics': ';'.join(str(f.relative_to(root)) for f in sorted(run.glob('metrics*.json'))),
-                         'checkpoints': ';'.join(str(f.relative_to(root)) for f in sorted(run.glob('*model*.pth'))),
+                         'metrics': ';'.join(str(entries[n].relative_to(root)) for n in sorted(entries) if n.startswith('metrics') and n.endswith('.json')),
+                         'checkpoints': ';'.join(str(entries[n].relative_to(root)) for n in sorted(entries) if 'model' in n and n.endswith('.pth')),
                          'storage_target': str(run.resolve())})
         reports = sorted(str(c.relative_to(root)) for c in reports_dir.glob('*.csv')) if reports_dir.is_dir() else []
         groups.append({'experiment': group, 'datasets': sorted(group_datasets),
                        'configs': [str(c.relative_to(root)) for c in group_configs], 'reports': reports,
-                       'run_count': sum(r['experiment'] == group for r in runs), 'storage_target': str(p.resolve())})
+                       'run_count': len(runs) - first_run, 'storage_target': str(p.resolve())})
 
     notebook_models = []
     for spec_file in sorted((root / 'notebooks/config/model_specs').rglob('*.json')):
@@ -132,7 +163,7 @@ def build_index(root, output):
     write_csv(output / 'runs.csv', runs, fields)
     (output / 'errors.json').write_text(json.dumps(errors, indent=2) + '\n')
     text = ['# Data and experiment index', '',
-            'Regenerate with `python scripts/maintenance/index_experiments.py`.', '',
+            'Regenerate with `python scripts/maintenance/index_experiments.py`. Query the existing index with `--dataset ChuanDian`; add `--refresh` to rebuild first.', '',
             '`datasets.json` lists source and processed inputs. `runs.csv` maps each dataset to its exact run, YAML, metrics and checkpoints.', '',
             '`notebook_models.json` maps each notebook preset (including `SCEDC_t` and `ChuanDian_t`) to the exact checkpoint and records whether its weights are materialized.', '',
             'SWC is the paper name for `ChuanDian`; SCSN is the paper name for `SCEDC`. Names remain unchanged in data loading.', '',
@@ -148,11 +179,19 @@ def main():
     parser.add_argument('--root', type=Path, default=Path(__file__).resolve().parents[2])
     parser.add_argument('--output', type=Path)
     parser.add_argument('--dataset')
+    parser.add_argument('--refresh', action='store_true', help='Rebuild before a dataset query; queries otherwise read the saved index.')
     args = parser.parse_args()
     root = args.root.resolve()
     output = args.output or root / 'experiments/registry'
-    datasets, groups, runs, errors = build_index(root, output)
-    print(json.dumps({'datasets': len(datasets), 'experiments': len(groups), 'runs': len(runs), 'errors': len(errors), 'output': str(output)}))
+    if args.dataset and not args.refresh:
+        index = output / 'runs.csv'
+        if not index.is_file():
+            parser.error(f'No saved index at {index}; run without --dataset or add --refresh.')
+        with index.open(newline='') as stream:
+            runs = list(csv.DictReader(stream))
+    else:
+        datasets, groups, runs, errors = build_index(root, output)
+        print(json.dumps({'datasets': len(datasets), 'experiments': len(groups), 'runs': len(runs), 'errors': len(errors), 'output': str(output)}))
     if args.dataset:
         selected = [r for r in runs if r['dataset'] == args.dataset]
         counts = Counter(r['experiment'] for r in selected)
