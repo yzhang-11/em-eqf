@@ -110,17 +110,26 @@ class MHATime(nn.Module):
     def _update_kvcache_attention(self, q, kv, inference_params):
         """Write kv to inference_params, then do attention"""
         orig_dtype = q.dtype
+        cache_dtype = inference_params.key_value_memory_dict[self.layer_idx][0].dtype
         if (
             inference_params.seqlen_offset == 0
             or flash_attn_with_kvcache is None
+            or q.dtype != torch.float16
+            or cache_dtype != q.dtype
         ):
             # TODO: this only uses seqlen_offset and not lengths_per_sample.
-            kv = self._update_kv_cache(kv, inference_params)
+            kv = self._update_kv_cache(kv, inference_params).to(q.dtype)
             k, v = kv.unbind(dim=-3)
             k = torch.repeat_interleave(k, dim=2, repeats=self.num_heads // self.num_heads_kv)
             v = torch.repeat_interleave(v, dim=2, repeats=self.num_heads // self.num_heads_kv)
+            causal_mask = None
+            if self.causal and inference_params.seqlen_offset > 0:
+                key_positions = torch.arange(k.shape[1], device=q.device)
+                query_positions = inference_params.seqlen_offset + torch.arange(q.shape[1], device=q.device)
+                causal_mask = key_positions[None, :] <= query_positions[:, None]
             return F.scaled_dot_product_attention(
-                q.transpose(1, 2), k.transpose(1, 2), v.transpose(1, 2), is_causal=self.causal, scale=self.softmax_scale
+                q.transpose(1, 2), k.transpose(1, 2), v.transpose(1, 2), attn_mask=causal_mask,
+                is_causal=self.causal and inference_params.seqlen_offset == 0, scale=self.softmax_scale
             ).transpose(1, 2)
         else:
             batch = q.shape[0]

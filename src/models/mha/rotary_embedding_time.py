@@ -71,7 +71,7 @@ def compute_nonzero_center_per_sample(times: torch.Tensor, mode: str = "midpoint
     assert mode in ["mean", "midpoint"], f"Unsupported mode: {mode}"
 
     non_zero_mask = times != 0  # (batch, seqlen)
-    times_float = times.float()
+    times_float = times if times.dtype == torch.float64 else times.float()
 
     if mode == "mean":
         sums = (times_float * non_zero_mask).sum(dim=1)
@@ -148,7 +148,9 @@ class RotaryEmbeddingTime(nn.Module):
             inversely to preserve compatibility with xPos-style scaling.
         """
         # times: (seqlen,) or (batch, seqlen)
-        inv_freq = self.inv_freq.to(device)
+        time_dtype = torch.float64 if times.dtype == torch.float64 else torch.float32
+        times = times.to(device=device, dtype=time_dtype)
+        inv_freq = self.inv_freq.to(device=device, dtype=time_dtype)
         if times.ndim == 1:
             # (seqlen,) @ (rotary_dim/2,) -> (seqlen, rotary_dim/2)
             freqs = torch.outer(times, inv_freq)

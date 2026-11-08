@@ -18,6 +18,13 @@ class TaskModel(nn.Module):
         extra_inputs = {}
         if hasattr(self.base_model.input_adapter, "get_extra_inputs"):
             extra_inputs = self.base_model.input_adapter.get_extra_inputs(x)
+        # Keep original timestamps precise inside the encoder. Pooling's time
+        # MLP/concatenation consumes features in the encoder output dtype.
+        extra_inputs = {
+            key: value.to(device=enc_out.device, dtype=enc_out.dtype)
+            if isinstance(value, torch.Tensor) and value.is_floating_point() else value
+            for key, value in extra_inputs.items()
+        }
         representation = self.extractor(enc_out, non_pad_mask, extra_inputs)
         out = self.head(representation)
 
@@ -47,5 +54,12 @@ class TaskModel(nn.Module):
         extra_inputs = {}
         if hasattr(self.base_model.input_adapter, "get_extra_inputs"):
             extra_inputs = self.base_model.input_adapter.get_extra_inputs(x)
+        # Keep original timestamps precise inside the encoder. Pooling's time
+        # MLP/concatenation consumes features in the encoder output dtype.
+        extra_inputs = {
+            key: value.to(device=enc_out.device, dtype=enc_out.dtype)
+            if isinstance(value, torch.Tensor) and value.is_floating_point() else value
+            for key, value in extra_inputs.items()
+        }
         representation = self.extractor(enc_out, non_pad_mask, extra_inputs)
         return representation

@@ -26,6 +26,8 @@ def load_resume_checkpoint(args, device):
         LOGGER.info("No resume path provided. Training will start from scratch.")
         return None
     if not os.path.exists(resume_path):
+        if getattr(args, "split_dates", None):
+            raise FileNotFoundError(f"Pretraining checkpoint not found: {resume_path}")
         LOGGER.warning("Resume path '%s' not found. Training will start from scratch.", resume_path)
         return None
 

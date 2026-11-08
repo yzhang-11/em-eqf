@@ -122,7 +122,12 @@ def test(data_loader, model, criterion, device, save_dir=None):
 
     dataset = get_root_dataset(data_loader)
     # Calculate evaluation metrics)
-    metrics = regression_metrics(dataset.inverse_normalize_label(all_node_targets), dataset.inverse_normalize_label(all_node_preds))
+    physical_targets = np.asarray(dataset.inverse_normalize_label(all_node_targets))
+    physical_predictions = np.asarray(dataset.inverse_normalize_label(all_node_preds))
+    metrics = regression_metrics(physical_targets, physical_predictions)
+    if save_dir:
+        np.savez_compressed(os.path.join(save_dir, 'predictions_test.npz'),
+                            target=physical_targets, prediction=physical_predictions)
     log_metrics(metrics, prefix="Test")
     avg_test_loss = test_loss / len(data_loader)
 

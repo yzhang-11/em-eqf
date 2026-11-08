@@ -111,7 +111,10 @@ class RTTPBuilder(ModelBuilder):
             bg_model = _build_bg_model(args.bg_model, args.bg_model_cfg, device)
         else:
             bg_model = None
-        return RecurrentTPP(args, device, bg_model)
+        model = RecurrentTPP(args, device, bg_model)
+        if getattr(args, "use_double_precision", False):
+            model.double()
+        return model
 
 
 @ModelBuilder.register("rtpp_v2")
@@ -249,10 +252,10 @@ class ETASBuilder(ModelBuilder):
             query_chunk_size=getattr(args, "etas_query_chunk_size", 0),
             history_chunk_size=getattr(args, "etas_history_chunk_size", 0),
             use_grad_checkpoint=getattr(args, "etas_grad_checkpoint", False),
-            enforce_subcritical=getattr(args, "etas_enforce_subcritical", True),
+            enforce_subcritical=getattr(args, "etas_enforce_subcritical", False),
             max_branching_ratio=getattr(args, "etas_max_branching_ratio", 0.98),
             effective_branching_t_max=getattr(args, "etas_effective_branching_t_max", 1e4),
-            enforce_p_gt_one=getattr(args, "etas_enforce_p_gt_one", True),
+            enforce_p_gt_one=getattr(args, "etas_enforce_p_gt_one", False),
             min_omori_p=getattr(args, "etas_min_omori_p", 1.001),
             constraint_softness=getattr(args, "etas_constraint_softness", 1e-3),
             loss_weights=_resolve_loss_weights(args),
@@ -300,9 +303,9 @@ class ETASZhuangBuilder(ModelBuilder):
             query_chunk_size=getattr(args, "etas_query_chunk_size", 0),
             history_chunk_size=getattr(args, "etas_history_chunk_size", 0),
             use_grad_checkpoint=getattr(args, "etas_grad_checkpoint", False),
-            enforce_subcritical=getattr(args, "etas_enforce_subcritical", True),
+            enforce_subcritical=getattr(args, "etas_enforce_subcritical", False),
             max_branching_ratio=getattr(args, "etas_max_branching_ratio", 0.98),
-            enforce_p_gt_one=getattr(args, "etas_enforce_p_gt_one", True),
+            enforce_p_gt_one=getattr(args, "etas_enforce_p_gt_one", False),
             min_omori_p=getattr(args, "etas_min_omori_p", 1.001),
             constraint_softness=getattr(args, "etas_constraint_softness", 1e-3),
             loss_weights=_resolve_loss_weights(args),
@@ -519,7 +522,9 @@ class MixerTPPBuilder(ModelBuilder):
         from src.models.mamba.scan_wrapper import  SelectiveScanWrapper
         import torch
         import torch.nn as nn   
-        encoder = MixerModel(**args.mixer_model_config, device=device, dtype=torch.float32).to(device)
+        mixer_config = dict(args.mixer_model_config)
+        mixer_config.setdefault("use_residual", False)
+        encoder = MixerModel(**mixer_config, device=device, dtype=torch.float32).to(device)
         adapter = MixerBatchAdapter(args)
         hypernet_time = nn.Linear(args.d_model, 3 * args.num_components).to(device)
         hypernet_mag = nn.Sequential(
@@ -564,4 +569,5 @@ class MixerTPPBuilder(ModelBuilder):
                         use_adaptive_loss_weights=use_adaptive_loss_weights,
                         bg_model=bg_model,
                         b_filter=b_filter,
-                        b_init=b_init)
+                        b_init=b_init,
+                        time_parametrization=getattr(args, "mixer_time_parametrization", "legacy"))

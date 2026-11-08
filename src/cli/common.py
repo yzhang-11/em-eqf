@@ -117,7 +117,11 @@ def resolve_test_threshold(args_cli, checkpoint):
         LOGGER.info("Using threshold %s from CLI argument for testing.", cli_thresh)
         return cli_thresh
 
+    hp = checkpoint.get("hyperparameters", {}) if isinstance(checkpoint, dict) else {}
+    require_validation = bool(hp.get("split_dates")) if hasattr(hp, "get") else False
     if getattr(args_cli, "no_val_threshold", False):
+        if require_validation:
+            raise ValueError("split_dates experiments require a validation-selected threshold")
         return None
 
     if isinstance(checkpoint, dict):
@@ -126,6 +130,8 @@ def resolve_test_threshold(args_cli, checkpoint):
             threshold = val_metrics["threshold"]
             LOGGER.info("Using threshold %s from checkpoint val_metrics for testing.", threshold)
             return threshold
+    if require_validation:
+        raise ValueError("Checkpoint has no validation threshold; refusing test-set selection")
     return None
 
 

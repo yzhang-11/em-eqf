@@ -14,7 +14,7 @@ import torch.nn as nn
 
 from mamba_ssm.models.config_mamba import MambaConfig
 from mamba_ssm.modules.mamba_simple import Mamba
-from mamba_ssm.modules.mamba2 import Mamba2
+from src.models.mamba.mamba2_aligned import AlignedMamba2 as Mamba2
 from src.models.mha.mha import MHA
 from src.models.mamba.mamba_time import MambaTime
 from src.models.mamba.mamba2_time import Mamba2Time  
@@ -44,6 +44,7 @@ def create_block(
     dropout_prob=0.0,
     device=None,
     dtype=None,
+    use_residual=True,
 ):
     if ssm_cfg is None:
         ssm_cfg = {}
@@ -56,7 +57,7 @@ def create_block(
         # Create a copy of the config to modify
         ssm_cfg = copy.deepcopy(ssm_cfg) if ssm_cfg is not None else {}
         ssm_layer = ssm_cfg.pop("layer", "Mamba1")
-        if ssm_layer not in {"Mamba1", "Mamba2", "MambaTime","Mamba2Time","Mamba2Rotary"}:
+        if ssm_layer not in {"Mamba1", "Mamba2", "MambaTime","Mamba2Time","Mamba2Rotary","Mamba3Rotary","Mamba3EventTime"}:
             raise ValueError(f"Invalid ssm_layer: {ssm_layer}")
         mixer_map = {
             "Mamba1": Mamba,
@@ -65,6 +66,13 @@ def create_block(
             "Mamba2Time": Mamba2Time,
             "Mamba2Rotary": Mamba2Rotary,
         }
+        if ssm_layer == "Mamba3Rotary":
+            # Load Mamba-3 only when selected; older environments keep working.
+            from src.models.mamba.mamba3_rotary import Mamba3Rotary
+            mixer_map["Mamba3Rotary"] = Mamba3Rotary
+        if ssm_layer == "Mamba3EventTime":
+            from src.models.mamba.mamba3_event_time import Mamba3EventTime
+            mixer_map["Mamba3EventTime"] = Mamba3EventTime
         mixer_cls = partial(mixer_map[ssm_layer], layer_idx=layer_idx, **ssm_cfg, **factory_kwargs)
     else:
         attn_cfg = copy.deepcopy(attn_cfg) if attn_cfg is not None else {}
@@ -90,6 +98,7 @@ def create_block(
         fused_add_norm=fused_add_norm,
         residual_in_fp32=residual_in_fp32,
         dropout_prob=dropout_prob,
+        use_residual=use_residual,
     )
     block.layer_idx = layer_idx
     return block
@@ -152,10 +161,12 @@ class MixerModel(nn.Module):
         dropout_prob: float = 0.0,
         device=None,
         dtype=None,
+        use_residual: bool = True,
     ) -> None:
         factory_kwargs = {"device": device, "dtype": dtype}
         super().__init__()
         self.residual_in_fp32 = residual_in_fp32
+        self.use_residual = bool(use_residual)
         self.d_model = d_model
         self.input_init = input_init
         self.initializer_cfg = initializer_cfg if initializer_cfg is not None else {}
@@ -225,6 +236,7 @@ class MixerModel(nn.Module):
                     fused_add_norm=fused_add_norm,
                     layer_idx=i,
                     dropout_prob=dropout_prob,
+                    use_residual=self.use_residual,
                     **factory_kwargs,
                 )
                 for i in range(n_layer)
@@ -401,10 +413,10 @@ class MixerModelWrapper(nn.Module):
 
     def forward(self, batch, inference_params=None):
         assert batch.device == self.device, f"Input tensor on {batch.device}, but model on {self.device}"
-        batch = batch.float()
         batch = batch.to(self.device)
         
         inputs = self.input_adapter(batch)  
+        inputs["features"] = inputs["features"].to(dtype=next(self.encoder.parameters()).dtype)
         out = self.encoder(**inputs, inference_params=inference_params)
         if "non_pad_mask" in inputs:
             non_pad_mask = inputs["non_pad_mask"]

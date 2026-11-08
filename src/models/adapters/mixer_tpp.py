@@ -31,10 +31,19 @@ class MixerBatchAdapter:
         self.mag_completeness = _to_t(args.get('mag_completeness'))
         self.mag_mean_gr =  self.mag_completeness + 1.0 / (math.log(10.0) * self.richter_b)
         self.eps: float = 1e-10
+        self.provide_physical_dt = bool(args.get('provide_physical_dt', False))
+        masked = args.get('mask_input_features', []) or []
+        if isinstance(masked, str):
+            raise ValueError('mask_input_features must be a list of feature names')
+        self.mask_input_features = tuple(masked)
+
 
         # ---- config
         self.extra_input_keys: List[str] = getattr(args, 'extra_input_keys', ['inter_times', 'times'])
         self.features_input_keys: List[str] = sorted(getattr(args, 'features_input_keys', ['log_inter_times', 'mag']))
+        unknown = set(self.mask_input_features) - set(self.features_input_keys)
+        if unknown:
+            raise ValueError(f'Cannot mask undeclared input features: {sorted(unknown)}')
         self.normalize_time: bool = getattr(args, 'normalize_time_by_token', False)
         self.shift_time_to_zero: bool = getattr(args, 'shift_time_to_zero', False)
 
@@ -62,6 +71,16 @@ class MixerBatchAdapter:
             input_mask = batch.input_mask.float()
         features = self._build_features(mag, loc, inter_times, input_mask.unsqueeze(-1))
         extras = self._build_extras(arrival_times, inter_times, input_mask.unsqueeze(-1))
+        if self.mask_input_features:
+            features = features.clone()
+            for key in self.mask_input_features:
+                features[..., self.features_input_keys.index(key)] = 0
+        if self.provide_physical_dt:
+            tau = self.time_scale_base.to(device=inter_times.device, dtype=inter_times.dtype)
+            if not torch.isfinite(tau).all() or not (tau > 0).all():
+                raise ValueError('physical_dt requires a finite positive time scale')
+            extras['physical_dt'] = torch.where(input_mask.bool(), inter_times / tau,
+                                                torch.ones_like(inter_times))
         return {"features": features, "input_mask": input_mask, **extras}
 
     # ---------- step 1: parse ----------

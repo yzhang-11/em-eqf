@@ -28,6 +28,7 @@ class MixerTPP(TPPModel):
     Args:
         base_model: The backbone mixer model for sequence encoding.
         hypernet_time: Hypernetwork for time distribution parameters.
+        time_parametrization: 'legacy' for rate/shape or 'oracle' for log-mean/shape.
         hypernet_mag: Hypernetwork for magnitude distribution parameters.
         dropout: Dropout probability.
         predict_b: Whether to predict the Gutenberg-Richter b-value.
@@ -41,7 +42,8 @@ class MixerTPP(TPPModel):
     def __init__(self, base_model, hypernet_time, hypernet_mag, dropout, 
                  predict_b, use_b_updater=False,
                  loss_weights=None, loss_reduction=None,b_range=None,
-                 use_adaptive_loss_weights=False, bg_model=None, b_filter=None, b_init=1.0):
+                 use_adaptive_loss_weights=False, bg_model=None, b_filter=None, b_init=1.0,
+                 time_parametrization="legacy"):
         super().__init__()
 
         device = next(base_model.parameters()).device
@@ -78,7 +80,7 @@ class MixerTPP(TPPModel):
             )
         self.inter_time_decoder = WeibullMixtureDecoder(
             num_components=self.num_components,
-            parametrization="legacy",
+            parametrization=time_parametrization,
             scale_range="positive",
             normalize_mixture_logits=False,
         )
@@ -157,7 +159,7 @@ class MixerTPP(TPPModel):
         """Get the current state of the model for inference."""
         state_all = self.base_model(batch, inference_params=inference_params)
         if inference_params is not None:
-            inference_params.seqlen_offset += 1
+            inference_params.seqlen_offset += state_all.shape[1]
         if return_all:
             return state_all
         return state_all[:, -1:, :]
@@ -404,6 +406,11 @@ class MixerTPP(TPPModel):
             state_all = self.get_current_state(
                 past_batch[:, :-1], inference_params=inference_params, return_all=True
             )  # (1, L, C)
+            # Prefill ran once; share its attention KV prefix across trajectories.
+            for layer_cache in inference_params.key_value_memory_dict.values():
+                kv_cache = layer_cache[0]
+                if batch_size > 1 and kv_cache is not None and kv_cache.ndim == 5:
+                    kv_cache[1:, :past_seq_len].copy_(kv_cache[:1, :past_seq_len])
             current_state = state_all[:, -1:, :].expand(batch_size, -1, -1)  # (B, 1, C)
             assert not torch.isnan(current_state).any(), "current_state contains NaN"
             time_remaining = past_seq.t_end - past_seq.arrival_times[-1]
@@ -425,7 +432,7 @@ class MixerTPP(TPPModel):
 
         t_end = t_start + duration
         inter_time_list = []
-        running_time = torch.zeros(batch_size, device=self.device, dtype=torch.float32)
+        running_time = torch.zeros(batch_size, device=self.device, dtype=buffer_batch.inter_times.dtype)
         mag_list = []
 
         generated = False
@@ -474,7 +481,8 @@ class MixerTPP(TPPModel):
                     next_inter_times = bg_inter_time.unsqueeze(-1) + lower_bound
                 time_remaining = lower_bound
 
-            next_inter_times.clamp_max_(t_end - t_start)
+            max_interval = (t_end - t_start) + (time_remaining if time_remaining is not None else 0.0)
+            next_inter_times = next_inter_times.clamp_max(max_interval)
             if time_remaining is not None:
                 delta = next_inter_times-time_remaining
                 inter_time_list.append(delta)
@@ -506,7 +514,7 @@ class MixerTPP(TPPModel):
             current_state = self.get_current_state(tmp_batch, inference_params=inference_params)
             generated = running_time.min() >= (t_end - t_start)-1e-6
 
-        inter_times = torch.cat(inter_time_list, dim=1)
+        inter_times = torch.cat(inter_time_list, dim=1).to(running_time.dtype)
         magnitudes = torch.cat(mag_list, dim=1)
 
 
@@ -516,7 +524,7 @@ class MixerTPP(TPPModel):
             t_end=t_end,
             device=self.device,
             magnitudes=magnitudes,
-            time_dtype=torch.float32,
+            time_dtype=running_time.dtype,
             epsilon=1e-5,
             check_last_surv_nonnegative=True,
         )

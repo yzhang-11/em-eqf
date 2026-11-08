@@ -26,6 +26,8 @@ step_lr_gamma: 0.8
 dropout: 0.3
 d_model: 64
 mixer_model_config:
+  # Optional Mixer/MLP block residual connections (disabled by default).
+  use_residual: false
   input_dim: 2
   dropout_prob: 0.1
   d_model: 64
@@ -67,6 +69,10 @@ mixer_model_config:
 
 # 
 num_components: 32
+
+# Time-head parametrization (output distribution only):
+# legacy: predict Weibull rate/shape; oracle: predict log-mean/shape.
+mixer_time_parametrization: legacy
 
 # 其他参数
 dim: 1

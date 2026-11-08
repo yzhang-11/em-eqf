@@ -156,8 +156,11 @@ class RecurrentTPP(RecurrentTPPSamplingMixin, TPPModel):
         # print(f"rnn_in { torch.sum(features*batch.input_mask[:, :, None]) }{features.shape}{features[0,:]}")
         # torch.save(features, 'features2.pth')
         # torch.save(batch.arrival_times, 'arrival_times2.pth')
+        return self._context_from_features(features, batch.input_mask)
+
+    def _context_from_features(self, features, input_mask):
         rnn_output, _ = self._run_rnn(features)
-        rnn_output = rnn_output * batch.input_mask[:, :, None]
+        rnn_output = rnn_output * input_mask[:, :, None]
         # print(f"rnn_out { torch.sum(rnn_output) }{rnn_output.shape}")
         rnn_output = rnn_output[:, :-1, :]  
         output = F.pad(rnn_output, (0, 0, 1, 0))  
@@ -284,8 +287,10 @@ class RecurrentTPP(RecurrentTPPSamplingMixin, TPPModel):
         if self.num_extra_features is not None and hasattr(batch, "extra_features"):
             feat_list.append(self.encode_extra_features(batch.extra_features))
         features = torch.cat(feat_list, dim=-1).contiguous() * batch.input_mask[:, :, None]
-        rnn_output, hidden = self._run_rnn(features)
-        rnn_output = rnn_output * batch.input_mask[:, :, None]
-        rnn_output = rnn_output[:, :-1, :]
+        # The last slot is censoring, not an observed input event.
+        rnn_output, hidden = self._run_rnn(features[:, :-1])
+        rnn_output = rnn_output * batch.input_mask[:, :-1, None]
+        if hidden is None:
+            hidden = features.new_zeros(self.num_rnn_layers, features.size(0), self.context_size)
         context = F.pad(rnn_output, (0, 0, 1, 0))
         return self.dropout(context), hidden

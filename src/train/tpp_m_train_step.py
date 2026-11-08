@@ -45,6 +45,8 @@ def train(
             if loss_key not in out:
                 raise KeyError(f"loss_key='{loss_key}' is not in the nll output. Available options: {list(out.keys())}")
             loss = out[loss_key].mean()
+            if not torch.isfinite(loss):
+                raise FloatingPointError(f"Non-finite {loss_key} loss at batch {i}")
 
 
         loss_to_backward = loss / accumulation_steps
@@ -63,7 +65,7 @@ def train(
 
         if is_update_step:
             scaler.unscale_(optimizer)
-            clip_grad_norm_(model.parameters(), max_norm=max_grad_norm)
+            clip_grad_norm_(model.parameters(), max_norm=max_grad_norm, error_if_nonfinite=True)
 
             scaler.step(optimizer)
             scaler.update()

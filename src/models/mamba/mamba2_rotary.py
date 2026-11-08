@@ -295,78 +295,86 @@ class Mamba2Rotary(nn.Module, PyTorchModelHubMixin):
     def step(self, hidden_states, conv_state, ssm_state, times, rotary_max_seqlen, seqlen_offset):
         dtype = hidden_states.dtype
         assert hidden_states.shape[1] == 1, "Only support decoding with 1 token at a time for now"
-        zxbcdt = self.in_proj(hidden_states.squeeze(1))  # (B 2D)
-        d_mlp = (zxbcdt.shape[-1] - 2 * self.d_ssm - 2 * self.ngroups * self.d_state - self.nheads) // 2
+        projected = self.in_proj(hidden_states.squeeze(1))
+        d_mlp = (projected.shape[-1] - 2*self.d_ssm - 2*self.ngroups*self.d_state - self.nheads)//2
         z0, x0, z, xBC, dt = torch.split(
-            zxbcdt,
-            [d_mlp, d_mlp, self.d_ssm, self.d_ssm + 2 * self.ngroups * self.d_state, self.nheads],
-            dim=-1
+            projected,
+            [d_mlp, d_mlp, self.d_ssm, self.d_ssm + 2*self.ngroups*self.d_state, self.nheads],
+            dim=-1,
         )
-
-        # Conv step
         if self.use_conv:
             if causal_conv1d_update is None:
-                conv_state.copy_(torch.roll(conv_state, shifts=-1, dims=-1))  # Update state (B D W)
+                conv_state.copy_(torch.roll(conv_state, shifts=-1, dims=-1))
                 conv_state[:, :, -1] = xBC
-                xBC = torch.sum(conv_state * rearrange(self.conv1d.weight, "d 1 w -> d w"), dim=-1)  # (B D)
+                xBC = torch.sum(conv_state * rearrange(self.conv1d.weight, "d 1 w -> d w"), dim=-1)
                 if self.conv1d.bias is not None:
                     xBC = xBC + self.conv1d.bias
                 xBC = self.act(xBC).to(dtype=dtype)
             else:
                 xBC = causal_conv1d_update(
-                    xBC,
-                    conv_state,
-                    rearrange(self.conv1d.weight, "d 1 w -> d w"),
-                    self.conv1d.bias,
-                    self.activation,
+                    xBC, conv_state, rearrange(self.conv1d.weight, "d 1 w -> d w"),
+                    self.conv1d.bias, self.activation,
                 )
         else:
             xBC = self.act(xBC).to(dtype=dtype)
-
-        x, B, C = torch.split(xBC, [self.d_ssm, self.ngroups * self.d_state, self.ngroups * self.d_state], dim=-1)
-        A = -torch.exp(self.A_log.float())  # (nheads,)
-
-        # SSM step
+        x, B, C = torch.split(
+            xBC, [self.d_ssm, self.ngroups*self.d_state, self.ngroups*self.d_state], dim=-1,
+        )
+        B = rearrange(B, "b (g n) -> b g n", g=self.ngroups)
+        C = rearrange(C, "b (g n) -> b g n", g=self.ngroups)
+        # Both the native update and the fallback must see the same time-rotated
+        # B/C. The explicit singleton is sequence length, not the group axis.
+        if self.rotary_emb_dim > 0:
+            B, C = self.rotary_emb(
+                B.unsqueeze(1), C.unsqueeze(1), times=times,
+                max_seqlen=rotary_max_seqlen, seqlen_offset=seqlen_offset,
+            )
+            B, C = B.squeeze(1), C.squeeze(1)
+        A = -torch.exp(self.A_log.float())
+        D = (
+            rearrange(self.D, "(h p) -> h p", p=self.headdim)
+            if self.D_has_hdim else repeat(self.D, "h -> h p", p=self.headdim)
+        )
+        x_heads = rearrange(x, "b (h p) -> b h p", p=self.headdim)
         if selective_state_update is None:
-            assert self.ngroups == 1, "Only support ngroups=1 for this inference code path"
-            # Discretize A and B
-            dt = F.softplus(dt + self.dt_bias.to(dtype=dt.dtype))  # (batch, nheads)
-            dA = torch.exp(dt * A)  # (batch, nheads)
-            x = rearrange(x, "b (h p) -> b h p", p=self.headdim)
-            dBx = torch.einsum("bh,bn,bhp->bhpn", dt, B, x)
-            ssm_state.copy_(ssm_state * rearrange(dA, "b h -> b h 1 1") + dBx)
-            y = torch.einsum("bhpn,bn->bhp", ssm_state.to(dtype), C)
-            y = y + rearrange(self.D.to(dtype), "h -> h 1") * x
-            y = rearrange(y, "b h p -> b (h p)")
+            dt_effective = F.softplus(dt.float() + self.dt_bias.float()).clamp(*self.dt_limit)
+            B_heads = B.repeat_interleave(self.nheads // self.ngroups, dim=1)
+            C_heads = C.repeat_interleave(self.nheads // self.ngroups, dim=1)
+            decay = torch.exp(dt_effective * A)
+            write = dt_effective[..., None, None] * x_heads.float()[..., None] * B_heads.float()[:, :, None, :]
+            ssm_state.copy_(ssm_state.float()*decay[..., None, None] + write)
+            y = torch.einsum("bhpn,bhn->bhp", ssm_state.float(), C_heads.float())
+            y = y + D.float().unsqueeze(0) * x_heads.float()
+            y = rearrange(y.to(dtype), "b h p -> b (h p)")
             if not self.rmsnorm:
-                y = y * self.act(z)  # (B D)
+                y = y * self.act(z)
         else:
-            A = repeat(A, "h -> h p n", p=self.headdim, n=self.d_state).to(dtype=torch.float32)
-            dt = repeat(dt, "b h -> b h p", p=self.headdim)
-            dt_bias = repeat(self.dt_bias, "h -> h p", p=self.headdim)
-            D = repeat(self.D, "h -> h p", p=self.headdim)
-            B = rearrange(B, "b (g n) -> b g n", g=self.ngroups)
-            C = rearrange(C, "b (g n) -> b g n", g=self.ngroups)
-            if self.rotary_emb_dim > 0:
-                B, C = self.rotary_emb(
-                    B.unsqueeze(2), C.unsqueeze(2), times=times, max_seqlen=rotary_max_seqlen, seqlen_offset=seqlen_offset
-                )
-                B = B.squeeze(2)
-                C = C.squeeze(2)
-            x_reshaped = rearrange(x, "b (h p) -> b h p", p=self.headdim)
-            if not self.rmsnorm:
-                z = rearrange(z, "b (h p) -> b h p", p=self.headdim)
+            # Preserve the fused softplus fast path for the standard unbounded
+            # setting. A finite dt_limit must also apply during single steps.
+            bounded = self.dt_limit != (0.0, float("inf"))
+            if bounded:
+                dt = F.softplus(dt.float() + self.dt_bias.float()).clamp(*self.dt_limit)
+                # The current native update inspects dt_bias.stride even
+                # without softplus, so supply a zero bias rather than None.
+                dt_bias = torch.zeros_like(repeat(self.dt_bias, "h -> h p", p=self.headdim))
+                dt_softplus = False
+            else:
+                dt_bias = repeat(self.dt_bias, "h -> h p", p=self.headdim)
+                dt_softplus = True
             y = selective_state_update(
-                ssm_state, x_reshaped, dt, A, B, C, D, z=z if not self.rmsnorm else None,
-                dt_bias=dt_bias, dt_softplus=True
+                ssm_state, x_heads,
+                repeat(dt, "b h -> b h p", p=self.headdim),
+                repeat(A, "h -> h p n", p=self.headdim, n=self.d_state).float(),
+                B, C, D, z=rearrange(z, "b (h p) -> b h p", p=self.headdim) if not self.rmsnorm else None,
+                dt_bias=dt_bias, dt_softplus=dt_softplus,
             )
             y = rearrange(y, "b h p -> b (h p)")
         if self.rmsnorm:
             y = self.norm(y, z)
         if d_mlp > 0:
-            y = torch.cat([F.silu(z0) * x0, y], dim=-1)
-        out = self.out_proj(y)
-        return out.unsqueeze(1), conv_state, ssm_state
+            y = torch.cat([F.silu(z0)*x0, y], dim=-1)
+        return self.out_proj(y).unsqueeze(1), conv_state, ssm_state
+
 
     def allocate_inference_cache(self, batch_size, max_seqlen, dtype=None, **kwargs):
         device = self.out_proj.weight.device
@@ -410,6 +418,7 @@ class Mamba2Rotary(nn.Module, PyTorchModelHubMixin):
             conv_state, ssm_state = inference_params.key_value_memory_dict[self.layer_idx]
             # TODO: What if batch size changes between generation, and we reuse the same states?
             if initialize_states:
-                conv_state.zero_()
+                if conv_state is not None:
+                    conv_state.zero_()
                 ssm_state.zero_()
         return conv_state, ssm_state

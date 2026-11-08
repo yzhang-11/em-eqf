@@ -9,7 +9,7 @@ from mamba_ssm.ops.triton.layer_norm import RMSNorm, layer_norm_fn
 
 class Block(nn.Module):
     def __init__(
-        self, dim, mixer_cls, mlp_cls, norm_cls=nn.LayerNorm, fused_add_norm=False, residual_in_fp32=False, dropout_prob=0.0
+        self, dim, mixer_cls, mlp_cls, norm_cls=nn.LayerNorm, fused_add_norm=False, residual_in_fp32=False, dropout_prob=0.0, use_residual=True
     ):
         """
         Simple block wrapping a mixer class with LayerNorm/RMSNorm and residual connection"
@@ -25,6 +25,7 @@ class Block(nn.Module):
         """
         super().__init__()
         self.residual_in_fp32 = residual_in_fp32
+        self.use_residual = bool(use_residual)
         self.fused_add_norm = fused_add_norm
         self.norm = norm_cls(dim)
         self.mixer = mixer_cls(dim)
@@ -49,6 +50,8 @@ class Block(nn.Module):
             hidden_states: the sequence to the encoder layer (required).
             residual: hidden_states = Mixer(LN(residual))
         """
+        if not self.use_residual:
+            residual = None
         if not self.fused_add_norm:
             residual = (hidden_states + residual) if residual is not None else hidden_states
             hidden_states = self.norm(residual.to(dtype=self.norm.weight.dtype))
@@ -76,7 +79,7 @@ class Block(nn.Module):
 
         if self.mlp is not None:
             if not self.fused_add_norm:
-                residual = hidden_states + residual
+                residual = hidden_states + residual if self.use_residual else hidden_states
                 hidden_states = self.norm2(residual.to(dtype=self.norm2.weight.dtype))
                 if self.residual_in_fp32:
                     residual = residual.to(torch.float32)
@@ -85,7 +88,7 @@ class Block(nn.Module):
                     hidden_states,
                     self.norm2.weight,
                     self.norm2.bias,
-                    residual=residual,
+                    residual=residual if self.use_residual else None,
                     prenorm=True,
                     residual_in_fp32=self.residual_in_fp32,
                     eps=self.norm2.eps,
@@ -94,7 +97,7 @@ class Block(nn.Module):
             hidden_states = self.mlp(hidden_states)
             hidden_states = self.dropout(hidden_states) 
 
-        return hidden_states, residual
+        return hidden_states, residual if self.use_residual else None
 
     def allocate_inference_cache(self, batch_size, max_seqlen, dtype=None, **kwargs):
         return self.mixer.allocate_inference_cache(batch_size, max_seqlen, dtype=dtype, **kwargs)

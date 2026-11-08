@@ -129,6 +129,11 @@ def test(data_loader, model, criterion, device, save_dir=None,threshold=None):
 
     # Calculate evaluation metrics
     metrics = classification_metrics(all_node_targets, all_node_preds, threshold=threshold)
+    if save_dir:
+        np.savez_compressed(os.path.join(save_dir, 'predictions_test.npz'),
+                            target=all_node_targets, logits=all_node_preds,
+                            score=1.0 / (1.0 + np.exp(-np.clip(all_node_preds, -60, 60))),
+                            threshold=metrics['threshold'])
     log_metrics(metrics, prefix="Test")
     plot_and_save_roc_curve(all_node_targets, all_node_preds,metrics['auc'], save_dir, filename="roc_curve.png")
     plot_and_save_pr_curve(all_node_targets, all_node_preds, metrics["pr_auc"], save_dir, filename="pr_curve.png")

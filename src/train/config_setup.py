@@ -1,4 +1,5 @@
 import logging
+from pathlib import Path
 
 import torch
 from omegaconf import DictConfig, ListConfig, OmegaConf
@@ -100,6 +101,12 @@ def load_args_from_checkpoint(cfg, checkpoint):
     if cfg is not None:
         cfg_pruned = _prune_to_schema(cfg, restored_cfg)
         final_cfg = OmegaConf.merge(cfg_pruned, restored_cfg)
+        # File locations come from this run; learned settings stay checkpoint-defined.
+        for key in ("save_dir", "resume_path", "catalog_cfg.root_dir",
+                    "catalog_cfg.data_dir", "catalog_cfg.catalog_file"):
+            value = OmegaConf.select(cfg, key)
+            if value is not None:
+                OmegaConf.update(final_cfg, key, value, merge=False)
     else:
         final_cfg = restored_cfg
     # OmegaConf.set_struct(final_cfg, True)
@@ -655,7 +662,10 @@ def get_scheduler(scheduler_type, optimizer, args, train_dataloader=None):
 
 def load_and_prepare_model(checkpoint_path, device, compile=True):
     check_point = torch.load(checkpoint_path, map_location=device, weights_only=False)
-    args = load_args_from_checkpoint(None, check_point)
+    config_path = Path(checkpoint_path).with_name("config.yaml")
+    config = OmegaConf.load(config_path) if config_path.is_file() else OmegaConf.create({})
+    config.save_dir = str(Path(checkpoint_path).resolve().parent)
+    args = load_args_from_checkpoint(config, check_point)
     model_builder = ModelBuilder.by_name(args.model.lower())()
     model = model_builder(args, device)
     model, _, _ = load_model_from_checkpoint(model, check_point)
