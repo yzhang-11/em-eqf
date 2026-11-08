@@ -1,0 +1,485 @@
+import logging
+import numpy as np
+from sklearn.metrics import (
+    precision_score,
+    recall_score,
+    f1_score,
+    roc_auc_score,
+    roc_curve,
+    average_precision_score,
+    precision_recall_curve,
+    confusion_matrix,
+)
+import matplotlib.pyplot as plt
+import seaborn as sns
+from scipy.stats import binom
+from tqdm import tqdm
+import os
+from scipy.special import expit 
+
+logger = logging.getLogger(__name__)
+
+def classification_metrics(targets, preds, threshold=None, optimize_metric="f1",apply_sigmoid=True):
+    preds = np.array(preds)
+    targets = np.array(targets)
+
+    if apply_sigmoid:
+        preds = expit(preds) 
+    if threshold is None:
+        fpr, tpr, thresholds = roc_curve(targets, preds)
+        best_thresh = 0.5
+        best_score = -1
+
+        for th in thresholds:
+            preds_bin = (preds > th).astype(int)
+            if optimize_metric == "f1":
+                score = f1_score(targets, preds_bin, zero_division=0)
+            elif optimize_metric == "precision":
+                score = precision_score(targets, preds_bin, zero_division=0)
+            elif optimize_metric == "recall":
+                score = recall_score(targets, preds_bin, zero_division=0)
+            elif optimize_metric == "youden": # Youden's J statistic
+                TP = np.sum((preds_bin == 1) & (targets == 1))
+                FP = np.sum((preds_bin == 1) & (targets == 0))
+                FN = np.sum((preds_bin == 0) & (targets == 1))
+                TN = np.sum((preds_bin == 0) & (targets == 0))
+                TPR = TP / (TP + FN) if (TP + FN) > 0 else 0
+                FPR = FP / (FP + TN) if (FP + TN) > 0 else 0
+                score = TPR - FPR
+            else:
+                raise ValueError(f"Unknown optimize_metric: {optimize_metric}")
+
+            if score > best_score:
+                best_score = score
+                best_thresh = th
+
+        threshold = best_thresh
+
+    preds_bin = (preds > threshold).astype(int)
+    precision = precision_score(targets, preds_bin, zero_division=0)
+    recall = recall_score(targets, preds_bin, zero_division=0)
+    f1 = f1_score(targets, preds_bin, zero_division=0)
+    auc = roc_auc_score(targets, preds)
+    pr_auc = average_precision_score(targets, preds)  # AUPRC / AP
+
+
+    TP = np.sum((preds_bin == 1) & (targets == 1))
+    FP = np.sum((preds_bin == 1) & (targets == 0))
+    FN = np.sum((preds_bin == 0) & (targets == 1))
+    TN = np.sum((preds_bin == 0) & (targets == 0))
+    FPR = FP / (FP + TN) if (FP + TN) > 0 else 0
+    TPR = TP / (TP + FN) if (TP + FN) > 0 else 0
+    R = TPR - FPR
+
+    total = len(targets)
+    correct = np.sum(preds_bin == targets)
+    conf = compute_confidence(total, correct, FPR)
+
+    metrics_dict = {
+        k: (float(v) if isinstance(v, (np.floating, np.float32, np.float64))
+        else int(v) if isinstance(v, (np.integer,))
+        else v)
+        for k, v in {
+            "precision": precision,
+            "recall": recall,
+            "f1": f1,
+            "auc": auc,
+            "pr_auc": pr_auc,
+            "fpr": FPR,
+            "tpr": TPR,
+            "R": R,
+            "conf": conf,
+            "threshold": threshold
+        }.items()
+    }
+
+    return metrics_dict
+
+
+def log_metrics(metrics, prefix=""):
+    log_str = f"{prefix}".ljust(12)
+    for k, v in metrics.items():
+        if isinstance(v, float):
+            log_str += f"{k}: {v:.4f} | "
+    tqdm.write(log_str.strip(" | "))
+
+
+
+def compute_confidence(N, m, b):
+    """calculate the confidence of getting at least m correct predictions by chance in N trials with success probability b"""
+    return binom.cdf(m - 1, N, b)
+
+def plot_and_save_roc_curve(targets, preds, auc_value, save_dir, filename="roc_curve.png"):
+    """
+    Plot and save the ROC curve image.
+
+    Parameters:
+    - targets: numpy array, true labels
+    - preds: numpy array, predicted values (probabilities)
+    - auc_value: float, AUC metric value
+    - save_dir: str, directory to save the image
+    - filename: str, name of the image file
+    """
+    try:
+        fpr, tpr, _ = roc_curve(targets, preds)
+        plt.figure()
+        plt.plot(fpr, tpr, label=f"ROC Curve (AUC = {auc_value:.4f})")
+        plt.plot([0, 1], [0, 1], 'k--')
+        plt.xlabel('False Positive Rate')
+        plt.ylabel('True Positive Rate')
+        plt.title('Receiver Operating Characteristic (ROC)')
+        plt.legend(loc='lower right')
+        plt.grid(True)
+        plt.tight_layout()
+
+        os.makedirs(save_dir, exist_ok=True)
+        save_path = os.path.join(save_dir, filename)
+        plt.savefig(save_path)
+        logger.info("ROC curve saved to %s", save_path)
+        plt.show()
+    except Exception as e:
+        logger.warning("Failed to plot ROC curve: %s", e)
+
+
+def plot_and_save_pr_curve(targets, preds, pr_auc_value, save_dir, filename="pr_curve.png"):
+    """
+    Plot and save the Precision-Recall curve image.
+    """
+    try:
+        targets = np.asarray(targets).reshape(-1)
+        preds = np.asarray(preds).reshape(-1)
+        precision, recall, _ = precision_recall_curve(targets, preds)
+        pos_rate = float(np.mean(targets == 1))
+
+        plt.figure()
+        plt.plot(recall, precision, label=f"PR Curve (AP = {pr_auc_value:.4f})")
+        plt.hlines(
+            pos_rate,
+            xmin=0.0,
+            xmax=1.0,
+            colors="k",
+            linestyles="--",
+            label=f"Baseline = {pos_rate:.4f}",
+        )
+        plt.xlabel("Recall")
+        plt.ylabel("Precision")
+        plt.title("Precision-Recall Curve")
+        plt.legend(loc="lower left")
+        plt.grid(True)
+        plt.tight_layout()
+
+        os.makedirs(save_dir, exist_ok=True)
+        save_path = os.path.join(save_dir, filename)
+        plt.savefig(save_path)
+        logger.info("PR curve saved to %s", save_path)
+        plt.show()
+    except Exception as e:
+        logger.warning("Failed to plot PR curve: %s", e)
+
+
+def plot_and_save_confusion_matrix(
+    targets,
+    preds,
+    threshold=0.5,
+    save_dir=None,
+    filename="confusion_matrix.png",
+    apply_sigmoid=True,
+):
+    """
+    Plot and save confusion matrix using a probability threshold.
+    """
+    try:
+        targets = np.asarray(targets).reshape(-1).astype(int)
+        preds = np.asarray(preds).reshape(-1)
+        if apply_sigmoid:
+            preds = expit(preds)
+        preds_bin = (preds > threshold).astype(int)
+
+        cm = confusion_matrix(targets, preds_bin, labels=[0, 1])
+
+        plt.figure(figsize=(6, 5))
+        sns.heatmap(
+            cm,
+            annot=True,
+            fmt="d",
+            cmap="Blues",
+            cbar=False,
+            xticklabels=["Pred 0", "Pred 1"],
+            yticklabels=["True 0", "True 1"],
+        )
+        plt.xlabel("Predicted Label")
+        plt.ylabel("True Label")
+        plt.title(f"Confusion Matrix (threshold={threshold:.4f})")
+        plt.tight_layout()
+
+        os.makedirs(save_dir, exist_ok=True)
+        save_path = os.path.join(save_dir, filename)
+        plt.savefig(save_path)
+        logger.info("Confusion matrix saved to %s", save_path)
+        plt.show()
+    except Exception as e:
+        logger.warning("Failed to plot confusion matrix: %s", e)
+
+def plot_classification_distribution(preds, labels, title="Prediction Distribution (Training Set)", save_path=None):
+    preds = np.array(preds)
+    labels = np.array(labels)
+
+    pos_preds = preds[labels == 1]
+    neg_preds = preds[labels == 0]
+
+    plt.figure(figsize=(8, 5))
+    sns.histplot(pos_preds, bins=30, color='blue', label='Positive', stat='density', kde=True, alpha=0.6)
+    sns.histplot(neg_preds, bins=30, color='yellow', label='Negative', stat='density', kde=True, alpha=0.6)
+
+    plt.title(title)
+    plt.xlabel("Predicted Probability (after Sigmoid)")
+    plt.ylabel("Density")
+    plt.legend()
+    plt.grid(True)
+    plt.tight_layout()
+    
+    if save_path:
+        plt.savefig(save_path,dpi=100)
+    plt.show()
+
+def pick_median_pred(preds, taus):
+    """preds: [N, Tq] or [N,] ; taus: list/array length Tq or None"""
+    if preds.ndim == 1:
+        return preds 
+    if taus is None or len(taus) == 0:
+        return preds[:, preds.shape[1]//2]
+    taus = np.asarray(taus, dtype=float).ravel()
+    mid = float(taus[np.argmin(np.abs(taus-0.5))])  
+    idx = int(np.where(taus == mid)[0][0])
+    return preds[:, idx]
+
+def regression_metrics(
+    y_true, y_preds, taus=None, *, include_rank=True,
+    include_dtw=True,
+):
+    try:
+        from scipy.stats import spearmanr
+        _HAS_SCIPY = True
+    except Exception:
+        _HAS_SCIPY = False
+
+
+    y_pred = pick_median_pred(y_preds, taus)
+    y_true = np.asarray(y_true, dtype=float)
+    y_pred = np.asarray(y_pred, dtype=float)
+
+
+    err  = y_true - y_pred
+    MSE  = float(np.mean(err**2))
+    RMSE = float(np.sqrt(MSE))
+    MAE  = float(np.mean(np.abs(err)))
+    nz   = y_true != 0
+    MAPE = float(np.mean(np.abs(err[nz] / y_true[nz])) * 100) if np.any(nz) else np.nan
+
+    # R2
+    SS_res = float(np.sum(err**2))
+    SS_tot = float(np.sum((y_true - y_true.mean())**2))
+    R2 = float(1 - SS_res / SS_tot) if SS_tot != 0 else np.nan
+
+    # PearsonR
+    def _pearson(a, b):
+        r = np.corrcoef(a, b)[0, 1]
+        return float(r)
+
+    PearsonR = _pearson(y_true, y_pred)
+
+    dy_true = np.diff(y_true)
+    dy_pred = np.diff(y_pred)
+    if dy_true.size > 0:
+        PearsonR_diff = _pearson(dy_true, dy_pred)
+        s_true, s_pred = np.sign(dy_true), np.sign(dy_pred)
+        mask = ~((s_true == 0) & (s_pred == 0))
+        DA = float(np.mean(s_true[mask] == s_pred[mask])) if np.any(mask) else np.nan
+    else:
+        PearsonR_diff = np.nan
+        DA = np.nan
+
+    # Initialize the result dictionary
+    results = {
+        "RMSE": RMSE,
+        "MAE": MAE,
+        "MSE": MSE,
+        "MAPE": MAPE,
+        "R2": R2,
+        "PearsonR": PearsonR,
+        "PearsonR_diff": PearsonR_diff,
+        "DA": DA
+    }
+
+    # Include rank metrics if requested
+    if include_rank and _HAS_SCIPY:
+        SpearmanR = float(spearmanr(y_true, y_pred).statistic)
+        SpearmanR_diff = float(spearmanr(dy_true, dy_pred).statistic) if dy_true.size > 0 else np.nan
+        results["SpearmanR"] = SpearmanR
+        results["SpearmanR_diff"] = SpearmanR_diff
+
+    # Include DTW metrics if requested
+    if include_dtw:
+        from fastdtw import fastdtw
+        from scipy.spatial.distance import euclidean
+        dist, _ = fastdtw(y_true, y_pred, radius=1, dist=lambda a, b: abs(a - b))
+        DTW = float(dist)
+        L = (len(y_true) + len(y_pred)) / 2.0
+        DTW_normalized = float(DTW / L) if L > 0 else np.nan
+        results["DTW"] = DTW
+        results["DTW_normalized"] = DTW_normalized
+
+    return results
+
+
+
+
+def count_metrics(y_true, y_pred):
+    y_pred = np.round(np.exp(y_pred))  
+    y_true = np.round(y_true)
+
+    mae = np.mean(np.abs(y_true - y_pred))
+    acc = np.mean(y_true == y_pred)
+    return {'MAE': mae, 'ExactMatchAcc': acc}
+
+
+
+def plot_regression_scatter(data_dict, save_path=None, verbose=False, taus=None):
+    """
+    Scatter plot of predicted vs true values for regression.
+    Supports pred_values of shape (B, F) and true_values of shape (B).
+    Uses the median (or middle) of pred_values along axis 1 if needed.
+    data_dict: {
+        "Train": (true_values, pred_values),
+        "Validation": (true_values, pred_values),
+        "Test": (true_values, pred_values)
+    }
+    """
+    colors = {"Train": "blue", "Validation": "green", "Test": "black"}
+    markers = {"Train": "x", "Validation": "^", "Test": "o"}
+
+    plt.figure(figsize=(10, 8))
+    for label, (true_vals, pred_vals) in data_dict.items():
+        true_vals = np.array(true_vals)
+        pred_vals = np.array(pred_vals)
+        pred_vals = pick_median_pred(pred_vals, taus)
+        plt.scatter(true_vals, pred_vals, 
+                    color=colors.get(label, "gray"), 
+                    marker=markers.get(label, "o"), 
+                    s=15, label=f"{label} Set")
+
+    x_min = min([np.min(np.array(v[0])) for v in data_dict.values()])
+    x_max = max([np.max(np.array(v[0])) for v in data_dict.values()])
+    x = np.linspace(x_min, x_max, 100)
+    plt.plot(x, x, 'r-', label='Ideal: y = x')
+    plt.plot(x, x + 0.5, 'gray', linestyle='--', label='y = x + 0.5')
+    plt.plot(x, x - 0.5, 'gray', linestyle='--', label='y = x - 0.5')
+
+    plt.xlim(x_min, x_max)
+    plt.ylim(x_min, x_max)
+    plt.xlabel("True Magnitude", fontsize=14)
+    plt.ylabel("Predicted Magnitude", fontsize=14)
+    plt.legend(fontsize=12)
+    plt.grid(True)
+    plt.tight_layout()
+
+    if save_path:
+        plt.savefig(save_path, dpi=100)
+        if verbose:
+            logger.info("Saved scatter plot to %s", save_path)
+    plt.show()
+
+
+def plot_regression_series(data_dict, save_path=None, verbose=False):
+    """
+    Line plot of true vs predicted values across time/index.
+    """
+    plt.figure(figsize=(16, 8))
+    idx_start = 0
+
+    for label, (true_vals, pred_vals) in data_dict.items():
+        n = len(true_vals)
+        idx_range = np.arange(idx_start, idx_start + n)
+
+        plt.plot(idx_range, true_vals, label=f'{label} - True')
+        plt.plot(idx_range, pred_vals, label=f'{label} - Predicted', linestyle='--')
+        idx_start += n
+
+    plt.xlabel("Sample Index", fontsize=14)
+    plt.ylabel("Magnitude", fontsize=14)
+    plt.legend(fontsize=12)
+    plt.grid(True)
+    plt.tight_layout()
+
+    if save_path:
+        plt.savefig(save_path, dpi=100)
+        if verbose:
+            logger.info("Saved series plot to %s", save_path)
+    plt.show()
+
+def plot_count_scatter(data_dict, save_path=None, verbose=False):
+    """
+    Scatter plot of predicted vs true values for count data.
+    data_dict: {
+        "Train": (true_values, pred_values),
+        "Validation": (true_values, pred_values),
+        "Test": (true_values, pred_values)    
+    }   
+    """
+    colors = {"Train": "blue", "Validation": "green", "Test": "black"}
+    markers = {"Train": "x", "Validation": "^", "Test": "o"}
+
+    plt.figure(figsize=(10, 8))
+
+    for label, (true_vals, pred_vals) in data_dict.items():
+        plt.scatter(true_vals, pred_vals, 
+                    color=colors.get(label, "gray"), 
+                    marker=markers.get(label, "o"), 
+                    s=15, label=f"{label} Set")
+
+    x = np.linspace(0, 20, 100)
+    plt.plot(x, x, 'r-', label='Ideal: y = x')
+    plt.plot(x, x + 1, 'gray', linestyle='--', label='y = x + 1')
+    plt.plot(x, x - 1, 'gray', linestyle='--', label='y = x - 1')
+
+    plt.xlim(0, 20)
+    plt.ylim(0, 20)
+    plt.xlabel("True Count", fontsize=14)
+    plt.ylabel("Predicted Count", fontsize=14)
+    plt.legend(fontsize=12)
+    plt.grid(True)
+    plt.tight_layout()
+
+    if save_path:
+        plt.savefig(save_path, dpi=100)
+        if verbose:
+            logger.info("Saved scatter plot to %s", save_path)
+    plt.show()
+
+
+def plot_count_series(data_dict, save_path=None, verbose=False):
+    """
+    Line plot of true vs predicted values across time/index for count data.
+    """
+    plt.figure(figsize=(16, 8))
+    idx_start = 0
+
+    for label, (true_vals, pred_vals) in data_dict.items():
+        n = len(true_vals)
+        idx_range = np.arange(idx_start, idx_start + n)
+
+        plt.plot(idx_range, true_vals, label=f'{label} - True')
+        plt.plot(idx_range, pred_vals, label=f'{label} - Predicted', linestyle='--')
+        idx_start += n
+
+    plt.xlabel("Sample Index", fontsize=14)
+    plt.ylabel("Count", fontsize=14)
+    plt.legend(fontsize=12)
+    plt.grid(True)
+    plt.tight_layout()
+
+    if save_path:
+        plt.savefig(save_path, dpi=100)
+        if verbose:
+            logger.info("Saved series plot to %s", save_path)
+    plt.show()

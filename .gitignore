@@ -1,0 +1,81 @@
+# Training checkpoints and generated run artifacts
+checkpoints/
+docs/
+*.pth
+*.pt
+*.ckpt
+*.onnx
+runs/
+logs/
+wandb/
+tensorboard/
+tmp/
+
+# Rebuildable dataset catalog caches; keep raw/ and processed/ inputs.
+data/*/catalogs/
+data/*/catalogs/**
+
+# Local/private CCL dataset; keep files outside the public release.
+data/CCL/
+data/CCL/**
+
+# Notebook outputs and test fixtures
+.ipynb_checkpoints/
+notebooks/cache/
+notebooks/figs/
+notebooks/metrics/
+check_version.ipynb
+ckpt_utils.ipynb
+tests/mnt/
+tests/attnpl_pl_weights.ipynb
+
+# History and cache files
+.history/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.cache/
+
+# Local editor and agent configuration
+.vscode/
+.claude/
+
+# Python cache and build artifacts
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+build/
+dist/
+*.egg-info/
+
+# Virtual environments and local credentials
+.env
+.venv/
+venv/
+
+# Coverage and test reports
+.coverage
+coverage.xml
+htmlcov/
+
+# OS files
+.DS_Store
+
+# Ignore all experiment subdirectories by default. Only the four published
+# ETAS/RTPP multi-dataset result sets below are included in this branch.
+experiments/*
+!experiments/etas_multi_ds_bg_norm_0.2/
+!experiments/etas_multi_ds_bg_norm_0.2/**
+!experiments/etas_multi_ds_bg_split_0.7/
+!experiments/etas_multi_ds_bg_split_0.7/**
+!experiments/rtpp_v2_multi_bg_norm_0.2/
+!experiments/rtpp_v2_multi_bg_norm_0.2/**
+!experiments/rtpp_v2_multi_bg_split_0.7/
+!experiments/rtpp_v2_multi_bg_split_0.7/**
+
+# Training runs are local/generated artifacts; publish reports and summaries only.
+experiments/etas_multi_ds_bg_norm_0.2/runs/
+experiments/etas_multi_ds_bg_split_0.7/runs/
+experiments/rtpp_v2_multi_bg_norm_0.2/runs/
+experiments/rtpp_v2_multi_bg_split_0.7/runs/

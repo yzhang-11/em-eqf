@@ -1,0 +1,162 @@
+# Reference: https://zenodo.org/records/8161777 - Using Deep Learning for Flexible and Scalable Earthquake Forecasting.
+import io
+import logging
+from pathlib import Path
+from typing import Union
+
+import numpy as np
+import pandas as pd
+import requests
+import torch
+from src.data import Catalog, TppDataset, Sequence, default_catalogs_dir
+from ..utils.catalog_utils import train_val_test_split_sequence
+from src.utils.catalog_pathing import (
+    build_hashed_catalog_root,
+    refresh_cached_metadata,
+    to_serializable_ts,
+)
+
+logger = logging.getLogger(__name__)
+
+COL_NAMES = [
+    "date",
+    "time",
+    "ET",
+    "GT",
+    "magnitude",
+    "M",
+    "latitude",
+    "longitude",
+    "depth",
+    "Q",
+    "EVID",
+    "NPH",
+    "NGRM",
+]
+
+@Catalog.register(name="SCEDC-Standard")
+class SCEDC(Catalog):
+    url = "https://service.scedc.caltech.edu/ftp/catalogs/SCEC_DC/"
+
+    def __init__(
+        self,
+        root_dir: Union[str, Path] = default_catalogs_dir / "SCEDC" / "catalogs",
+        catalog_file: Union[str, Path] = None,
+        mag_completeness: float = 2.0,
+        train_start_ts: pd.Timestamp = pd.Timestamp("1985-01-01"),
+        val_start_ts: pd.Timestamp = pd.Timestamp("2005-01-01"),
+        test_start_ts: pd.Timestamp = pd.Timestamp("2014-01-01"),
+    ):
+        _ = catalog_file  # retained for backward-compatible API
+        start_ts = pd.Timestamp("1981-01-01")
+        end_ts = pd.Timestamp("2020-01-01")
+        if train_start_ts is None:
+            train_start_ts = start_ts
+        train_start_ts = pd.Timestamp(train_start_ts)
+        val_start_ts = pd.Timestamp(val_start_ts)
+        test_start_ts = pd.Timestamp(test_start_ts)
+
+        catalog_cfg = {
+            "mag_completeness": float(mag_completeness),
+            "train_start_ts": to_serializable_ts(train_start_ts),
+            "val_start_ts": to_serializable_ts(val_start_ts),
+            "test_start_ts": to_serializable_ts(test_start_ts),
+        }
+        self.root_dir = build_hashed_catalog_root(root_dir, catalog_cfg, migrate_legacy=True)
+        metadata = {
+            "name": f"SCEDC",
+            "freq": "1D",
+            "mag_roundoff_error": 0.1,
+            "mag_completeness": mag_completeness,
+            "start_ts": start_ts,
+            "end_ts": end_ts,
+            "train_start_ts": train_start_ts,
+            "val_start_ts": val_start_ts,
+            "test_start_ts": test_start_ts,
+        }
+        refresh_cached_metadata(
+            root_dir=self.root_dir,
+            metadata=metadata,
+            required_files=("full_sequence.pt",),
+        )
+        super().__init__(root_dir=self.root_dir, metadata=metadata)
+
+        # Load the full sequence
+        self.full_sequence = TppDataset.load_from_disk(
+            self.root_dir / "full_sequence.pt"
+        )[0]
+
+        # Split full sequence into train / val / test parts
+        self._split_datasets()
+
+    def _split_datasets(self):
+        seq_train, seq_val, seq_test = train_val_test_split_sequence(
+            seq=self.full_sequence,
+            start_ts=self.metadata["start_ts"],
+            train_start_ts=self.metadata["train_start_ts"],
+            val_start_ts=self.metadata["val_start_ts"],
+            test_start_ts=self.metadata["test_start_ts"],
+        )
+        self.train = TppDataset([seq_train])
+        self.val = TppDataset([seq_val])
+        self.test = TppDataset([seq_test])
+    
+    @property
+    def required_files(self):
+        return ["full_sequence.pt", "metadata.pt"]
+
+    def generate_catalog(self):
+        logger.info("Downloading...")
+
+        raw_df = []
+
+        year_range = range(
+            self.metadata["start_ts"].year,
+            self.metadata["end_ts"].year,
+        )
+
+        for iyear in year_range:
+            stream = requests.get(url="{}{}.catalog".format(self.url, iyear)).content
+
+            raw_df.append(
+                pd.read_csv(
+                    io.StringIO(stream.decode("utf-8")),
+                    sep=r"\s+",
+                    header=0,
+                    names=COL_NAMES,
+                    comment="#",
+                    index_col=False,
+                )
+            )
+
+        raw_df = pd.concat(raw_df, ignore_index=True)
+
+        # workaround to deal with seconds going up to 60.0
+        raw_df["date_time"] = pd.to_datetime(raw_df["date"]) + pd.to_timedelta(
+            raw_df["time"]
+        )
+
+        raw_df.sort_values(by=["date_time"], inplace=True)
+        subset_df = raw_df.loc[raw_df["magnitude"] > self.metadata["mag_completeness"]]
+
+        start_ts = self.metadata["start_ts"]
+        end_ts = self.metadata["end_ts"]
+
+        assert subset_df.date_time.min() > start_ts
+        assert subset_df.date_time.max() < end_ts
+
+        t_start = 0.0
+        t_end = (end_ts - start_ts) / pd.Timedelta("1 day")
+
+        arrival_times = (
+            (subset_df.date_time - start_ts) / pd.Timedelta("1 day")
+        ).values
+        inter_times = np.diff(arrival_times, prepend=[t_start], append=[t_end])
+        mag = subset_df["magnitude"].values
+        seq = Sequence(
+            inter_times=torch.as_tensor(inter_times, dtype=torch.float32),
+            mag=torch.as_tensor(mag, dtype=torch.float32),
+        )
+        subset_df.to_csv(self.root_dir / "catalog.csv")
+        dataset = TppDataset(sequences=[seq])
+        dataset.save_to_disk(self.root_dir / "full_sequence.pt")

@@ -1,0 +1,17 @@
+# ref: https://github.com/state-spaces/mamba/blob/main/mamba_ssm/models/config_mamba.py
+from dataclasses import dataclass, field
+
+
+@dataclass
+class MambaConfig:
+    input_dim: int = 1
+    d_model: int = 256
+    d_intermediate: int = 0
+    n_layer: int = 2
+    ssm_cfg: dict = field(default_factory=dict)
+    attn_layer_idx: list = field(default_factory=list)
+    attn_cfg: dict = field(default_factory=dict)
+    rms_norm: bool = True
+    residual_in_fp32: bool = True
+    fused_add_norm: bool = True
+

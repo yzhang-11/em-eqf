@@ -1,0 +1,85 @@
+model: oracle
+base_config: config/oracle.yaml
+
+# Oracle 多数据集复现实验：
+# - 数据集与 catalog_cfg 对齐 rtpp_v2_multi_dataset.yaml。
+# - Oracle 需要 event-level marks，因此 common.catalog_cfg 保留 Oracle feature builder，
+#   每个数据集只覆盖 freq 和 mag_completeness。
+seeds: [0, 1, 2]
+
+# 并发与资源
+gpu_ids: [0]
+max_parallel: 3
+jobs_per_gpu: 3
+stop_on_error: false
+
+exp_root: experiments
+exp_name: oracle_multi_dataset_0.7
+
+run_test: true
+ckpt_select: both
+resume_exp: true
+skip_done: true
+
+grid:
+  name_prefix: oracle
+  common:
+    overrides:
+      minibatch_training: false
+      split_by_time: true
+      time_order: [train, val, test]
+      input_magnitude: true
+      input_injection: true
+      oracle_loss_mode: causal
+      train_to_forecast: false
+      oracle_sampling_mode: autoregressive
+      oracle_base_mark_order: [time, aRs, mag, Mc, vm, dVc, sv, dTS]
+      oracle_future_feature_names: [vm, sv, dTS, Mc]
+      supplementary_mark_list: []
+      catalog_cfg:
+        event_feature_builder: oracle
+        event_feature_cfg:
+          smoothing_window: 10
+          activity_epsilon: 0.0
+          log_floor: -10.0
+  points:
+
+    # experiment_record.md 4.6: PNR_1z
+    - name: PNR_1z
+      overrides:
+        dataset: PNR_1z
+        catalog_cfg.freq: "1D"
+        catalog_cfg.mag_completeness: -1.5
+        catalog_cfg.train_start_ts: "2018-10-15T08:00:00"
+        catalog_cfg.val_start_ts: "2018-12-10T10:05:54"
+        catalog_cfg.test_start_ts: "2018-12-13T11:39:51"
+
+    # experiment_record.md 4.6: CB_HAB1a(-0.4)
+    - name: CB_HAB1a
+      overrides:
+        dataset: CB_HAB1a
+        catalog_cfg.freq: "1D"
+        catalog_cfg.mag_completeness: -0.4
+        catalog_cfg.train_start_ts: "2003-11-06T00:01:09.999"
+        catalog_cfg.val_start_ts: "2003-12-07T04:32:56"
+        catalog_cfg.test_start_ts: "2003-12-08T22:39:28"
+
+    # experiment_record.md 4.6: CB_HAB4
+    - name: CB_HAB4
+      overrides:
+        dataset: CB_HAB4
+        catalog_cfg.freq: "1D"
+        catalog_cfg.mag_completeness: 0.9
+        catalog_cfg.train_start_ts: "2012-11-10T12:21:28"
+        catalog_cfg.val_start_ts: "2012-11-28T18:32:38.999"
+        catalog_cfg.test_start_ts: "2012-11-30T05:46:09"
+
+    # experiment_record.md 4.6 / config/data_tpp.yaml: St1-2018(-0.5)
+    - name: St1_2018
+      overrides:
+        dataset: St1-2018
+        catalog_cfg.freq: "1D"
+        catalog_cfg.mag_completeness: -0.5
+        catalog_cfg.train_start_ts: "2018-06-04T05:27:26.351"
+        catalog_cfg.val_start_ts: "2018-07-10T08:49:47.985"
+        catalog_cfg.test_start_ts: "2018-07-18T10:35:40.860"
