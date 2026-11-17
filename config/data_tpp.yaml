@@ -2,6 +2,12 @@
 # Each catalog uses a chronological 70% / 15% / 15% split by retained event count:
 # the first 70% events are training, the next 15% validation, and the last 15% testing.
 dataset_catalog_cfg:
+  # SURF N164. Each adapter reads its chronological boundaries and training Mc from its summary.
+  EGSCollab_522: {}
+  EGSCollab_523: {}
+  EGSCollab_524: {}
+  EGSCollab_525A: {}
+  EGSCollab_525B: {}
   # Calendar-time split: train 56d 02:05:54 (87.35%),
   # validation 3d 01:33:57 (4.77%), test 5d 01:20:09 (7.87%).
   PNR_1z:

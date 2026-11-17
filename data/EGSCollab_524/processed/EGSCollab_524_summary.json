@@ -1,0 +1,33 @@
+{
+  "dataset": "EGSCollab_524",
+  "site": "EGS Collab Experiment 1 / N164",
+  "protocol": "v1",
+  "observation": "intersection of published waveform file-start span and pump coverage",
+  "source_member": "SF_E1_Stim2_DriveToProduction.csv",
+  "source_channel": "Triplex Net Flow",
+  "magnitude_type": "mag_rel",
+  "mc": -4.25,
+  "mc_method": "training-prefix MAXC, 0.1 bins, exploratory; retain M > Mc",
+  "resample_freq_min": 1,
+  "is_upsample": false,
+  "inj_fill_policy": "past_minute_observed_mean",
+  "start_time_iso": "2018-05-24T22:24:00+00:00",
+  "end_time_iso": "2018-05-24T22:59:00+00:00",
+  "val_start_ts": "2018-05-24T22:44:58.661985+00:00",
+  "test_start_ts": "2018-05-24T22:46:42.967238+00:00",
+  "n_eq": 298,
+  "n_scored": [
+    163,
+    38,
+    35
+  ],
+  "n_minute_samples": 36,
+  "min_observed_seconds": 59,
+  "peak_minute_l_min": 4.981652749999999,
+  "event_id_column": "eventid",
+  "splits": "chronological 70/15/15 before Mc",
+  "column_aliases": {
+    "eq_time": "time_iso",
+    "inj_time": "time_iso"
+  }
+}

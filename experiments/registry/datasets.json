@@ -996,5 +996,84 @@
     "processed": [],
     "cache": "/root/autodl-tmp/em_eqf/data/ne_10m_admin_0_countries/cache/windows",
     "catalogs": "/root/autodl-tmp/em_eqf/data/ne_10m_admin_0_countries/catalogs"
+  },
+  {
+    "dataset": "EGSCollab_E1",
+    "path": "data/EGSCollab_E1",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/EGSCollab_E1",
+    "raw": [
+      "data/EGSCollab_E1/raw/StimulationDataNotes.docx",
+      "data/EGSCollab_E1/raw/catalog_manual_all_v200629.csv",
+      "data/EGSCollab_E1/raw/may_pump_records.zip",
+      "data/EGSCollab_E1/raw/waveform_inventory.json"
+    ],
+    "processed": [],
+    "cache": "/root/autodl-tmp/em_eqf/data/EGSCollab_E1/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/EGSCollab_E1/catalogs"
+  },
+  {
+    "dataset": "EGSCollab_522",
+    "path": "data/EGSCollab_522",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/EGSCollab_522",
+    "raw": [],
+    "processed": [
+      "data/EGSCollab_522/processed/EGSCollab_522_eq_processed.csv",
+      "data/EGSCollab_522/processed/EGSCollab_522_inj_1min_processed.csv",
+      "data/EGSCollab_522/processed/EGSCollab_522_summary.json"
+    ],
+    "cache": "/root/autodl-tmp/em_eqf/data/EGSCollab_522/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/EGSCollab_522/catalogs"
+  },
+  {
+    "dataset": "EGSCollab_523",
+    "path": "data/EGSCollab_523",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/EGSCollab_523",
+    "raw": [],
+    "processed": [
+      "data/EGSCollab_523/processed/EGSCollab_523_eq_processed.csv",
+      "data/EGSCollab_523/processed/EGSCollab_523_inj_1min_processed.csv",
+      "data/EGSCollab_523/processed/EGSCollab_523_summary.json"
+    ],
+    "cache": "/root/autodl-tmp/em_eqf/data/EGSCollab_523/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/EGSCollab_523/catalogs"
+  },
+  {
+    "dataset": "EGSCollab_524",
+    "path": "data/EGSCollab_524",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/EGSCollab_524",
+    "raw": [],
+    "processed": [
+      "data/EGSCollab_524/processed/EGSCollab_524_eq_processed.csv",
+      "data/EGSCollab_524/processed/EGSCollab_524_inj_1min_processed.csv",
+      "data/EGSCollab_524/processed/EGSCollab_524_summary.json"
+    ],
+    "cache": "/root/autodl-tmp/em_eqf/data/EGSCollab_524/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/EGSCollab_524/catalogs"
+  },
+  {
+    "dataset": "EGSCollab_525A",
+    "path": "data/EGSCollab_525A",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/EGSCollab_525A",
+    "raw": [],
+    "processed": [
+      "data/EGSCollab_525A/processed/EGSCollab_525A_eq_processed.csv",
+      "data/EGSCollab_525A/processed/EGSCollab_525A_inj_1min_processed.csv",
+      "data/EGSCollab_525A/processed/EGSCollab_525A_summary.json"
+    ],
+    "cache": "/root/autodl-tmp/em_eqf/data/EGSCollab_525A/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/EGSCollab_525A/catalogs"
+  },
+  {
+    "dataset": "EGSCollab_525B",
+    "path": "data/EGSCollab_525B",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/EGSCollab_525B",
+    "raw": [],
+    "processed": [
+      "data/EGSCollab_525B/processed/EGSCollab_525B_eq_processed.csv",
+      "data/EGSCollab_525B/processed/EGSCollab_525B_inj_1min_processed.csv",
+      "data/EGSCollab_525B/processed/EGSCollab_525B_summary.json"
+    ],
+    "cache": "/root/autodl-tmp/em_eqf/data/EGSCollab_525B/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/EGSCollab_525B/catalogs"
   }
 ]

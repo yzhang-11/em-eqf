@@ -15,3 +15,6 @@ data/**/*.parquet filter=lfs diff=lfs merge=lfs -text
 
 # Portable external source snapshots; generated caches are excluded from the bundle.
 /data/external_sources.tar.gz filter=lfs diff=lfs merge=lfs -text
+
+# Keep the published waveform listing byte-stable on Windows checkouts.
+data/EGSCollab_E1/raw/waveform_inventory.json text eol=lf

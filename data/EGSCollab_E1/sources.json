@@ -1,0 +1,70 @@
+{
+  "site": "Sanford Underground Research Facility, South Dakota, USA; EGS Collab Experiment 1; E1-I 164 ft notch",
+  "sources": {
+    "1166": {
+      "title": "EGS Collab Experiment 1: Microseismic Monitoring",
+      "doi": "10.15121/1557417",
+      "authors": [
+        "Schoenball, Martin",
+        "Ajo-Franklin, Jonathan",
+        "Robertson, Michelle",
+        "Wood, Todd",
+        "Blankenship, Doug",
+        "Cook, Paul",
+        "Dobson, Patrick",
+        "Guglielmi, Yves",
+        "Fu, Pengcheng",
+        "Kneafsey, Timothy",
+        "Knox, Hunter",
+        "Petrov, Petr",
+        "Schwering, Paul",
+        "Rempleton, Dennise",
+        "Ulrich, Craig",
+        "Li, Jiaxuan",
+        "Huang, Lianjie",
+        "Chi, Benxin",
+        "Hopp, Chet",
+        "EGS Collab Team, The"
+      ],
+      "url": "https://gdr.openei.org/submissions/1166",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    "1229": {
+      "title": "EGS Collab Experiment 1 Stimulation Data",
+      "doi": "10.15121/1651116",
+      "authors": [
+        "Knox, Hunter",
+        "Fu, Pengcheng",
+        "Schwering, Paul",
+        "Strickland, Christopher",
+        "Linneman, Dorothy",
+        "Vermeul, Vince",
+        "Burghardt, Jeff",
+        "Ingraham, Mathew"
+      ],
+      "url": "https://gdr.openei.org/submissions/1229",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/"
+    }
+  },
+  "source_catalog": "https://gdr.openei.org/files/1166/catalog_manual_all_v200629.csv",
+  "source_pump_archive": "https://gdr.openei.org/files/1229/rawcsvs.zip",
+  "source_pump_archive_sha256": "5771e0aeff100085c85df76f971d5cf35d21f3ec2b7b74d2020d30c615df2e0c",
+  "source_notes": "https://gdr.openei.org/files/1229/StimulationDataNotes.docx",
+  "waveform_listing": "s3://gdr-data-lake/egs_collab/experiment_1/microseismic_monitoring/",
+  "methods": "https://doi.org/10.1029/2020JB020840",
+  "modifications": "Three original pump CSV members and one instrument dictionary copied byte-for-byte from rawcsvs/ into may_pump_records.zip. May waveform file names listed from GDR S3. Processed triplets intersect waveform and pump spans, use past-minute mean flow in m3/min, retain local-coordinate columns and relative magnitude.",
+  "source_pump_members_sha256": {
+    "SF_E1_Stim2_1.5m_May22.csv": "5bad08bcfb1af9aa12992af7430dbe052909c6994dd796596216b4e1f26d03f3",
+    "SF_E1_Stim2_1.5mStepTest.csv": "54fb1983784f57298dca1c13492e0dba7b7be764ebf06d9e4a082317d7d4db14",
+    "SF_E1_Stim2_DriveToProduction.csv": "983f4d62ac8988bd1758e34295069062d7f097bb9594c20d82c516770a33360c",
+    "Stim_Flow_Data_File_Cheat_Sheet_Final.xlsx": "afaefbf64868ab2c3b306d7c3a3f657ce069c0b23c7268ff9f90f7fede4ddbeb"
+  },
+  "files": {
+    "catalog_manual_all_v200629.csv": "a7372547091fd2699704c9ae8475b254f5fa76645e9d7845ed3088864bb479fe",
+    "may_pump_records.zip": "ea09126ac16f334e9e2fa5c073e334add4b92dd24ac9c44e85fb14ece1414cbe",
+    "StimulationDataNotes.docx": "47fadef779d8e962bf197adc29493b188ed7f07482c4db73a1234708b8a43f18",
+    "waveform_inventory.json": "63deced467c5708c96267066ffeff760fb0e750f9c3ef52b63ffb1c02981d5b7"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "dataset": "EGSCollab_522",
+  "site": "EGS Collab Experiment 1 / N164",
+  "protocol": "v1",
+  "observation": "intersection of published waveform file-start span and pump coverage",
+  "source_member": "SF_E1_Stim2_1.5m_May22.csv",
+  "source_channel": "Quizix Flow",
+  "magnitude_type": "mag_rel",
+  "mc": -4.25,
+  "mc_method": "training-prefix MAXC, 0.1 bins, exploratory; retain M > Mc",
+  "resample_freq_min": 1,
+  "is_upsample": false,
+  "inj_fill_policy": "past_minute_observed_mean",
+  "start_time_iso": "2018-05-22T21:34:00+00:00",
+  "end_time_iso": "2018-05-22T22:09:00+00:00",
+  "val_start_ts": "2018-05-22T22:02:52.714591+00:00",
+  "test_start_ts": "2018-05-22T22:04:13.051122+00:00",
+  "n_eq": 38,
+  "n_scored": [
+    16,
+    4,
+    5
+  ],
+  "n_minute_samples": 36,
+  "min_observed_seconds": 59,
+  "peak_minute_l_min": 0.199999,
+  "event_id_column": "eventid",
+  "splits": "chronological 70/15/15 before Mc",
+  "column_aliases": {
+    "eq_time": "time_iso",
+    "inj_time": "time_iso"
+  }
+}
