@@ -11,10 +11,17 @@ from .induced_triplet_base import InducedTripletBase
 
 
 class EGSCollabStage(InducedTripletBase):
+    @classmethod
+    def resolve_site_data_dir(cls, path):
+        # Older configs use data/<stage>. New releases share a single site directory.
+        if path.name == cls.stage and not (path / "processed").is_dir():
+            return path.parent / "EGSCollab_E1"
+        return path
+
     def __init__(self, root_dir=None, data_dir=None, mag_completeness=None, normalize=False,
                  train_start_ts=None, val_start_ts=None, test_start_ts=None, **kwargs):
         name = self.stage
-        data_dir = Path(data_dir) if data_dir else default_catalogs_dir / name
+        data_dir = self.resolve_site_data_dir(Path(data_dir)) if data_dir else default_catalogs_dir / "EGSCollab_E1"
         root_dir = Path(root_dir) if root_dir else data_dir / "catalogs"
         prefix = data_dir / "processed"
         summary = json.loads((prefix / f"{name}_summary.json").read_text())

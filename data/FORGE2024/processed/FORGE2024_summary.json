@@ -1,0 +1,11 @@
+{
+  "raw_events": 2900,
+  "site_group": "Utah FORGE",
+  "dataset": "FORGE2024",
+  "events": 2900,
+  "with_magnitude": 2900,
+  "tied_time_rows": 0,
+  "first_event": "2024-04-03T17:47:29.411000+00:00",
+  "last_event": "2024-04-15T22:06:54.507000+00:00",
+  "injection_rows": 0
+}

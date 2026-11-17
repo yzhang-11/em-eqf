@@ -76,7 +76,7 @@ def build_triplet(label, catalog, inventory, rate):
     split_counts = [int((keep & mask).sum()) for mask in
                     (time < val, (time >= val) & (time < test), time >= test)]
     name = f"EGSCollab_{label}"
-    dest = ROOT / "data" / name / "processed"
+    dest = SITE / "processed"
     dest.mkdir(parents=True, exist_ok=True)
     eq.to_csv(dest / f"{name}_eq_processed.csv", index=False, lineterminator="\n")
     inj.to_csv(dest / f"{name}_inj_1min_processed.csv", index=False, lineterminator="\n")

@@ -1,0 +1,24 @@
+{
+  "dataset": "FORGE2024",
+  "title": "Utah FORGE 2024 stimulations: Microseismic event catalog from seismic surface network",
+  "authors": [
+    "Niemz, Peter",
+    "Pankow, Kristine",
+    "Isken, Marius Paul",
+    "Whidden, Katherine",
+    "McLennan, John",
+    "Moore, Joseph"
+  ],
+  "doi": "https://doi.org/10.5281/zenodo.12817881",
+  "license": "cc-by-sa-4.0",
+  "files": [
+    {
+      "file": "microseismic_catalog_Utah_FORGE_2024stim_niemzetal2024.csv",
+      "url": "https://zenodo.org/api/records/12817881/files/microseismic_catalog_Utah_FORGE_2024stim_niemzetal2024.csv/content",
+      "provider_checksum": "md5:d2bdeafcd65ada61bc2c0b2a15543cb8",
+      "sha256": "19f6181d0b86dc6a63d891a1bea4d0c622695f0013861c291a6e39f4600628b0"
+    }
+  ],
+  "scope": "April 2024 Utah FORGE, surface-network catalog, times in UTC. Magnitudes calibrated to UUSS local magnitudes. Local coordinates referenced to well 16A(78)-32. For site holdout, group with FORGE2022; the two campaigns are disjoint in time.",
+  "repository_record": "https://gdr.openei.org/submissions/1622"
+}

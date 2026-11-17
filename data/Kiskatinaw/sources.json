@@ -1,0 +1,19 @@
+{
+  "dataset": "Kiskatinaw",
+  "title": "Seismicity catalog of hydraulic-fracturing-induced earthquakes in the Kiskatinaw area, northeast British Columbia",
+  "authors": [
+    "Roth, Marco Pascal"
+  ],
+  "doi": "https://doi.org/10.5281/zenodo.8074897",
+  "license": "cc-by-4.0",
+  "files": [
+    {
+      "file": "EarthquakeCatalog_KiskatinawArea_Rothetal_Dec2020.csv",
+      "url": "https://zenodo.org/api/records/8074897/files/EarthquakeCatalog_KiskatinawArea_Rothetal_Dec2020.csv/content",
+      "provider_checksum": "md5:b8a02936f4e2352636722b94c89ffd6a",
+      "sha256": "b79749a06ebca5413ca503e42e365d8181fc4ebcb8afcce9b6c58d01a1ab4693"
+    }
+  ],
+  "scope": "Author-classified induced events only, native ML_WCSB. Reported origin clock checked against 2018-11-30 regional events at 01:27:06, 02:06:01 and 02:15:00 UTC.",
+  "clock_reference": "https://www.bcogris.ca/files/projects/Seismicity-Research-and-Monitoring/BCOGRIS-Kiskatinaw-Ground-Motion-Study-v2.0.1-Compressed.pdf"
+}

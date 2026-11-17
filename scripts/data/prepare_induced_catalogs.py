@@ -1,4 +1,4 @@
-"""Rebuild five observational catalogs from their pinned raw files. Requires pandas and numpy."""
+"""Rebuild induced-seismicity catalogs from their pinned raw files. Requires pandas and numpy."""
 import argparse
 import gzip
 import hashlib
@@ -12,28 +12,8 @@ import numpy as np
 import pandas as pd
 
 DATA = Path(__file__).resolve().parents[2] / "data"
+MIN_MARKED_EVENTS = 500
 GPM_TO_M3_MIN = 0.003785411784
-
-
-def newberry(raw):
-    eq = pd.read_csv(raw / "cataloguedelimited-529f6605f226d.dat", sep="\t")
-    events = pd.DataFrame({
-        "event_id": "newberry:row:" + (eq.index + 2).astype(str),
-        "time_iso": pd.to_datetime(eq.Date + " " + eq.Time, format="%m/%d/%Y %H:%M:%S", utc=True),
-        "magnitude": eq.Mag, "magnitude_type": eq.Magt.replace("_", pd.NA),
-        "latitude": eq.Lat, "longitude": eq.Lon, "depth_source": eq.Depth,
-        "easting_utm10_m": eq.easting, "northing_utm10_m": eq.northing,
-    })
-    pump = pd.read_csv(raw / "WHP_Flow.csv")
-    local = pd.to_datetime(pump.Date + " " + pump.Time, format="%m/%d/%Y %H:%M:%S")
-    utc = local.dt.tz_localize("America/Los_Angeles", ambiguous="infer").dt.tz_convert("UTC")
-    if utc.duplicated().any() or not utc.is_monotonic_increasing:
-        raise ValueError("Ambiguous Newberry pump chronology")
-    flow = pd.to_numeric(pump.Downhole_Flow.replace({"LINE": None, "DRAINED": None}), errors="raise")
-    inj = pd.DataFrame({"time_iso": utc, "inj_rate_m3_min": flow * GPM_TO_M3_MIN,
-                        "wellhead_pressure_psi": pump.WHP, "downhole_flow_source": pump.Downhole_Flow})
-    return events, inj, {"raw_events": len(eq), "missing_downhole_flow": int(flow.isna().sum()),
-                         "pump_gaps_over_1min": int((utc.diff() > pd.Timedelta(minutes=1)).sum())}
 
 
 def zip_csv(path):
@@ -70,7 +50,7 @@ def paradox(raw):
 
 
 def sheet_rows(book, number, strings, columns):
-    # Published figure-source workbook. Read the cells with values, ignoring the large styled blank range.
+    # Read only populated cells from the published XLSX.
     with book.open(f"xl/worksheets/sheet{number}.xml") as f:
         for _, row in ET.iterparse(f, events=["end"]):
             if not row.tag.endswith("}row"):
@@ -84,29 +64,6 @@ def sheet_rows(book, number, strings, columns):
             if values:
                 yield int(row.get("r")), values
             row.clear()
-
-
-def pohang(raw):
-    with ZipFile(raw / "41467_2020_16408_MOESM4_ESM.xlsx") as book:
-        strings = ["".join(c.itertext()) for c in ET.fromstring(book.read("xl/sharedStrings.xml"))]
-        rows = [(i, d) for i, d in sheet_rows(book, 1, strings, {"M", "N", "O"}) if i > 2 and "M" in d]
-        events = pd.DataFrame({
-            "event_id": [f"fig2a:row:{i}" for i, _ in rows],
-            "time_iso": pd.to_datetime([d["M"] for _, d in rows], format="%m/%d/%Y %H:%M:%S.%f", utc=True),
-            "magnitude": [float(d["N"]) for _, d in rows], "magnitude_type": "ML",
-            "Mw": [float(d["O"]) if d.get("O", "-") != "-" else np.nan for _, d in rows],
-        })
-        campaigns = []
-        for number, well in enumerate(["PX-2", "PX-1", "PX-2", "PX-1", "PX-2"], start=2):
-            readings = [d for i, d in sheet_rows(book, number, strings, {"A", "B", "C"}) if i > 1 and "A" in d]
-            frame = pd.DataFrame(readings).astype(float)
-            kst = pd.to_datetime(frame.A, unit="D", origin="1899-12-30").dt.round("ms")
-            campaigns.append(pd.DataFrame({"time_iso": kst.dt.tz_localize("Asia/Seoul").dt.tz_convert("UTC"),
-                                           "well": well, "stimulation": number - 1,
-                                           "inj_rate_m3_min": frame.B * .06, "wellhead_pressure_MPa": frame.C}))
-    inj = pd.concat(campaigns, ignore_index=True)
-    return events, inj, {"raw_events": len(events), "with_Mw": int(events.Mw.notna().sum()),
-                         "source": "Figure 2a selected earthquakes; Figure 2b-f reported flow rates"}
 
 
 def aspo(raw):
@@ -137,7 +94,7 @@ def aspo(raw):
             record = Path(item.name).stem
             inside = events.time_iso.between(idx[0], idx[-1])
             if events.loc[inside, "hydraulic_record"].notna().any():
-                raise ValueError("Overlapping Äspö records")
+                raise ValueError("Overlapping 脛sp枚 records")
             events.loc[inside, "hydraulic_record"] = record
             groups = d.set_index(idx).resample("1s", label="right", closed="right")
             out = groups.agg(inj_rate_m3_min=("flow[l/min]", "mean"),
@@ -178,8 +135,65 @@ def knmi(raw):
     return events, None, {"raw_events": len(source), "excluded_origin_quality": len(source)-len(events)}
 
 
-BUILDERS = {"Newberry_EGS2012": newberry, "Paradox_Valley": paradox, "Pohang_EGS": pohang,
-            "Aspo_HRL2015": aspo, "KNMI_Induced": knmi}
+def tony_creek(raw):
+    with ZipFile(raw / "Catalog_JGR.xlsx") as book:
+        strings = ["".join(node.itertext()) for node in ET.fromstring(book.read("xl/sharedStrings.xml"))]
+        rows = sheet_rows(book, 1, strings, set("ABCDEFGHIJ"))
+        _, header = next(rows)
+        fields = ["Number", "Month", "Day", "Hour", "Minute", "Second", "Easting (m)",
+                  "Northing (m)", "Depth (m)", "Magnitude Mw"]
+        columns = list("ABCDEFGHIJ")
+        if [header[c] for c in columns] != fields:
+            raise ValueError("Unexpected ToC2ME workbook header")
+        eq = pd.DataFrame([row for _, row in rows], columns=columns).astype(float)
+    clock = eq[list("BCDEF")].set_axis(["month", "day", "hour", "minute", "second"], axis=1)
+    events = pd.DataFrame({
+        "event_id": eq.A.astype("int64"), "time_iso": pd.to_datetime(clock.assign(year=2016), utc=True),
+        "magnitude": eq.J, "magnitude_type": "Mw", "easting_local_m": eq.G,
+        "northing_local_m": eq.H, "depth_source_m": eq.I,
+    })
+    return events, None, {"raw_events": len(eq), "time_resolution_seconds": 1}
+
+
+def kiskatinaw(raw):
+    eq = pd.read_csv(raw / "EarthquakeCatalog_KiskatinawArea_Rothetal_Dec2020.csv")
+    if not eq.event_type.eq("induced event").all():
+        raise ValueError("Unexpected Kiskatinaw event type")
+    events = eq.rename(columns={"ID": "event_id", "origin": "time_iso", "mag_type": "magnitude_type",
+                                "depth": "depth_km"}).drop(columns=["date", "time"])
+    events.time_iso = pd.to_datetime(events.time_iso, utc=True, format="ISO8601")
+    return events, None, {"raw_events": len(eq)}
+
+
+def forge2024(raw):
+    eq = pd.read_csv(raw / "microseismic_catalog_Utah_FORGE_2024stim_niemzetal2024.csv", dtype={"ID": str})
+    events = eq.rename(columns={"ID": "event_id", "time(UTC)": "time_iso", "lat": "latitude",
+                                "lon": "longitude", "depth[m_local]": "depth_local_m",
+                                "east_shift[m_local]": "easting_local_m", "north_shift[m_local]": "northing_local_m"})
+    events.time_iso = pd.to_datetime(events.time_iso, utc=True, format="ISO8601")
+    events["magnitude_type"] = "ML_calibrated"
+    return events, None, {"raw_events": len(eq), "site_group": "Utah FORGE"}
+
+
+def lacq(raw):
+    columns = ["latitude", "longitude", "depth_km", "magnitude", "year", "month", "day", "hour",
+               "minute", "second", "rms_seconds", "n_phases", "horizontal_uncertainty_km",
+               "vertical_uncertainty_km", "azimuthal_gap_deg", "pgv_max_mm_s", "mw_from_ml"]
+    events = pd.read_csv(raw / "CATALOG_LACQ.txt", sep=r"\s+", comment="#", names=columns)
+    clock = events[["year", "month", "day", "hour", "minute"]].astype(int)
+    time = pd.to_datetime(clock, utc=True) + pd.to_timedelta(events.second, unit="s")
+    if time.duplicated().any():
+        raise ValueError("Ambiguous Lacq origin time used as event identity")
+    events = events.drop(columns=[*clock.columns, "second"])
+    events.insert(0, "event_id", "lacq:" + time.dt.strftime("%Y%m%dT%H%M%S.%fZ"))
+    events.insert(1, "time_iso", time)
+    events["magnitude_type"] = "ML"
+    return events, None, {"raw_events": len(events), "selection": "author-constrained CATALOG_LACQ"}
+
+
+BUILDERS = {"Paradox_Valley": paradox, "Aspo_HRL2015": aspo, "KNMI_Induced": knmi,
+            "Tony_Creek": tony_creek, "Kiskatinaw": kiskatinaw, "FORGE2024": forge2024,
+            "Lacq_SISLACQ2021": lacq}
 
 
 def build(name, data_dir):
@@ -193,6 +207,8 @@ def build(name, data_dir):
     eq = eq.sort_values(["time_iso", "event_id"], kind="stable")
     if eq.empty or eq.event_id.isna().any() or eq.event_id.duplicated().any() or eq.time_iso.isna().any():
         raise ValueError(f"Invalid event identities/timestamps: {name}")
+    if np.isinf(eq.magnitude).any() or eq.magnitude.notna().sum() < MIN_MARKED_EVENTS:
+        raise ValueError(f"Invalid magnitudes or fewer than {MIN_MARKED_EVENTS} marked events: {name}")
     out = site / "processed"
     out.mkdir(exist_ok=True)
     eq.to_csv(out / f"{name}_eq_processed.csv", index=False, lineterminator="\n")

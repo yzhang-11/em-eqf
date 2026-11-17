@@ -13,7 +13,7 @@ from src.data.preparation_modules.tpp import prepare_data_tpp
 @pytest.mark.parametrize("episode", ["522", "523", "524", "525A", "525B"])
 def test_scored_events_and_flow(episode, tmp_path):
     name = f"EGSCollab_{episode}"
-    data_dir = default_catalogs_dir / name
+    data_dir = default_catalogs_dir / "EGSCollab_E1"
     prefix = data_dir / "processed"
     meta = json.loads((prefix / f"{name}_summary.json").read_text())
     events = pd.read_csv(prefix / f"{name}_eq_processed.csv")
@@ -23,7 +23,7 @@ def test_scored_events_and_flow(episode, tmp_path):
     inj = pd.read_csv(prefix / f"{name}_inj_1min_processed.csv")
     args = SimpleNamespace(dataset=name, batch_size=1,
                            catalog_cfg={"root_dir": tmp_path / "catalogs", "normalize": True})
-    seq, train, val, test, catalog = prepare_data_tpp(args, data_dir)
+    seq, train, val, test, catalog = prepare_data_tpp(args, default_catalogs_dir / name)
     assert [args.num_events_train, args.num_events_val, args.num_events_test] == meta["n_scored"]
     for loader in (train, val, test):
         next(iter(loader))

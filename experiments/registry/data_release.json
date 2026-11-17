@@ -6,15 +6,15 @@
     "index": "experiments/registry/external_sources.json"
   },
   "storage_root": "/autodl-fs/data/em_eqf_catalogs",
-  "source_commit": "a73f3c31ea21504cdf1a3735c1dd8368a8df72b8",
+  "source_commit": "67e0d36130292893cb56f03041114372135ba9af",
   "dataset_index": "experiments/registry/datasets.json",
   "scope": "Tracked data, indexed raw/processed inputs, and source files in local root aliases; excludes generated caches and weights in root aliases.",
   "counts": {
-    "tracked_data_files": 443,
+    "tracked_data_files": 446,
     "data_lfs_files": 250,
     "files_by_delivery": {
       "git_lfs": 358,
-      "git": 193,
+      "git": 196,
       "external_bundle": 2617
     },
     "private_excluded": 3,
@@ -4343,108 +4343,108 @@
       "delivery": "git_lfs"
     },
     {
-      "path": "data/EGSCollab_522/processed/EGSCollab_522_eq_processed.csv",
+      "path": "data/EGSCollab_E1/processed/EGSCollab_522_eq_processed.csv",
       "bytes": 6369,
       "sha256": "bec64aa167d88258905f53ef5362c8f8d434e4730493019fdb8cd40f178396c5",
-      "source_path": "/root/autodl-tmp/em_eqf/data/EGSCollab_522/processed/EGSCollab_522_eq_processed.csv",
+      "source_path": "/root/autodl-tmp/em_eqf/data/EGSCollab_E1/processed/EGSCollab_522_eq_processed.csv",
       "delivery": "git_lfs"
     },
     {
-      "path": "data/EGSCollab_522/processed/EGSCollab_522_inj_1min_processed.csv",
+      "path": "data/EGSCollab_E1/processed/EGSCollab_522_inj_1min_processed.csv",
       "bytes": 1689,
       "sha256": "e91667016c459054499344ebedcaba755c220751b4a8785d429036396c6db56d",
-      "source_path": "/root/autodl-tmp/em_eqf/data/EGSCollab_522/processed/EGSCollab_522_inj_1min_processed.csv",
+      "source_path": "/root/autodl-tmp/em_eqf/data/EGSCollab_E1/processed/EGSCollab_522_inj_1min_processed.csv",
       "delivery": "git_lfs"
     },
     {
-      "path": "data/EGSCollab_522/processed/EGSCollab_522_summary.json",
+      "path": "data/EGSCollab_E1/processed/EGSCollab_522_summary.json",
       "bytes": 1004,
       "sha256": "21a065d2dde53388a8d77148632831e379a9761b2f487f4af8ae17023a728f70",
-      "source_path": "/root/autodl-tmp/em_eqf/data/EGSCollab_522/processed/EGSCollab_522_summary.json",
+      "source_path": "/root/autodl-tmp/em_eqf/data/EGSCollab_E1/processed/EGSCollab_522_summary.json",
       "delivery": "git"
     },
     {
-      "path": "data/EGSCollab_523/processed/EGSCollab_523_eq_processed.csv",
+      "path": "data/EGSCollab_E1/processed/EGSCollab_523_eq_processed.csv",
       "bytes": 23053,
       "sha256": "6ae6778a89569b94808cf81d21f7ce9c082691e37b88ec7566abeeb63dd56a46",
-      "source_path": "/root/autodl-tmp/em_eqf/data/EGSCollab_523/processed/EGSCollab_523_eq_processed.csv",
+      "source_path": "/root/autodl-tmp/em_eqf/data/EGSCollab_E1/processed/EGSCollab_523_eq_processed.csv",
       "delivery": "git_lfs"
     },
     {
-      "path": "data/EGSCollab_523/processed/EGSCollab_523_inj_1min_processed.csv",
+      "path": "data/EGSCollab_E1/processed/EGSCollab_523_inj_1min_processed.csv",
       "bytes": 5888,
       "sha256": "da94e35c90d79f3a551097a8d102bdd733979947adbeb7c76bf6133bc403294c",
-      "source_path": "/root/autodl-tmp/em_eqf/data/EGSCollab_523/processed/EGSCollab_523_inj_1min_processed.csv",
+      "source_path": "/root/autodl-tmp/em_eqf/data/EGSCollab_E1/processed/EGSCollab_523_inj_1min_processed.csv",
       "delivery": "git_lfs"
     },
     {
-      "path": "data/EGSCollab_523/processed/EGSCollab_523_summary.json",
+      "path": "data/EGSCollab_E1/processed/EGSCollab_523_summary.json",
       "bytes": 1010,
       "sha256": "7efb3ae7eb6bf5253d6013f4c0f86797a7a91624e1e982aa5c21259d20b34104",
-      "source_path": "/root/autodl-tmp/em_eqf/data/EGSCollab_523/processed/EGSCollab_523_summary.json",
+      "source_path": "/root/autodl-tmp/em_eqf/data/EGSCollab_E1/processed/EGSCollab_523_summary.json",
       "delivery": "git"
     },
     {
-      "path": "data/EGSCollab_524/processed/EGSCollab_524_eq_processed.csv",
+      "path": "data/EGSCollab_E1/processed/EGSCollab_524_eq_processed.csv",
       "bytes": 49641,
       "sha256": "984daac1af7f2c7fd5ff42ba58fb0c7d002fd23020a514a9404c9a4ba93a671b",
-      "source_path": "/root/autodl-tmp/em_eqf/data/EGSCollab_524/processed/EGSCollab_524_eq_processed.csv",
+      "source_path": "/root/autodl-tmp/em_eqf/data/EGSCollab_E1/processed/EGSCollab_524_eq_processed.csv",
       "delivery": "git_lfs"
     },
     {
-      "path": "data/EGSCollab_524/processed/EGSCollab_524_inj_1min_processed.csv",
+      "path": "data/EGSCollab_E1/processed/EGSCollab_524_inj_1min_processed.csv",
       "bytes": 1773,
       "sha256": "b4a03af12a023ad35ffde56aae3a5ead9c96e1e297b208a8e1045a4e52fb11bd",
-      "source_path": "/root/autodl-tmp/em_eqf/data/EGSCollab_524/processed/EGSCollab_524_inj_1min_processed.csv",
+      "source_path": "/root/autodl-tmp/em_eqf/data/EGSCollab_E1/processed/EGSCollab_524_inj_1min_processed.csv",
       "delivery": "git_lfs"
     },
     {
-      "path": "data/EGSCollab_524/processed/EGSCollab_524_summary.json",
+      "path": "data/EGSCollab_E1/processed/EGSCollab_524_summary.json",
       "bytes": 1029,
       "sha256": "591cbb0a5df461ee73d4bc379a183b6ded3f76da185a2c962b7a8819bf6e8ed1",
-      "source_path": "/root/autodl-tmp/em_eqf/data/EGSCollab_524/processed/EGSCollab_524_summary.json",
+      "source_path": "/root/autodl-tmp/em_eqf/data/EGSCollab_E1/processed/EGSCollab_524_summary.json",
       "delivery": "git"
     },
     {
-      "path": "data/EGSCollab_525A/processed/EGSCollab_525A_eq_processed.csv",
+      "path": "data/EGSCollab_E1/processed/EGSCollab_525A_eq_processed.csv",
       "bytes": 12552,
       "sha256": "2a4c8bbea7caaa3cfc38bf4b756191ea775e805a6acb1ce29ce2f25cc3c11988",
-      "source_path": "/root/autodl-tmp/em_eqf/data/EGSCollab_525A/processed/EGSCollab_525A_eq_processed.csv",
+      "source_path": "/root/autodl-tmp/em_eqf/data/EGSCollab_E1/processed/EGSCollab_525A_eq_processed.csv",
       "delivery": "git_lfs"
     },
     {
-      "path": "data/EGSCollab_525A/processed/EGSCollab_525A_inj_1min_processed.csv",
+      "path": "data/EGSCollab_E1/processed/EGSCollab_525A_inj_1min_processed.csv",
       "bytes": 3002,
       "sha256": "7e07882adeaa4a95cef4bf89194b79a67e7474af1c87d683b2904be537e055a8",
-      "source_path": "/root/autodl-tmp/em_eqf/data/EGSCollab_525A/processed/EGSCollab_525A_inj_1min_processed.csv",
+      "source_path": "/root/autodl-tmp/em_eqf/data/EGSCollab_E1/processed/EGSCollab_525A_inj_1min_processed.csv",
       "delivery": "git_lfs"
     },
     {
-      "path": "data/EGSCollab_525A/processed/EGSCollab_525A_summary.json",
+      "path": "data/EGSCollab_E1/processed/EGSCollab_525A_summary.json",
       "bytes": 1026,
       "sha256": "9f6928f6d682a92a1e7999f91239256a0b7c64de6a4aea0459e6089c2a36fdf0",
-      "source_path": "/root/autodl-tmp/em_eqf/data/EGSCollab_525A/processed/EGSCollab_525A_summary.json",
+      "source_path": "/root/autodl-tmp/em_eqf/data/EGSCollab_E1/processed/EGSCollab_525A_summary.json",
       "delivery": "git"
     },
     {
-      "path": "data/EGSCollab_525B/processed/EGSCollab_525B_eq_processed.csv",
+      "path": "data/EGSCollab_E1/processed/EGSCollab_525B_eq_processed.csv",
       "bytes": 18902,
       "sha256": "79524a2afb3687b16a8975f12ee36697a910cf2d46fa5df1af58d2744c49bc89",
-      "source_path": "/root/autodl-tmp/em_eqf/data/EGSCollab_525B/processed/EGSCollab_525B_eq_processed.csv",
+      "source_path": "/root/autodl-tmp/em_eqf/data/EGSCollab_E1/processed/EGSCollab_525B_eq_processed.csv",
       "delivery": "git_lfs"
     },
     {
-      "path": "data/EGSCollab_525B/processed/EGSCollab_525B_inj_1min_processed.csv",
+      "path": "data/EGSCollab_E1/processed/EGSCollab_525B_inj_1min_processed.csv",
       "bytes": 3690,
       "sha256": "6d790b44081c82787884368636e7abc1f3949600e05a2d16a09315ac5703ab5f",
-      "source_path": "/root/autodl-tmp/em_eqf/data/EGSCollab_525B/processed/EGSCollab_525B_inj_1min_processed.csv",
+      "source_path": "/root/autodl-tmp/em_eqf/data/EGSCollab_E1/processed/EGSCollab_525B_inj_1min_processed.csv",
       "delivery": "git_lfs"
     },
     {
-      "path": "data/EGSCollab_525B/processed/EGSCollab_525B_summary.json",
+      "path": "data/EGSCollab_E1/processed/EGSCollab_525B_summary.json",
       "bytes": 1029,
       "sha256": "989b1e1d0822dbf5a41a7f14818e684e5749ff8937252d3368db866ec9534de2",
-      "source_path": "/root/autodl-tmp/em_eqf/data/EGSCollab_525B/processed/EGSCollab_525B_summary.json",
+      "source_path": "/root/autodl-tmp/em_eqf/data/EGSCollab_E1/processed/EGSCollab_525B_summary.json",
       "delivery": "git"
     },
     {
@@ -4767,6 +4767,34 @@
       "bytes": 109064,
       "sha256": "9394d1551972ff497fff140e499680a735b1848101298016670d67e80b45f6fc",
       "source_path": "/root/autodl-tmp/em_eqf/data/FORGE2022/raw/analysis_plots/FORGE2022_peak_rank0_offset60.png",
+      "delivery": "git"
+    },
+    {
+      "path": "data/FORGE2024/processed/FORGE2024_eq_processed.csv",
+      "bytes": 366451,
+      "sha256": "e2a5de54a86e805bb60916228575c116a6a9df3e83c3c19d85cdb19d3233c7d9",
+      "source_path": "/root/autodl-tmp/em_eqf/data/FORGE2024/processed/FORGE2024_eq_processed.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/FORGE2024/processed/FORGE2024_summary.json",
+      "bytes": 276,
+      "sha256": "f4c35fb059395e07a5c6a5791c0639acf71b384e543fadc68464ef3d6aabf9d6",
+      "source_path": "/root/autodl-tmp/em_eqf/data/FORGE2024/processed/FORGE2024_summary.json",
+      "delivery": "git"
+    },
+    {
+      "path": "data/FORGE2024/raw/microseismic_catalog_Utah_FORGE_2024stim_niemzetal2024.csv",
+      "bytes": 302365,
+      "sha256": "19f6181d0b86dc6a63d891a1bea4d0c622695f0013861c291a6e39f4600628b0",
+      "source_path": "/root/autodl-tmp/em_eqf/data/FORGE2024/raw/microseismic_catalog_Utah_FORGE_2024stim_niemzetal2024.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/FORGE2024/sources.json",
+      "bytes": 1072,
+      "sha256": "ecd2efd3a9571c4e60c90da87b0f85e3fe88f4a55376bfe975c3316ab12c9a93",
+      "source_path": "/root/autodl-tmp/em_eqf/data/FORGE2024/sources.json",
       "delivery": "git"
     },
     {
@@ -8970,6 +8998,62 @@
       "bytes": 622,
       "sha256": "a117cde1b2aae4a62b3b965237b0a30bae218390e7e7b2e95321d3668c1cbebe",
       "source_path": "/root/autodl-tmp/em_eqf/data/KNMI_Induced/sources.json",
+      "delivery": "git"
+    },
+    {
+      "path": "data/Kiskatinaw/processed/Kiskatinaw_eq_processed.csv",
+      "bytes": 1322204,
+      "sha256": "a455e893b4ef746430873f168ea1130bee1d32c490769eaab08b8ddd86b10419",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Kiskatinaw/processed/Kiskatinaw_eq_processed.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Kiskatinaw/processed/Kiskatinaw_summary.json",
+      "bytes": 247,
+      "sha256": "336d23c56405bda8ede9b9703b37e57986f94ebe5e934ded4d78791329292343",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Kiskatinaw/processed/Kiskatinaw_summary.json",
+      "delivery": "git"
+    },
+    {
+      "path": "data/Kiskatinaw/raw/EarthquakeCatalog_KiskatinawArea_Rothetal_Dec2020.csv",
+      "bytes": 1435555,
+      "sha256": "b79749a06ebca5413ca503e42e365d8181fc4ebcb8afcce9b6c58d01a1ab4693",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Kiskatinaw/raw/EarthquakeCatalog_KiskatinawArea_Rothetal_Dec2020.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Kiskatinaw/sources.json",
+      "bytes": 986,
+      "sha256": "7a02f1108cdfa33d253badb94011476794150c96b0ff6783440e2db028fb5072",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Kiskatinaw/sources.json",
+      "delivery": "git"
+    },
+    {
+      "path": "data/Lacq_SISLACQ2021/processed/Lacq_SISLACQ2021_eq_processed.csv",
+      "bytes": 196087,
+      "sha256": "9b465863f100ed8e0912bbd4b33ba17556d4acd89acd9a073aaf21d40a1b47f0",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Lacq_SISLACQ2021/processed/Lacq_SISLACQ2021_eq_processed.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Lacq_SISLACQ2021/processed/Lacq_SISLACQ2021_summary.json",
+      "bytes": 303,
+      "sha256": "9daec07df580d3cf85838dfe51bbc4e77e74f27d08a26737b2a951c511cbd2ec",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Lacq_SISLACQ2021/processed/Lacq_SISLACQ2021_summary.json",
+      "delivery": "git"
+    },
+    {
+      "path": "data/Lacq_SISLACQ2021/raw/CATALOG_LACQ.txt",
+      "bytes": 144489,
+      "sha256": "09ad0fba3bfaeb6d0849fa2291ecfb32f51d4b7afad7840abc09c4c9f75340dd",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Lacq_SISLACQ2021/raw/CATALOG_LACQ.txt",
+      "delivery": "git"
+    },
+    {
+      "path": "data/Lacq_SISLACQ2021/sources.json",
+      "bytes": 1974,
+      "sha256": "8cfbf3a53b08ba4fca2fc4ec2498d681fbf1165d21cd8e3bd7150b82446887bc",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Lacq_SISLACQ2021/sources.json",
       "delivery": "git"
     },
     {
@@ -17751,62 +17835,6 @@
       "delivery": "external_bundle"
     },
     {
-      "path": "data/Newberry_EGS2012/processed/Newberry_EGS2012_eq_processed.csv",
-      "bytes": 17586,
-      "sha256": "0d69d724de1837bbb16f841f32ffee11487cfed024a398bd90772970f211a74b",
-      "source_path": "/root/autodl-tmp/em_eqf/data/Newberry_EGS2012/processed/Newberry_EGS2012_eq_processed.csv",
-      "delivery": "git_lfs"
-    },
-    {
-      "path": "data/Newberry_EGS2012/processed/Newberry_EGS2012_inj_processed.csv",
-      "bytes": 4383674,
-      "sha256": "b7e58461893bc574a7afaaf02c15a42b27fbe8d0d4606d087f400581f409fa2d",
-      "source_path": "/root/autodl-tmp/em_eqf/data/Newberry_EGS2012/processed/Newberry_EGS2012_inj_processed.csv",
-      "delivery": "git_lfs"
-    },
-    {
-      "path": "data/Newberry_EGS2012/processed/Newberry_EGS2012_summary.json",
-      "bytes": 299,
-      "sha256": "79578632242535219f848fd41906cfa51862f3d6c607cdbf2f969c7ec46c6914",
-      "source_path": "/root/autodl-tmp/em_eqf/data/Newberry_EGS2012/processed/Newberry_EGS2012_summary.json",
-      "delivery": "git"
-    },
-    {
-      "path": "data/Newberry_EGS2012/raw/MetaData_Seismic_Events.txt",
-      "bytes": 360,
-      "sha256": "ac8520973ce407ec3df24d5f2117361ed4ef14b6f5525ff7ec136d3e40fa67d4",
-      "source_path": "/root/autodl-tmp/em_eqf/data/Newberry_EGS2012/raw/MetaData_Seismic_Events.txt",
-      "delivery": "git"
-    },
-    {
-      "path": "data/Newberry_EGS2012/raw/MetaData_WHP_Flow.txt",
-      "bytes": 1482,
-      "sha256": "05194f71ef657cf868d854171d078ba325bab6309b9872aed0b6e00cde5c4a3f",
-      "source_path": "/root/autodl-tmp/em_eqf/data/Newberry_EGS2012/raw/MetaData_WHP_Flow.txt",
-      "delivery": "git"
-    },
-    {
-      "path": "data/Newberry_EGS2012/raw/WHP_Flow.csv",
-      "bytes": 3944969,
-      "sha256": "305a82ee754b5b103db936b0c3d4e042c275f952ec97a6fbc9a3246fa7cc05a3",
-      "source_path": "/root/autodl-tmp/em_eqf/data/Newberry_EGS2012/raw/WHP_Flow.csv",
-      "delivery": "git_lfs"
-    },
-    {
-      "path": "data/Newberry_EGS2012/raw/cataloguedelimited-529f6605f226d.dat",
-      "bytes": 17356,
-      "sha256": "a69564d03d88bbb59a46b80c914fcaa7ce1366bf9e3181d0e5c125b8e6d87d70",
-      "source_path": "/root/autodl-tmp/em_eqf/data/Newberry_EGS2012/raw/cataloguedelimited-529f6605f226d.dat",
-      "delivery": "git_lfs"
-    },
-    {
-      "path": "data/Newberry_EGS2012/sources.json",
-      "bytes": 1467,
-      "sha256": "d615003e6aebda51f1ea4ec31bcc684f9b5169dd774dd82ef91aec82d7f88ccf",
-      "source_path": "/root/autodl-tmp/em_eqf/data/Newberry_EGS2012/sources.json",
-      "delivery": "git"
-    },
-    {
       "path": "data/PNR_1z/raw/PNR-1z_injection_rates.csv",
       "bytes": 1448817,
       "sha256": "c7a5fcbacdc0d3445d0365b0cf46197a8463be2e1660e821ebd75eff50b7bc0c",
@@ -18140,41 +18168,6 @@
       "bytes": 961,
       "sha256": "871539e89b4cee2a13f66b0f19f35edf81f8886a810e36b8333d387867d5e9c7",
       "source_path": "/root/autodl-tmp/em_eqf/data/Paradox_Valley/sources.json",
-      "delivery": "git"
-    },
-    {
-      "path": "data/Pohang_EGS/processed/Pohang_EGS_eq_processed.csv",
-      "bytes": 5759,
-      "sha256": "19e510a9bafac9ebbf35c3abcde2210dc494ff4a64913c7e1e0b5dd86a78e739",
-      "source_path": "/root/autodl-tmp/em_eqf/data/Pohang_EGS/processed/Pohang_EGS_eq_processed.csv",
-      "delivery": "git_lfs"
-    },
-    {
-      "path": "data/Pohang_EGS/processed/Pohang_EGS_inj_processed.csv",
-      "bytes": 730985,
-      "sha256": "e3435aee96660bc81c3519359725a8bb25d5281ce81ed49b80b01cd97e3ff942",
-      "source_path": "/root/autodl-tmp/em_eqf/data/Pohang_EGS/processed/Pohang_EGS_inj_processed.csv",
-      "delivery": "git_lfs"
-    },
-    {
-      "path": "data/Pohang_EGS/processed/Pohang_EGS_summary.json",
-      "bytes": 341,
-      "sha256": "c6ba136f5b8bfc4a24950c324a47037bf28e7fb78fd70038847117338b4200f6",
-      "source_path": "/root/autodl-tmp/em_eqf/data/Pohang_EGS/processed/Pohang_EGS_summary.json",
-      "delivery": "git"
-    },
-    {
-      "path": "data/Pohang_EGS/raw/41467_2020_16408_MOESM4_ESM.xlsx",
-      "bytes": 7410295,
-      "sha256": "eaeb7cbb45e939eece0ac855221c230bb6bc51ef959ea844169aef2977df69cc",
-      "source_path": "/root/autodl-tmp/em_eqf/data/Pohang_EGS/raw/41467_2020_16408_MOESM4_ESM.xlsx",
-      "delivery": "git_lfs"
-    },
-    {
-      "path": "data/Pohang_EGS/sources.json",
-      "bytes": 810,
-      "sha256": "6146660498232d80df5797a5af2aee92884b13fbcd43bb1a1d3e5e6eb972edac",
-      "source_path": "/root/autodl-tmp/em_eqf/data/Pohang_EGS/sources.json",
       "delivery": "git"
     },
     {
@@ -19520,6 +19513,34 @@
       "sha256": "3c707c86b4e579aa53ae9be02383befdc5c38526315ca30922c664389e384558",
       "source_path": "/autodl-fs/data/em_eqf_catalogs/source_expansion_20261106/Taiwan_Wu2008/processed/quality_screened.parquet",
       "delivery": "external_bundle"
+    },
+    {
+      "path": "data/Tony_Creek/processed/Tony_Creek_eq_processed.csv",
+      "bytes": 1764249,
+      "sha256": "0e548fac9a8e6ed0e3a1ac5726dcc7058ab2986c351eba897c601c4133949462",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Tony_Creek/processed/Tony_Creek_eq_processed.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Tony_Creek/processed/Tony_Creek_summary.json",
+      "bytes": 268,
+      "sha256": "946f9642e3884e7650b6a9b0575e9f965c3d4d19f3f58d0de15d26c4ccf2c3c4",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Tony_Creek/processed/Tony_Creek_summary.json",
+      "delivery": "git"
+    },
+    {
+      "path": "data/Tony_Creek/raw/Catalog_JGR.xlsx",
+      "bytes": 1349734,
+      "sha256": "dd3e0b46efa342acf50302366235c20437319e29023f7b30d701c892152ae8bb",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Tony_Creek/raw/Catalog_JGR.xlsx",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Tony_Creek/sources.json",
+      "bytes": 919,
+      "sha256": "ce21037511ef1f0184cfad4d87b07de25f087ac64ff5faba908109bf07d805e4",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Tony_Creek/sources.json",
+      "delivery": "git"
     },
     {
       "path": "data/Turkiye_EAFZ/processed/standard_source_20261106.parquet",

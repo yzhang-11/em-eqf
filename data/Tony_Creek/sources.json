@@ -1,0 +1,19 @@
+{
+  "dataset": "Tony_Creek",
+  "title": "Microseismic Catalog for ToC2ME dataset",
+  "authors": [
+    "Nadine Igonin"
+  ],
+  "doi": "https://doi.org/10.5281/zenodo.3900657",
+  "license": "cc-by-4.0",
+  "files": [
+    {
+      "file": "Catalog_JGR.xlsx",
+      "url": "https://zenodo.org/api/records/3900657/files/Catalog_JGR.xlsx/content",
+      "provider_checksum": "md5:869e29d689b1bfde34c4c14676f0660f",
+      "sha256": "dd3e0b46efa342acf50302366235c20437319e29023f7b30d701c892152ae8bb"
+    }
+  ],
+  "scope": "ToC2ME four-well hydraulic-fracturing monitoring campaign, late 2016. Local coordinates, large depth uncertainty. Missing Mw retained. Year from release; UTC checked against the 2016-11-29 10:15:25 UTC regional event (workbook number 17416 at 10:15:26).",
+  "clock_reference": "https://www.inducedseismicity.ca/wp-content/uploads/2015/01/r18_Zhang-and-Eaton_Induced-Seismicity-Near-Fox-Creek-Alberta.pdf"
+}

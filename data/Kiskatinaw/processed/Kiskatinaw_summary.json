@@ -1,0 +1,10 @@
+{
+  "raw_events": 8731,
+  "dataset": "Kiskatinaw",
+  "events": 8731,
+  "with_magnitude": 8731,
+  "tied_time_rows": 0,
+  "first_event": "2017-07-12T00:45:09.456000+00:00",
+  "last_event": "2020-12-29T14:30:44.954000+00:00",
+  "injection_rows": 0
+}

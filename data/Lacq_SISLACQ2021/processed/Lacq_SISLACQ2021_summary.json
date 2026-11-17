@@ -1,0 +1,11 @@
+{
+  "raw_events": 1526,
+  "selection": "author-constrained CATALOG_LACQ",
+  "dataset": "Lacq_SISLACQ2021",
+  "events": 1526,
+  "with_magnitude": 1518,
+  "tied_time_rows": 0,
+  "first_event": "2021-01-12T17:13:50.630000+00:00",
+  "last_event": "2026-02-03T00:22:36.700000+00:00",
+  "injection_rows": 0
+}

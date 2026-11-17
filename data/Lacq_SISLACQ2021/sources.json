@@ -1,0 +1,45 @@
+{
+  "dataset": "Lacq_SISLACQ2021",
+  "title": "SISLACQ2021: Catalog of induced earthquakes recorded for the Lacq area (Southwest, France) from 2021 until 2026",
+  "authors": [
+    "Letort, Jean",
+    "Cotton, Fabrice",
+    "Senechal, Guy",
+    "Grunberg, Marc",
+    "Derode, Benoit",
+    "Grimaud, Frank",
+    "Pauchet, Hélène",
+    "Benhamed, Sebastien",
+    "Haberland, Christian",
+    "Turlure, Mathieu"
+  ],
+  "doi": "https://doi.org/10.5880/fidgeo.2026.041",
+  "license": [
+    {
+      "rights": "Creative Commons Attribution 4.0 International",
+      "rightsUri": "https://creativecommons.org/licenses/by/4.0/legalcode",
+      "schemeUri": "https://spdx.org/licenses/",
+      "rightsIdentifier": "cc-by-4.0",
+      "rightsIdentifierScheme": "SPDX"
+    },
+    {
+      "rights": "Open access",
+      "rightsUri": "http://purl.org/coar/access_right/c_abf2",
+      "schemeUri": "http://purl.org/coar/access_right/",
+      "rightsIdentifier": "c_abf2",
+      "rightsIdentifierScheme": "COAR Access Rights"
+    }
+  ],
+  "files": [
+    {
+      "file": "CATALOG_LACQ.txt",
+      "url": "https://datapub.gfz.de/download/10.5880.FIDGEO.2026.041-CEAnus/2026-041_Letort-et-al_data.zip",
+      "archive_member": "2026-041_Letort-et-al_data/2026_041_Letort_et_al_CATALOG_LACQ.txt",
+      "archive_sha256": "b1a380536595976a06db918147e08b3744df4f3889816681f180b3a2d2e55c7b",
+      "sha256": "09ad0fba3bfaeb6d0849fa2291ecfb32f51d4b7afad7840abc09c4c9f75340dd"
+    }
+  ],
+  "scope": "Authors’ constrained subset of assumed induced events. Positions and uncertainty fields from CATALOG_LACQ; primary ML, secondary Mw converted from ML by the source. No replacement for missing magnitudes. UTC checked against the 2022-08-22 08:57 French summer time event (06:57 in catalog).",
+  "clock_reference": "https://www.franceseisme.fr/nseisme.php?IdSei=1155",
+  "description_url": "https://datapub.gfz.de/download/10.5880.FIDGEO.2026.041-CEAnus/2026-041_Letort-et-al_data-description.pdf"
+}

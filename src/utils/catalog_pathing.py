@@ -129,6 +129,9 @@ def build_tpp_catalog_init_kwargs(
 ) -> dict[str, Any]:
     """Build deterministic init kwargs for catalog constructors."""
     dataset_dir = resolve_dataset_data_dir(root_dir=base_dir, data_dir=None)
+    resolve_site = getattr(catalog_ds_class, "resolve_site_data_dir", None)
+    if resolve_site is not None:
+        dataset_dir = resolve_site(dataset_dir)
     raw_cfg = dict(catalog_cfg or {})
 
     init_sig = inspect.signature(catalog_ds_class.__init__).parameters
