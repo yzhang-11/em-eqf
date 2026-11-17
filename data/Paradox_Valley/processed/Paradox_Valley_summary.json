@@ -1,0 +1,12 @@
+{
+  "raw_events": 6033,
+  "selection": "USBR a-quality, injection era, <8.5 km below wellhead",
+  "missing_daily_flow": 1,
+  "dataset": "Paradox_Valley",
+  "events": 5341,
+  "with_magnitude": 5341,
+  "tied_time_rows": 0,
+  "first_event": "1991-07-15T18:39:35.910000+00:00",
+  "last_event": "2013-07-21T05:27:53.559000+00:00",
+  "injection_rows": 6815
+}

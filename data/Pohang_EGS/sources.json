@@ -1,0 +1,14 @@
+{
+  "title": "Causal mechanism of injection-induced earthquakes through the Mw 5.5 Pohang earthquake case study, Source Data",
+  "credit": "Yeo et al. (2020), including seismic data credited to the Korean Government Commission in the workbook",
+  "landing_page": "https://doi.org/10.1038/s41467-020-16408-0",
+  "rights": "Article and associated source data: CC BY 4.0 subject to published third-party credit lines",
+  "files": [
+    {
+      "file": "41467_2020_16408_MOESM4_ESM.xlsx",
+      "url": "https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-020-16408-0/MediaObjects/41467_2020_16408_MOESM4_ESM.xlsx",
+      "sha256": "eaeb7cbb45e939eece0ac855221c230bb6bc51ef959ea844169aef2977df69cc",
+      "download_sha256": "eaeb7cbb45e939eece0ac855221c230bb6bc51ef959ea844169aef2977df69cc"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "raw_events": 19756,
+  "exact_repeat_rows_removed": 11,
+  "conflicting_id_rows_excluded": 2,
+  "outside_pump_span": 31,
+  "seconds_field": "UTC event name per GFZ format; source_origin_time has day in seconds position",
+  "with_MAE": 4287,
+  "absolute_pump_timing_precision_seconds": 1,
+  "dataset": "Aspo_HRL2015",
+  "events": 19712,
+  "with_magnitude": 4287,
+  "tied_time_rows": 0,
+  "first_event": "2015-06-03T09:41:13.646272+00:00",
+  "last_event": "2015-06-12T08:30:29.915168+00:00",
+  "injection_rows": 41317
+}

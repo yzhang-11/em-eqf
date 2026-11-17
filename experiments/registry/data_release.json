@@ -6,15 +6,15 @@
     "index": "experiments/registry/external_sources.json"
   },
   "storage_root": "/autodl-fs/data/em_eqf_catalogs",
-  "source_commit": "0685e1580cf42678edeb25f66fe8c44b984d777c",
+  "source_commit": "a73f3c31ea21504cdf1a3735c1dd8368a8df72b8",
   "dataset_index": "experiments/registry/datasets.json",
   "scope": "Tracked data, indexed raw/processed inputs, and source files in local root aliases; excludes generated caches and weights in root aliases.",
   "counts": {
-    "tracked_data_files": 413,
-    "data_lfs_files": 233,
+    "tracked_data_files": 443,
+    "data_lfs_files": 250,
     "files_by_delivery": {
-      "git_lfs": 341,
-      "git": 180,
+      "git_lfs": 358,
+      "git": 193,
       "external_bundle": 2617
     },
     "private_excluded": 3,
@@ -351,6 +351,55 @@
       "sha256": "4c81a34588da68d735a3c68d74093284e863bd48ffa618185a4e7f9c06bb43c1",
       "source_path": "/root/autodl-tmp/em_eqf/data/AZDX/raw/size_3k_stress_0.6_dyn_0.8_mm_5.5_dm_0.5_b_0.4_yr_20k_eq.dat",
       "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Aspo_HRL2015/processed/Aspo_HRL2015_eq_processed.csv",
+      "bytes": 2461078,
+      "sha256": "247a2893847d1e0b9fa7fc16748a6fc62a7035204fa877e3f57fdfa8e64fd9dd",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Aspo_HRL2015/processed/Aspo_HRL2015_eq_processed.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Aspo_HRL2015/processed/Aspo_HRL2015_inj_processed.csv",
+      "bytes": 2380012,
+      "sha256": "cb67c4bf77b10be9939b4df911aa84597e2d296ab572cbeece69482be65826cf",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Aspo_HRL2015/processed/Aspo_HRL2015_inj_processed.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Aspo_HRL2015/processed/Aspo_HRL2015_summary.json",
+      "bytes": 521,
+      "sha256": "e7fd557bd9d4ea969fcd0e47067a5bd462f6c46d16882fe595e55667f2d6b379",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Aspo_HRL2015/processed/Aspo_HRL2015_summary.json",
+      "delivery": "git"
+    },
+    {
+      "path": "data/Aspo_HRL2015/raw/aspo_catalog_niemz2020.csv",
+      "bytes": 1521243,
+      "sha256": "b3bcb6c81b86ca1a89656247887353c9d270f21048af0a6826d9d6d4d98f92ad",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Aspo_HRL2015/raw/aspo_catalog_niemz2020.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Aspo_HRL2015/raw/continous.readme",
+      "bytes": 333,
+      "sha256": "cdd621c4fff650bf069a9c303136a65ba5b254cab340319a11b1a7f2e579e29a",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Aspo_HRL2015/raw/continous.readme",
+      "delivery": "git"
+    },
+    {
+      "path": "data/Aspo_HRL2015/raw/hydraulic_data.tar.gz",
+      "bytes": 13769461,
+      "sha256": "858da8fead49c37baa7178be137a6b14420bd9ebd5dc13a1985dcdbbd413c2fd",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Aspo_HRL2015/raw/hydraulic_data.tar.gz",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Aspo_HRL2015/sources.json",
+      "bytes": 1432,
+      "sha256": "1df6278d3d5140b94752e1e4c77f44f1e1c45e730c797e62c026a64ccbf12f6a",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Aspo_HRL2015/sources.json",
+      "delivery": "git"
     },
     {
       "path": "data/Basel/analysis_plots/Basel_global_overlay.png",
@@ -8894,6 +8943,34 @@
       "source_path": "/root/autodl-tmp/em_eqf/data/JMA/raw/h2024.zip",
       "delivery": "git_lfs",
       "via": "data/JMA/raw/h2024.zip"
+    },
+    {
+      "path": "data/KNMI_Induced/processed/KNMI_Induced_eq_processed.csv",
+      "bytes": 1028425,
+      "sha256": "daa6ee02bc11d8a0234dd42c9bd271fd9d92b1afa216cac858c3ae5c470fc774",
+      "source_path": "/root/autodl-tmp/em_eqf/data/KNMI_Induced/processed/KNMI_Induced_eq_processed.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/KNMI_Induced/processed/KNMI_Induced_summary.json",
+      "bytes": 281,
+      "sha256": "58bdc032714472e00e3ed545c36f688ac0704b25626d1548e1c7a850680dce23",
+      "source_path": "/root/autodl-tmp/em_eqf/data/KNMI_Induced/processed/KNMI_Induced_summary.json",
+      "delivery": "git"
+    },
+    {
+      "path": "data/KNMI_Induced/raw/induced_1986_2025.xml.gz",
+      "bytes": 451576,
+      "sha256": "a5232863440d5e0d709b6cd3267663fda54e356654d1ded3506095bb5ea2e418",
+      "source_path": "/root/autodl-tmp/em_eqf/data/KNMI_Induced/raw/induced_1986_2025.xml.gz",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/KNMI_Induced/sources.json",
+      "bytes": 622,
+      "sha256": "a117cde1b2aae4a62b3b965237b0a30bae218390e7e7b2e95321d3668c1cbebe",
+      "source_path": "/root/autodl-tmp/em_eqf/data/KNMI_Induced/sources.json",
+      "delivery": "git"
     },
     {
       "path": "data/NCEDC/processed/standard_source_20261105.parquet",
@@ -17674,6 +17751,62 @@
       "delivery": "external_bundle"
     },
     {
+      "path": "data/Newberry_EGS2012/processed/Newberry_EGS2012_eq_processed.csv",
+      "bytes": 17586,
+      "sha256": "0d69d724de1837bbb16f841f32ffee11487cfed024a398bd90772970f211a74b",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Newberry_EGS2012/processed/Newberry_EGS2012_eq_processed.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Newberry_EGS2012/processed/Newberry_EGS2012_inj_processed.csv",
+      "bytes": 4383674,
+      "sha256": "b7e58461893bc574a7afaaf02c15a42b27fbe8d0d4606d087f400581f409fa2d",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Newberry_EGS2012/processed/Newberry_EGS2012_inj_processed.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Newberry_EGS2012/processed/Newberry_EGS2012_summary.json",
+      "bytes": 299,
+      "sha256": "79578632242535219f848fd41906cfa51862f3d6c607cdbf2f969c7ec46c6914",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Newberry_EGS2012/processed/Newberry_EGS2012_summary.json",
+      "delivery": "git"
+    },
+    {
+      "path": "data/Newberry_EGS2012/raw/MetaData_Seismic_Events.txt",
+      "bytes": 360,
+      "sha256": "ac8520973ce407ec3df24d5f2117361ed4ef14b6f5525ff7ec136d3e40fa67d4",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Newberry_EGS2012/raw/MetaData_Seismic_Events.txt",
+      "delivery": "git"
+    },
+    {
+      "path": "data/Newberry_EGS2012/raw/MetaData_WHP_Flow.txt",
+      "bytes": 1482,
+      "sha256": "05194f71ef657cf868d854171d078ba325bab6309b9872aed0b6e00cde5c4a3f",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Newberry_EGS2012/raw/MetaData_WHP_Flow.txt",
+      "delivery": "git"
+    },
+    {
+      "path": "data/Newberry_EGS2012/raw/WHP_Flow.csv",
+      "bytes": 3944969,
+      "sha256": "305a82ee754b5b103db936b0c3d4e042c275f952ec97a6fbc9a3246fa7cc05a3",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Newberry_EGS2012/raw/WHP_Flow.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Newberry_EGS2012/raw/cataloguedelimited-529f6605f226d.dat",
+      "bytes": 17356,
+      "sha256": "a69564d03d88bbb59a46b80c914fcaa7ce1366bf9e3181d0e5c125b8e6d87d70",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Newberry_EGS2012/raw/cataloguedelimited-529f6605f226d.dat",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Newberry_EGS2012/sources.json",
+      "bytes": 1467,
+      "sha256": "d615003e6aebda51f1ea4ec31bcc684f9b5169dd774dd82ef91aec82d7f88ccf",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Newberry_EGS2012/sources.json",
+      "delivery": "git"
+    },
+    {
       "path": "data/PNR_1z/raw/PNR-1z_injection_rates.csv",
       "bytes": 1448817,
       "sha256": "c7a5fcbacdc0d3445d0365b0cf46197a8463be2e1660e821ebd75eff50b7bc0c",
@@ -17966,6 +18099,83 @@
       "sha256": "9926249cb59f3095215aa5f6d319d68664f95cc62b45dc39f065fa30ec58e319",
       "source_path": "/root/autodl-tmp/em_eqf/data/PNR_2/raw/Pumping Data/039-PNR2-23.08.19-Sleeve7.csv",
       "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Paradox_Valley/processed/Paradox_Valley_eq_processed.csv",
+      "bytes": 491813,
+      "sha256": "47408878be0614987e8a4d9b2b193f6e5c58271ba40ce293895e9004609c9474",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Paradox_Valley/processed/Paradox_Valley_eq_processed.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Paradox_Valley/processed/Paradox_Valley_inj_processed.csv",
+      "bytes": 202496,
+      "sha256": "4438440e6020c9156394507a5af6b053d6683701dd89b3df9e8e4cfac164e870",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Paradox_Valley/processed/Paradox_Valley_inj_processed.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Paradox_Valley/processed/Paradox_Valley_summary.json",
+      "bytes": 353,
+      "sha256": "b1e011def05a914e6b7e73c1824899802c1074c0a1176451f5f095ed60f180ed",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Paradox_Valley/processed/Paradox_Valley_summary.json",
+      "delivery": "git"
+    },
+    {
+      "path": "data/Paradox_Valley/raw/earthquake.zip",
+      "bytes": 5883846,
+      "sha256": "444fb4056afd1c0adbdb4f1906b539655a2558ce9929024079d55ad04dd23287",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Paradox_Valley/raw/earthquake.zip",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Paradox_Valley/raw/injection.zip",
+      "bytes": 4726444,
+      "sha256": "e77b7e6e75d39a642f78bb8ab2294aab0b9ad136de2d03fe55bcadbb22880a9c",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Paradox_Valley/raw/injection.zip",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Paradox_Valley/sources.json",
+      "bytes": 961,
+      "sha256": "871539e89b4cee2a13f66b0f19f35edf81f8886a810e36b8333d387867d5e9c7",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Paradox_Valley/sources.json",
+      "delivery": "git"
+    },
+    {
+      "path": "data/Pohang_EGS/processed/Pohang_EGS_eq_processed.csv",
+      "bytes": 5759,
+      "sha256": "19e510a9bafac9ebbf35c3abcde2210dc494ff4a64913c7e1e0b5dd86a78e739",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Pohang_EGS/processed/Pohang_EGS_eq_processed.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Pohang_EGS/processed/Pohang_EGS_inj_processed.csv",
+      "bytes": 730985,
+      "sha256": "e3435aee96660bc81c3519359725a8bb25d5281ce81ed49b80b01cd97e3ff942",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Pohang_EGS/processed/Pohang_EGS_inj_processed.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Pohang_EGS/processed/Pohang_EGS_summary.json",
+      "bytes": 341,
+      "sha256": "c6ba136f5b8bfc4a24950c324a47037bf28e7fb78fd70038847117338b4200f6",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Pohang_EGS/processed/Pohang_EGS_summary.json",
+      "delivery": "git"
+    },
+    {
+      "path": "data/Pohang_EGS/raw/41467_2020_16408_MOESM4_ESM.xlsx",
+      "bytes": 7410295,
+      "sha256": "eaeb7cbb45e939eece0ac855221c230bb6bc51ef959ea844169aef2977df69cc",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Pohang_EGS/raw/41467_2020_16408_MOESM4_ESM.xlsx",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Pohang_EGS/sources.json",
+      "bytes": 810,
+      "sha256": "6146660498232d80df5797a5af2aee92884b13fbcd43bb1a1d3e5e6eb972edac",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Pohang_EGS/sources.json",
+      "delivery": "git"
     },
     {
       "path": "data/QTMSaltonSea/processed/processed_salton_sea.csv",

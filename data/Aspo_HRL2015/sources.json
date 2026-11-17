@@ -1,0 +1,26 @@
+{
+  "title": "Comprehensive data set of in-situ hydraulic stimulation experiments for geothermal purposes at the Aspo Hard Rock Laboratory, Sweden",
+  "credit": "Zang et al. (GFZ Data Services); continuous AE catalog: Niemz et al. (2020)",
+  "landing_page": "https://doi.org/10.5880/GFZ.2.6.2023.004",
+  "rights": "CC BY 4.0",
+  "files": [
+    {
+      "file": "aspo_catalog_niemz2020.csv",
+      "url": "https://datapub.gfz-potsdam.de/download/10.5880.GFZ.2.6.2023.004-Nvewibv/seismic_data/AE_continuous/CATALOG/aspo_catalog_niemz2020.csv",
+      "sha256": "b3bcb6c81b86ca1a89656247887353c9d270f21048af0a6826d9d6d4d98f92ad",
+      "download_sha256": "b3bcb6c81b86ca1a89656247887353c9d270f21048af0a6826d9d6d4d98f92ad"
+    },
+    {
+      "file": "continous.readme",
+      "url": "https://datapub.gfz-potsdam.de/download/10.5880.GFZ.2.6.2023.004-Nvewibv/seismic_data/AE_continuous/CATALOG/continous.readme",
+      "sha256": "cdd621c4fff650bf069a9c303136a65ba5b254cab340319a11b1a7f2e579e29a",
+      "download_sha256": "cdd621c4fff650bf069a9c303136a65ba5b254cab340319a11b1a7f2e579e29a"
+    },
+    {
+      "file": "hydraulic_data.tar.gz",
+      "url": "https://datapub.gfz-potsdam.de/download/10.5880.GFZ.2.6.2023.004-Nvewibv/hydraulic_data.tar.gz",
+      "sha256": "858da8fead49c37baa7178be137a6b14420bd9ebd5dc13a1985dcdbbd413c2fd",
+      "download_sha256": "858da8fead49c37baa7178be137a6b14420bd9ebd5dc13a1985dcdbbd413c2fd"
+    }
+  ]
+}

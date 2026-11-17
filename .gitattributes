@@ -18,3 +18,14 @@ data/**/*.parquet filter=lfs diff=lfs merge=lfs -text
 
 # Keep the published waveform listing byte-stable on Windows checkouts.
 data/EGSCollab_E1/raw/waveform_inventory.json text eol=lf
+
+# Preserve byte-exact observational snapshots used for source checksums.
+/data/Aspo_HRL2015/raw/* -text
+/data/KNMI_Induced/raw/* -text
+/data/Newberry_EGS2012/raw/* -text
+/data/Paradox_Valley/raw/* -text
+/data/Pohang_EGS/raw/* -text
+/data/Aspo_HRL2015/raw/*.tar.gz filter=lfs diff=lfs merge=lfs -text
+/data/Pohang_EGS/raw/*.xlsx filter=lfs diff=lfs merge=lfs -text
+/data/KNMI_Induced/raw/*.xml.gz filter=lfs diff=lfs merge=lfs -text
+/data/Newberry_EGS2012/raw/MetaData_*.txt -diff

@@ -1,0 +1,14 @@
+{
+  "title": "KNMI FDSN induced or triggered events, 1986 through 2025",
+  "credit": "Royal Netherlands Meteorological Institute (KNMI)",
+  "landing_page": "https://rdsa.knmi.nl/fdsnws/event/1/",
+  "rights": "CC BY 4.0",
+  "files": [
+    {
+      "file": "induced_1986_2025.xml.gz",
+      "url": "https://rdsa.knmi.nl/fdsnws/event/1/query?eventtype=induced%20or%20triggered%20event&format=xml&starttime=1986-01-01&endtime=2026-01-01",
+      "sha256": "a5232863440d5e0d709b6cd3267663fda54e356654d1ded3506095bb5ea2e418",
+      "download_sha256": "87842578dd53653c89eeb12e9d828e890ce2e750bc1664c4961e9195c5259048"
+    }
+  ]
+}

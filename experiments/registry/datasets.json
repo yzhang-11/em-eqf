@@ -1075,5 +1075,85 @@
     ],
     "cache": "/root/autodl-tmp/em_eqf/data/EGSCollab_525B/cache/windows",
     "catalogs": "/root/autodl-tmp/em_eqf/data/EGSCollab_525B/catalogs"
+  },
+  {
+    "dataset": "Aspo_HRL2015",
+    "path": "data/Aspo_HRL2015",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/Aspo_HRL2015",
+    "raw": [
+      "data/Aspo_HRL2015/raw/aspo_catalog_niemz2020.csv",
+      "data/Aspo_HRL2015/raw/continous.readme",
+      "data/Aspo_HRL2015/raw/hydraulic_data.tar.gz"
+    ],
+    "processed": [
+      "data/Aspo_HRL2015/processed/Aspo_HRL2015_eq_processed.csv",
+      "data/Aspo_HRL2015/processed/Aspo_HRL2015_inj_processed.csv",
+      "data/Aspo_HRL2015/processed/Aspo_HRL2015_summary.json"
+    ],
+    "cache": "/root/autodl-tmp/em_eqf/data/Aspo_HRL2015/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/Aspo_HRL2015/catalogs"
+  },
+  {
+    "dataset": "KNMI_Induced",
+    "path": "data/KNMI_Induced",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/KNMI_Induced",
+    "raw": [
+      "data/KNMI_Induced/raw/induced_1986_2025.xml.gz"
+    ],
+    "processed": [
+      "data/KNMI_Induced/processed/KNMI_Induced_eq_processed.csv",
+      "data/KNMI_Induced/processed/KNMI_Induced_summary.json"
+    ],
+    "cache": "/root/autodl-tmp/em_eqf/data/KNMI_Induced/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/KNMI_Induced/catalogs"
+  },
+  {
+    "dataset": "Newberry_EGS2012",
+    "path": "data/Newberry_EGS2012",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/Newberry_EGS2012",
+    "raw": [
+      "data/Newberry_EGS2012/raw/MetaData_Seismic_Events.txt",
+      "data/Newberry_EGS2012/raw/MetaData_WHP_Flow.txt",
+      "data/Newberry_EGS2012/raw/WHP_Flow.csv",
+      "data/Newberry_EGS2012/raw/cataloguedelimited-529f6605f226d.dat"
+    ],
+    "processed": [
+      "data/Newberry_EGS2012/processed/Newberry_EGS2012_eq_processed.csv",
+      "data/Newberry_EGS2012/processed/Newberry_EGS2012_inj_processed.csv",
+      "data/Newberry_EGS2012/processed/Newberry_EGS2012_summary.json"
+    ],
+    "cache": "/root/autodl-tmp/em_eqf/data/Newberry_EGS2012/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/Newberry_EGS2012/catalogs"
+  },
+  {
+    "dataset": "Paradox_Valley",
+    "path": "data/Paradox_Valley",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/Paradox_Valley",
+    "raw": [
+      "data/Paradox_Valley/raw/earthquake.zip",
+      "data/Paradox_Valley/raw/injection.zip"
+    ],
+    "processed": [
+      "data/Paradox_Valley/processed/Paradox_Valley_eq_processed.csv",
+      "data/Paradox_Valley/processed/Paradox_Valley_inj_processed.csv",
+      "data/Paradox_Valley/processed/Paradox_Valley_summary.json"
+    ],
+    "cache": "/root/autodl-tmp/em_eqf/data/Paradox_Valley/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/Paradox_Valley/catalogs"
+  },
+  {
+    "dataset": "Pohang_EGS",
+    "path": "data/Pohang_EGS",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/Pohang_EGS",
+    "raw": [
+      "data/Pohang_EGS/raw/41467_2020_16408_MOESM4_ESM.xlsx"
+    ],
+    "processed": [
+      "data/Pohang_EGS/processed/Pohang_EGS_eq_processed.csv",
+      "data/Pohang_EGS/processed/Pohang_EGS_inj_processed.csv",
+      "data/Pohang_EGS/processed/Pohang_EGS_summary.json"
+    ],
+    "cache": "/root/autodl-tmp/em_eqf/data/Pohang_EGS/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/Pohang_EGS/catalogs"
   }
 ]

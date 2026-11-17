@@ -1,0 +1,11 @@
+{
+  "raw_events": 4317,
+  "excluded_origin_quality": 1,
+  "dataset": "KNMI_Induced",
+  "events": 4316,
+  "with_magnitude": 4316,
+  "tied_time_rows": 0,
+  "first_event": "1986-02-10T00:08:44.140000+00:00",
+  "last_event": "2025-12-21T18:54:21.800000+00:00",
+  "injection_rows": 0
+}

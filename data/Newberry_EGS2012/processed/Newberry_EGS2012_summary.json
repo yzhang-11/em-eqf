@@ -1,0 +1,12 @@
+{
+  "raw_events": 172,
+  "missing_downhole_flow": 2,
+  "pump_gaps_over_1min": 21,
+  "dataset": "Newberry_EGS2012",
+  "events": 172,
+  "with_magnitude": 172,
+  "tied_time_rows": 2,
+  "first_event": "2012-10-29T08:02:21+00:00",
+  "last_event": "2013-02-18T16:59:56+00:00",
+  "injection_rows": 89212
+}

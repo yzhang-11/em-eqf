@@ -1,0 +1,20 @@
+{
+  "title": "Paradox Valley Unit earthquake catalog TM 86-68330-2013-12 and injection record TM 85-833000-2014-42",
+  "credit": "US Bureau of Reclamation",
+  "landing_page": "https://www.usbr.gov/uc/progact/paradox/index.html",
+  "rights": "US federal agency technical memoranda and data",
+  "files": [
+    {
+      "file": "earthquake.zip",
+      "url": "https://www.usbr.gov/uc/progact/paradox/docs/related/TM-86-68330-2013-12_Jan_2013_EQ_1122.zip",
+      "sha256": "444fb4056afd1c0adbdb4f1906b539655a2558ce9929024079d55ad04dd23287",
+      "download_sha256": "444fb4056afd1c0adbdb4f1906b539655a2558ce9929024079d55ad04dd23287"
+    },
+    {
+      "file": "injection.zip",
+      "url": "https://www.usbr.gov/uc/progact/paradox/docs/related/Far-field_pressurization_TM.zip",
+      "sha256": "e77b7e6e75d39a642f78bb8ab2294aab0b9ad136de2d03fe55bcadbb22880a9c",
+      "download_sha256": "e77b7e6e75d39a642f78bb8ab2294aab0b9ad136de2d03fe55bcadbb22880a9c"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+TWO FOLDERS
+'Raw_Locations' : Seismic events initially located as they occured.
+'Relocations': Seismic events relocated through enhanced velocity models.
+
+Both folders contain 'catalogue.dat' which is the raw file and 'cataloguedelimited.dat'
+which is tab delimited and includes event coordinates in UTM NAD83 10T.
+
+All event times and dates are in UTC.
