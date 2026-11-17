@@ -16,4 +16,4 @@ The tree at the end of the grouped commits is byte-for-byte identical to the sub
 
 Use `git log --oneline research-main` for the concise history and `git log archive-development-20261109` for the original lineage.
 
-Generated caches and training weights are local artifacts. Source snapshots are tracked through Git LFS; do not put new cache variants into Git. No remote push has been performed.
+Generated caches and training weights are local artifacts. Source snapshots are tracked through Git LFS; do not put new cache variants into Git. Publish the grouped history as `research-main`; do not rewrite other published branches. The archival development branch is retained locally and is not included in that push.
