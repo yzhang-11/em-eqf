@@ -1,0 +1,35 @@
+{
+  "dataset": "Texas_Southern_Delaware",
+  "region": "Texas Southern Delaware",
+  "source_family": "Texas",
+  "selection": "Author-relocated Southern Delaware Basin events. UIC permit locations linked to the author list via RRC API; H-10 disposal types 1/2 with zero gas. IDs in the processed injection tables identify permits.",
+  "shared_manifest": "../US_Disposal_Inputs/sources.json",
+  "raw_files": [
+    "tx_catalog.xls",
+    "tx_post-2017-injection.xlsx",
+    "h1000.csv",
+    "h1001.csv",
+    "h1002.csv",
+    "h1003.csv",
+    "h1004.csv",
+    "h1005.csv",
+    "h1006.csv",
+    "h1007.csv",
+    "h1008.csv",
+    "loc00.csv",
+    "loc01.csv",
+    "loc02.csv",
+    "loc03.csv",
+    "loc04.csv",
+    "loc05.csv",
+    "loc06.csv",
+    "loc07.csv",
+    "loc08.csv"
+  ],
+  "references": [
+    "https://doi.org/10.5281/zenodo.13993061",
+    "https://data.texas.gov/d/qq2j-f2zm",
+    "https://data.texas.gov/d/givw-z9t4",
+    "https://rrc.texas.gov/media/qqbk0zhf/h-10_edi_filing_specs.pdf"
+  ]
+}

@@ -1079,10 +1079,14 @@
     "path": "data/FORGE2024",
     "storage_target": "/root/autodl-tmp/em_eqf/data/FORGE2024",
     "raw": [
+      "data/FORGE2024/raw/16A Frac Data.zip",
+      "data/FORGE2024/raw/16B Frac Data.zip",
       "data/FORGE2024/raw/microseismic_catalog_Utah_FORGE_2024stim_niemzetal2024.csv"
     ],
     "processed": [
+      "data/FORGE2024/processed/FORGE2024_eq_paired_processed.csv",
       "data/FORGE2024/processed/FORGE2024_eq_processed.csv",
+      "data/FORGE2024/processed/FORGE2024_inj_processed.csv",
       "data/FORGE2024/processed/FORGE2024_summary.json"
     ],
     "cache": "/root/autodl-tmp/em_eqf/data/FORGE2024/cache/windows",
@@ -1129,5 +1133,213 @@
     ],
     "cache": "/root/autodl-tmp/em_eqf/data/Tony_Creek/cache/windows",
     "catalogs": "/root/autodl-tmp/em_eqf/data/Tony_Creek/catalogs"
+  },
+  {
+    "dataset": "US_Disposal_Inputs",
+    "path": "data/US_Disposal_Inputs",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/US_Disposal_Inputs",
+    "raw": [
+      "data/US_Disposal_Inputs/raw/KS_UIC_archive2015.zip",
+      "data/US_Disposal_Inputs/raw/KS_UIC_archive2016.zip",
+      "data/US_Disposal_Inputs/raw/KS_UIC_archive2017.zip",
+      "data/US_Disposal_Inputs/raw/KS_UIC_archive2018.zip",
+      "data/US_Disposal_Inputs/raw/KS_UIC_archive2019.zip",
+      "data/US_Disposal_Inputs/raw/KS_UIC_archive2020.zip",
+      "data/US_Disposal_Inputs/raw/KS_UIC_archive2021.zip",
+      "data/US_Disposal_Inputs/raw/OGS_archive2015.csv",
+      "data/US_Disposal_Inputs/raw/OGS_archive2016.csv",
+      "data/US_Disposal_Inputs/raw/OGS_archive2017.csv",
+      "data/US_Disposal_Inputs/raw/OGS_archive2018.csv",
+      "data/US_Disposal_Inputs/raw/OGS_archive2019.csv",
+      "data/US_Disposal_Inputs/raw/OGS_archive2020.csv",
+      "data/US_Disposal_Inputs/raw/OGS_archive2021.csv",
+      "data/US_Disposal_Inputs/raw/OGS_archive2022.csv",
+      "data/US_Disposal_Inputs/raw/OGS_archive2023.csv",
+      "data/US_Disposal_Inputs/raw/h1000.csv",
+      "data/US_Disposal_Inputs/raw/h1001.csv",
+      "data/US_Disposal_Inputs/raw/h1002.csv",
+      "data/US_Disposal_Inputs/raw/h1003.csv",
+      "data/US_Disposal_Inputs/raw/h1004.csv",
+      "data/US_Disposal_Inputs/raw/h1005.csv",
+      "data/US_Disposal_Inputs/raw/h1006.csv",
+      "data/US_Disposal_Inputs/raw/h1007.csv",
+      "data/US_Disposal_Inputs/raw/h1008.csv",
+      "data/US_Disposal_Inputs/raw/kansas_events.csv",
+      "data/US_Disposal_Inputs/raw/ks_boundary.json",
+      "data/US_Disposal_Inputs/raw/loc00.csv",
+      "data/US_Disposal_Inputs/raw/loc01.csv",
+      "data/US_Disposal_Inputs/raw/loc02.csv",
+      "data/US_Disposal_Inputs/raw/loc03.csv",
+      "data/US_Disposal_Inputs/raw/loc04.csv",
+      "data/US_Disposal_Inputs/raw/loc05.csv",
+      "data/US_Disposal_Inputs/raw/loc06.csv",
+      "data/US_Disposal_Inputs/raw/loc07.csv",
+      "data/US_Disposal_Inputs/raw/loc08.csv",
+      "data/US_Disposal_Inputs/raw/occ2015.xlsx",
+      "data/US_Disposal_Inputs/raw/occ2016.xlsx",
+      "data/US_Disposal_Inputs/raw/occ2017.xlsx",
+      "data/US_Disposal_Inputs/raw/occ2018.xlsx",
+      "data/US_Disposal_Inputs/raw/occ2019.xlsx",
+      "data/US_Disposal_Inputs/raw/occ2020.xlsx",
+      "data/US_Disposal_Inputs/raw/occ2021.xlsx",
+      "data/US_Disposal_Inputs/raw/occ2022.xlsx",
+      "data/US_Disposal_Inputs/raw/occ2023.xlsx",
+      "data/US_Disposal_Inputs/raw/ok_boundaries.json",
+      "data/US_Disposal_Inputs/raw/tx_catalog.xls",
+      "data/US_Disposal_Inputs/raw/tx_post-2017-injection.xlsx"
+    ],
+    "processed": [],
+    "cache": "/root/autodl-tmp/em_eqf/data/US_Disposal_Inputs/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/US_Disposal_Inputs/catalogs"
+  },
+  {
+    "dataset": "Kansas_Harper_Sumner",
+    "path": "data/Kansas_Harper_Sumner",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/Kansas_Harper_Sumner",
+    "raw": [],
+    "processed": [
+      "data/Kansas_Harper_Sumner/processed/Kansas_Harper_Sumner_eq_processed.csv",
+      "data/Kansas_Harper_Sumner/processed/Kansas_Harper_Sumner_inj_by_well.csv",
+      "data/Kansas_Harper_Sumner/processed/Kansas_Harper_Sumner_inj_processed.csv",
+      "data/Kansas_Harper_Sumner/processed/Kansas_Harper_Sumner_summary.json"
+    ],
+    "cache": "/root/autodl-tmp/em_eqf/data/Kansas_Harper_Sumner/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/Kansas_Harper_Sumner/catalogs",
+    "raw_manifest": "data/US_Disposal_Inputs/sources.json"
+  },
+  {
+    "dataset": "Oklahoma_Alfalfa",
+    "path": "data/Oklahoma_Alfalfa",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/Oklahoma_Alfalfa",
+    "raw": [],
+    "processed": [
+      "data/Oklahoma_Alfalfa/processed/Oklahoma_Alfalfa_eq_processed.csv",
+      "data/Oklahoma_Alfalfa/processed/Oklahoma_Alfalfa_inj_by_well.csv",
+      "data/Oklahoma_Alfalfa/processed/Oklahoma_Alfalfa_inj_processed.csv",
+      "data/Oklahoma_Alfalfa/processed/Oklahoma_Alfalfa_summary.json"
+    ],
+    "cache": "/root/autodl-tmp/em_eqf/data/Oklahoma_Alfalfa/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/Oklahoma_Alfalfa/catalogs",
+    "raw_manifest": "data/US_Disposal_Inputs/sources.json"
+  },
+  {
+    "dataset": "Oklahoma_Garfield",
+    "path": "data/Oklahoma_Garfield",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/Oklahoma_Garfield",
+    "raw": [],
+    "processed": [
+      "data/Oklahoma_Garfield/processed/Oklahoma_Garfield_eq_processed.csv",
+      "data/Oklahoma_Garfield/processed/Oklahoma_Garfield_inj_by_well.csv",
+      "data/Oklahoma_Garfield/processed/Oklahoma_Garfield_inj_processed.csv",
+      "data/Oklahoma_Garfield/processed/Oklahoma_Garfield_summary.json"
+    ],
+    "cache": "/root/autodl-tmp/em_eqf/data/Oklahoma_Garfield/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/Oklahoma_Garfield/catalogs",
+    "raw_manifest": "data/US_Disposal_Inputs/sources.json"
+  },
+  {
+    "dataset": "Oklahoma_Grant",
+    "path": "data/Oklahoma_Grant",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/Oklahoma_Grant",
+    "raw": [],
+    "processed": [
+      "data/Oklahoma_Grant/processed/Oklahoma_Grant_eq_processed.csv",
+      "data/Oklahoma_Grant/processed/Oklahoma_Grant_inj_by_well.csv",
+      "data/Oklahoma_Grant/processed/Oklahoma_Grant_inj_processed.csv",
+      "data/Oklahoma_Grant/processed/Oklahoma_Grant_summary.json"
+    ],
+    "cache": "/root/autodl-tmp/em_eqf/data/Oklahoma_Grant/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/Oklahoma_Grant/catalogs",
+    "raw_manifest": "data/US_Disposal_Inputs/sources.json"
+  },
+  {
+    "dataset": "Oklahoma_Logan",
+    "path": "data/Oklahoma_Logan",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/Oklahoma_Logan",
+    "raw": [],
+    "processed": [
+      "data/Oklahoma_Logan/processed/Oklahoma_Logan_eq_processed.csv",
+      "data/Oklahoma_Logan/processed/Oklahoma_Logan_inj_by_well.csv",
+      "data/Oklahoma_Logan/processed/Oklahoma_Logan_inj_processed.csv",
+      "data/Oklahoma_Logan/processed/Oklahoma_Logan_summary.json"
+    ],
+    "cache": "/root/autodl-tmp/em_eqf/data/Oklahoma_Logan/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/Oklahoma_Logan/catalogs",
+    "raw_manifest": "data/US_Disposal_Inputs/sources.json"
+  },
+  {
+    "dataset": "Oklahoma_Major",
+    "path": "data/Oklahoma_Major",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/Oklahoma_Major",
+    "raw": [],
+    "processed": [
+      "data/Oklahoma_Major/processed/Oklahoma_Major_eq_processed.csv",
+      "data/Oklahoma_Major/processed/Oklahoma_Major_inj_by_well.csv",
+      "data/Oklahoma_Major/processed/Oklahoma_Major_inj_processed.csv",
+      "data/Oklahoma_Major/processed/Oklahoma_Major_summary.json"
+    ],
+    "cache": "/root/autodl-tmp/em_eqf/data/Oklahoma_Major/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/Oklahoma_Major/catalogs",
+    "raw_manifest": "data/US_Disposal_Inputs/sources.json"
+  },
+  {
+    "dataset": "Oklahoma_Noble",
+    "path": "data/Oklahoma_Noble",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/Oklahoma_Noble",
+    "raw": [],
+    "processed": [
+      "data/Oklahoma_Noble/processed/Oklahoma_Noble_eq_processed.csv",
+      "data/Oklahoma_Noble/processed/Oklahoma_Noble_inj_by_well.csv",
+      "data/Oklahoma_Noble/processed/Oklahoma_Noble_inj_processed.csv",
+      "data/Oklahoma_Noble/processed/Oklahoma_Noble_summary.json"
+    ],
+    "cache": "/root/autodl-tmp/em_eqf/data/Oklahoma_Noble/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/Oklahoma_Noble/catalogs",
+    "raw_manifest": "data/US_Disposal_Inputs/sources.json"
+  },
+  {
+    "dataset": "Oklahoma_Pawnee",
+    "path": "data/Oklahoma_Pawnee",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/Oklahoma_Pawnee",
+    "raw": [],
+    "processed": [
+      "data/Oklahoma_Pawnee/processed/Oklahoma_Pawnee_eq_processed.csv",
+      "data/Oklahoma_Pawnee/processed/Oklahoma_Pawnee_inj_by_well.csv",
+      "data/Oklahoma_Pawnee/processed/Oklahoma_Pawnee_inj_processed.csv",
+      "data/Oklahoma_Pawnee/processed/Oklahoma_Pawnee_summary.json"
+    ],
+    "cache": "/root/autodl-tmp/em_eqf/data/Oklahoma_Pawnee/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/Oklahoma_Pawnee/catalogs",
+    "raw_manifest": "data/US_Disposal_Inputs/sources.json"
+  },
+  {
+    "dataset": "Oklahoma_Payne",
+    "path": "data/Oklahoma_Payne",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/Oklahoma_Payne",
+    "raw": [],
+    "processed": [
+      "data/Oklahoma_Payne/processed/Oklahoma_Payne_eq_processed.csv",
+      "data/Oklahoma_Payne/processed/Oklahoma_Payne_inj_by_well.csv",
+      "data/Oklahoma_Payne/processed/Oklahoma_Payne_inj_processed.csv",
+      "data/Oklahoma_Payne/processed/Oklahoma_Payne_summary.json"
+    ],
+    "cache": "/root/autodl-tmp/em_eqf/data/Oklahoma_Payne/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/Oklahoma_Payne/catalogs",
+    "raw_manifest": "data/US_Disposal_Inputs/sources.json"
+  },
+  {
+    "dataset": "Texas_Southern_Delaware",
+    "path": "data/Texas_Southern_Delaware",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/Texas_Southern_Delaware",
+    "raw": [],
+    "processed": [
+      "data/Texas_Southern_Delaware/processed/Texas_Southern_Delaware_eq_processed.csv",
+      "data/Texas_Southern_Delaware/processed/Texas_Southern_Delaware_inj_by_well.csv",
+      "data/Texas_Southern_Delaware/processed/Texas_Southern_Delaware_inj_processed.csv",
+      "data/Texas_Southern_Delaware/processed/Texas_Southern_Delaware_summary.json"
+    ],
+    "cache": "/root/autodl-tmp/em_eqf/data/Texas_Southern_Delaware/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/Texas_Southern_Delaware/catalogs",
+    "raw_manifest": "data/US_Disposal_Inputs/sources.json"
   }
 ]

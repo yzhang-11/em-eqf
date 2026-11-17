@@ -1,0 +1,25 @@
+{
+  "dataset": "Oklahoma_Pawnee",
+  "events": 1878,
+  "with_magnitude": 1878,
+  "spatial_events_before_pairing": 1888,
+  "tied_time_rows_excluded": 10,
+  "invalid_volume_rows": 0,
+  "conflicting_well_periods": 7,
+  "repeat_well_period_rows": 7,
+  "injection_rows": 3287,
+  "periods_with_flow": 3287,
+  "wells_with_valid_reports": 34,
+  "pump_resolution": "calendar day",
+  "first_event": "2015-01-02T16:52:28.545999+00:00",
+  "last_event": "2023-12-24T16:56:49+00:00",
+  "val_start_ts": "2019-06-22T16:53:33+00:00",
+  "test_start_ts": "2021-01-04T17:03:46+00:00",
+  "mc": 2.25,
+  "mc_method": "training-prefix MAXC, bin width 0.1, retain M > Mc",
+  "n_scored": [
+    514,
+    5,
+    6
+  ]
+}

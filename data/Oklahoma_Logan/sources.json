@@ -1,0 +1,33 @@
+{
+  "dataset": "Oklahoma_Logan",
+  "region": "Oklahoma Logan",
+  "source_family": "Oklahoma",
+  "selection": "Earthquake epicenters and reported disposal well coordinates inside the named county polygon. Agency earthquake status retained; explicit preliminary entries excluded. Includes regional background activity.",
+  "shared_manifest": "../US_Disposal_Inputs/sources.json",
+  "raw_files": [
+    "OGS_archive2015.csv",
+    "occ2015.xlsx",
+    "OGS_archive2016.csv",
+    "occ2016.xlsx",
+    "OGS_archive2017.csv",
+    "occ2017.xlsx",
+    "OGS_archive2018.csv",
+    "occ2018.xlsx",
+    "OGS_archive2019.csv",
+    "occ2019.xlsx",
+    "OGS_archive2020.csv",
+    "occ2020.xlsx",
+    "OGS_archive2021.csv",
+    "occ2021.xlsx",
+    "OGS_archive2022.csv",
+    "occ2022.xlsx",
+    "OGS_archive2023.csv",
+    "occ2023.xlsx",
+    "ok_boundaries.json"
+  ],
+  "references": [
+    "https://www.ou.edu/ogs/research/earthquakes/catalogs",
+    "https://oklahoma.gov/occ/divisions/oil-gas/oil-gas-data.html",
+    "https://doi.org/10.1002/2017GL075258"
+  ]
+}

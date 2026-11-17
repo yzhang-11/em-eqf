@@ -6,15 +6,15 @@
     "index": "experiments/registry/external_sources.json"
   },
   "storage_root": "/autodl-fs/data/em_eqf_catalogs",
-  "source_commit": "67e0d36130292893cb56f03041114372135ba9af",
+  "source_commit": "b76f17fe90456e8d14cb90913393933ff3835d5a",
   "dataset_index": "experiments/registry/datasets.json",
   "scope": "Tracked data, indexed raw/processed inputs, and source files in local root aliases; excludes generated caches and weights in root aliases.",
   "counts": {
-    "tracked_data_files": 446,
-    "data_lfs_files": 250,
+    "tracked_data_files": 549,
+    "data_lfs_files": 332,
     "files_by_delivery": {
-      "git_lfs": 358,
-      "git": 196,
+      "git_lfs": 440,
+      "git": 217,
       "external_bundle": 2617
     },
     "private_excluded": 3,
@@ -4770,6 +4770,13 @@
       "delivery": "git"
     },
     {
+      "path": "data/FORGE2024/processed/FORGE2024_eq_paired_processed.csv",
+      "bytes": 257318,
+      "sha256": "23763079cc390dba8d4a5bbb3ccdcc932be8131e5469624c7c132a9ba5654baa",
+      "source_path": "/root/autodl-tmp/em_eqf/data/FORGE2024/processed/FORGE2024_eq_paired_processed.csv",
+      "delivery": "git_lfs"
+    },
+    {
       "path": "data/FORGE2024/processed/FORGE2024_eq_processed.csv",
       "bytes": 366451,
       "sha256": "e2a5de54a86e805bb60916228575c116a6a9df3e83c3c19d85cdb19d3233c7d9",
@@ -4777,11 +4784,32 @@
       "delivery": "git_lfs"
     },
     {
+      "path": "data/FORGE2024/processed/FORGE2024_inj_processed.csv",
+      "bytes": 12333767,
+      "sha256": "72653ceb547a32e66af7a89056be7ecae0f97880a1a351d58752da78ace51e77",
+      "source_path": "/root/autodl-tmp/em_eqf/data/FORGE2024/processed/FORGE2024_inj_processed.csv",
+      "delivery": "git_lfs"
+    },
+    {
       "path": "data/FORGE2024/processed/FORGE2024_summary.json",
-      "bytes": 276,
-      "sha256": "f4c35fb059395e07a5c6a5791c0639acf71b384e543fadc68464ef3d6aabf9d6",
+      "bytes": 551,
+      "sha256": "385e500ae8052872e4c03c0154046fa04b8859ce6e35be85d336431deaa74476",
       "source_path": "/root/autodl-tmp/em_eqf/data/FORGE2024/processed/FORGE2024_summary.json",
       "delivery": "git"
+    },
+    {
+      "path": "data/FORGE2024/raw/16A Frac Data.zip",
+      "bytes": 25037870,
+      "sha256": "9511881e1c2b5fe52b60d47d9f3c0fd70722807a062c39625743c52f425560f4",
+      "source_path": "/root/autodl-tmp/em_eqf/data/FORGE2024/raw/16A Frac Data.zip",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/FORGE2024/raw/16B Frac Data.zip",
+      "bytes": 3123455,
+      "sha256": "6e820e388dc93432d5268ab56093c48c83f6666122ec1482218e048e14962e0a",
+      "source_path": "/root/autodl-tmp/em_eqf/data/FORGE2024/raw/16B Frac Data.zip",
+      "delivery": "git_lfs"
     },
     {
       "path": "data/FORGE2024/raw/microseismic_catalog_Utah_FORGE_2024stim_niemzetal2024.csv",
@@ -4792,8 +4820,8 @@
     },
     {
       "path": "data/FORGE2024/sources.json",
-      "bytes": 1072,
-      "sha256": "ecd2efd3a9571c4e60c90da87b0f85e3fe88f4a55376bfe975c3316ab12c9a93",
+      "bytes": 1979,
+      "sha256": "14aec7bef99580e17f23d488714276b3081ddb959d514bd6e7ba4282d70cf293",
       "source_path": "/root/autodl-tmp/em_eqf/data/FORGE2024/sources.json",
       "delivery": "git"
     },
@@ -8998,6 +9026,41 @@
       "bytes": 622,
       "sha256": "a117cde1b2aae4a62b3b965237b0a30bae218390e7e7b2e95321d3668c1cbebe",
       "source_path": "/root/autodl-tmp/em_eqf/data/KNMI_Induced/sources.json",
+      "delivery": "git"
+    },
+    {
+      "path": "data/Kansas_Harper_Sumner/processed/Kansas_Harper_Sumner_eq_processed.csv",
+      "bytes": 724969,
+      "sha256": "7c341f70e37f2b0ae73f2b84fde508bce78b2c631dc8a193f838ac1376e5856a",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Kansas_Harper_Sumner/processed/Kansas_Harper_Sumner_eq_processed.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Kansas_Harper_Sumner/processed/Kansas_Harper_Sumner_inj_by_well.csv",
+      "bytes": 124241,
+      "sha256": "b39e63dc0ace04c0825e177048bf6e3266d978651dd0329d29fa73f204602781",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Kansas_Harper_Sumner/processed/Kansas_Harper_Sumner_inj_by_well.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Kansas_Harper_Sumner/processed/Kansas_Harper_Sumner_inj_processed.csv",
+      "bytes": 7034,
+      "sha256": "8526f1abdd385e3f5ec27147b88b33bf773ab9b6222437ca291cf47734702583",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Kansas_Harper_Sumner/processed/Kansas_Harper_Sumner_inj_processed.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Kansas_Harper_Sumner/processed/Kansas_Harper_Sumner_summary.json",
+      "bytes": 720,
+      "sha256": "071ad1b3e73baf3b2be466243b736fb20b070668fd46cab203e286ae5885f56e",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Kansas_Harper_Sumner/processed/Kansas_Harper_Sumner_summary.json",
+      "delivery": "git"
+    },
+    {
+      "path": "data/Kansas_Harper_Sumner/sources.json",
+      "bytes": 955,
+      "sha256": "8809f15cbd1f0875463e802bc7d73447026159148af41620832468467a6f6a8e",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Kansas_Harper_Sumner/sources.json",
       "delivery": "git"
     },
     {
@@ -17835,6 +17898,286 @@
       "delivery": "external_bundle"
     },
     {
+      "path": "data/Oklahoma_Alfalfa/processed/Oklahoma_Alfalfa_eq_processed.csv",
+      "bytes": 242531,
+      "sha256": "089648fb491a15ee336bcac73e976978031e065103440f42ae096b379b0de440",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Oklahoma_Alfalfa/processed/Oklahoma_Alfalfa_eq_processed.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Oklahoma_Alfalfa/processed/Oklahoma_Alfalfa_inj_by_well.csv",
+      "bytes": 6690839,
+      "sha256": "462a125810181fd769189090ac4c6cfd0effcb6d28ea9e8529cfb53de2bc8338",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Oklahoma_Alfalfa/processed/Oklahoma_Alfalfa_inj_by_well.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Oklahoma_Alfalfa/processed/Oklahoma_Alfalfa_inj_processed.csv",
+      "bytes": 265657,
+      "sha256": "4ff2bc5d72e6c2fa63e170b84415cf88c7deb6dc8c3f39d9fa057b128061af7f",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Oklahoma_Alfalfa/processed/Oklahoma_Alfalfa_inj_processed.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Oklahoma_Alfalfa/processed/Oklahoma_Alfalfa_summary.json",
+      "bytes": 701,
+      "sha256": "36e1f876db85d22fe70fa8ffc002a1cb50d9c89031d2bd2e46b517b6f7b9e251",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Oklahoma_Alfalfa/processed/Oklahoma_Alfalfa_summary.json",
+      "delivery": "git"
+    },
+    {
+      "path": "data/Oklahoma_Alfalfa/sources.json",
+      "bytes": 1047,
+      "sha256": "b0587ca5c43380a770fbf33398f46ba4f27d22790c6ff4f8c14804c8ef7cd6b3",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Oklahoma_Alfalfa/sources.json",
+      "delivery": "git"
+    },
+    {
+      "path": "data/Oklahoma_Garfield/processed/Oklahoma_Garfield_eq_processed.csv",
+      "bytes": 288331,
+      "sha256": "fe870da03c9af361a3bb760054a5fd713ad9fe8a9a89de45c8cce0c7259dc270",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Oklahoma_Garfield/processed/Oklahoma_Garfield_eq_processed.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Oklahoma_Garfield/processed/Oklahoma_Garfield_inj_by_well.csv",
+      "bytes": 3292658,
+      "sha256": "6048937bc2179eda23ca50a56b4e66356b41700ac7efde36c2427a688da3491e",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Oklahoma_Garfield/processed/Oklahoma_Garfield_inj_by_well.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Oklahoma_Garfield/processed/Oklahoma_Garfield_inj_processed.csv",
+      "bytes": 262150,
+      "sha256": "ce3eda20071262c02de8f3d0abed27c6cb7e49daf967fece99979157e522d4ff",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Oklahoma_Garfield/processed/Oklahoma_Garfield_inj_processed.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Oklahoma_Garfield/processed/Oklahoma_Garfield_summary.json",
+      "bytes": 695,
+      "sha256": "41fe85f080ba986ee4f4037b43902dc202f562d331f30c5d49e946d0802635b5",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Oklahoma_Garfield/processed/Oklahoma_Garfield_summary.json",
+      "delivery": "git"
+    },
+    {
+      "path": "data/Oklahoma_Garfield/sources.json",
+      "bytes": 1049,
+      "sha256": "8b9c457200bbe5952990c9a69d1b93888112e3eab819c1ba687dd394f2904cc9",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Oklahoma_Garfield/sources.json",
+      "delivery": "git"
+    },
+    {
+      "path": "data/Oklahoma_Grant/processed/Oklahoma_Grant_eq_processed.csv",
+      "bytes": 565364,
+      "sha256": "43bbc6113755e45f361b6b8196dd9f230f9f0f265a28472d58b7e91920c85d8c",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Oklahoma_Grant/processed/Oklahoma_Grant_eq_processed.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Oklahoma_Grant/processed/Oklahoma_Grant_inj_by_well.csv",
+      "bytes": 5040679,
+      "sha256": "0a59fc3a8d029f22ebaa75e0822d2e3e3178697b145b6451620c796dc5c02f72",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Oklahoma_Grant/processed/Oklahoma_Grant_inj_by_well.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Oklahoma_Grant/processed/Oklahoma_Grant_inj_processed.csv",
+      "bytes": 263252,
+      "sha256": "3095002df3384d6b5f786dbbe26e8150496b47a7922c8193a7cc10c8f33d8ecb",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Oklahoma_Grant/processed/Oklahoma_Grant_inj_processed.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Oklahoma_Grant/processed/Oklahoma_Grant_summary.json",
+      "bytes": 700,
+      "sha256": "748fcc017bac680b7d6503c788bfb958c9cab2e06e08af23c7a95e11c6b56b4d",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Oklahoma_Grant/processed/Oklahoma_Grant_summary.json",
+      "delivery": "git"
+    },
+    {
+      "path": "data/Oklahoma_Grant/sources.json",
+      "bytes": 1043,
+      "sha256": "1de623707e1fc72c64abab886a8bc11c88257b380ed9a7952ebf29bed47f08da",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Oklahoma_Grant/sources.json",
+      "delivery": "git"
+    },
+    {
+      "path": "data/Oklahoma_Logan/processed/Oklahoma_Logan_eq_processed.csv",
+      "bytes": 281923,
+      "sha256": "c2c4535c5a20fe8224efebcd35e138873bfdcfe3baaa6abb6fe4eb6b73f183ff",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Oklahoma_Logan/processed/Oklahoma_Logan_eq_processed.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Oklahoma_Logan/processed/Oklahoma_Logan_inj_by_well.csv",
+      "bytes": 3200416,
+      "sha256": "cf5acdbecfdaa709e5fd1fe4031c70383a06519914f047500fac692a7a0d3e43",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Oklahoma_Logan/processed/Oklahoma_Logan_inj_by_well.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Oklahoma_Logan/processed/Oklahoma_Logan_inj_processed.csv",
+      "bytes": 261127,
+      "sha256": "8d58eed7b2a289d7ad9312738853143b9b0bd7c13c5d9e1b207de81535e4901f",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Oklahoma_Logan/processed/Oklahoma_Logan_inj_processed.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Oklahoma_Logan/processed/Oklahoma_Logan_summary.json",
+      "bytes": 707,
+      "sha256": "f8dc87e3ced42b3fc4502239bad25942c9d820b51a8eb1999405c12a0a2bd105",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Oklahoma_Logan/processed/Oklahoma_Logan_summary.json",
+      "delivery": "git"
+    },
+    {
+      "path": "data/Oklahoma_Logan/sources.json",
+      "bytes": 1043,
+      "sha256": "d3997d89d9acc0a246cc0ffd0949217ef0abb3343019a32abd4d23334ad13e0e",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Oklahoma_Logan/sources.json",
+      "delivery": "git"
+    },
+    {
+      "path": "data/Oklahoma_Major/processed/Oklahoma_Major_eq_processed.csv",
+      "bytes": 255975,
+      "sha256": "0fb56133685f1a0458d10d7d7e01cbe1b5303b4edbb62603417c86e9b067db33",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Oklahoma_Major/processed/Oklahoma_Major_eq_processed.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Oklahoma_Major/processed/Oklahoma_Major_inj_by_well.csv",
+      "bytes": 290506,
+      "sha256": "333df946a9561d9526ebf35be5236ce6f99e0a585f8cbda504e74f0801f33f6d",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Oklahoma_Major/processed/Oklahoma_Major_inj_by_well.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Oklahoma_Major/processed/Oklahoma_Major_inj_processed.csv",
+      "bytes": 245183,
+      "sha256": "9e20dd5be94e9422efef7e9374432cf0ef2c383b26b9842c048f2a2c32c81536",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Oklahoma_Major/processed/Oklahoma_Major_inj_processed.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Oklahoma_Major/processed/Oklahoma_Major_summary.json",
+      "bytes": 691,
+      "sha256": "07c19a1d1b591e4d6f99ef98b7c593de07f438cf7c746a47417af3280ee58e04",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Oklahoma_Major/processed/Oklahoma_Major_summary.json",
+      "delivery": "git"
+    },
+    {
+      "path": "data/Oklahoma_Major/sources.json",
+      "bytes": 1043,
+      "sha256": "481b11dc543479b3c10a2ea89d427cd77e969c6a303610ce47a79a987a850db0",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Oklahoma_Major/sources.json",
+      "delivery": "git"
+    },
+    {
+      "path": "data/Oklahoma_Noble/processed/Oklahoma_Noble_eq_processed.csv",
+      "bytes": 290527,
+      "sha256": "55ab81ee8a9a9cf4a90dbc71b637545add5c1ed8d64dd86db1c0acd3dbf4a263",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Oklahoma_Noble/processed/Oklahoma_Noble_eq_processed.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Oklahoma_Noble/processed/Oklahoma_Noble_inj_by_well.csv",
+      "bytes": 3798812,
+      "sha256": "ecf6b6e9e9253624099fb4b4f1b5755de1dc5300cf34ffcf19b6e0f005cd48ff",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Oklahoma_Noble/processed/Oklahoma_Noble_inj_by_well.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Oklahoma_Noble/processed/Oklahoma_Noble_inj_processed.csv",
+      "bytes": 260680,
+      "sha256": "c71786f6c330cdcb4edf71b76cf8116ed3aee3e51ddb154da21f35a5fbfe8628",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Oklahoma_Noble/processed/Oklahoma_Noble_inj_processed.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Oklahoma_Noble/processed/Oklahoma_Noble_summary.json",
+      "bytes": 697,
+      "sha256": "d42839212ace40755571601aa2299d985530dd1085d5f95f69bbac1e2a60d79e",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Oklahoma_Noble/processed/Oklahoma_Noble_summary.json",
+      "delivery": "git"
+    },
+    {
+      "path": "data/Oklahoma_Noble/sources.json",
+      "bytes": 1043,
+      "sha256": "8132360742df1da7309653fb3c2e5c9dee56f2fe87ed0f6746b465f634d3a377",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Oklahoma_Noble/sources.json",
+      "delivery": "git"
+    },
+    {
+      "path": "data/Oklahoma_Pawnee/processed/Oklahoma_Pawnee_eq_processed.csv",
+      "bytes": 236070,
+      "sha256": "c7b4190dc9c7adf0d1337a2e3d2c5be774dac368b5a51c00de61c3255009a8d0",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Oklahoma_Pawnee/processed/Oklahoma_Pawnee_eq_processed.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Oklahoma_Pawnee/processed/Oklahoma_Pawnee_inj_by_well.csv",
+      "bytes": 1537248,
+      "sha256": "7e1717037f955246af32912cefa0c0e0c4e15c77b6ba0115a5008fde55228f51",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Oklahoma_Pawnee/processed/Oklahoma_Pawnee_inj_by_well.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Oklahoma_Pawnee/processed/Oklahoma_Pawnee_inj_processed.csv",
+      "bytes": 258905,
+      "sha256": "1b2b86c476c4fe2b7ccdac5c95affbf73c7be3f85e473846f5e89914761d90d9",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Oklahoma_Pawnee/processed/Oklahoma_Pawnee_inj_processed.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Oklahoma_Pawnee/processed/Oklahoma_Pawnee_summary.json",
+      "bytes": 691,
+      "sha256": "14c41fcddcfce45a5df4c44ba7f630f12afddc93698ae969cc6f4f54a7eabf31",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Oklahoma_Pawnee/processed/Oklahoma_Pawnee_summary.json",
+      "delivery": "git"
+    },
+    {
+      "path": "data/Oklahoma_Pawnee/sources.json",
+      "bytes": 1045,
+      "sha256": "5c44dd06d4c9ee120f677fb339ce288a87a14ca548f046b7cc075ce3610457eb",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Oklahoma_Pawnee/sources.json",
+      "delivery": "git"
+    },
+    {
+      "path": "data/Oklahoma_Payne/processed/Oklahoma_Payne_eq_processed.csv",
+      "bytes": 200372,
+      "sha256": "2a551036256c164584ee4e1f5f3adafe0bb4765a8692d7f31309eb17bc06b14b",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Oklahoma_Payne/processed/Oklahoma_Payne_eq_processed.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Oklahoma_Payne/processed/Oklahoma_Payne_inj_by_well.csv",
+      "bytes": 4979441,
+      "sha256": "ea93b6a8c5d4118669ce0136d823a337d4c7dffea34cb53c7769ea1f75ca887a",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Oklahoma_Payne/processed/Oklahoma_Payne_inj_by_well.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Oklahoma_Payne/processed/Oklahoma_Payne_inj_processed.csv",
+      "bytes": 266356,
+      "sha256": "f4842302ef43f91505cd32e18f6fc01e4d0165a7cc51245bc50468e7e3e64f46",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Oklahoma_Payne/processed/Oklahoma_Payne_inj_processed.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Oklahoma_Payne/processed/Oklahoma_Payne_summary.json",
+      "bytes": 706,
+      "sha256": "1801b7a46d698d4c7d8b3a570a47abcc043119439262e078deb4c336b2b227c0",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Oklahoma_Payne/processed/Oklahoma_Payne_summary.json",
+      "delivery": "git"
+    },
+    {
+      "path": "data/Oklahoma_Payne/sources.json",
+      "bytes": 1043,
+      "sha256": "8087f3a68b24c5cc3a032eae79d154d8b4bd62178dbadf3861196b2b02ded472",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Oklahoma_Payne/sources.json",
+      "delivery": "git"
+    },
+    {
       "path": "data/PNR_1z/raw/PNR-1z_injection_rates.csv",
       "bytes": 1448817,
       "sha256": "c7a5fcbacdc0d3445d0365b0cf46197a8463be2e1660e821ebd75eff50b7bc0c",
@@ -19513,6 +19856,41 @@
       "sha256": "3c707c86b4e579aa53ae9be02383befdc5c38526315ca30922c664389e384558",
       "source_path": "/autodl-fs/data/em_eqf_catalogs/source_expansion_20261106/Taiwan_Wu2008/processed/quality_screened.parquet",
       "delivery": "external_bundle"
+    },
+    {
+      "path": "data/Texas_Southern_Delaware/processed/Texas_Southern_Delaware_eq_processed.csv",
+      "bytes": 557224,
+      "sha256": "a0d311ad39eec25e9665618e13522d5d3d4b6db57c99c1631e13830af4ec8afc",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Texas_Southern_Delaware/processed/Texas_Southern_Delaware_eq_processed.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Texas_Southern_Delaware/processed/Texas_Southern_Delaware_inj_by_well.csv",
+      "bytes": 746050,
+      "sha256": "14fb8ba7deb56d8d959eedc7e2b96728a06cc296c985ac7ddcb860df852bbbe0",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Texas_Southern_Delaware/processed/Texas_Southern_Delaware_inj_by_well.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Texas_Southern_Delaware/processed/Texas_Southern_Delaware_inj_processed.csv",
+      "bytes": 6256,
+      "sha256": "2e95a258eed0d1c0f45d17d3c400f92d56f9a8fde25f200d7e5148986e93a520",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Texas_Southern_Delaware/processed/Texas_Southern_Delaware_inj_processed.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Texas_Southern_Delaware/processed/Texas_Southern_Delaware_summary.json",
+      "bytes": 723,
+      "sha256": "2b89ffb53245e8f23a823c6c6467c482ed78551d537c55d095ddc37b188e4428",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Texas_Southern_Delaware/processed/Texas_Southern_Delaware_summary.json",
+      "delivery": "git"
+    },
+    {
+      "path": "data/Texas_Southern_Delaware/sources.json",
+      "bytes": 998,
+      "sha256": "9265da3b0047e3ca627f327461eb6ee910be6f4dd3ff9f907883a2d955cc598d",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Texas_Southern_Delaware/sources.json",
+      "delivery": "git"
     },
     {
       "path": "data/Tony_Creek/processed/Tony_Creek_eq_processed.csv",
@@ -22509,6 +22887,349 @@
       "sha256": "e6f334b7df4e4a19bc9d3f02e15e23c1e3a7fe29d73ed5b24ae178013c67609e",
       "source_path": "/autodl-fs/data/em_eqf_catalogs/more_20261105/USGS_Utah/raw/20250101T000000_20260101T000000_767b80ed22834441.csv.json",
       "delivery": "external_bundle"
+    },
+    {
+      "path": "data/US_Disposal_Inputs/raw/KS_UIC_archive2015.zip",
+      "bytes": 2089619,
+      "sha256": "a460e71f7b0644c7c0169e94837302e43119191ee9d14f5dad71217fc03d091e",
+      "source_path": "/root/autodl-tmp/em_eqf/data/US_Disposal_Inputs/raw/KS_UIC_archive2015.zip",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/US_Disposal_Inputs/raw/KS_UIC_archive2016.zip",
+      "bytes": 2705531,
+      "sha256": "c6330a6f1590fb6fc4bddf6629a9ef8571adf7fe03fa59b5f3e7fb30e9dd0dd3",
+      "source_path": "/root/autodl-tmp/em_eqf/data/US_Disposal_Inputs/raw/KS_UIC_archive2016.zip",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/US_Disposal_Inputs/raw/KS_UIC_archive2017.zip",
+      "bytes": 2696489,
+      "sha256": "0d1f7ded8624ed98b0a04df4dd48e722c5c3a3c4b237afe49de81dfd85a8a50b",
+      "source_path": "/root/autodl-tmp/em_eqf/data/US_Disposal_Inputs/raw/KS_UIC_archive2017.zip",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/US_Disposal_Inputs/raw/KS_UIC_archive2018.zip",
+      "bytes": 2701047,
+      "sha256": "fbf9a17dc01c06b3f8019da76b24d486c90f2c4fa55a358e04435d4068e5b106",
+      "source_path": "/root/autodl-tmp/em_eqf/data/US_Disposal_Inputs/raw/KS_UIC_archive2018.zip",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/US_Disposal_Inputs/raw/KS_UIC_archive2019.zip",
+      "bytes": 2721121,
+      "sha256": "fba2e220c26d5d546807fb812bfa27431c30046ddc4cc20328af4ec2da1b5afb",
+      "source_path": "/root/autodl-tmp/em_eqf/data/US_Disposal_Inputs/raw/KS_UIC_archive2019.zip",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/US_Disposal_Inputs/raw/KS_UIC_archive2020.zip",
+      "bytes": 2859656,
+      "sha256": "4b2ef48c00de37dc76b7932d88ba22bbf02c6d14f0bfd0ee1d6e08c6e0eb493f",
+      "source_path": "/root/autodl-tmp/em_eqf/data/US_Disposal_Inputs/raw/KS_UIC_archive2020.zip",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/US_Disposal_Inputs/raw/KS_UIC_archive2021.zip",
+      "bytes": 2815038,
+      "sha256": "b88be240a14f73755032468575e0d4cae1100b3f01d7410cfa6810ba85c71ff8",
+      "source_path": "/root/autodl-tmp/em_eqf/data/US_Disposal_Inputs/raw/KS_UIC_archive2021.zip",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/US_Disposal_Inputs/raw/OGS_archive2015.csv",
+      "bytes": 1984155,
+      "sha256": "20a097823ae1588c9a226412fb3c8562576d2d9cd56441a6da28d78f4850ba5c",
+      "source_path": "/root/autodl-tmp/em_eqf/data/US_Disposal_Inputs/raw/OGS_archive2015.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/US_Disposal_Inputs/raw/OGS_archive2016.csv",
+      "bytes": 1321911,
+      "sha256": "c020c54bcf9e7d41a2c5d54a9e7a6058f7751ce438c1ab56165f961aeea8038d",
+      "source_path": "/root/autodl-tmp/em_eqf/data/US_Disposal_Inputs/raw/OGS_archive2016.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/US_Disposal_Inputs/raw/OGS_archive2017.csv",
+      "bytes": 636212,
+      "sha256": "fdb1716be3916d522d216d45ed2adb3eb084985b7589dc459055463c2f6bc5f7",
+      "source_path": "/root/autodl-tmp/em_eqf/data/US_Disposal_Inputs/raw/OGS_archive2017.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/US_Disposal_Inputs/raw/OGS_archive2018.csv",
+      "bytes": 261071,
+      "sha256": "d6e24e9d1ef299dfa4557297538f2e0c113e2875c2b75c090e46d8fd5c2ef427",
+      "source_path": "/root/autodl-tmp/em_eqf/data/US_Disposal_Inputs/raw/OGS_archive2018.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/US_Disposal_Inputs/raw/OGS_archive2019.csv",
+      "bytes": 360152,
+      "sha256": "dd38dca429631c8d08b5e235975afe4d8739c5b870c3aa859c3fc928169b4f41",
+      "source_path": "/root/autodl-tmp/em_eqf/data/US_Disposal_Inputs/raw/OGS_archive2019.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/US_Disposal_Inputs/raw/OGS_archive2020.csv",
+      "bytes": 556521,
+      "sha256": "503f949dbf39d040c22e3ebf7ff29898ac9d4d5dfd8bc4cab617f749dba3550e",
+      "source_path": "/root/autodl-tmp/em_eqf/data/US_Disposal_Inputs/raw/OGS_archive2020.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/US_Disposal_Inputs/raw/OGS_archive2021.csv",
+      "bytes": 596431,
+      "sha256": "86a07dfa5271e3e397adc2e530960032df81491c993e5ed4bcfe7d0dd9ba3bcc",
+      "source_path": "/root/autodl-tmp/em_eqf/data/US_Disposal_Inputs/raw/OGS_archive2021.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/US_Disposal_Inputs/raw/OGS_archive2022.csv",
+      "bytes": 346563,
+      "sha256": "19184cd7da9996f7c5c7c749d84ff7aeb9e5b36a82a036505d82f75fdf468401",
+      "source_path": "/root/autodl-tmp/em_eqf/data/US_Disposal_Inputs/raw/OGS_archive2022.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/US_Disposal_Inputs/raw/OGS_archive2023.csv",
+      "bytes": 296072,
+      "sha256": "bba604e5ba3b3e7ad53c790751b596f46c05edb41a51150cab8bff1c6a79a2e3",
+      "source_path": "/root/autodl-tmp/em_eqf/data/US_Disposal_Inputs/raw/OGS_archive2023.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/US_Disposal_Inputs/raw/h1000.csv",
+      "bytes": 137881,
+      "sha256": "bbdcf14e1b0ad461cacb773464b15829d946421f39b783e6d8209312e5fc43f0",
+      "source_path": "/root/autodl-tmp/em_eqf/data/US_Disposal_Inputs/raw/h1000.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/US_Disposal_Inputs/raw/h1001.csv",
+      "bytes": 105866,
+      "sha256": "6ce7e17a22808bd03e42036e8bac9b8f3fe8cb04674dc48c29b26453e4dafc24",
+      "source_path": "/root/autodl-tmp/em_eqf/data/US_Disposal_Inputs/raw/h1001.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/US_Disposal_Inputs/raw/h1002.csv",
+      "bytes": 230738,
+      "sha256": "bbc003e83b289934f0f663c4a9fe1d0194b0fc52fb1c5fd57c8638792d7f8a44",
+      "source_path": "/root/autodl-tmp/em_eqf/data/US_Disposal_Inputs/raw/h1002.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/US_Disposal_Inputs/raw/h1003.csv",
+      "bytes": 311431,
+      "sha256": "39efb8d2245c7ae55c52baafceb31cdb0c01c6d7f1c37000becfcde36bd301c0",
+      "source_path": "/root/autodl-tmp/em_eqf/data/US_Disposal_Inputs/raw/h1003.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/US_Disposal_Inputs/raw/h1004.csv",
+      "bytes": 327340,
+      "sha256": "ce3fcd0328fb0bf7a7ac0570844fdc42937af3a4aaf1a36e6d5c9f7b23f49bdd",
+      "source_path": "/root/autodl-tmp/em_eqf/data/US_Disposal_Inputs/raw/h1004.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/US_Disposal_Inputs/raw/h1005.csv",
+      "bytes": 323812,
+      "sha256": "666d1969be203052bf7ed6004fcd53f01df1e02c78a9fdf73fbdcfba0896c529",
+      "source_path": "/root/autodl-tmp/em_eqf/data/US_Disposal_Inputs/raw/h1005.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/US_Disposal_Inputs/raw/h1006.csv",
+      "bytes": 305622,
+      "sha256": "4fb0ae332466796e75a26c7c8af120ad7a51824abaaedc33a4e19bb73e7b8d03",
+      "source_path": "/root/autodl-tmp/em_eqf/data/US_Disposal_Inputs/raw/h1006.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/US_Disposal_Inputs/raw/h1007.csv",
+      "bytes": 239105,
+      "sha256": "52ddc81a97eddc75112b6756f3421f99b63879a51ca7e88f4afd07dfada62aa3",
+      "source_path": "/root/autodl-tmp/em_eqf/data/US_Disposal_Inputs/raw/h1007.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/US_Disposal_Inputs/raw/h1008.csv",
+      "bytes": 54249,
+      "sha256": "6e1e7de2f14ea0af1e1cfb93bb30395f6aeef02e8e332462b3b114d50644b246",
+      "source_path": "/root/autodl-tmp/em_eqf/data/US_Disposal_Inputs/raw/h1008.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/US_Disposal_Inputs/raw/kansas_events.csv",
+      "bytes": 670586,
+      "sha256": "e8bd0e07d86cf899404858ffce4b4e41aa820f81086f8fecc845bc11eddf434e",
+      "source_path": "/root/autodl-tmp/em_eqf/data/US_Disposal_Inputs/raw/kansas_events.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/US_Disposal_Inputs/raw/ks_boundary.json",
+      "bytes": 56268,
+      "sha256": "604f1945cb5d0b0a286d585af3325bd419c453656a897253ca55ac213fa0d87b",
+      "source_path": "/root/autodl-tmp/em_eqf/data/US_Disposal_Inputs/raw/ks_boundary.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/US_Disposal_Inputs/raw/loc00.csv",
+      "bytes": 3432,
+      "sha256": "f5c0ec647f54e7454b6d5f07cd1db7d7dddcece3d621fc17b253407641befbcd",
+      "source_path": "/root/autodl-tmp/em_eqf/data/US_Disposal_Inputs/raw/loc00.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/US_Disposal_Inputs/raw/loc01.csv",
+      "bytes": 3419,
+      "sha256": "45a29dd9c4593a4581e3f4c30d8db1f3e5c249aea1bd53f89c73cf55fde8e03d",
+      "source_path": "/root/autodl-tmp/em_eqf/data/US_Disposal_Inputs/raw/loc01.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/US_Disposal_Inputs/raw/loc02.csv",
+      "bytes": 3434,
+      "sha256": "65b272a490c147ab054c1c7d128ee8b855de1e03085b09faedebaf921c9d9426",
+      "source_path": "/root/autodl-tmp/em_eqf/data/US_Disposal_Inputs/raw/loc02.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/US_Disposal_Inputs/raw/loc03.csv",
+      "bytes": 3366,
+      "sha256": "a6ee8952f172f990d3837a53359ed3a05f7de66131f7047cb7660e51ea04127b",
+      "source_path": "/root/autodl-tmp/em_eqf/data/US_Disposal_Inputs/raw/loc03.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/US_Disposal_Inputs/raw/loc04.csv",
+      "bytes": 3295,
+      "sha256": "9588d7975aa2906ff63768bfc606c180824ed9441f059ccefb428a2952b858df",
+      "source_path": "/root/autodl-tmp/em_eqf/data/US_Disposal_Inputs/raw/loc04.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/US_Disposal_Inputs/raw/loc05.csv",
+      "bytes": 3513,
+      "sha256": "140a41d356bdd38b9ab5174d91914c9372ab9955398b9b0f42578697ccc75673",
+      "source_path": "/root/autodl-tmp/em_eqf/data/US_Disposal_Inputs/raw/loc05.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/US_Disposal_Inputs/raw/loc06.csv",
+      "bytes": 3673,
+      "sha256": "e9f52f4f1132294b9db08ff09b5ac848a44fefb4feb5e6bdc13712507e36ab8a",
+      "source_path": "/root/autodl-tmp/em_eqf/data/US_Disposal_Inputs/raw/loc06.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/US_Disposal_Inputs/raw/loc07.csv",
+      "bytes": 3546,
+      "sha256": "15cb56e9b73d0c9586ea237c2b528fe9e39cb6db6ba8ddb4f6562b52c2fbabce",
+      "source_path": "/root/autodl-tmp/em_eqf/data/US_Disposal_Inputs/raw/loc07.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/US_Disposal_Inputs/raw/loc08.csv",
+      "bytes": 618,
+      "sha256": "5ddc4a67d08cef6df7bcac2a7ba6ede356b0100fc81f14a1cee7aaa21403ba86",
+      "source_path": "/root/autodl-tmp/em_eqf/data/US_Disposal_Inputs/raw/loc08.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/US_Disposal_Inputs/raw/occ2015.xlsx",
+      "bytes": 11243757,
+      "sha256": "9f416822891b4bb558abb3c7d5f54ce20d7268af6060a831b8ad16f05eaa6c9a",
+      "source_path": "/root/autodl-tmp/em_eqf/data/US_Disposal_Inputs/raw/occ2015.xlsx",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/US_Disposal_Inputs/raw/occ2016.xlsx",
+      "bytes": 13763639,
+      "sha256": "269c75c4091a49849dcb336f7b4df691c78d89ef10080b30a57def91c0ad9833",
+      "source_path": "/root/autodl-tmp/em_eqf/data/US_Disposal_Inputs/raw/occ2016.xlsx",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/US_Disposal_Inputs/raw/occ2017.xlsx",
+      "bytes": 13336301,
+      "sha256": "e82263cf85b3e0ef7387601e1d045cf29927d4e36b284289ab295a27feddcabe",
+      "source_path": "/root/autodl-tmp/em_eqf/data/US_Disposal_Inputs/raw/occ2017.xlsx",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/US_Disposal_Inputs/raw/occ2018.xlsx",
+      "bytes": 13309462,
+      "sha256": "b16efa26ea6a977869deaaa77f995362863e0c71e51b2718c569257f1859e441",
+      "source_path": "/root/autodl-tmp/em_eqf/data/US_Disposal_Inputs/raw/occ2018.xlsx",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/US_Disposal_Inputs/raw/occ2019.xlsx",
+      "bytes": 14105042,
+      "sha256": "9f089970a003184d1e694a275d4cb49146e52aa46b212280bea4c7b4a359e5cf",
+      "source_path": "/root/autodl-tmp/em_eqf/data/US_Disposal_Inputs/raw/occ2019.xlsx",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/US_Disposal_Inputs/raw/occ2020.xlsx",
+      "bytes": 13755022,
+      "sha256": "f0d8b3ad865717cf05b65d2c11336e5b0b75e2cc9401ac057d234737ce585a46",
+      "source_path": "/root/autodl-tmp/em_eqf/data/US_Disposal_Inputs/raw/occ2020.xlsx",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/US_Disposal_Inputs/raw/occ2021.xlsx",
+      "bytes": 13316071,
+      "sha256": "8f2c9f8b21ae7a27769508131ae87272a94720757cc697f91cb660cf94f645e3",
+      "source_path": "/root/autodl-tmp/em_eqf/data/US_Disposal_Inputs/raw/occ2021.xlsx",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/US_Disposal_Inputs/raw/occ2022.xlsx",
+      "bytes": 10783962,
+      "sha256": "d9be3c5820b9478416e58dfcb9a78cd823d915b20a4c7e5b2a55b3b00091e270",
+      "source_path": "/root/autodl-tmp/em_eqf/data/US_Disposal_Inputs/raw/occ2022.xlsx",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/US_Disposal_Inputs/raw/occ2023.xlsx",
+      "bytes": 10394507,
+      "sha256": "2d4f3208f97021d2d4f8f4224ae862f02f21f56ff7d011040c47bf0af277c7f7",
+      "source_path": "/root/autodl-tmp/em_eqf/data/US_Disposal_Inputs/raw/occ2023.xlsx",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/US_Disposal_Inputs/raw/ok_boundaries.json",
+      "bytes": 3306575,
+      "sha256": "eb0af30b45500bd4eb9d02c8aec9822fde7591862d9111dda5835589a00849f5",
+      "source_path": "/root/autodl-tmp/em_eqf/data/US_Disposal_Inputs/raw/ok_boundaries.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/US_Disposal_Inputs/raw/tx_catalog.xls",
+      "bytes": 1041920,
+      "sha256": "8634e1616b9aae7e67cd3c5252ec50dffd4dc94072f02d3d360a2950aad6f30b",
+      "source_path": "/root/autodl-tmp/em_eqf/data/US_Disposal_Inputs/raw/tx_catalog.xls",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/US_Disposal_Inputs/raw/tx_post-2017-injection.xlsx",
+      "bytes": 50619,
+      "sha256": "d7ecbf34f4984c485b8d92c4904bc65d929b8e8253a9c5371ba7ae7b73e96cd9",
+      "source_path": "/root/autodl-tmp/em_eqf/data/US_Disposal_Inputs/raw/tx_post-2017-injection.xlsx",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/US_Disposal_Inputs/sources.json",
+      "bytes": 32047,
+      "sha256": "5d3510b674009649837923d63ed4fe8ebb6788fb1df6f113ed7522db115e7103",
+      "source_path": "/root/autodl-tmp/em_eqf/data/US_Disposal_Inputs/sources.json",
+      "delivery": "git"
     },
     {
       "path": "data/White/processed/processed_white.csv",

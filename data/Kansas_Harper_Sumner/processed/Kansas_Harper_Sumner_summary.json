@@ -1,0 +1,25 @@
+{
+  "dataset": "Kansas_Harper_Sumner",
+  "events": 3179,
+  "with_magnitude": 3179,
+  "spatial_events_before_pairing": 3180,
+  "tied_time_rows_excluded": 0,
+  "invalid_volume_rows": 0,
+  "conflicting_well_periods": 0,
+  "repeat_well_period_rows": 24,
+  "injection_rows": 84,
+  "periods_with_flow": 84,
+  "wells_with_valid_reports": 55,
+  "pump_resolution": "calendar month",
+  "first_event": "2015-01-01T14:41:40.640000+00:00",
+  "last_event": "2021-12-30T19:21:07.158000+00:00",
+  "val_start_ts": "2016-08-15T11:27:24.670000+00:00",
+  "test_start_ts": "2017-08-19T05:15:38.755000+00:00",
+  "mc": 1.55,
+  "mc_method": "training-prefix MAXC, bin width 0.1, retain M > Mc",
+  "n_scored": [
+    1975,
+    428,
+    440
+  ]
+}

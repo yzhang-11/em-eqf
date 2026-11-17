@@ -1,0 +1,25 @@
+{
+  "dataset": "Oklahoma_Garfield",
+  "events": 2262,
+  "with_magnitude": 2262,
+  "spatial_events_before_pairing": 2270,
+  "tied_time_rows_excluded": 8,
+  "invalid_volume_rows": 0,
+  "conflicting_well_periods": 0,
+  "repeat_well_period_rows": 0,
+  "injection_rows": 3287,
+  "periods_with_flow": 3287,
+  "wells_with_valid_reports": 46,
+  "pump_resolution": "calendar day",
+  "first_event": "2015-01-04T01:20:42.493999+00:00",
+  "last_event": "2023-11-22T23:51:37+00:00",
+  "val_start_ts": "2019-01-19T15:45:30+00:00",
+  "test_start_ts": "2021-02-05T17:28:38+00:00",
+  "mc": 2.25,
+  "mc_method": "training-prefix MAXC, bin width 0.1, retain M > Mc",
+  "n_scored": [
+    1037,
+    41,
+    19
+  ]
+}

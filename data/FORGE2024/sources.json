@@ -17,8 +17,25 @@
       "url": "https://zenodo.org/api/records/12817881/files/microseismic_catalog_Utah_FORGE_2024stim_niemzetal2024.csv/content",
       "provider_checksum": "md5:d2bdeafcd65ada61bc2c0b2a15543cb8",
       "sha256": "19f6181d0b86dc6a63d891a1bea4d0c622695f0013861c291a6e39f4600628b0"
+    },
+    {
+      "file": "16A Frac Data.zip",
+      "url": "https://gdr.openei.org/files/1611/16A%20Frac%20Data.zip",
+      "sha256": "9511881e1c2b5fe52b60d47d9f3c0fd70722807a062c39625743c52f425560f4"
+    },
+    {
+      "file": "16B Frac Data.zip",
+      "url": "https://gdr.openei.org/files/1611/16B%20Frac%20Data.zip",
+      "sha256": "6e820e388dc93432d5268ab56093c48c83f6666122ec1482218e048e14962e0a"
     }
   ],
   "scope": "April 2024 Utah FORGE, surface-network catalog, times in UTC. Magnitudes calibrated to UUSS local magnitudes. Local coordinates referenced to well 16A(78)-32. For site holdout, group with FORGE2022; the two campaigns are disjoint in time.",
-  "repository_record": "https://gdr.openei.org/submissions/1622"
+  "repository_record": "https://gdr.openei.org/submissions/1622",
+  "hydraulic_source": {
+    "creator": "Kevin England, Energy and Geoscience Institute at the University of Utah",
+    "doi": "https://doi.org/10.15121/2371032",
+    "license": "CC BY 4.0",
+    "clock_crosscheck": "https://gdr.openei.org/submissions/1820",
+    "clock_note": "Calfrac readmes specify Mountain Standard Time (UTC-07). The independent GDR fused table also maps 2024-04-03 10:09:14 instrument time to 17:09:14 UTC. Use unsmoothed original clean fluid rate in US oil barrels/minute."
+  }
 }

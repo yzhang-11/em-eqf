@@ -1,0 +1,23 @@
+{
+  "dataset": "Kansas_Harper_Sumner",
+  "region": "Kansas Harper Sumner",
+  "source_family": "Kansas",
+  "selection": "Reviewed ANSS earthquake origins in Harper and Sumner county polygons. Water-only monthly volumes for a fixed cohort of 55 Arbuckle SWD wells. The 2015 named disposal records are linked by full API and coordinates to 2016 permits. Regional reports do not establish event-level attribution.",
+  "shared_manifest": "../US_Disposal_Inputs/sources.json",
+  "raw_files": [
+    "KS_UIC_archive2015.zip",
+    "KS_UIC_archive2016.zip",
+    "KS_UIC_archive2017.zip",
+    "KS_UIC_archive2018.zip",
+    "KS_UIC_archive2019.zip",
+    "KS_UIC_archive2020.zip",
+    "KS_UIC_archive2021.zip",
+    "kansas_events.csv",
+    "ks_boundary.json"
+  ],
+  "references": [
+    "https://pubs.usgs.gov/publication/70195671",
+    "https://www.kgs.ku.edu/Magellan/Qualified/class2_db.html",
+    "https://www.kgs.ku.edu/Magellan/Qualified/fluid_format.html"
+  ]
+}

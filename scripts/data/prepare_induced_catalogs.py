@@ -1,4 +1,4 @@
-"""Rebuild induced-seismicity catalogs from their pinned raw files. Requires pandas and numpy."""
+"""Rebuild induced-seismicity catalogs from their pinned raw files. Requires pandas and numpy; FORGE2024 also uses python-calamine."""
 import argparse
 import gzip
 import hashlib
@@ -13,6 +13,7 @@ import pandas as pd
 
 DATA = Path(__file__).resolve().parents[2] / "data"
 MIN_MARKED_EVENTS = 500
+BBL_M3 = 0.158987294928
 GPM_TO_M3_MIN = 0.003785411784
 
 
@@ -166,13 +167,50 @@ def kiskatinaw(raw):
 
 
 def forge2024(raw):
-    eq = pd.read_csv(raw / "microseismic_catalog_Utah_FORGE_2024stim_niemzetal2024.csv", dtype={"ID": str})
-    events = eq.rename(columns={"ID": "event_id", "time(UTC)": "time_iso", "lat": "latitude",
-                                "lon": "longitude", "depth[m_local]": "depth_local_m",
-                                "east_shift[m_local]": "easting_local_m", "north_shift[m_local]": "northing_local_m"})
-    events.time_iso = pd.to_datetime(events.time_iso, utc=True, format="ISO8601")
+    # Calfrac instrument clocks are fixed MST (UTC-07), including during April.
+    events = pd.read_csv(raw / "microseismic_catalog_Utah_FORGE_2024stim_niemzetal2024.csv", dtype={"ID": str})
+    events = events.rename(columns={"ID": "event_id", "time(UTC)": "time_iso", "lat": "latitude",
+                                    "lon": "longitude", "depth[m_local]": "depth_local_m",
+                                    "east_shift[m_local]": "easting_local_m", "north_shift[m_local]": "northing_local_m"})
+    events.time_iso = pd.to_datetime(events.time_iso, utc=True)
     events["magnitude_type"] = "ML_calibrated"
-    return events, None, {"raw_events": len(eq), "site_group": "Utah FORGE"}
+    events["hydraulic_record"] = pd.Series(index=events.index, dtype="string")
+    frames = []
+    for well in ("16A", "16B"):
+        with ZipFile(raw / f"{well} Frac Data.zip") as archive:
+            for member in sorted(n for n in archive.namelist() if n.endswith(".xlsx")):
+                stage = member.split("_Stage ")[1].split("_")[0]
+                record = f"{well}-{stage}"
+                with archive.open(member) as stream:
+                    x = pd.read_excel(stream, header=None, usecols="A:G", engine="calamine")
+                if list(x.iloc[3, [0, 1, 2, 6]]) != ["Date", "Day", "Pressure", "Rate"] or x.iloc[4, 6] != "(bpm)":
+                    raise ValueError(f"Unexpected Calfrac headers: {member}")
+                x = x.iloc[5:].dropna(how="all")
+                time = pd.to_datetime(x[0]).dt.normalize() + pd.to_timedelta(x[1].astype(str))
+                utc = time.dt.tz_localize("Etc/GMT+7").dt.tz_convert("UTC")
+                rate = pd.to_numeric(x[6], errors="raise")
+                inj = pd.DataFrame({"time_iso": utc, "well": well, "hydraulic_record": record,
+                                    "clean_rate_bbl_min": rate, "inj_rate_m3_min": rate * BBL_M3,
+                                    "treating_pressure_psi": pd.to_numeric(x[2], errors="raise")})
+                if not utc.is_monotonic_increasing or utc.duplicated().any():
+                    raise ValueError(f"Unordered Calfrac records: {member}")
+                # Missing samples interrupt a sequence. Only bracketed events have known coverage.
+                measured = inj.loc[np.isfinite(rate) & (rate >= 0)].copy()
+                parts = measured.time_iso.diff().ne(pd.Timedelta(seconds=1)).cumsum()
+                for part, group in measured.groupby(parts):
+                    keep = events.time_iso.between(group.time_iso.iloc[0], group.time_iso.iloc[-1])
+                    if events.loc[keep, "hydraulic_record"].notna().any():
+                        raise ValueError("Overlapping Calfrac observation windows")
+                    label = f"{record}.{part}"
+                    events.loc[keep, "hydraulic_record"] = label
+                    frames.append(group.assign(hydraulic_record=label))
+    paired = events.hydraulic_record.notna()
+    return events, pd.concat(frames, ignore_index=True), {
+        "raw_events": len(events), "paired_events": int(paired.sum()), "outside_measured_windows": int((~paired).sum()),
+        "site_group": "Utah FORGE", "clock": "Calfrac fixed MST (UTC-07)",
+        "rate_source": "original one-second Calfrac clean fluid rate (bbl/min)",
+        "measured_windows": len(frames), "windows_with_events": events.hydraulic_record.nunique(),
+        "wells": sorted({f.well.iloc[0] for f in frames})}
 
 
 def lacq(raw):
@@ -211,6 +249,9 @@ def build(name, data_dir):
         raise ValueError(f"Invalid magnitudes or fewer than {MIN_MARKED_EVENTS} marked events: {name}")
     out = site / "processed"
     out.mkdir(exist_ok=True)
+    if name == "FORGE2024":
+        eq.loc[eq.hydraulic_record.notna()].to_csv(out / f"{name}_eq_paired_processed.csv", index=False, lineterminator="\n")
+        eq = eq.drop(columns="hydraulic_record")
     eq.to_csv(out / f"{name}_eq_processed.csv", index=False, lineterminator="\n")
     if injection is not None:
         clock = "time_iso" if "time_iso" in injection else "source_date"

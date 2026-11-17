@@ -1,0 +1,25 @@
+{
+  "dataset": "Oklahoma_Major",
+  "events": 2097,
+  "with_magnitude": 2097,
+  "spatial_events_before_pairing": 2103,
+  "tied_time_rows_excluded": 6,
+  "invalid_volume_rows": 1,
+  "conflicting_well_periods": 0,
+  "repeat_well_period_rows": 0,
+  "injection_rows": 3287,
+  "periods_with_flow": 3287,
+  "wells_with_valid_reports": 5,
+  "pump_resolution": "calendar day",
+  "first_event": "2015-01-08T00:53:54.316000+00:00",
+  "last_event": "2023-12-25T09:34:02+00:00",
+  "val_start_ts": "2020-08-27T16:59:41+00:00",
+  "test_start_ts": "2021-07-02T19:21:37+00:00",
+  "mc": 1.85,
+  "mc_method": "training-prefix MAXC, bin width 0.1, retain M > Mc",
+  "n_scored": [
+    1023,
+    58,
+    43
+  ]
+}

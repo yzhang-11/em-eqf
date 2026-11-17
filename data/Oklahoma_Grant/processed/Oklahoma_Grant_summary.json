@@ -1,0 +1,25 @@
+{
+  "dataset": "Oklahoma_Grant",
+  "events": 4314,
+  "with_magnitude": 4314,
+  "spatial_events_before_pairing": 4320,
+  "tied_time_rows_excluded": 4,
+  "invalid_volume_rows": 0,
+  "conflicting_well_periods": 1,
+  "repeat_well_period_rows": 1,
+  "injection_rows": 3287,
+  "periods_with_flow": 3287,
+  "wells_with_valid_reports": 67,
+  "pump_resolution": "calendar day",
+  "first_event": "2015-01-01T07:29:32.246999+00:00",
+  "last_event": "2023-12-31T03:02:19+00:00",
+  "val_start_ts": "2017-09-08T02:32:20.774499+00:00",
+  "test_start_ts": "2020-08-22T09:29:15+00:00",
+  "mc": 2.25,
+  "mc_method": "training-prefix MAXC, bin width 0.1, retain M > Mc",
+  "n_scored": [
+    1938,
+    223,
+    59
+  ]
+}

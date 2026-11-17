@@ -1,11 +1,21 @@
 {
   "raw_events": 2900,
+  "paired_events": 1912,
+  "outside_measured_windows": 988,
   "site_group": "Utah FORGE",
+  "clock": "Calfrac fixed MST (UTC-07)",
+  "rate_source": "original one-second Calfrac clean fluid rate (bbl/min)",
+  "measured_windows": 13,
+  "windows_with_events": 12,
+  "wells": [
+    "16A",
+    "16B"
+  ],
   "dataset": "FORGE2024",
   "events": 2900,
   "with_magnitude": 2900,
   "tied_time_rows": 0,
   "first_event": "2024-04-03T17:47:29.411000+00:00",
   "last_event": "2024-04-15T22:06:54.507000+00:00",
-  "injection_rows": 0
+  "injection_rows": 187390
 }

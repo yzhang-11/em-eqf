@@ -27,3 +27,6 @@ data/EGSCollab_E1/raw/waveform_inventory.json text eol=lf
 /data/KNMI_Induced/raw/*.xml.gz filter=lfs diff=lfs merge=lfs -text
 /data/Tony_Creek/raw/*.xlsx filter=lfs diff=lfs merge=lfs -text
 /data/Lacq_SISLACQ2021/raw/*.txt -text
+/data/US_Disposal_Inputs/raw/*.xls filter=lfs diff=lfs merge=lfs -text
+/data/US_Disposal_Inputs/raw/*.xlsx filter=lfs diff=lfs merge=lfs -text
+/data/US_Disposal_Inputs/raw/*.json filter=lfs diff=lfs merge=lfs -text

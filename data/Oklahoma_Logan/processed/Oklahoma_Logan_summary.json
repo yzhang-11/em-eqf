@@ -1,0 +1,25 @@
+{
+  "dataset": "Oklahoma_Logan",
+  "events": 2134,
+  "with_magnitude": 2134,
+  "spatial_events_before_pairing": 2142,
+  "tied_time_rows_excluded": 8,
+  "invalid_volume_rows": 0,
+  "conflicting_well_periods": 5,
+  "repeat_well_period_rows": 5,
+  "injection_rows": 3287,
+  "periods_with_flow": 3287,
+  "wells_with_valid_reports": 45,
+  "pump_resolution": "calendar day",
+  "first_event": "2015-01-01T06:25:58.515000+00:00",
+  "last_event": "2023-12-04T00:08:52+00:00",
+  "val_start_ts": "2017-10-16T07:36:52.866500+00:00",
+  "test_start_ts": "2019-03-01T03:18:22.500000+00:00",
+  "mc": 2.15,
+  "mc_method": "training-prefix MAXC, bin width 0.1, retain M > Mc",
+  "n_scored": [
+    1203,
+    201,
+    34
+  ]
+}
