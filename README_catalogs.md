@@ -1,5 +1,31 @@
 # em_eqf 地震目录来源与处理
 
+## 再新增 5 个训练事件数大于 1,000 的区域
+
+2026-11-18 本轮新增 5 个区域，目前这一轮扩充系列共有 12 个区域满足训练事件数严格大于 1,000。所有数量均在实际注水观测期配对、去除同刻歧义、按训练前缀估计 MAXC，并严格取 M > Mc 后计算。沿用 70% / 15% / 15% 时间顺序切分。
+
+| 新增区域 | 配对事件 | Mc | 训练 | 验证 | 测试 | 报量井或许可 | 注水分辨率 |
+|---|---:|---:|---:|---:|---:|---:|---|
+| Texas_Culberson | 17,867 | 1.65 | 9268 | 1764 | 1218 | 174 | 月 |
+| Texas_Martin | 3,793 | 1.15 | 1879 | 173 | 171 | 453 | 月 |
+| Texas_Scurry_Fisher_Mitchell | 2,667 | 1.55 | 1059 | 222 | 121 | 283 | 月 |
+| Texas_EagleFord | 3,609 | 1.55 | 1960 | 303 | 252 | 406 | 月 |
+| Texas_Midland_FiveCounties | 3,136 | 1.25 | 1350 | 150 | 156 | 1549 | 月 |
+
+### 区域与共同来源
+
+5 个得克萨斯区域共享 TexNet 人工复核且终审的地震目录（2017–2025）、RRC H-10 实测月报和 Census 县界。Culberson、Martin 各为单县，Scurry–Fisher–Mitchell 为相邻三县，Eagle Ford 采用 Karnes、Atascosa、Wilson、Frio、Gonzales、Live Oak、McMullen、DeWitt、La Salle 九县的空间并集。Midland 五县组由 Midland、Ector、Andrews、Howard、Glasscock 构成，单独划出的 Martin 县从该组排除。地震与井均按同一边界选择。[TexNet 数据服务](https://maps.texnet.beg.utexas.edu/arcgis/rest/services/catalog/TexNetCatalog/MapServer/0) · [RRC H-10 月报](https://data.texas.gov/d/qq2j-f2zm)
+
+Eagle Ford 存在压裂、处置和开采等多种活动，公开处置井报量覆盖其中的处置注水部分。逐事件与某口井的因果对应关系尚未建立。Grady–Canadian 候选区在匹配实测注水覆盖后只有 1,427 个事件，无法满足训练门槛，本轮未计入新增 5 区。[Eagle Ford 研究](https://www.research-collection.ethz.ch/entities/publication/60fb133d-2c3c-4c44-8e9e-67344b7cdc26)
+
+### 预处理与复现
+
+处理表保留物理单位与原始震级，切分边界和 Mc 写入每区摘要。H-10 仅选处置类型 1/2 且该月气体量为零的记录，保留当前井主表中的处置许可作为固定候选集合；缺报、负值、相互冲突的井月报量保留缺失。区域报量为实际已报量之和，报送井数逐期保留。UTC 的注水时间戳标在已结束的日/月报告期末，实际申报延迟未知。月报没有转成分钟插值序列。
+
+在项目环境运行 `python scripts/data/prepare_water_expansion.py` 重建这 5 区，也可用 `--dataset` 指定单区。脚本复用 `prepare_water_regions.py` 的空间配对、缺测处理、切分和 MAXC 实现，训练事件数少于 1,001 时直接报错。原件校验覆盖新 77 份 TexNet/RRC/Census 快照。[新原件来源与校验值](data/TexNet_Disposal_Inputs/sources.json) · [配对检查](data/TexNet_Disposal_Inputs/pairing_audit.json)
+
+新增 5 区与原区域合并后，事件 ID 和井／许可 ID 的跨区重复数均为 0。时间相差不超过 10 秒且经纬两方向各不超过约 10 km 的跨区候选共 0 对，逐条明细见配对检查。共享台网或相邻产区的区域在评估跨场地泛化时应成组留出。
+
 ## 按训练事件数大于 1,000 扩充
 
 2026-11-18 更新。继续采用原先的 70% / 15% / 15% 时间顺序切分和训练侧 MAXC，入选门槛改为严格高于 Mc 的训练事件数大于 1,000。下面 7 区符合这一口径。其余已有目录继续保存。

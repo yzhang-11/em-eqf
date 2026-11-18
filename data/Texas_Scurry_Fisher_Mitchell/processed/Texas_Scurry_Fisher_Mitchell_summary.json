@@ -1,0 +1,25 @@
+{
+  "dataset": "Texas_Scurry_Fisher_Mitchell",
+  "events": 2667,
+  "with_magnitude": 2667,
+  "spatial_events_before_pairing": 2667,
+  "tied_time_rows_excluded": 0,
+  "invalid_volume_rows": 0,
+  "conflicting_well_periods": 0,
+  "repeat_well_period_rows": 0,
+  "injection_rows": 108,
+  "periods_with_flow": 108,
+  "wells_with_valid_reports": 283,
+  "pump_resolution": "calendar month",
+  "first_event": "2017-03-17T07:36:27.175000+00:00",
+  "last_event": "2025-12-31T18:24:01.440000+00:00",
+  "val_start_ts": "2024-08-20T08:58:43.417000+00:00",
+  "test_start_ts": "2025-07-01T09:23:07.921000+00:00",
+  "mc": 1.55,
+  "mc_method": "training-prefix MAXC, bin width 0.1, retain M > Mc",
+  "n_scored": [
+    1059,
+    222,
+    121
+  ]
+}

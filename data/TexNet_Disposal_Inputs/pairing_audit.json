@@ -1,0 +1,24 @@
+{
+  "new_datasets": [
+    "Texas_Culberson",
+    "Texas_Martin",
+    "Texas_Scurry_Fisher_Mitchell",
+    "Texas_EagleFord",
+    "Texas_Midland_FiveCounties"
+  ],
+  "baseline_commit": "33e9bb727",
+  "event_id_duplicates": 0,
+  "well_or_permit_id_duplicates": 0,
+  "texas_physical_api_cross_region_duplicates": 0,
+  "same_time_and_coordinates_duplicates": 0,
+  "near_cross_region_candidates": [],
+  "native_volume_sums_verified": true,
+  "period_end_timing_verified": true,
+  "training_gt1000_verified": true,
+  "legacy_geographic_screen": {
+    "registry_commit": "b76f17fe",
+    "datasets_with_coordinates": 53,
+    "unique_source_files": 51,
+    "new_region_bounding_box_hits": 0
+  }
+}

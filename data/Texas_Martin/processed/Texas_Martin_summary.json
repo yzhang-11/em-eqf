@@ -1,0 +1,25 @@
+{
+  "dataset": "Texas_Martin",
+  "events": 3793,
+  "with_magnitude": 3793,
+  "spatial_events_before_pairing": 3793,
+  "tied_time_rows_excluded": 0,
+  "invalid_volume_rows": 0,
+  "conflicting_well_periods": 0,
+  "repeat_well_period_rows": 0,
+  "injection_rows": 108,
+  "periods_with_flow": 108,
+  "wells_with_valid_reports": 453,
+  "pump_resolution": "calendar month",
+  "first_event": "2020-03-27T03:29:07.246000+00:00",
+  "last_event": "2025-12-31T23:54:36.771000+00:00",
+  "val_start_ts": "2025-07-07T02:04:54.386000+00:00",
+  "test_start_ts": "2025-10-02T08:33:06.548000+00:00",
+  "mc": 1.15,
+  "mc_method": "training-prefix MAXC, bin width 0.1, retain M > Mc",
+  "n_scored": [
+    1879,
+    173,
+    171
+  ]
+}

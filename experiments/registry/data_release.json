@@ -6,15 +6,15 @@
     "index": "experiments/registry/external_sources.json"
   },
   "storage_root": "/autodl-fs/data/em_eqf_catalogs",
-  "source_commit": "9aa5fde7585176cb58011ed309befa72aced863c",
+  "source_commit": "33e9bb727a7fd51f1e9f410f1f96ba8fd6cef942",
   "dataset_index": "experiments/registry/datasets.json",
   "scope": "Tracked data, indexed raw/processed inputs, and source files in local root aliases; excludes generated caches and weights in root aliases.",
   "counts": {
-    "tracked_data_files": 554,
-    "data_lfs_files": 335,
+    "tracked_data_files": 658,
+    "data_lfs_files": 427,
     "files_by_delivery": {
-      "git_lfs": 443,
-      "git": 219,
+      "git_lfs": 535,
+      "git": 231,
       "external_bundle": 2617
     },
     "private_excluded": 3,
@@ -19891,6 +19891,734 @@
       "sha256": "3c707c86b4e579aa53ae9be02383befdc5c38526315ca30922c664389e384558",
       "source_path": "/autodl-fs/data/em_eqf_catalogs/source_expansion_20261106/Taiwan_Wu2008/processed/quality_screened.parquet",
       "delivery": "external_bundle"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/pairing_audit.json",
+      "bytes": 687,
+      "sha256": "0c414bf18f0107d84c985124de0ffe7021eb3c05fff6658c1fc3025251b3cf29",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/pairing_audit.json",
+      "delivery": "git"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/catalog_000.json",
+      "bytes": 801449,
+      "sha256": "a2ff1551a15f925fd39277389ce9c0c93c7df243a7258a1f8a4ea7ae8739ad56",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/catalog_000.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/catalog_001.json",
+      "bytes": 802915,
+      "sha256": "01eb5a6e67a7e16550c15b61b90817d6ac38fc45cc9383fe7375dacaa4244030",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/catalog_001.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/catalog_002.json",
+      "bytes": 804272,
+      "sha256": "174925f8e4b28061941a08e473018401e5b072f5367f193eddd50cc6454cfd29",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/catalog_002.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/catalog_003.json",
+      "bytes": 807230,
+      "sha256": "4251e7bccfd84e1bc86d5bc0af1712e20544c316589a47364d3d2ac4e7b90588",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/catalog_003.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/catalog_004.json",
+      "bytes": 806585,
+      "sha256": "ae9e09d8bb11d37cb799100d5eb9b41e80916bc646d57bbf76c6b0b59ec2a265",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/catalog_004.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/catalog_005.json",
+      "bytes": 806475,
+      "sha256": "c2395ab341b1ba904794a287842c46029449a5dc1f1330ed13204d83f1cf9969",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/catalog_005.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/catalog_006.json",
+      "bytes": 806709,
+      "sha256": "14739283e039a2ce814a97ffff716dd622af43e5a5870a982b9a8a12ed654fc2",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/catalog_006.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/catalog_007.json",
+      "bytes": 806565,
+      "sha256": "2c9d2e51d39ab46e2805a79ad0866828fe3b58f2edc8608a20cc4e2979552ad7",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/catalog_007.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/catalog_008.json",
+      "bytes": 807782,
+      "sha256": "238582c8648c71b689e5e9d7aa2d90fefd0e666f09ce8ffe707265160bc955e2",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/catalog_008.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/catalog_009.json",
+      "bytes": 806953,
+      "sha256": "1dd04027e535b04eb1b1244a76c8d5c33287b4772231f1c7c2ba3fa4609ed152",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/catalog_009.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/catalog_010.json",
+      "bytes": 817679,
+      "sha256": "9daebb87ba5331f2fe35f76fd76f7b401c6d9b60be858440c2bd03f6005f1f0b",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/catalog_010.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/catalog_011.json",
+      "bytes": 818295,
+      "sha256": "68d671624f0bdf579f634e80a53a612f92009bcd3e4d86f8b57577e6c4d99cd3",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/catalog_011.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/catalog_012.json",
+      "bytes": 818499,
+      "sha256": "333a6d0d4b8e8b16e771f5143cc495907dbc2007791f3d4144fe7099a3d07646",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/catalog_012.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/catalog_013.json",
+      "bytes": 818329,
+      "sha256": "b2322f061ec8aa15e31ce5c3e44005fc198bbfc4d260c1f46744a9cde2175783",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/catalog_013.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/catalog_014.json",
+      "bytes": 817991,
+      "sha256": "96239475ce94dabba5a150e2b766c65f94dbcbcbd2e4a0567f413d8f7b75ab29",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/catalog_014.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/catalog_015.json",
+      "bytes": 819159,
+      "sha256": "7a257050a79b55aed3cad12d3ec66c69cbf04782ab32b7a0ddcaaf3b8345f6b3",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/catalog_015.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/catalog_016.json",
+      "bytes": 819691,
+      "sha256": "926b7d4772b6aa217350a9aa91449e2ac056e2837fef53f86106d06dbbb53331",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/catalog_016.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/catalog_017.json",
+      "bytes": 819129,
+      "sha256": "4df9336d0b3f4db452105f5cb00d5f37f17b4531e54bb3854f98d359f748c7fe",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/catalog_017.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/catalog_018.json",
+      "bytes": 819034,
+      "sha256": "38c9c534fe083cb0595a845f6471ced55999949d99116a8a7c23844651a00b7a",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/catalog_018.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/catalog_019.json",
+      "bytes": 818954,
+      "sha256": "12f682c326a453545e19480a8f9312b6a53d4dff076da1fde1e00bdd9a1b1662",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/catalog_019.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/catalog_020.json",
+      "bytes": 818754,
+      "sha256": "45036a4499b57593aa816416e4b781b74aa1fc2e1f80e903a9f22e9ebd280766",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/catalog_020.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/catalog_021.json",
+      "bytes": 818631,
+      "sha256": "8d83645b0d2a5ecb8590e5d739c8d53b447a6ab6b94ad927fe222664e7deaaa5",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/catalog_021.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/catalog_022.json",
+      "bytes": 818976,
+      "sha256": "30b18c4a24c8725a35fc6ababc86f2583f76ca44f289390a7d007b23369f671f",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/catalog_022.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/catalog_023.json",
+      "bytes": 816116,
+      "sha256": "14ecfd68c23b243f4b8ffd0d717f7a5e5ae9c9ce218a5ae1f1f03e3987762f11",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/catalog_023.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/catalog_024.json",
+      "bytes": 815886,
+      "sha256": "aba49bbb23cdaad62211d18846fd35eedab42f804f7be294108add7936441398",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/catalog_024.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/catalog_025.json",
+      "bytes": 816326,
+      "sha256": "f82c3ddf740ab62ef9d0b2f36f2e0bc4681f73686fed183dc2f5d28950e2055c",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/catalog_025.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/catalog_026.json",
+      "bytes": 815932,
+      "sha256": "9348e08b861c4362bdfda536bfe83571556775a38685e1b27eee315f4e7cca09",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/catalog_026.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/catalog_027.json",
+      "bytes": 816220,
+      "sha256": "0607fcba47b515f5ed4f737cf6c5659e4156ea2374a32841c521ec2a0f68a515",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/catalog_027.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/catalog_028.json",
+      "bytes": 186111,
+      "sha256": "3e0fe5fa03e5865d252f1a1e3062428ab7b3f2c2c4c85802d1d2bc093b188f92",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/catalog_028.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/catalog_ids.json",
+      "bytes": 249141,
+      "sha256": "c8d14b16be3d8e06ef5cfc13cc84646924481e1fa688f3904dfac6b218f0471c",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/catalog_ids.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/h10_Culberson_000.json",
+      "bytes": 2119475,
+      "sha256": "688ed5c39fafb9982f6ff5f4208e095325d23c92e8b492bee8f90918b39f7224",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/h10_Culberson_000.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/h10_Culberson_001.json",
+      "bytes": 316969,
+      "sha256": "e5abd85a0d82bcfb7360c9098266cf3ddfc2bd49a07e161f82cb3a20c71d355a",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/h10_Culberson_001.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/h10_EagleFord_000.json",
+      "bytes": 387805,
+      "sha256": "451be36cd345e6043f47813a25d5b2aebf06eb6eb3a8e249da19d320035b71ce",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/h10_EagleFord_000.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/h10_EagleFord_001.json",
+      "bytes": 361748,
+      "sha256": "6d6d6bfe128680de1f1443a977c8088277838956d01482572f6a3f5b3891a837",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/h10_EagleFord_001.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/h10_EagleFord_002.json",
+      "bytes": 667239,
+      "sha256": "f44f7b193caabf38a46130bd8f1f2053e70de734d4aa1704f4e9f31a4060de55",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/h10_EagleFord_002.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/h10_EagleFord_003.json",
+      "bytes": 679148,
+      "sha256": "3368c41a7c3d665890c3ebbf49aa0ba73affc7da78a3eefa19cf6a3adb346b9a",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/h10_EagleFord_003.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/h10_EagleFord_004.json",
+      "bytes": 1533048,
+      "sha256": "4e56dd828368b745cdfa43962f53b93f6ef3c223600e22d9d5640e6b502f613f",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/h10_EagleFord_004.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/h10_EagleFord_005.json",
+      "bytes": 2780252,
+      "sha256": "093c032b1faef35fd061bbdfb871e6a832bafb655ebb5841430edace412e10c1",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/h10_EagleFord_005.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/h10_EagleFord_006.json",
+      "bytes": 1846106,
+      "sha256": "c4c40727bb3b2096d92759be07881371ef148e51b8bc6bfe8ecb5253571f6420",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/h10_EagleFord_006.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/h10_EagleFord_007.json",
+      "bytes": 19970,
+      "sha256": "0be3d7f0c290edb75ea878106faa788334a0b6699e3e5a4aa6bae96eeafaa6fa",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/h10_EagleFord_007.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/h10_Martin_000.json",
+      "bytes": 2188280,
+      "sha256": "4e4284b8211a9c3c7e404371df30a66911ab09c30e70d7535ac138fca080582f",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/h10_Martin_000.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/h10_Martin_001.json",
+      "bytes": 2807046,
+      "sha256": "477aeedb75a1590b1c9f1ab75e8feaed9968694aa588679b3c7b08fcffce663b",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/h10_Martin_001.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/h10_Martin_002.json",
+      "bytes": 2003768,
+      "sha256": "b0ab89de83a12932b838746903e2c5b3872620d0ef7d9aa433aa6548a01f3a78",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/h10_Martin_002.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/h10_Martin_003.json",
+      "bytes": 441529,
+      "sha256": "775e9aeb6490d5824fae3d5fafdc4afb66d6fe72483b0feeaebda6ab5e4b2dda",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/h10_Martin_003.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/h10_Midland_FiveCounties_000.json",
+      "bytes": 722896,
+      "sha256": "5944203d011279fab28a49a05db799dca84aeefb042b8776187b8e4fdd2a923a",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/h10_Midland_FiveCounties_000.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/h10_Midland_FiveCounties_001.json",
+      "bytes": 631765,
+      "sha256": "ab8c74dad1e56a930cb4bd83a95803cde0bf670beb506ee283aaa2d423e13fae",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/h10_Midland_FiveCounties_001.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/h10_Midland_FiveCounties_002.json",
+      "bytes": 759110,
+      "sha256": "97ca823aca76d4b4506b6e20397689d004a113d802c5d8e2732685f026c10560",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/h10_Midland_FiveCounties_002.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/h10_Midland_FiveCounties_003.json",
+      "bytes": 865248,
+      "sha256": "246110a0b9ecd560f48119916119470d55076ec6b0201dbf8f244238a1b9f249",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/h10_Midland_FiveCounties_003.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/h10_Midland_FiveCounties_004.json",
+      "bytes": 751773,
+      "sha256": "c56f3269a757cbaea4e6aa4631125424f3411ee507b6168cf249de7114337d03",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/h10_Midland_FiveCounties_004.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/h10_Midland_FiveCounties_005.json",
+      "bytes": 457131,
+      "sha256": "e820bd0575c0f32b76dc0467d5e51e87f05baa8b2c6231627b41d75c48017061",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/h10_Midland_FiveCounties_005.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/h10_Midland_FiveCounties_006.json",
+      "bytes": 842245,
+      "sha256": "4434020137cf5a4964df5f950d1c99a71b49788169b9ead5111bb43f5b4450a8",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/h10_Midland_FiveCounties_006.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/h10_Midland_FiveCounties_007.json",
+      "bytes": 1218565,
+      "sha256": "c8327ab37d97b14238d4d7a6703377a9999b885dec2beaae21aee001fb5d3425",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/h10_Midland_FiveCounties_007.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/h10_Midland_FiveCounties_008.json",
+      "bytes": 937076,
+      "sha256": "f4bbb4cbab17d82db21f2e35322f8c075486706604b442d0b2d4eddcec0349c3",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/h10_Midland_FiveCounties_008.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/h10_Midland_FiveCounties_009.json",
+      "bytes": 1481969,
+      "sha256": "d8fcc8116e9dfd8a49ff9f0f436d1ed1d14ac209a139234497d880dd5d968d25",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/h10_Midland_FiveCounties_009.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/h10_Midland_FiveCounties_010.json",
+      "bytes": 2100353,
+      "sha256": "5e2912458465e0cf1bc3e520b573abf0c3fc430c255c6d240c37996b3e626479",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/h10_Midland_FiveCounties_010.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/h10_Midland_FiveCounties_011.json",
+      "bytes": 2318045,
+      "sha256": "9ac93a2d0d191e272ecc8a208aa674ebbd6cbdbe3b3db368934c72e5fc133db7",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/h10_Midland_FiveCounties_011.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/h10_Midland_FiveCounties_012.json",
+      "bytes": 2356937,
+      "sha256": "4d93b41f68a11ce4cccd1c963df110113748fc5ae995489aae646cf9989ac626",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/h10_Midland_FiveCounties_012.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/h10_Midland_FiveCounties_013.json",
+      "bytes": 2835947,
+      "sha256": "2dc5cb0901465e83cbcabf93a22d8ec7fc5538eb1c083f4766506f109b406ef6",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/h10_Midland_FiveCounties_013.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/h10_Midland_FiveCounties_014.json",
+      "bytes": 2706444,
+      "sha256": "f230d90b12acc5268fb8c3d94b461341b9463af314f008ae46510bf89fdd8b33",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/h10_Midland_FiveCounties_014.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/h10_Midland_FiveCounties_015.json",
+      "bytes": 2892878,
+      "sha256": "15a36d1f21216e2277812791b4b95a7afac06c0e47d8ddb5149dd1640ed21678",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/h10_Midland_FiveCounties_015.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/h10_Midland_FiveCounties_016.json",
+      "bytes": 1938432,
+      "sha256": "1044bcea5509e00ef96190e69108dc812a287b9b1aca94408ce4194a85fad0bb",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/h10_Midland_FiveCounties_016.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/h10_Midland_FiveCounties_017.json",
+      "bytes": 1547899,
+      "sha256": "0e8d4ba8df297ad496e9dd9c4e3f173b3b1093269af20d1bb45f3d7709c87915",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/h10_Midland_FiveCounties_017.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/h10_Midland_FiveCounties_018.json",
+      "bytes": 840261,
+      "sha256": "2242f73d4254456bc840a83e01ade9840767a61730089b06cded9febbb4f481e",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/h10_Midland_FiveCounties_018.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/h10_Midland_FiveCounties_019.json",
+      "bytes": 89972,
+      "sha256": "7503daf402f08541926315d2b59efc07e3aefd70dc145069b9d10652ba4cbcae",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/h10_Midland_FiveCounties_019.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/h10_Scurry_Fisher_Mitchell_000.json",
+      "bytes": 511481,
+      "sha256": "fb859be2b24e19edb9471ea2c24fea6d72ab7cfea5b44c6b9cdcb7c426ff7e36",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/h10_Scurry_Fisher_Mitchell_000.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/h10_Scurry_Fisher_Mitchell_001.json",
+      "bytes": 826325,
+      "sha256": "a2c46808cda747226ee4163c0ab839cb0cb935f6fdc7fceee1eb90121552cab5",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/h10_Scurry_Fisher_Mitchell_001.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/h10_Scurry_Fisher_Mitchell_002.json",
+      "bytes": 760410,
+      "sha256": "7913d836454b389c705810cb617dc2989d1327e8c0be4a455b0a6b288ebbe0dc",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/h10_Scurry_Fisher_Mitchell_002.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/h10_Scurry_Fisher_Mitchell_003.json",
+      "bytes": 1047689,
+      "sha256": "0109e8d4aa7377c95fb7f474e5274c76a32c524700e12f3a21012008fc802312",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/h10_Scurry_Fisher_Mitchell_003.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/h10_Scurry_Fisher_Mitchell_004.json",
+      "bytes": 1742380,
+      "sha256": "a361add2ca17fe337b32d89247bd2f090f1e831c0ea8c59187ef0fab332c4ace",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/h10_Scurry_Fisher_Mitchell_004.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/h10_Scurry_Fisher_Mitchell_005.json",
+      "bytes": 398017,
+      "sha256": "bb2c019d11c820ec0fa202412f52e1c32cdf188ebb9257546d166ab6de201859",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/h10_Scurry_Fisher_Mitchell_005.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/tx_counties.json",
+      "bytes": 12722715,
+      "sha256": "d1ca4d5be46313b87105c3c414b2d6c2f96b56ce73e568b1dbfdc6bb49f20645",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/tx_counties.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/uic_00000.json",
+      "bytes": 677751,
+      "sha256": "63a3ab92ea51c350ae6f043759b58f326e8297814b25ced62dc4e8901f4a3d21",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/uic_00000.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/uic_05000.json",
+      "bytes": 595863,
+      "sha256": "836e3db2e4aba0814f3b02f15dca3ff67150a370d34e14387751ba690574f6a5",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/uic_05000.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/uic_midland_00000.json",
+      "bytes": 687293,
+      "sha256": "52d6d1ed507a28967e66b4b2ac28b0b62ba41e7e370bdbfccef66fc0f2283ac0",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/uic_midland_00000.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/uic_midland_05000.json",
+      "bytes": 679494,
+      "sha256": "aa5ba51e2bca61ff6c9173e2a84b1c5fde21e20a7b8356ad8e1bdbb5903309f4",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/uic_midland_05000.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/uic_midland_10000.json",
+      "bytes": 677725,
+      "sha256": "3e97ef86e373ca5ce977ba980227e7cc0ece5f2a94c35c08f574e4226bea9385",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/uic_midland_10000.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/raw/uic_midland_15000.json",
+      "bytes": 265639,
+      "sha256": "e03495e4386960dff010d28806dc468dd9fd80c48f54f003a6ce8f6ac601faa3",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/raw/uic_midland_15000.json",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/TexNet_Disposal_Inputs/sources.json",
+      "bytes": 387440,
+      "sha256": "8d748c3aa18c280e76cea289668db454da77913108075b1a1a14a38070cee357",
+      "source_path": "/root/autodl-tmp/em_eqf/data/TexNet_Disposal_Inputs/sources.json",
+      "delivery": "git"
+    },
+    {
+      "path": "data/Texas_Culberson/processed/Texas_Culberson_eq_processed.csv",
+      "bytes": 5332542,
+      "sha256": "e40c36d95f6c02d58ffdd905be6f8133e6772313704f960c9bc4a751f3c15fc4",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Texas_Culberson/processed/Texas_Culberson_eq_processed.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Texas_Culberson/processed/Texas_Culberson_inj_by_well.csv",
+      "bytes": 279223,
+      "sha256": "53514b3568276dedf6ed9c8e7cdd94c24e1a5f0eebcc5e92863daec483f27fa0",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Texas_Culberson/processed/Texas_Culberson_inj_by_well.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Texas_Culberson/processed/Texas_Culberson_inj_processed.csv",
+      "bytes": 9159,
+      "sha256": "57a38f4c41d1bceba4458deb8afce5a288a1c4e941ad81fd291cab79a20b2897",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Texas_Culberson/processed/Texas_Culberson_inj_processed.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Texas_Culberson/processed/Texas_Culberson_summary.json",
+      "bytes": 722,
+      "sha256": "047869c948eba878daac42c282c93d5e3478d20f69288475b87742ada5649a9f",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Texas_Culberson/processed/Texas_Culberson_summary.json",
+      "delivery": "git"
+    },
+    {
+      "path": "data/Texas_Culberson/sources.json",
+      "bytes": 1588,
+      "sha256": "d5e9197ba659282f087c3d6848bdf91bf8df5500658cade0601f001c8c538b2b",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Texas_Culberson/sources.json",
+      "delivery": "git"
+    },
+    {
+      "path": "data/Texas_EagleFord/processed/Texas_EagleFord_eq_processed.csv",
+      "bytes": 1069685,
+      "sha256": "a2fa17f1dffe73e2169501e3db87babc52c9f8ea990cb38cce2a9d37318ae545",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Texas_EagleFord/processed/Texas_EagleFord_eq_processed.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Texas_EagleFord/processed/Texas_EagleFord_inj_by_well.csv",
+      "bytes": 938712,
+      "sha256": "e153a7637ed2317157651f8dc45d0b62fed5b09251b05dfc75b68981aa9a5540",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Texas_EagleFord/processed/Texas_EagleFord_inj_by_well.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Texas_EagleFord/processed/Texas_EagleFord_inj_processed.csv",
+      "bytes": 9278,
+      "sha256": "d36e4c4ed2b835b975f6fa29bdc9763baa5c5c2fb3f5ab5f140aa7b27bfe18d3",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Texas_EagleFord/processed/Texas_EagleFord_inj_processed.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Texas_EagleFord/processed/Texas_EagleFord_summary.json",
+      "bytes": 717,
+      "sha256": "7b450505722c7eff0c879327f103ee306224b37bf8d0a7df2f75d054bfcddede",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Texas_EagleFord/processed/Texas_EagleFord_summary.json",
+      "delivery": "git"
+    },
+    {
+      "path": "data/Texas_EagleFord/sources.json",
+      "bytes": 1848,
+      "sha256": "23f3867632d063f44d6ac74bc25d210fde224dd8799167702d7e9680b2b694ac",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Texas_EagleFord/sources.json",
+      "delivery": "git"
+    },
+    {
+      "path": "data/Texas_Martin/processed/Texas_Martin_eq_processed.csv",
+      "bytes": 1112368,
+      "sha256": "16533ff8bfa8689e0e5beeaac085691f619eba15bd64aba62c273e15c69c6ddc",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Texas_Martin/processed/Texas_Martin_eq_processed.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Texas_Martin/processed/Texas_Martin_inj_by_well.csv",
+      "bytes": 851098,
+      "sha256": "3b83064ee0b9acad6ce0d4b9e136c771eecc58349ae64eb9bc965e89407cc2af",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Texas_Martin/processed/Texas_Martin_inj_by_well.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Texas_Martin/processed/Texas_Martin_inj_processed.csv",
+      "bytes": 9310,
+      "sha256": "31c3e223b2719025b2ceec71fa3e385b8bd9739fd96dd3c98dae1c1818acd7f8",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Texas_Martin/processed/Texas_Martin_inj_processed.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Texas_Martin/processed/Texas_Martin_summary.json",
+      "bytes": 714,
+      "sha256": "54ea9424d7e21765711e26f3451697543ecfa16b36740d18328ea0da07ebfdd3",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Texas_Martin/processed/Texas_Martin_summary.json",
+      "delivery": "git"
+    },
+    {
+      "path": "data/Texas_Martin/sources.json",
+      "bytes": 1633,
+      "sha256": "ae1c6afe27c75e9bb40080206f3a49b9ee0aacbf743728b0196629c75f136b6f",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Texas_Martin/sources.json",
+      "delivery": "git"
+    },
+    {
+      "path": "data/Texas_Midland_FiveCounties/processed/Texas_Midland_FiveCounties_eq_processed.csv",
+      "bytes": 919598,
+      "sha256": "f304d8d864a96bc0e16378390c728cd2b75c829388ad493570294f49803d9a70",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Texas_Midland_FiveCounties/processed/Texas_Midland_FiveCounties_eq_processed.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Texas_Midland_FiveCounties/processed/Texas_Midland_FiveCounties_inj_by_well.csv",
+      "bytes": 3232974,
+      "sha256": "f3f8db4207dc97871a70321028c13e6a161612df95f5e01eba9e1dd3e2ba3db2",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Texas_Midland_FiveCounties/processed/Texas_Midland_FiveCounties_inj_by_well.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Texas_Midland_FiveCounties/processed/Texas_Midland_FiveCounties_inj_processed.csv",
+      "bytes": 9540,
+      "sha256": "5dd3e810bf6acce5d987eaf5e05522b64ef8c886573c8e4ee55c932cd25dfbdd",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Texas_Midland_FiveCounties/processed/Texas_Midland_FiveCounties_inj_processed.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Texas_Midland_FiveCounties/processed/Texas_Midland_FiveCounties_summary.json",
+      "bytes": 729,
+      "sha256": "4115c65caecf8b76dd9219a185c85d39a6a8e1244c95ab987d38409958a2b242",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Texas_Midland_FiveCounties/processed/Texas_Midland_FiveCounties_summary.json",
+      "delivery": "git"
+    },
+    {
+      "path": "data/Texas_Midland_FiveCounties/sources.json",
+      "bytes": 2359,
+      "sha256": "9418fecdedcbf7946d4d7ff4dd04f147655b5df101c8a57b7466dc95422cc7bb",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Texas_Midland_FiveCounties/sources.json",
+      "delivery": "git"
+    },
+    {
+      "path": "data/Texas_Scurry_Fisher_Mitchell/processed/Texas_Scurry_Fisher_Mitchell_eq_processed.csv",
+      "bytes": 779958,
+      "sha256": "90dc59597ed13df179f9c23cfd1e093728179c6a3151e885190fafc85051ed1f",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Texas_Scurry_Fisher_Mitchell/processed/Texas_Scurry_Fisher_Mitchell_eq_processed.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Texas_Scurry_Fisher_Mitchell/processed/Texas_Scurry_Fisher_Mitchell_inj_by_well.csv",
+      "bytes": 597919,
+      "sha256": "85eee50a28806ca760a19bceef58f332e79a9be3f5b291275efdd63e2507bf46",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Texas_Scurry_Fisher_Mitchell/processed/Texas_Scurry_Fisher_Mitchell_inj_by_well.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Texas_Scurry_Fisher_Mitchell/processed/Texas_Scurry_Fisher_Mitchell_inj_processed.csv",
+      "bytes": 9210,
+      "sha256": "466811bbe39a1eb386859aa6ae10d6fe60e04902030878e2686c297d3fc2e4be",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Texas_Scurry_Fisher_Mitchell/processed/Texas_Scurry_Fisher_Mitchell_inj_processed.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Texas_Scurry_Fisher_Mitchell/processed/Texas_Scurry_Fisher_Mitchell_summary.json",
+      "bytes": 730,
+      "sha256": "703f91f67624d2d0064dc9e9a498272fc3c1aff0aaa48bbd8e1fe8b81779341e",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Texas_Scurry_Fisher_Mitchell/processed/Texas_Scurry_Fisher_Mitchell_summary.json",
+      "delivery": "git"
+    },
+    {
+      "path": "data/Texas_Scurry_Fisher_Mitchell/sources.json",
+      "bytes": 1799,
+      "sha256": "d9c17486dc8dcda7ab38baf89dae8debee06dabe90094e60bccc35bb2039aca7",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Texas_Scurry_Fisher_Mitchell/sources.json",
+      "delivery": "git"
     },
     {
       "path": "data/Texas_Southern_Delaware/processed/Texas_Southern_Delaware_eq_processed.csv",

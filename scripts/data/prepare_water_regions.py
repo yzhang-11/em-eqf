@@ -138,7 +138,7 @@ def delaware():
     return "Texas_Southern_Delaware", eq, x, "M"
 
 
-def save_region(name, eq, reports, frequency):
+def save_region(name, eq, reports, frequency, min_training_events=0):
     report = reports[["well_id", "source_date", "volume_bbl"]].copy()
     report.source_date = pd.to_datetime(report.source_date).dt.normalize()
     if report.well_id.isna().any() or report.source_date.isna().any():
@@ -178,6 +178,9 @@ def save_region(name, eq, reports, frequency):
     val, test = boundary(.70), boundary(.85)
     mc = round(float(estimate_mc_max_curvature(paired.loc[paired.time_iso < val, "magnitude"], bin_width=.1, plot=False)[0]), 2)
     scored = paired.loc[paired.magnitude > mc, "time_iso"]
+    training_events = int((scored < val).sum())
+    if training_events < min_training_events:
+        raise ValueError(f"{name} has {training_events} training events above Mc, requires {min_training_events}")
     summary = dict(dataset=name, events=len(paired), with_magnitude=len(paired),
                    spatial_events_before_pairing=len(eq), tied_time_rows_excluded=int(tied.sum()),
                    invalid_volume_rows=int(invalid.sum()), conflicting_well_periods=int(conflicts.sum()),

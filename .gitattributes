@@ -30,3 +30,4 @@ data/EGSCollab_E1/raw/waveform_inventory.json text eol=lf
 /data/US_Disposal_Inputs/raw/*.xls filter=lfs diff=lfs merge=lfs -text
 /data/US_Disposal_Inputs/raw/*.xlsx filter=lfs diff=lfs merge=lfs -text
 /data/US_Disposal_Inputs/raw/*.json filter=lfs diff=lfs merge=lfs -text
+/data/TexNet_Disposal_Inputs/raw/*.json filter=lfs diff=lfs merge=lfs -text
