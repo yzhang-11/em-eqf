@@ -1,0 +1,25 @@
+{
+  "dataset": "Oklahoma_Woods",
+  "events": 3066,
+  "with_magnitude": 3066,
+  "spatial_events_before_pairing": 3070,
+  "tied_time_rows_excluded": 4,
+  "invalid_volume_rows": 0,
+  "conflicting_well_periods": 0,
+  "repeat_well_period_rows": 0,
+  "injection_rows": 3287,
+  "periods_with_flow": 3287,
+  "wells_with_valid_reports": 58,
+  "pump_resolution": "calendar day",
+  "first_event": "2015-01-08T04:59:17.076000+00:00",
+  "last_event": "2023-12-20T16:48:14+00:00",
+  "val_start_ts": "2019-02-21T09:29:36.500000+00:00",
+  "test_start_ts": "2020-10-29T12:37:37+00:00",
+  "mc": 2.25,
+  "mc_method": "training-prefix MAXC, bin width 0.1, retain M > Mc",
+  "n_scored": [
+    1109,
+    21,
+    15
+  ]
+}

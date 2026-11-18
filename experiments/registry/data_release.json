@@ -6,15 +6,15 @@
     "index": "experiments/registry/external_sources.json"
   },
   "storage_root": "/autodl-fs/data/em_eqf_catalogs",
-  "source_commit": "b76f17fe90456e8d14cb90913393933ff3835d5a",
+  "source_commit": "9aa5fde7585176cb58011ed309befa72aced863c",
   "dataset_index": "experiments/registry/datasets.json",
   "scope": "Tracked data, indexed raw/processed inputs, and source files in local root aliases; excludes generated caches and weights in root aliases.",
   "counts": {
-    "tracked_data_files": 549,
-    "data_lfs_files": 332,
+    "tracked_data_files": 554,
+    "data_lfs_files": 335,
     "files_by_delivery": {
-      "git_lfs": 440,
-      "git": 217,
+      "git_lfs": 443,
+      "git": 219,
       "external_bundle": 2617
     },
     "private_excluded": 3,
@@ -18175,6 +18175,41 @@
       "bytes": 1043,
       "sha256": "8087f3a68b24c5cc3a032eae79d154d8b4bd62178dbadf3861196b2b02ded472",
       "source_path": "/root/autodl-tmp/em_eqf/data/Oklahoma_Payne/sources.json",
+      "delivery": "git"
+    },
+    {
+      "path": "data/Oklahoma_Woods/processed/Oklahoma_Woods_eq_processed.csv",
+      "bytes": 395205,
+      "sha256": "ac2d1ab17c242f2418498a834850b2aa5d8fa0763d0db5fd7dec1072e530b8ea",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Oklahoma_Woods/processed/Oklahoma_Woods_eq_processed.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Oklahoma_Woods/processed/Oklahoma_Woods_inj_by_well.csv",
+      "bytes": 4445571,
+      "sha256": "dde7b44e25d4a8c925cbfaf158e48bc5db363db6143182b6508f2788f52105a6",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Oklahoma_Woods/processed/Oklahoma_Woods_inj_by_well.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Oklahoma_Woods/processed/Oklahoma_Woods_inj_processed.csv",
+      "bytes": 263815,
+      "sha256": "8f7a373f9a7fc51aacb107cc58d825ab1cfe39d72f15237c5998586efd72df5b",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Oklahoma_Woods/processed/Oklahoma_Woods_inj_processed.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Oklahoma_Woods/processed/Oklahoma_Woods_summary.json",
+      "bytes": 699,
+      "sha256": "ec00774e02600087b4d587c6690e0a0d2d3602027c0b1d6c2a6f30078fa8cc12",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Oklahoma_Woods/processed/Oklahoma_Woods_summary.json",
+      "delivery": "git"
+    },
+    {
+      "path": "data/Oklahoma_Woods/sources.json",
+      "bytes": 1043,
+      "sha256": "52e7eef876c873f4335678bb714af38c50d7bf462e1f18d488a597a4f6e0a1b9",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Oklahoma_Woods/sources.json",
       "delivery": "git"
     },
     {

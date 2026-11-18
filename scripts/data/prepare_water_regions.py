@@ -10,6 +10,7 @@ import numpy as np
 import pandas as pd
 from shapely import intersects_xy
 from shapely.geometry import shape
+from openpyxl import load_workbook
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT))
@@ -18,7 +19,7 @@ from src.data.preprocessing import estimate_mc_max_curvature
 DATA = ROOT / "data"
 RAW = DATA / "US_Disposal_Inputs" / "raw"
 BARREL_M3 = 0.158987294928
-OK_COUNTIES = ("Alfalfa", "Garfield", "Grant", "Logan", "Major", "Noble", "Pawnee", "Payne")
+OK_COUNTIES = ("Alfalfa", "Garfield", "Grant", "Logan", "Major", "Noble", "Pawnee", "Payne", "Woods")
 
 
 def write_json(path, data):
@@ -58,7 +59,17 @@ def oklahoma():
         events.append(frame.loc[frame.area.notna() & frame.source_status.isin(["Reviewed", "archived, status unspecified"])])
     cols = ["API", "Report_Date", "Volume_BPD", "Latitude", "Longitude"]
     for path in sorted(RAW.glob("occ*.xlsx")):
-        x = pd.read_excel(path, engine="calamine", usecols=cols, dtype={"API": str})
+        # Stream wide annual workbooks to keep raw-data preparation within 2 GB.
+        workbook = load_workbook(path, read_only=True, data_only=True)
+        try:
+            rows = workbook.active.iter_rows(values_only=True)
+            header = next(rows)
+            indices = [header.index(column) for column in cols]
+            x = pd.DataFrame.from_records(
+                (tuple(row[index] for index in indices) for row in rows), columns=cols)
+        finally:
+            workbook.close()
+        x["API"] = x.API.astype("string").str.replace(r"\.0$", "", regex=True)
         x = x.rename(columns=dict(API="well_id", Report_Date="source_date", Volume_BPD="volume_bbl",
                                   Latitude="latitude", Longitude="longitude"))
         locations = x[["latitude", "longitude"]].apply(pd.to_numeric, errors="coerce").drop_duplicates()

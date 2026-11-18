@@ -1,5 +1,25 @@
 # em_eqf 地震目录来源与处理
 
+## 按训练事件数大于 1,000 扩充
+
+2026-11-18 更新。继续采用原先的 70% / 15% / 15% 时间顺序切分和训练侧 MAXC，入选门槛改为严格高于 Mc 的训练事件数大于 1,000。下面 7 区符合这一口径。其余已有目录继续保存。
+
+| 数据集 | 训练 | 验证 | 测试 | Mc |
+|---|---:|---:|---:|---:|
+| Kansas_Harper_Sumner | 1975 | 428 | 440 | 1.55 |
+| Oklahoma_Garfield | 1037 | 41 | 19 | 2.25 |
+| Oklahoma_Grant | 1938 | 223 | 59 | 2.25 |
+| Oklahoma_Logan | 1203 | 201 | 34 | 2.15 |
+| Oklahoma_Major | 1023 | 58 | 43 | 1.85 |
+| Oklahoma_Woods | 1109 | 21 | 15 | 2.25 |
+| Texas_Southern_Delaware | 2549 | 769 | 691 | 1.35 |
+
+本轮新增 Woods 县，共 3,066 个配对事件、58 口有有效报量的井，3,287 个日记录。与其他俄克拉何马县共享 OGS/OCC 来源，新增事件标识和井标识跨区无重复。固定训练阈值后的验证、测试事件数量见上表。[原件与出处](data/US_Disposal_Inputs/sources.json)
+
+另检索到 Bedretto Mzero/GTB.2024 地震与水力数据。ETH 数据接口本轮多次返回 HTTP 429，文件与训练样本数待验证。[水力数据](https://doi.org/10.3929/ETHZ-C-000793994) · [地震目录](https://doi.org/10.3929/ETHZ-C-000789401)
+
+Rittershoffen 新的高分辨率目录也已检索到，但 CDGP 下载接口本轮连接超时，注水配对与训练计数待验证。[数据发布说明](https://www.frontiersin.org/journals/earth-science/articles/10.3389/feart.2026.1738377/full)
+
 ## 有实测注水序列的新增区域目录
 
 本批包括 10 个空间上分开的区域，来自三套地震与处置井数据来源。其中 8 个是俄克拉何马州的县，共享 OGS 台网与 OCC 报量制度。其余两个是堪萨斯 Harper–Sumner 和得克萨斯 Southern Delaware Basin。筛选门槛为注水有实测报告的日期或月份内，去除同刻歧义后，带震级事件数严格大于 1,500。该数在震级完备性筛选前统计。县域内地震和井按空间与时间配对，单个事件的致震井未经认定。
@@ -26,7 +46,7 @@
 - 俄克拉何马用同一套县界分别定位震中和井。OGS 的早期归档缺少逐条审核标志，明确标为 Preliminary 的记录已排除。后期小震的震级分布与早期不同。固定训练侧 Mc 后，Pawnee、Noble、Payne 的测试事件分别仅 6、9、11 个；单独报告其排名不稳健。评估跨场地泛化时，8 县宜按共同台网与区域分组留出，并留意毗邻的堪萨斯南部。[OGS 地震目录](https://www.ou.edu/ogs/research/earthquakes/catalogs) · [OCC 处置井报量](https://oklahoma.gov/occ/divisions/oil-gas/oil-gas-data.html)
 - 堪萨斯只保留两县内经 ANSS 审核的地震。2015 井表缺少储层字段，限定井名明确标示处置、零气体注入，按完整 API 与坐标匹配 2016 年 Arbuckle 盐水处置许可，由此确定固定的 55 口井。该序列反映这批井的实际月报量。[USGS 区域研究](https://pubs.usgs.gov/publication/70195671) · [KGS 原始报量与字段](https://www.kgs.ku.edu/Magellan/Qualified/class2_db.html)
 - 得克萨斯使用作者重定位目录及井清单，以 API 对照 RRC 许可，再取 H-10 月报。筛选处置类型 1/2 且无气体注入的许可月记录。作者表中的年度量未拆成月度；409 指有合格月报的许可数。[作者目录与井表](https://doi.org/10.5281/zenodo.13993061) · [H-10 月报](https://data.texas.gov/d/qq2j-f2zm) · [许可类型定义](https://rrc.texas.gov/media/qqbk0zhf/h-10_edi_filing_specs.pdf)
-- 在完整项目环境执行 `python scripts/data/prepare_water_regions.py` 可校验 48 份原件并重建 10 个区域的处理表与切分摘要。使用 pandas、Shapely 2 和 python-calamine，另复用项目的 MAXC 实现。
+- 在完整项目环境执行 `python scripts/data/prepare_water_regions.py` 可校验 48 份原件并重建 11 个区域的处理表与切分摘要。使用 pandas、Shapely 2、openpyxl 和 python-calamine，另复用项目的 MAXC 实现。
 
 ### 已有 FORGE 2024 的秒级配对
 

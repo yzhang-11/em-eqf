@@ -1341,5 +1341,20 @@
     "cache": "/root/autodl-tmp/em_eqf/data/Texas_Southern_Delaware/cache/windows",
     "catalogs": "/root/autodl-tmp/em_eqf/data/Texas_Southern_Delaware/catalogs",
     "raw_manifest": "data/US_Disposal_Inputs/sources.json"
+  },
+  {
+    "dataset": "Oklahoma_Woods",
+    "path": "data/Oklahoma_Woods",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/Oklahoma_Woods",
+    "raw": [],
+    "processed": [
+      "data/Oklahoma_Woods/processed/Oklahoma_Woods_eq_processed.csv",
+      "data/Oklahoma_Woods/processed/Oklahoma_Woods_inj_by_well.csv",
+      "data/Oklahoma_Woods/processed/Oklahoma_Woods_inj_processed.csv",
+      "data/Oklahoma_Woods/processed/Oklahoma_Woods_summary.json"
+    ],
+    "cache": "/root/autodl-tmp/em_eqf/data/Oklahoma_Woods/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/Oklahoma_Woods/catalogs",
+    "raw_manifest": "data/US_Disposal_Inputs/sources.json"
   }
 ]
