@@ -1,0 +1,16 @@
+{
+  "dataset": "Bedretto_VALTER",
+  "doi": "10.5281/zenodo.15670705",
+  "original_data_doi": "10.3929/ethz-b-000658218",
+  "common_source": "Rosskopf et al. Bedretto VALTER; author archived redistribution in Yu Bedretto-MEQ v1.0.0",
+  "license": "Original dataset: In Copyright - Non-Commercial Use Permitted; retain original rights, code license does not replace data license",
+  "selection": "5400 m/s high-quality HypoDD catalog only; all 14 experiments counted as ONE site because borehole ST1 is shared",
+  "units": "Hydraulic README UTC; author Phase1_int8s.ipynb multiplies topflow by 60 for m3/min and divides pressure by 1e6 for MPa. Native sampling intervals retained, mostly 60 seconds, with shorter samples present.",
+  "files": [
+    {
+      "file": "Bedretto-MEQ-v1.0.0.zip",
+      "url": "https://zenodo.org/api/records/15670705/files/Pengliang-Yu/Bedretto-MEQ-v1.0.0.zip/content",
+      "sha256": "0834aae89423bb4c847cf41509759d716f5ed6238f3f235132c81390b5a62abe"
+    }
+  ]
+}

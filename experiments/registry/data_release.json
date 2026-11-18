@@ -6,15 +6,15 @@
     "index": "experiments/registry/external_sources.json"
   },
   "storage_root": "/autodl-fs/data/em_eqf_catalogs",
-  "source_commit": "33e9bb727a7fd51f1e9f410f1f96ba8fd6cef942",
+  "source_commit": "0f6ab5bda70839c4ab710b6fc738f5ad8d947a44",
   "dataset_index": "experiments/registry/datasets.json",
   "scope": "Tracked data, indexed raw/processed inputs, and source files in local root aliases; excludes generated caches and weights in root aliases.",
   "counts": {
-    "tracked_data_files": 658,
-    "data_lfs_files": 427,
+    "tracked_data_files": 665,
+    "data_lfs_files": 431,
     "files_by_delivery": {
-      "git_lfs": 535,
-      "git": 231,
+      "git_lfs": 539,
+      "git": 234,
       "external_bundle": 2617
     },
     "private_excluded": 3,
@@ -490,6 +490,55 @@
       "bytes": 104682,
       "sha256": "de98cfb61b97011cdcb85f55ee6bc5d777e041a03b89e4afd27788735a12ef23",
       "source_path": "/root/autodl-tmp/em_eqf/data/Basel/raw/analysis_plots/Basel_peak_rank0_offset60.png",
+      "delivery": "git"
+    },
+    {
+      "path": "data/Bedretto_VALTER/pairing_audit.json",
+      "bytes": 2394,
+      "sha256": "39a2ee30f4175a4ced15cbace5c5cdb2544567ca9f53b5a991c831878ad52d16",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Bedretto_VALTER/pairing_audit.json",
+      "delivery": "git"
+    },
+    {
+      "path": "data/Bedretto_VALTER/processed/Bedretto_VALTER_eq_processed.csv",
+      "bytes": 3359827,
+      "sha256": "e9850edc5bf7ec4366f1c4b04ea6848dd4a2e68b3bfb3f8f436ceca6a0fecace",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Bedretto_VALTER/processed/Bedretto_VALTER_eq_processed.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Bedretto_VALTER/processed/Bedretto_VALTER_inj_processed.csv",
+      "bytes": 2693007,
+      "sha256": "e290180b89311f85d5ec7f86ac0a4151864cf0ba760659d9c460afa1d0b12095",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Bedretto_VALTER/processed/Bedretto_VALTER_inj_processed.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Bedretto_VALTER/processed/Bedretto_VALTER_observation_windows.csv",
+      "bytes": 16904,
+      "sha256": "44d9859bad71ee9cabaa6ccfb8abb258f66ee985e5cf916e7ef68bc525dbc04c",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Bedretto_VALTER/processed/Bedretto_VALTER_observation_windows.csv",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Bedretto_VALTER/processed/Bedretto_VALTER_summary.json",
+      "bytes": 4442,
+      "sha256": "377a81e682ba9b42c9ccd7ee16c898f6333e48c617783c4aa87e5c8529b4c57f",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Bedretto_VALTER/processed/Bedretto_VALTER_summary.json",
+      "delivery": "git"
+    },
+    {
+      "path": "data/Bedretto_VALTER/raw/Bedretto-MEQ-v1.0.0.zip",
+      "bytes": 8388557,
+      "sha256": "0834aae89423bb4c847cf41509759d716f5ed6238f3f235132c81390b5a62abe",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Bedretto_VALTER/raw/Bedretto-MEQ-v1.0.0.zip",
+      "delivery": "git_lfs"
+    },
+    {
+      "path": "data/Bedretto_VALTER/sources.json",
+      "bytes": 992,
+      "sha256": "ce909e1b6f9050dabbf711514a69041bd111b00064a8f3cb7bd99956dad5cca6",
+      "source_path": "/root/autodl-tmp/em_eqf/data/Bedretto_VALTER/sources.json",
       "delivery": "git"
     },
     {

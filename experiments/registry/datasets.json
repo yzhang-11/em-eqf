@@ -1513,5 +1513,21 @@
     ],
     "cache": "/root/autodl-tmp/em_eqf/data/Texas_Midland_FiveCounties/cache/windows",
     "catalogs": "/root/autodl-tmp/em_eqf/data/Texas_Midland_FiveCounties/catalogs"
+  },
+  {
+    "dataset": "Bedretto_VALTER",
+    "path": "data/Bedretto_VALTER",
+    "storage_target": "/root/autodl-tmp/em_eqf/data/Bedretto_VALTER",
+    "raw": [
+      "data/Bedretto_VALTER/raw/Bedretto-MEQ-v1.0.0.zip"
+    ],
+    "processed": [
+      "data/Bedretto_VALTER/processed/Bedretto_VALTER_eq_processed.csv",
+      "data/Bedretto_VALTER/processed/Bedretto_VALTER_inj_processed.csv",
+      "data/Bedretto_VALTER/processed/Bedretto_VALTER_observation_windows.csv",
+      "data/Bedretto_VALTER/processed/Bedretto_VALTER_summary.json"
+    ],
+    "cache": "/root/autodl-tmp/em_eqf/data/Bedretto_VALTER/cache/windows",
+    "catalogs": "/root/autodl-tmp/em_eqf/data/Bedretto_VALTER/catalogs"
   }
 ]

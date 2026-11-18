@@ -261,3 +261,21 @@ OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 python scripts/data/prepare_source_expa
 ```
 
 本地工作区 `D:/Doc/ntpp_transfer` 中按批次保存报告。此前的便携包分别位于 `catalog_benchmarks_20261106/earthquakenpp_benchmarks_supplement_20261106.tar.gz` 和 `catalog_research_20261106/research_catalogs_supplement_20261106.tar.gz`。每个包附原始来源、缓存、配置和 SHA-256 清单。
+
+## 2026-11-18：训练事件数大于 1500 的扩充进度
+
+本批要求新增 5 个**不同地区、井不重叠**且有实测注水时间序列的目录。当前完成 **1/5**，尚缺 4 个；未把候选或同井不同实验计入完成数量。已有数据保留。
+
+| 新增目录 | 配对事件 | 训练 / 验证 / 测试（M > Mc） | 训练 Mc | 注水观测 |
+| --- | ---: | --- | ---: | ---: |
+| Bedretto_VALTER | 29004 | 10950 / 1546 / 2632 | -4.15 | 25198 |
+
+来源：[Rosskopf 等原始数据](https://doi.org/10.3929/ethz-b-000658218)、[Yu 作者公开归档 v1.0.0](https://doi.org/10.5281/zenodo.15670705)。使用 5400 m/s 速度模型的高质量 HypoDD 目录，震级保持 MwA；不混用其他定位版本。14 个实验共用 ST1 井，整体只计一个场地。原始数据许可为非商业使用，代码许可不能替代数据许可。
+
+沿用 70%/15%/15% 事件顺序切分，边界取相邻事件时间中点，仅用训练前缀 MAXC（0.1 震级间距）估计 Mc，并保留 M > Mc。标准化流量为 m³/min，压力为 Pa。保留原始采样间隔、UTC 时钟及缺测；HDF 数值行号不当作时间，后期文件从实际 epoch-ns 时间列读取。重复注水时刻整组排除，缺压力字段保持缺失。
+
+**观测不连续：** `Bedretto_VALTER_observation_windows.csv` 给出连续有效观测窗。训练或计算似然必须按这些窗设置观测边界，不得把跨实验及采样缺口视作“期间没有地震”，也不得在缺口补零。事件仅保留在相邻有效流量观测（间隔不超过 60 秒）之间的记录。因此这是配对观测目录，不是整个 2021–2023 年的连续监测目录。新数据尚未接入训练任务或启动实验。
+
+重建：`python scripts/data/prepare_bedretto.py`（pandas、numpy、h5py）。项目环境复跑、来源 SHA-256、训练 Mc 与项目实现、切分计数、流量换算和观测窗覆盖均已核验。[配对与空间审计](data/Bedretto_VALTER/pairing_audit.json) 列明检查范围，未获地理字段的目录不声称已认证。
+
+继续检索的候选不计数：Grimsel 已取得作者地震及注水 MAT，原文件时区未注明、坐标为局部坐标，待核验；Raton 已取得作者地震目录，但尚未取得可配对的注水原件；Oklahoma/Kansas 高分辨率目录的期刊附件暂无法下载。候选不能替代 4 个尚缺的合格目录。

@@ -1,0 +1,136 @@
+{
+  "dataset": "Bedretto_VALTER",
+  "events": 29004,
+  "with_magnitude": 29004,
+  "injection_rows": 25198,
+  "mc": -4.15,
+  "n_scored": [
+    10950,
+    1546,
+    2632
+  ],
+  "val_start_ts": "2023-03-15T03:06:55.564114+00:00",
+  "test_start_ts": "2023-07-12T12:17:59.862619+00:00",
+  "first_event": "2021-11-17T11:04:57.260494+00:00",
+  "last_event": "2023-07-12T14:41:35.647921+00:00",
+  "mc_method": "training-prefix MAXC, bin width 0.1, retain M > Mc",
+  "tied_time_rows_excluded": 0,
+  "hydraulic_windows": [
+    {
+      "hydraulic_record": "Int10_Ph1",
+      "source_events": 610,
+      "paired_events": 610,
+      "duplicate_observation_rows_excluded": 0,
+      "first_observation": "2022-03-02T10:00:59+00:00",
+      "last_observation": "2022-03-02T22:59:59+00:00"
+    },
+    {
+      "hydraulic_record": "Int11_Ph1",
+      "source_events": 98,
+      "paired_events": 98,
+      "duplicate_observation_rows_excluded": 0,
+      "first_observation": "2022-03-09T08:50:59+00:00",
+      "last_observation": "2022-03-09T22:59:59+00:00"
+    },
+    {
+      "hydraulic_record": "Int12_Ph1",
+      "source_events": 233,
+      "paired_events": 233,
+      "duplicate_observation_rows_excluded": 0,
+      "first_observation": "2022-03-16T09:00:18+00:00",
+      "last_observation": "2022-03-16T22:59:27+00:00"
+    },
+    {
+      "hydraulic_record": "Int13_Ph1",
+      "source_events": 2420,
+      "paired_events": 2418,
+      "duplicate_observation_rows_excluded": 0,
+      "first_observation": "2022-03-23T10:40:59+00:00",
+      "last_observation": "2022-03-23T22:59:59+00:00"
+    },
+    {
+      "hydraulic_record": "Int14_Ph1",
+      "source_events": 202,
+      "paired_events": 202,
+      "duplicate_observation_rows_excluded": 0,
+      "first_observation": "2022-03-30T07:50:48+00:00",
+      "last_observation": "2022-03-30T22:59:47+00:00"
+    },
+    {
+      "hydraulic_record": "Int7_Ph1",
+      "source_events": 253,
+      "paired_events": 253,
+      "duplicate_observation_rows_excluded": 0,
+      "first_observation": "2021-11-17T10:10:59+00:00",
+      "last_observation": "2021-11-17T21:59:59+00:00"
+    },
+    {
+      "hydraulic_record": "Int8_Ph1",
+      "source_events": 1280,
+      "paired_events": 1280,
+      "duplicate_observation_rows_excluded": 0,
+      "first_observation": "2022-02-09T13:40:59+00:00",
+      "last_observation": "2022-02-09T22:59:59+00:00"
+    },
+    {
+      "hydraulic_record": "Int9_Ph1",
+      "source_events": 565,
+      "paired_events": 565,
+      "duplicate_observation_rows_excluded": 0,
+      "first_observation": "2022-02-16T09:10:59+00:00",
+      "last_observation": "2022-02-16T22:59:59+00:00"
+    },
+    {
+      "hydraulic_record": "Int11_Ph2",
+      "source_events": 3852,
+      "paired_events": 3852,
+      "duplicate_observation_rows_excluded": 9,
+      "first_observation": "2023-04-18T10:00:36+00:00",
+      "last_observation": "2023-04-19T23:58:58+00:00"
+    },
+    {
+      "hydraulic_record": "Int12_Ph2",
+      "source_events": 419,
+      "paired_events": 419,
+      "duplicate_observation_rows_excluded": 0,
+      "first_observation": "2022-07-06T08:36:41+00:00",
+      "last_observation": "2022-07-07T17:45:57+00:00"
+    },
+    {
+      "hydraulic_record": "Int8_Ph2",
+      "source_events": 9373,
+      "paired_events": 9348,
+      "duplicate_observation_rows_excluded": 403,
+      "first_observation": "2022-06-22T04:00:59+00:00",
+      "last_observation": "2022-06-27T23:59:59+00:00"
+    },
+    {
+      "hydraulic_record": "Int9_10_Ph2",
+      "source_events": 5992,
+      "paired_events": 5144,
+      "duplicate_observation_rows_excluded": 0,
+      "first_observation": "2023-03-14T11:00:46+00:00",
+      "last_observation": "2023-03-15T10:19:52+00:00"
+    },
+    {
+      "hydraulic_record": "Int11_Ph3",
+      "source_events": 4622,
+      "paired_events": 4582,
+      "duplicate_observation_rows_excluded": 0,
+      "first_observation": "2023-07-12T06:00:15+00:00",
+      "last_observation": "2023-07-12T21:59:15+00:00"
+    },
+    {
+      "hydraulic_record": "Int12_Ph3",
+      "source_events": 602,
+      "paired_events": 0,
+      "duplicate_observation_rows_excluded": 9,
+      "first_observation": "2023-02-28T08:00:59+00:00",
+      "last_observation": "2023-03-02T23:58:59+00:00"
+    }
+  ],
+  "negative_flow_rows": 0,
+  "observation_rule": "Native UTC minute samples; no interpolation across gaps; see hydraulic_windows",
+  "independent_regions": 1,
+  "wells_with_valid_reports": 1
+}
